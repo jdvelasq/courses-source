@@ -1,0 +1,18 @@
+@relation df
+@attribute row_names string
+@attribute mpg numeric
+@attribute cyl numeric
+@attribute disp numeric
+@attribute hp numeric
+@attribute drat numeric
+@attribute wt numeric
+@attribute qsec numeric
+@attribute vs numeric
+@attribute am numeric
+@attribute gear numeric
+@attribute carb numeric
+@data
+'Fiat 128',32.4,4,78.7,66,4.08,2.2,19.47,1,1,4,1
+'Honda Civic',30.4,4,75.7,52,4.93,1.615,18.52,1,1,4,2
+'Toyota Corolla',33.9,4,71.1,65,4.22,1.835,19.9,1,1,4,1
+'Lotus Europa',30.4,4,95.1,113,3.77,1.513,16.9,1,1,5,2

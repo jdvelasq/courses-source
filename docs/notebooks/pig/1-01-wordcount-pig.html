@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WordCount en Apache Pig &mdash; documentación de --- Cursos --- - </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> --- Cursos ---
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Cursos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentos-de-analitica/index.html">Fundamentos de Analítica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../productos-de-datos/index.html">Productos de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../redes-neuronales-con-tensorflow/index.html">Redes Neuronales Artificiales</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">--- Cursos ---</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>WordCount en Apache Pig</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/pig/1-01-wordcount-pig.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="WordCount-en-Apache-Pig">
+<h1>WordCount en Apache Pig<a class="headerlink" href="#WordCount-en-Apache-Pig" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Ejecución-de-Pig-en-la-consola-de-comands">
+<h2>Ejecución de Pig en la consola de comands<a class="headerlink" href="#Ejecución-de-Pig-en-la-consola-de-comands" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>#### Ejecución de Pig en la consola de comandos</p>
+<p>Pig es comúnmente usado en la línea de comandos para ejecutar tareas de ETL, análisis de datos y procesamiento interactivo. Para ejecutar Pig en la línea de comandos digite:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pig</span> <span class="o">-</span><span class="n">x</span> <span class="n">local</span>
+</pre></div>
+</div>
+<p>Si no usa la opción <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-local</span></code>, Pig usará el sistema de archivos HDFS.</p>
+<p>La opción <code class="docutils literal notranslate"><span class="pre">-e</span></code> o <code class="docutils literal notranslate"><span class="pre">-execute</span></code> permite ejecutar un comandos simple sin entrar a Grunt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pig</span> <span class="o">-</span><span class="n">e</span> <span class="n">comando</span>
+</pre></div>
+</div>
+<p>#### Ejecución de comandos del sistema operativo desde Pig</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pig</span></code> permite la ejecución de comandos del sistema operativo; por ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grunt</span><span class="o">&gt;</span> <span class="n">ls</span>
+</pre></div>
+</div>
+<p>También es posible usar comandos del sistema HDFS; el comando <code class="docutils literal notranslate"><span class="pre">hadoop</span> <span class="pre">dfs</span> <span class="pre">-ls</span> <span class="pre">/</span></code> se escribiría en <code class="docutils literal notranslate"><span class="pre">hive</span></code> como</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grunt</span><span class="o">&gt;</span> <span class="n">fs</span> <span class="o">-</span><span class="n">ls</span> <span class="o">/</span> <span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="Ejecución-de-programas-en-Grunt">
+<h3>Ejecución de programas en Grunt<a class="headerlink" href="#Ejecución-de-programas-en-Grunt" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Se realiza con los comandos <code class="docutils literal notranslate"><span class="pre">exec</span></code> y <code class="docutils literal notranslate"><span class="pre">run</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grunt</span><span class="o">&gt;</span> <span class="n">exec</span> <span class="n">script</span>
+
+<span class="n">grunt</span><span class="o">&gt;</span> <span class="n">run</span> <span class="n">script</span>
+</pre></div>
+</div>
+<p>La diferencia entre estos comandos es que <code class="docutils literal notranslate"><span class="pre">exec</span></code> ejecuta el script sin importalo a <code class="docutils literal notranslate"><span class="pre">grunt</span></code> mientras que <code class="docutils literal notranslate"><span class="pre">run</span></code> si lo hace.</p>
+</div>
+<div class="section" id="Comentarios">
+<h3>Comentarios<a class="headerlink" href="#Comentarios" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Se usan los dos guiones <code class="docutils literal notranslate"><span class="pre">--</span></code> para comentario de una línea y <code class="docutils literal notranslate"><span class="pre">/*</span></code> … <code class="docutils literal notranslate"><span class="pre">*/</span></code> para comentarios de varias líneas.</p>
+</div>
+<div class="section" id="Supresion-de-información-detallada">
+<h3>Supresion de información detallada<a class="headerlink" href="#Supresion-de-información-detallada" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Apache Pig imprime mucha información en pantalla relacionada con su ejecución y la Hadoop. Para regular el nivel de información entregada, se puede realizar una copia al directorio actual del archivo <code class="docutils literal notranslate"><span class="pre">./conf/log4j.properties</span></code> ubicado en la carpeta de instalación de Pig.</p>
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">log4j.properties</span></code> se modifica para que se impriman únicamente los mensajes de error de Pig y Hadoop. Para ello, se modifica la línea correspondiente para que quede así:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log4j</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">pig</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">A</span>
+</pre></div>
+</div>
+<p>y se agrega la siguiente para modificar el nivel de información entregado por Hadoop:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">log4j</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">hadoop</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">A</span>
+</pre></div>
+</div>
+<p>Se invoca Pig con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pig</span> <span class="o">-</span><span class="mi">4</span> <span class="n">log4j</span><span class="o">.</span><span class="n">properties</span>
+</pre></div>
+</div>
+<p>para indicar que se usa el archivo ubicado en la carpeta actual.</p>
+</div>
+</div>
+<div class="section" id="Ejecución-de-Pig-en-Jupyter">
+<h2>Ejecución de Pig en Jupyter<a class="headerlink" href="#Ejecución-de-Pig-en-Jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A continuación se describe como ejecutar comandos de Pig en Jupyter. El archivo <code class="docutils literal notranslate"><span class="pre">dbmagic.py</span></code> contiene el codigo para ejecutar comandos de Pig e nmodo local directamente en las celdas de un libro de Jupyter. Para instalar el magic, simplemente ejecute el código de dicho archivo.</p>
+<p>Modifique el archivo <code class="docutils literal notranslate"><span class="pre">pigmagic.py</span></code> indicando el directorio de instalación de Pig.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> bigdata
+<span class="o">%</span><span class="k">pig_init</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="WordCount-en-Apache-Pig">
+<h2>WordCount en Apache Pig<a class="headerlink" href="#WordCount-en-Apache-Pig" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se cargan los archivos en Apache Pig.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">pig</span>
+lines = LOAD &#39;files/wordcount/text*.txt&#39; AS (line:CHARARRAY);
+DUMP lines;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(Analytics is the discovery, interpretation, and communication of meaningful patterns )
+(in data. Especially valuable in areas rich with recorded information, analytics relies )
+(on the simultaneous application of statistics, computer programming and operations research )
+(to quantify performance.)
+()
+(Organizations may apply analytics to business data to describe, predict, and improve business )
+(performance. Specifically, areas within analytics include predictive analytics, prescriptive )
+(analytics, enterprise decision management, descriptive analytics, cognitive analytics, Big )
+(Data Analytics, retail analytics, store assortment and stock-keeping unit optimization, )
+(marketing optimization and marketing mix modeling, web analytics, call analytics, speech )
+(analytics, sales force sizing and optimization, price and promotion modeling, predictive )
+(science, credit risk analysis, and fraud analytics. Since analytics can require extensive )
+(computation (see big data), the algorithms and software used for analytics harness the most )
+(current methods in computer science, statistics, and mathematics.)
+(Data analytics (DA) is the process of examining data sets in order to draw conclusions )
+(about the information they contain, increasingly with the aid of specialized systems )
+(and software. Data analytics technologies and techniques are widely used in commercial )
+(industries to enable organizations to make more-informed business decisions and by )
+(scientists and researchers to verify or disprove scientific models, theories and )
+(hypotheses.)
+(The field of data analysis. Analytics often involves studying past historical data to )
+(research potential trends, to analyze the effects of certain decisions or events, or to )
+(evaluate the performance of a given tool or scenario. The goal of analytics is to improve )
+(the business by gaining knowledge which can be used to make improvements or changes.)
+</pre></div></div>
+</div>
+<p>Realiza el conteo de palabras.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="k">pig</span>
+-- genera una tabla llamada words con una palabra por registro
+words = FOREACH lines GENERATE FLATTEN(TOKENIZE(line)) AS word;
+
+-- agrupa los registros que tienen la misma palabra
+grouped = GROUP words BY word;
+
+-- genera una variable que cuenta las ocurrencias por cada grupo
+wordcount = FOREACH grouped GENERATE group, COUNT(words);
+
+-- selecciona las primeras 15 palabras
+s = LIMIT wordcount 15;
+
+-- imprime en pantalla las primeras 15 palabras
+DUMP s;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(a,1)
+(DA,1)
+(be,1)
+(by,2)
+(in,5)
+(is,3)
+(of,8)
+(on,1)
+(or,5)
+(to,12)
+(Big,1)
+(The,2)
+(aid,1)
+(and,15)
+(are,1)
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Juan D. Velasquez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

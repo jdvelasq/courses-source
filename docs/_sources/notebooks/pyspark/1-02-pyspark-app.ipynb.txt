@@ -1,0 +1,478 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Desarrollo de Aplicaciones en PySpark\n",
+    "===\n",
+    "\n",
+    "* *30 min* | Última modificación: Junio 22, 2019"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "En este tutorial se describe como implementar y ejecutar una aplicación usando PySpark. Al finalizar este tutorial, el lector estará en capacidad de:\n",
+    "\n",
+    "* Describir el proceso general de desarrollo de una aplicación.\n",
+    "\n",
+    "* Gestionar los archivos de entrada y salida de la aplicación.\n",
+    "\n",
+    "* Ejecutar la aplicación en Spark."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Descripción de la aplicación"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La aplicación desarrollada será el conteo de frecuencia de palabras, desarrollado en el tutorial 'WordCount en Spark'. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Preparación de los datos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "En este proceso, se que los datos originales se encuentran en una carpeta de la máquina local del usuario. Para este ejemplo, se crea el directorio `wordcount`en la carpeta actual y se crean tres archivos dentro de él."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## \n",
+    "## Creación de la carpeta wordcount en la máquina local.\n",
+    "##\n",
+    "!mkdir -p wordcount/"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A continuación se crean los tres archivos de prueba."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing wordcount/text0.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile wordcount/text0.txt\n",
+    "Analytics is the discovery, interpretation, and communication of meaningful patterns \n",
+    "in data. Especially valuable in areas rich with recorded information, analytics relies \n",
+    "on the simultaneous application of statistics, computer programming and operations research \n",
+    "to quantify performance.\n",
+    "\n",
+    "Organizations may apply analytics to business data to describe, predict, and improve business \n",
+    "performance. Specifically, areas within analytics include predictive analytics, prescriptive \n",
+    "analytics, enterprise decision management, descriptive analytics, cognitive analytics, Big \n",
+    "Data Analytics, retail analytics, store assortment and stock-keeping unit optimization, \n",
+    "marketing optimization and marketing mix modeling, web analytics, call analytics, speech \n",
+    "analytics, sales force sizing and optimization, price and promotion modeling, predictive \n",
+    "science, credit risk analysis, and fraud analytics. Since analytics can require extensive \n",
+    "computation (see big data), the algorithms and software used for analytics harness the most \n",
+    "current methods in computer science, statistics, and mathematics."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing wordcount/text1.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile wordcount/text1.txt\n",
+    "The field of data analysis. Analytics often involves studying past historical data to \n",
+    "research potential trends, to analyze the effects of certain decisions or events, or to \n",
+    "evaluate the performance of a given tool or scenario. The goal of analytics is to improve \n",
+    "the business by gaining knowledge which can be used to make improvements or changes."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing wordcount/text2.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile wordcount/text2.txt\n",
+    "Data analytics (DA) is the process of examining data sets in order to draw conclusions \n",
+    "about the information they contain, increasingly with the aid of specialized systems \n",
+    "and software. Data analytics technologies and techniques are widely used in commercial \n",
+    "industries to enable organizations to make more-informed business decisions and by \n",
+    "scientists and researchers to verify or disprove scientific models, theories and \n",
+    "hypotheses."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Copia de los datos de entrada al sistema HDFS"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "En esta aplicación se supone que los datos siempre estarán en la carpeta `wordcount` del directorio actual de trabajo de la máquina local. El primer paso consisten en mover los archivos de la máquina local al sistema HDFS. Por ahora, este paso se hará manualmente. Se define que la aplicación usará siempre la carpeta `/tmp/wordcount/` del sistema HDFS."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "##\n",
+    "## Se crea la carpeta /tmp/wc en el sistema HDFS.\n",
+    "##\n",
+    "!hdfs dfs -mkdir /tmp/wordcount\n",
+    "!hdfs dfs -mkdir /tmp/wordcount/input"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "##\n",
+    "## Copia los archvios del directorio local wordcount/\n",
+    "## al directorio /tmp/wordcount/input en el hdfs\n",
+    "##\n",
+    "!hdfs dfs -copyFromLocal wordcount/* /tmp/wordcount/input/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Found 3 items\n",
+      "-rw-r--r--   1 vagrant supergroup       1093 2019-05-20 20:32 /tmp/wordcount/input/text0.txt\n",
+      "-rw-r--r--   1 vagrant supergroup        352 2019-05-20 20:32 /tmp/wordcount/input/text1.txt\n",
+      "-rw-r--r--   1 vagrant supergroup        440 2019-05-20 20:32 /tmp/wordcount/input/text2.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Verifica que los archivos esten copiados\n",
+    "## en el hdfs\n",
+    "##\n",
+    "!hdfs dfs -ls /tmp/wordcount/input"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Implementación del programa en PySpark"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "El archivo `wordcount.py` contiene la implementación de la aplicación. El código es el siguiente:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting wordcount.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile wordcount.py\n",
+    "\n",
+    "import findspark\n",
+    "from pyspark import SparkConf, SparkContext\n",
+    "from operator import add\n",
+    "\n",
+    "APP_NAME = \"wordcount-app\"\n",
+    "\n",
+    "findspark.init()\n",
+    "conf = SparkConf().setAppName(APP_NAME) \n",
+    "sc = SparkContext(conf=conf)\n",
+    "\n",
+    "## Lee los archivos de la carpeta de entrada\n",
+    "text = sc.textFile(\"/tmp/wordcount/input/*.txt\")\n",
+    "\n",
+    "## Este es el algoritmo para el conteo de frecuencia\n",
+    "words = text.flatMap(lambda x: x.split())\n",
+    "wc = words.map(lambda x: (x,1))\n",
+    "counts = wc.reduceByKey(add)\n",
+    "\n",
+    "## Escribe los resultados en la carpeta de salida.\n",
+    "counts.saveAsTextFile(\"/tmp/wordcount/output\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Ejecución de la aplicación"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "19/05/20 20:33:00 WARN Utils: Your hostname, ubuntu-bionic resolves to a loopback address: 127.0.1.1; using 10.0.2.15 instead (on interface enp0s3)\n",
+      "19/05/20 20:33:00 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address\n",
+      "19/05/20 20:33:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable\n",
+      "\u001b]0;IPython: SURA/SURA-spark\u0007"
+     ]
+    }
+   ],
+   "source": [
+    "## \n",
+    "## La aplicación es ejecutada usando spark-submit,\n",
+    "## el cual ejecuta el programa wordcount.py en Spark\n",
+    "##\n",
+    "!spark-submit wordcount.py"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Archivos de resultados"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "La carpeta `/tmp/wordcount/output` contiene los resultados de la ejecución del programa."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Found 5 items\n",
+      "-rw-r--r--   1 vagrant supergroup          0 2019-05-20 20:33 /tmp/wordcount/output/_SUCCESS\n",
+      "-rw-r--r--   1 vagrant supergroup        778 2019-05-20 20:33 /tmp/wordcount/output/part-00000\n",
+      "-rw-r--r--   1 vagrant supergroup        562 2019-05-20 20:33 /tmp/wordcount/output/part-00001\n",
+      "-rw-r--r--   1 vagrant supergroup        510 2019-05-20 20:33 /tmp/wordcount/output/part-00002\n",
+      "-rw-r--r--   1 vagrant supergroup        594 2019-05-20 20:33 /tmp/wordcount/output/part-00003\n"
+     ]
+    }
+   ],
+   "source": [
+    "## Archivos con los resultados. Note que se \n",
+    "## generan varios archivos de resultados.\n",
+    "!hdfs dfs -ls /tmp/wordcount/output/"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "El archivo `output/_SUCCESS` es un archivo vacio que indica que el programa fue ejecutado correctamente."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('interpretation,', 1)\n",
+      "('of', 8)\n",
+      "('in', 5)\n",
+      "('data.', 1)\n",
+      "('Especially', 1)\n",
+      "('analytics', 8)\n",
+      "('simultaneous', 1)\n",
+      "('operations', 1)\n",
+      "('research', 2)\n",
+      "('quantify', 1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "!hdfs dfs -cat /tmp/wordcount/output/part-00000 | head"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Archivo de comandos del sistema operativo"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Finalmente, se crea un script que copie los archivos y ejecute la aplicación."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing wordcountapp\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile wordcountapp\n",
+    "#! /bin/bash\n",
+    "\n",
+    "## borra la carpeta input si existe\n",
+    "!hdfs dfs -rm -r -f /tmp/wordcount/input\n",
+    "\n",
+    "## crea la carpeta\n",
+    "!hdfs dfs -mkdir /tmp/wordcount/input\n",
+    "\n",
+    "## copia los archivos de entrada de la \n",
+    "## maquina local al sistema hdfs\n",
+    "!hdfs dfs -copyFromLocal wordcount/* /tmp/wordcount/input/\n",
+    "\n",
+    "## ejecuta la aplicación de spark\n",
+    "spark-submit wordcount.py"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Esta aplicación sería ejecutada en Terminal con el siguiente comando:\n",
+    "\n",
+    "    $ bash wordcountapp"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Limpieza de las carpetas de trabajo**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Deleted /tmp/wordcount\n"
+     ]
+    }
+   ],
+   "source": [
+    "!rm wordcountapp\n",
+    "!rm -rf wordcount\n",
+    "!hdfs dfs -rm -r -f /tmp/wordcount/"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  },
+  "toc-autonumbering": false
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -1,0 +1,253 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "WordCount en Apache Pig\n",
+    "==="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Ejecución de Pig en la consola de comands"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Ejecución de Pig en la consola de comandos\n",
+    "\n",
+    "Pig es comúnmente usado en la línea de comandos para ejecutar tareas de ETL, análisis de datos y procesamiento interactivo. Para ejecutar Pig en la línea de comandos digite:\n",
+    "\n",
+    "    pig -x local\n",
+    "    \n",
+    "Si no usa la opción `x -local`, Pig usará el sistema de archivos HDFS.\n",
+    "\n",
+    "\n",
+    "La opción `-e` o `-execute` permite ejecutar un comandos simple sin entrar a Grunt:\n",
+    "\n",
+    "    pig -e comando\n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Ejecución de comandos del sistema operativo desde Pig \n",
+    "\n",
+    "`Pig` permite la ejecución de comandos del sistema operativo; por ejemplo:\n",
+    "\n",
+    "     grunt> ls\n",
+    "     \n",
+    "También es posible usar comandos del sistema HDFS; el comando `hadoop dfs -ls /` se escribiría en `hive` como\n",
+    "\n",
+    "     grunt> fs -ls / ;\n",
+    "     "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Ejecución de programas en Grunt\n",
+    "\n",
+    "Se realiza con los comandos `exec` y `run`. \n",
+    "\n",
+    "    grunt> exec script\n",
+    "    \n",
+    "    grunt> run script\n",
+    "    \n",
+    "La diferencia entre estos comandos es que `exec` ejecuta el script sin importalo a `grunt`  mientras que `run` si lo hace."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Comentarios\n",
+    "\n",
+    "Se usan los dos guiones `--` para comentario de una línea y `/*` ... `*/` para comentarios de varias líneas."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Supresion de información detallada\n",
+    "\n",
+    "Apache Pig imprime mucha información en pantalla relacionada con su ejecución y la Hadoop. Para regular el nivel de información entregada, se puede realizar una copia al directorio actual del archivo `./conf/log4j.properties` ubicado en la carpeta de instalación de Pig. \n",
+    "    \n",
+    "El archivo `log4j.properties` se modifica para que se impriman únicamente los mensajes de error de Pig y Hadoop. Para ello, se modifica la línea correspondiente para que quede así:\n",
+    "\n",
+    "    log4j.logger.org.apache.pig=error, A\n",
+    "    \n",
+    "y se agrega la siguiente para modificar el nivel de información entregado por Hadoop:\n",
+    "\n",
+    "    log4j.logger.org.apache.hadoop=error, A\n",
+    "    \n",
+    "Se invoca Pig con:\n",
+    "\n",
+    "    pig -4 log4j.properties\n",
+    "    \n",
+    "para indicar que se usa el archivo ubicado en la carpeta actual."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Ejecución de Pig en Jupyter\n",
+    "\n",
+    "A continuación se describe como ejecutar comandos de Pig en Jupyter. El archivo `dbmagic.py` contiene el codigo para ejecutar comandos de Pig e nmodo local directamente en las celdas de un libro de Jupyter. Para instalar el magic, simplemente ejecute el código de dicho archivo.\n",
+    "\n",
+    "Modifique el archivo `pigmagic.py` indicando el directorio de instalación de Pig."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%load_ext bigdata\n",
+    "%pig_init"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## WordCount en Apache Pig"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Se cargan los archivos en Apache Pig."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(Analytics is the discovery, interpretation, and communication of meaningful patterns )\n",
+      "(in data. Especially valuable in areas rich with recorded information, analytics relies )\n",
+      "(on the simultaneous application of statistics, computer programming and operations research )\n",
+      "(to quantify performance.)\n",
+      "()\n",
+      "(Organizations may apply analytics to business data to describe, predict, and improve business )\n",
+      "(performance. Specifically, areas within analytics include predictive analytics, prescriptive )\n",
+      "(analytics, enterprise decision management, descriptive analytics, cognitive analytics, Big )\n",
+      "(Data Analytics, retail analytics, store assortment and stock-keeping unit optimization, )\n",
+      "(marketing optimization and marketing mix modeling, web analytics, call analytics, speech )\n",
+      "(analytics, sales force sizing and optimization, price and promotion modeling, predictive )\n",
+      "(science, credit risk analysis, and fraud analytics. Since analytics can require extensive )\n",
+      "(computation (see big data), the algorithms and software used for analytics harness the most )\n",
+      "(current methods in computer science, statistics, and mathematics.)\n",
+      "(Data analytics (DA) is the process of examining data sets in order to draw conclusions )\n",
+      "(about the information they contain, increasingly with the aid of specialized systems )\n",
+      "(and software. Data analytics technologies and techniques are widely used in commercial )\n",
+      "(industries to enable organizations to make more-informed business decisions and by )\n",
+      "(scientists and researchers to verify or disprove scientific models, theories and )\n",
+      "(hypotheses.)\n",
+      "(The field of data analysis. Analytics often involves studying past historical data to )\n",
+      "(research potential trends, to analyze the effects of certain decisions or events, or to )\n",
+      "(evaluate the performance of a given tool or scenario. The goal of analytics is to improve )\n",
+      "(the business by gaining knowledge which can be used to make improvements or changes.)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%pig\n",
+    "lines = LOAD 'files/wordcount/text*.txt' AS (line:CHARARRAY);\n",
+    "DUMP lines;"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Realiza el conteo de palabras."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(a,1)\n",
+      "(DA,1)\n",
+      "(be,1)\n",
+      "(by,2)\n",
+      "(in,5)\n",
+      "(is,3)\n",
+      "(of,8)\n",
+      "(on,1)\n",
+      "(or,5)\n",
+      "(to,12)\n",
+      "(Big,1)\n",
+      "(The,2)\n",
+      "(aid,1)\n",
+      "(and,15)\n",
+      "(are,1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%pig\n",
+    "-- genera una tabla llamada words con una palabra por registro\n",
+    "words = FOREACH lines GENERATE FLATTEN(TOKENIZE(line)) AS word;\n",
+    "\n",
+    "-- agrupa los registros que tienen la misma palabra\n",
+    "grouped = GROUP words BY word;\n",
+    "\n",
+    "-- genera una variable que cuenta las ocurrencias por cada grupo\n",
+    "wordcount = FOREACH grouped GENERATE group, COUNT(words);\n",
+    "\n",
+    "-- selecciona las primeras 15 palabras\n",
+    "s = LIMIT wordcount 15;\n",
+    "\n",
+    "-- imprime en pantalla las primeras 15 palabras\n",
+    "DUMP s;"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  },
+  "toc-autonumbering": false
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

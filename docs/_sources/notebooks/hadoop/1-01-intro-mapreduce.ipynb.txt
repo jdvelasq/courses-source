@@ -1,0 +1,804 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Algoritmo MapReduce -- WordCount en Python\n",
+    "===\n",
+    "\n",
+    "* *60 min* | Última modificación: Junio 22, 2019"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Definición del problema\n",
+    "\n",
+    "Se desea contar la frecuencia de ocurrencia de palabras en un conjunto de documentos. Debido a los requerimientos de diseño (gran volúmen de datos y tiempos rápidos de respuesta) se desea implementar una arquitectura Big Data. Se desea implementar la solución en Python."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A continuación se generarán tres archivos de prueba para probar el sistema."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## Se crea el directorio de entrada\n",
+    "!rm -rf input output\n",
+    "!mkdir input"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing input/text0.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile input/text0.txt\n",
+    "Analytics is the discovery, interpretation, and communication of meaningful patterns \n",
+    "in data. Especially valuable in areas rich with recorded information, analytics relies \n",
+    "on the simultaneous application of statistics, computer programming and operations research \n",
+    "to quantify performance.\n",
+    "\n",
+    "Organizations may apply analytics to business data to describe, predict, and improve business \n",
+    "performance. Specifically, areas within analytics include predictive analytics, prescriptive \n",
+    "analytics, enterprise decision management, descriptive analytics, cognitive analytics, Big \n",
+    "Data Analytics, retail analytics, store assortment and stock-keeping unit optimization, \n",
+    "marketing optimization and marketing mix modeling, web analytics, call analytics, speech \n",
+    "analytics, sales force sizing and optimization, price and promotion modeling, predictive \n",
+    "science, credit risk analysis, and fraud analytics. Since analytics can require extensive \n",
+    "computation (see big data), the algorithms and software used for analytics harness the most \n",
+    "current methods in computer science, statistics, and mathematics."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing input/text1.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile input/text1.txt\n",
+    "The field of data analysis. Analytics often involves studying past historical data to \n",
+    "research potential trends, to analyze the effects of certain decisions or events, or to \n",
+    "evaluate the performance of a given tool or scenario. The goal of analytics is to improve \n",
+    "the business by gaining knowledge which can be used to make improvements or changes."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Writing input/text2.txt\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile input/text2.txt\n",
+    "Data analytics (DA) is the process of examining data sets in order to draw conclusions \n",
+    "about the information they contain, increasingly with the aid of specialized systems \n",
+    "and software. Data analytics technologies and techniques are widely used in commercial \n",
+    "industries to enable organizations to make more-informed business decisions and by \n",
+    "scientists and researchers to verify or disprove scientific models, theories and \n",
+    "hypotheses."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Solución"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Algoritmo Map/Reduce"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![assets/map-reduce.jpg](assets/map-reduce.jpg)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Organización de trabajos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![assets/map-reduce-jobs.jpg](assets/map-reduce-jobs.jpg)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Prueba de la implementación fuera de Hadoop\n",
+    "\n",
+    "En un sistema Hadoop, se requiere un programa para realizar el mapeo y otro para la reducción que se ejecutan independientemente; Hadoop se encarga de la coordinación entre ellos. El intercambio de información se hace a traves de texto, que es el lenguaje universal para intercambio de información. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Paso 1\n",
+    "\n",
+    "Se implementa la función map en Python y se guarda en el archivo `mapper.py`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting mapper.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile mapper.py\n",
+    "#! /usr/bin/env python\n",
+    "\n",
+    "##\n",
+    "## Esta es la funcion que mapea la entrada a parejas (clave, valor)\n",
+    "##\n",
+    "import sys\n",
+    "if __name__ == \"__main__\": \n",
+    "    \n",
+    "    ##\n",
+    "    ## itera sobre cada linea de codigo recibida\n",
+    "    ## a traves del flujo de entrada\n",
+    "    ##\n",
+    "    for line in sys.stdin:\n",
+    "        \n",
+    "        ##\n",
+    "        ## genera las tuplas palabra \\tabulador 1\n",
+    "        ## ya que es un conteo de palabras\n",
+    "        ##\n",
+    "        for word in line.split(): \n",
+    "                   \n",
+    "            ##\n",
+    "            ## escribe al flujo estandar de salida\n",
+    "            ##\n",
+    "            sys.stdout.write(\"{}\\t1\\n\".format(word))\n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Paso 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## El programa anterior se hace ejecutable\n",
+    "!chmod +x mapper.py "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Analytics\t1\n",
+      "is\t1\n",
+      "the\t1\n",
+      "discovery,\t1\n",
+      "interpretation,\t1\n",
+      "and\t1\n",
+      "communication\t1\n",
+      "of\t1\n",
+      "meaningful\t1\n",
+      "patterns\t1\n"
+     ]
+    }
+   ],
+   "source": [
+    "## la salida de la función anterior es:\n",
+    "!cat ./input/text*.txt | ./mapper.py | head"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Paso 3\n",
+    "\n",
+    "Se implementa la función `reduce` y se salva en el archivo `reducer.py`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting reducer.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile reducer.py\n",
+    "#!/usr/bin/env python\n",
+    "\n",
+    "import sys\n",
+    "\n",
+    "##\n",
+    "## Esta funcion reduce los elementos que \n",
+    "## tienen la misma clave\n",
+    "##\n",
+    "\n",
+    "if __name__ == '__main__': \n",
+    "  \n",
+    "    curkey = None\n",
+    "    total = 0\n",
+    "    \n",
+    "    ##\n",
+    "    ## cada linea de texto recibida es una \n",
+    "    ## entrada clave \\tabulador valor\n",
+    "    ##\n",
+    "    for line in sys.stdin:\n",
+    "        \n",
+    "        key, val = line.split(\"\\t\") \n",
+    "        val = int(val)\n",
+    "        \n",
+    "        if key == curkey: \n",
+    "            ##\n",
+    "            ## No se ha cambiado de clave. Aca se \n",
+    "            ## acumulan los valores para la misma clave.\n",
+    "            ##\n",
+    "            total += val  \n",
+    "        else:\n",
+    "            ##\n",
+    "            ## Se cambio de clave. Se reinicia el\n",
+    "            ## acumulador.\n",
+    "            ##\n",
+    "            if curkey is not None:\n",
+    "                ##\n",
+    "                ## una vez se han reducido todos los elementos\n",
+    "                ## con la misma clave se imprime el resultado en\n",
+    "                ## el flujo de salida\n",
+    "                ##\n",
+    "                sys.stdout.write(\"{}\\t{}\\n\".format(curkey, total)) \n",
+    "            \n",
+    "            curkey = key\n",
+    "            total = val"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Paso 4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## El archivo se hace ejecutable\n",
+    "!chmod +x reducer.py"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Paso 5\n",
+    "\n",
+    "Se realiza la prueba de la implementación en el directorio actual antes de realizar la ejecución en el modo pseudo-distribuido. En este caso, se simula el comportamiento de Hadoop mediante la función `sort` del sistema operativo Linux."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a\t1\n",
+      "about\t1\n",
+      "aid\t1\n",
+      "algorithms\t1\n",
+      "analysis,\t1\n",
+      "analysis.\t1\n",
+      "analytics,\t8\n",
+      "analytics.\t1\n",
+      "analytics\t8\n",
+      "Analytics,\t1\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## La función sort hace que todos los elementos con \n",
+    "## la misma clave queden en lineas consecutivas.\n",
+    "## Hace el papel del módulo Shuffle & Sort\n",
+    "##\n",
+    "!cat ./input/text*.txt | ./mapper.py | sort | ./reducer.py | head"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Mejora en la implementación "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Mapper"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting mapper.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile mapper.py\n",
+    "#! /usr/bin/env python\n",
+    "\n",
+    "##\n",
+    "## Esta es la funcion que mapea la entrada a parejas (clave, valor)\n",
+    "##\n",
+    "import sys\n",
+    "\n",
+    "\n",
+    "##\n",
+    "## Se usa una clase iterable para implementar el mapper.\n",
+    "##\n",
+    "\n",
+    "class Mapper:\n",
+    "    \n",
+    "    def __init__(self, stream):\n",
+    "        ## \n",
+    "        ## almacena el flujo de entrada como una\n",
+    "        ## variable del objeto\n",
+    "        ##\n",
+    "        self.stream = stream\n",
+    "    \n",
+    "    def emit(self, key, value):\n",
+    "        ##\n",
+    "        ## escribe al flujo estandar de salida\n",
+    "        ##\n",
+    "        sys.stdout.write(\"{}\\t{}\\n\".format(key, value))\n",
+    "        \n",
+    "        \n",
+    "    def status(self, message):\n",
+    "        ##\n",
+    "        ## imprime un reporte en el flujo de error\n",
+    "        ## no se debe usar el stdout, ya que en este \n",
+    "        ## unicamente deben ir las parejas (key, value)\n",
+    "        ##\n",
+    "        sys.stderr.write('reporter:status:{}\\n'.format(message))\n",
+    "\n",
+    "        \n",
+    "    def counter(self, counter, amount=1, group=\"ApplicationCounter\"):\n",
+    "        ## \n",
+    "        ## imprime el valor del contador\n",
+    "        ##\n",
+    "        sys.stderr.write('reporter:counter:{},{},{}\\n'.format(group, counter, amount))\n",
+    "        \n",
+    "    def map(self):\n",
+    "\n",
+    "        word_counter = 0\n",
+    "        \n",
+    "        ##\n",
+    "        ## imprime un mensaje a la entrada\n",
+    "        ##\n",
+    "        self.status('Iniciando procesamiento ')\n",
+    "            \n",
+    "        for word in self:\n",
+    "            ##\n",
+    "            ## cuenta la cantidad de palabras procesadas\n",
+    "            ##\n",
+    "            word_counter += 1\n",
+    "            \n",
+    "            ##\n",
+    "            ## por cada palabra del flujo de datos\n",
+    "            ## emite la pareja (word, 1)\n",
+    "            ##\n",
+    "            self.emit(key=word, value=1)\n",
+    "\n",
+    "        ##\n",
+    "        ## imprime un mensaje a la salida\n",
+    "        ##\n",
+    "        self.counter('num_words', amount=word_counter)\n",
+    "        self.status('Finalizadno procesamiento ')\n",
+    "\n",
+    " \n",
+    "            \n",
+    "            \n",
+    "    def __iter__(self):\n",
+    "        ##\n",
+    "        ## itera sobre cada linea de codigo recibida\n",
+    "        ## a traves del flujo de entrada\n",
+    "        ##\n",
+    "        for line in self.stream:\n",
+    "            ##\n",
+    "            ## itera sobre cada palabra de la linea\n",
+    "            ## (en los ciclos for, retorna las palabras\n",
+    "            ## una a una)\n",
+    "            ##\n",
+    "            for word in line.split():\n",
+    "                ##\n",
+    "                ## retorna la palabra siguiente en el\n",
+    "                ## ciclo for\n",
+    "                ##\n",
+    "                yield word\n",
+    "    \n",
+    "\n",
+    "if __name__ == \"__main__\": \n",
+    "    ##\n",
+    "    ## inicializa el objeto con el flujo de entrada\n",
+    "    ##\n",
+    "    mapper = Mapper(sys.stdin)\n",
+    "    \n",
+    "    ##\n",
+    "    ## ejecuta el mapper\n",
+    "    ##\n",
+    "    mapper.map()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## El programa anterior se hace ejecutable\n",
+    "!chmod +x mapper.py "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "reporter:status:Iniciando procesamiento \n",
+      "reporter:counter:ApplicationCounter,num_words,252\n",
+      "reporter:status:Finalizadno procesamiento \n",
+      "Analytics\t1\n",
+      "is\t1\n",
+      "the\t1\n",
+      "discovery,\t1\n",
+      "interpretation,\t1\n",
+      "and\t1\n",
+      "communication\t1\n",
+      "of\t1\n",
+      "meaningful\t1\n",
+      "patterns\t1\n"
+     ]
+    }
+   ],
+   "source": [
+    "## la salida de la función anterior es:\n",
+    "!cat ./input/text*.txt | ./mapper.py | head"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Reducer"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "El reducer recibe las parejas (key, value) a través del flujo de salida. En los ejemplos anteriores, el reducer verifica si la clave cambia de un elemento al siguiente. Sin embargo, resulta más eficiente que se pueda iterar directamente sobre elementos consecutivos que tienen la misma clave. La función `groupby` de la librería `itertools` permite hacer esto. Dicha función recibe como argumentos los datos y una función que genera la clave para cada dato. Retorna una tupla con la clave y los elementos consecutivos que contienen la misma clave. El siguiente ejemplo permite clarificar su operación."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A\n",
+      "    ('A', 1)\n",
+      "B\n",
+      "    ('B', 10)\n",
+      "A\n",
+      "    ('A', 2)\n",
+      "    ('A', 3)\n",
+      "    ('A', 4)\n",
+      "B\n",
+      "    ('B', 20)\n"
+     ]
+    }
+   ],
+   "source": [
+    "import itertools\n",
+    "\n",
+    "## la letra es la clave y los números son los valores\n",
+    "data = [('A', 1), ('B', 10), ('A', 2), ('A', 3), ('A', 4) , ('B', 20)]\n",
+    "\n",
+    "## retorna la parte correspondiente a la clave\n",
+    "def keyfun(x):\n",
+    "    k, v = x\n",
+    "    return k\n",
+    "\n",
+    "## itera sobre la clave y los elementos que contiene \n",
+    "## la misma clave\n",
+    "for key, group in itertools.groupby(data, keyfun):\n",
+    "    print(key)\n",
+    "    for g in group:\n",
+    "        print('   ', g)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A continuación se modifica el reducer para incoporar el uso de clases y de la función `groupby`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting reducer.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile reducer.py\n",
+    "#!/usr/bin/env python\n",
+    "\n",
+    "import sys\n",
+    "import itertools\n",
+    "\n",
+    "class Reducer:\n",
+    "    \n",
+    "    def __init__(self, stream):\n",
+    "        self.stream = stream\n",
+    "        \n",
+    "    def emit(self, key, value):\n",
+    "        sys.stdout.write(\"{}\\t{}\\n\".format(key, value)) \n",
+    "\n",
+    "    def reduce(self):\n",
+    "        ##\n",
+    "        ## Esta funcion reduce los elementos que \n",
+    "        ## tienen la misma clave\n",
+    "        ##        \n",
+    "        for key, group in itertools.groupby(self, lambda x: x[0]):\n",
+    "            total = 0\n",
+    "            for _, val in group:\n",
+    "                total += val\n",
+    "            \n",
+    "            self.emit(key=key, value=total)\n",
+    "\n",
+    "    def __iter__(self):\n",
+    "        \n",
+    "        for line in self.stream:\n",
+    "            ##\n",
+    "            ## Lee el stream de datos y lo parte \n",
+    "            ## en (clave, valor)\n",
+    "            ##\n",
+    "            key, val = line.split(\"\\t\") \n",
+    "            val = int(val)\n",
+    "            \n",
+    "            ##\n",
+    "            ## retorna la tupla (clave, valor)\n",
+    "            ## como el siguiente elemento del ciclo for\n",
+    "            ##\n",
+    "            yield (key, val)\n",
+    "\n",
+    "\n",
+    "if __name__ == '__main__': \n",
+    "  \n",
+    "    reducer = Reducer(sys.stdin)\n",
+    "    reducer.reduce()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## Se hace ejecutable el archivo\n",
+    "!chmod +x reducer.py"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Ejecución\n",
+    "\n",
+    "Se prueba la implementación localmente."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "reporter:status:Iniciando procesamiento \n",
+      "reporter:counter:ApplicationCounter,num_words,252\n",
+      "reporter:status:Finalizadno procesamiento \n",
+      "a\t1\n",
+      "about\t1\n",
+      "aid\t1\n",
+      "algorithms\t1\n",
+      "analysis,\t1\n",
+      "analysis.\t1\n",
+      "analytics,\t8\n",
+      "analytics.\t1\n",
+      "analytics\t8\n",
+      "Analytics,\t1\n"
+     ]
+    }
+   ],
+   "source": [
+    "## La función sort hace que todos los elementos con \n",
+    "## la misma clave queden en lineas consecutivas.\n",
+    "## Hace el papel del módulo Shuffle & Sort\n",
+    "!cat ./input/text*.txt | ./mapper.py | sort | ./reducer.py | head"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Notas\n",
+    "\n",
+    "**Combiners.--** Los combiners son *reducers* que se ejecutan sobre los resultdos que produce cada mapper antes de pasar al modulo de suffle-&-sort, con el fin de reducir la carga computacional. Suelen ser identicos a los *reducers*. Una llamada típica sería:\n",
+    "\n",
+    "\n",
+    "     $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \\\n",
+    "        -input input \\\n",
+    "        -output output  \\\n",
+    "        -mapper mapper.py \\\n",
+    "        -reducer reducer.py \\\n",
+    "        -combiner combiner.py\n",
+    "\n",
+    "\n",
+    "**Partitioners.--** Son rutinas que controlan como se enviar las parejas (clave, valor) a cada reducers, tal que elementos con la misma clave son enviados al mismo reducer. \n",
+    "\n",
+    "**Job Chain.--** Se refiere al encadenamiento de varias tareas cuando el cómputo que se desea realizar es muy complejo para que pueda realizarse en un MapReduce."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## limpieza\n",
+    "!rm reducer.py mapper.py\n",
+    "!rm -rf input "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
