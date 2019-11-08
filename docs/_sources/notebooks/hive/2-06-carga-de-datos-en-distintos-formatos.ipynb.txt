@@ -64,6 +64,87 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hit:1 https://deb.nodesource.com/node_13.x bionic InRelease\n",
+      "Hit:2 http://security.ubuntu.com/ubuntu bionic-security InRelease              \n",
+      "Hit:3 http://archive.ubuntu.com/ubuntu bionic InRelease                   \n",
+      "Hit:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease               \n",
+      "Hit:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease              \n",
+      "Reading package lists... Done                       \n",
+      "Reading package lists... Done\n",
+      "Building dependency tree       \n",
+      "Reading state information... Done\n",
+      "wget is already the newest version (1.19.4-1ubuntu2.2).\n",
+      "0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.\n"
+     ]
+    }
+   ],
+   "source": [
+    "!apt-get update && apt-get install wget"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "--2019-11-08 11:53:13--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.csv\n",
+      "Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133\n",
+      "Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.\n",
+      "HTTP request sent, awaiting response... 200 OK\n",
+      "Length: 2043 (2.0K) [text/plain]\n",
+      "Saving to: 'drivers.csv'\n",
+      "\n",
+      "drivers.csv         100%[===================>]   2.00K  --.-KB/s    in 0.001s  \n",
+      "\n",
+      "2019-11-08 11:53:13 (1.48 MB/s) - 'drivers.csv' saved [2043/2043]\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "!wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.csv"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "--2019-11-08 11:53:14--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.json\n",
+      "Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133\n",
+      "Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.\n",
+      "HTTP request sent, awaiting response... 200 OK\n",
+      "Length: 4308 (4.2K) [text/plain]\n",
+      "Saving to: 'drivers.json'\n",
+      "\n",
+      "drivers.json        100%[===================>]   4.21K  --.-KB/s    in 0.001s  \n",
+      "\n",
+      "2019-11-08 11:53:14 (3.95 MB/s) - 'drivers.json' saved [4308/4308]\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "!wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.json"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -79,14 +160,32 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
     "##\n",
     "## Copia el archivo al HDFS para su importación posterior a Hive\n",
     "##\n",
-    "!hdfs dfs -copyFromLocal drivers/drivers.json  /tmp/drivers/drivers.json"
+    "!hdfs dfs -copyFromLocal drivers.json  /tmp/drivers/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Found 1 items\n",
+      "-rw-r--r--   1 root supergroup       4308 2019-11-08 11:53 /tmp/drivers/drivers.json\n"
+     ]
+    }
+   ],
+   "source": [
+    "!hdfs dfs -ls /tmp/drivers/"
    ]
   },
   {
@@ -98,7 +197,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -107,19 +206,19 @@
      "text": [
       "DROP TABLE IF EXISTS drivers_raw_json;\n",
       "OK\n",
-      "Time taken: 8.193 seconds\n",
+      "Time taken: 7.144 seconds\n",
       "CREATE TABLE drivers_raw_json (\n",
       "    textcol STRING\n",
       ") \n",
       "STORED AS TEXTFILE;\n",
       "OK\n",
-      "Time taken: 0.557 seconds\n",
+      "Time taken: 0.966 seconds\n",
       "LOAD DATA INPATH \n",
       "    '/tmp/drivers/drivers.json' \n",
       "OVERWRITE INTO TABLE drivers_raw_json;\n",
       "Loading data to table default.drivers_raw_json\n",
       "OK\n",
-      "Time taken: 0.889 seconds\n",
+      "Time taken: 0.893 seconds\n",
       "SELECT * FROM drivers_raw_json LIMIT 5;\n",
       "OK\n",
       "{\"driverId\":10,\"name\":\"George Vetticaden\",\"ssn\":621011971,\"location\":\"244-4532 Nulla Rd.\",\"certified\":\"N\",\"wage-plan\":\"miles\"}\n",
@@ -127,7 +226,7 @@
       "{\"driverId\":12,\"name\":\"Paul Coddin\",\"ssn\":198041975,\"location\":\"Ap #622-957 Risus. Street\",\"certified\":\"Y\",\"wage-plan\":\"hours\"}\n",
       "{\"driverId\":13,\"name\":\"Joe Niemiec\",\"ssn\":139907145,\"location\":\"2071 Hendrerit. Ave\",\"certified\":\"Y\",\"wage-plan\":\"hours\"}\n",
       "{\"driverId\":14,\"name\":\"Adis Cesir\",\"ssn\":820812209,\"location\":\"Ap #810-1228 In St.\",\"certified\":\"Y\",\"wage-plan\":\"hours\"}\n",
-      "Time taken: 1.254 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 2.372 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -170,7 +269,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -196,7 +295,7 @@
       "17\tEric Mizell\t123808238\n",
       "18\tGrant Liu\t171010151\n",
       "19\tAjay Singh\t160005158\n",
-      "Time taken: 0.361 seconds, Fetched: 10 row(s)\n"
+      "Time taken: 0.657 seconds, Fetched: 10 row(s)\n"
      ]
     }
    ],
@@ -228,7 +327,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -251,7 +350,7 @@
       "12\tPaul Coddin\t198041975\n",
       "13\tJoe Niemiec\t139907145\n",
       "14\tAdis Cesir\t820812209\n",
-      "Time taken: 0.079 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 0.106 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -285,14 +384,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [],
    "source": [
     "##\n",
     "## Se copia el archivo al sistema HDFS\n",
     "##\n",
-    "!hdfs dfs -copyFromLocal drivers/drivers.json  /tmp/drivers/drivers.json"
+    "!hdfs dfs -copyFromLocal drivers.*  /tmp/drivers/"
    ]
   },
   {
@@ -304,7 +403,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [
     {
@@ -313,7 +412,7 @@
      "text": [
       "DROP TABLE IF EXISTS drivers_json;\n",
       "OK\n",
-      "Time taken: 0.083 seconds\n",
+      "Time taken: 0.121 seconds\n",
       "CREATE TABLE drivers_json (\n",
       "    driverId  INT, \n",
       "    name      STRING, \n",
@@ -325,11 +424,11 @@
       "STORED AS TEXTFILE\n",
       "LOCATION '/tmp/drivers-json';\n",
       "OK\n",
-      "Time taken: 0.074 seconds\n",
-      "json;\n",
+      "Time taken: 0.099 seconds\n",
+      "json;DATA INPATH '/tmp/drivers/drivers.json' OVERWRITE INTO TABLE drivers_ \n",
       "Loading data to table default.drivers_json\n",
       "OK\n",
-      "Time taken: 0.559 seconds\n",
+      "Time taken: 0.436 seconds\n",
       "SELECT * FROM drivers_json LIMIT 5;\n",
       "OK\n",
       "10\tGeorge Vetticaden\t621011971\t244-4532 Nulla Rd.\tN\tNULL\n",
@@ -337,7 +436,7 @@
       "12\tPaul Coddin\t198041975\tAp #622-957 Risus. Street\tY\tNULL\n",
       "13\tJoe Niemiec\t139907145\t2071 Hendrerit. Ave\tY\tNULL\n",
       "14\tAdis Cesir\t820812209\tAp #810-1228 In St.\tY\tNULL\n",
-      "Time taken: 0.116 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 0.154 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -377,19 +476,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "##\n",
-    "## Se copia el archivo al sistema HDFS\n",
-    "##\n",
-    "!hdfs dfs -copyFromLocal drivers/drivers.csv  /tmp/drivers/drivers.csv"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -398,7 +485,7 @@
      "text": [
       "DROP TABLE IF EXISTS drivers_csv;\n",
       "OK\n",
-      "Time taken: 0.065 seconds\n",
+      "Time taken: 0.096 seconds\n",
       "CREATE TABLE drivers_csv (driverId  INT, \n",
       "                         name      STRING, \n",
       "                         ssn       BIGINT,\n",
@@ -412,11 +499,11 @@
       "   'quoteChar'     = '\\'',\n",
       "   'escapeChar'    = \"\\\\\");\n",
       "OK\n",
-      "Time taken: 0.046 seconds\n",
-      "sv;\n",
+      "Time taken: 0.074 seconds\n",
+      "sv;D DATA INPATH '/tmp/drivers/drivers.csv' OVERWRITE INTO TABLE drivers_c \n",
       "Loading data to table default.drivers_csv\n",
       "OK\n",
-      "Time taken: 0.483 seconds\n",
+      "Time taken: 0.425 seconds\n",
       "SELECT * FROM drivers_csv LIMIT 5;\n",
       "OK\n",
       "driverId\tname\tssn\tlocation\tcertified\twage-plan\n",
@@ -424,7 +511,7 @@
       "11\tJamie Engesser\t262112338\t366-4125 Ac Street\tN\tmiles\n",
       "12\tPaul Coddin\t198041975\tAp #622-957 Risus. Street\tY\thours\n",
       "13\tJoe Niemiec\t139907145\t2071 Hendrerit. Ave\tY\thours\n",
-      "Time taken: 0.107 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 0.158 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -466,19 +553,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [],
    "source": [
     "##\n",
     "## Copia los archivos al HDFS\n",
     "##\n",
-    "!hdfs dfs -copyFromLocal drivers/drivers.csv  /tmp/drivers/drivers.csv"
+    "!hdfs dfs -copyFromLocal drivers.csv  /tmp/drivers/"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -487,7 +574,7 @@
      "text": [
       "DROP TABLE IF EXISTS drivers_regex;\n",
       "OK\n",
-      "Time taken: 0.052 seconds\n",
+      "Time taken: 0.079 seconds\n",
       "CREATE TABLE drivers_regex(\n",
       "    driverId  INT, \n",
       "    name      STRING, \n",
@@ -501,11 +588,11 @@
       "   'input.regex' = '(\\\\d+),([^,]*),(\\\\d+),([^,]*),([^,]*),([^,]*)')\n",
       "TBLPROPERTIES (\"skip.header.line.count\"=\"1\");\n",
       "OK\n",
-      "Time taken: 0.049 seconds\n",
-      "egex;\n",
+      "Time taken: 0.074 seconds\n",
+      "egex;DATA INPATH '/tmp/drivers/drivers.csv' OVERWRITE INTO TABLE drivers_r \n",
       "Loading data to table default.drivers_regex\n",
       "OK\n",
-      "Time taken: 0.438 seconds\n",
+      "Time taken: 0.433 seconds\n",
       "SELECT * FROM drivers_regex LIMIT 5;\n",
       "OK\n",
       "10\tGeorge Vetticaden\t621011971\t244-4532 Nulla Rd.\tN\tmiles\n",
@@ -513,7 +600,7 @@
       "12\tPaul Coddin\t198041975\tAp #622-957 Risus. Street\tY\thours\n",
       "13\tJoe Niemiec\t139907145\t2071 Hendrerit. Ave\tY\thours\n",
       "14\tAdis Cesir\t820812209\tAp #810-1228 In St.\tY\thours\n",
-      "Time taken: 0.102 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 0.132 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -559,6 +646,15 @@
     "\n",
     "* La expresión regular usada indica que los campos 1 y 3 son numéricos, y los restantes son texto."
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!rm drivers.* *.log"
+   ]
   }
  ],
  "metadata": {
@@ -595,5 +691,5 @@
   "toc-autonumbering": false
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

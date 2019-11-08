@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -388,7 +389,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Hadoop/MapReduce-–-WordCount-en-Python-(Implementación-eficiente)">
 <h1>Hadoop/MapReduce – WordCount en Python (Implementación eficiente)<a class="headerlink" href="#Hadoop/MapReduce-–-WordCount-en-Python-(Implementación-eficiente)" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>30 min</em> | Última modificación: Junio 22, 2019</p></li>
+<li><p><em>30 min</em> | Última modificación: Noviembre 03, 2019</p></li>
 </ul>
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -484,6 +485,35 @@ Writing input/text2.txt
 <div class="section" id="Solución">
 <h2>Solución<a class="headerlink" href="#Solución" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación se presenta una implementación eficiente en Python para el problema.</p>
+<div class="section" id="Preparación">
+<h3>Preparación<a class="headerlink" href="#Preparación" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="Inicio-de-la-máquina-virtual">
+<h4>Inicio de la máquina virtual<a class="headerlink" href="#Inicio-de-la-máquina-virtual" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Si usa linux o macOS puede pasar directamente al siguiente paso. Inicie la VM con:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant up
+</pre></div>
+</div>
+<p>y luego vaya a la carpeta de trabajo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">vagrant</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Ejecución-del-contendor-de-Docker">
+<h4>Ejecución del contendor de Docker<a class="headerlink" href="#Ejecución-del-contendor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Si va a iniciar el contendor de Hadoop en la carpeta compartida con su máquina local use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Si desea iniciar la sesión en el <code class="docutils literal notranslate"><span class="pre">datalake</span></code> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Si un contenedor ya se está ejecutando puede abrir un nuevo terminal con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">hadoop</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="Paso-1">
 <h3>Paso 1<a class="headerlink" href="#Paso-1" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Implementación del <code class="docutils literal notranslate"><span class="pre">mapper</span></code>.</p>
@@ -496,7 +526,7 @@ Writing input/text2.txt
 <span class="ch">#! /usr/bin/env python</span>
 
 <span class="c1">##</span>
-<span class="c1">## Esta es la función que mapea la entrada a parejas (clave, valor)</span>
+<span class="c1">## Esta es la funcion que mapea la entrada a parejas (clave, valor)</span>
 <span class="c1">##</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -516,7 +546,7 @@ Writing input/text2.txt
 
     <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="c1">##</span>
-        <span class="c1">## escribe al flujo estándar de salida</span>
+        <span class="c1">## escribe al flujo estandar de salida</span>
         <span class="c1">##</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 
@@ -568,12 +598,12 @@ Writing input/text2.txt
 
     <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1">##</span>
-        <span class="c1">## itera sobre cada linea de código recibida</span>
-        <span class="c1">## a través del flujo de entrada</span>
+        <span class="c1">## itera sobre cada linea de codigo recibida</span>
+        <span class="c1">## a traves del flujo de entrada</span>
         <span class="c1">##</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span>
             <span class="c1">##</span>
-            <span class="c1">## itera sobre cada palabra de la línea</span>
+            <span class="c1">## itera sobre cada palabra de la linea</span>
             <span class="c1">## (en los ciclos for, retorna las palabras</span>
             <span class="c1">## una a una)</span>
             <span class="c1">##</span>
@@ -636,7 +666,7 @@ Writing mapper.py
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 reporter:status:Iniciando procesamiento
-reporter:counter:ApplicationCounter,num_words,250
+reporter:counter:ApplicationCounter,num_words,252
 reporter:status:Finalizadno procesamiento
 Analytics       1
 is      1
@@ -718,7 +748,7 @@ B
 
     <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1">##</span>
-        <span class="c1">## Esta función reduce los elementos que</span>
+        <span class="c1">## Esta funcion reduce los elementos que</span>
         <span class="c1">## tienen la misma clave</span>
         <span class="c1">##</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
@@ -796,14 +826,14 @@ Writing reducer.py
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 reporter:status:Iniciando procesamiento
-reporter:counter:ApplicationCounter,num_words,250
+reporter:counter:ApplicationCounter,num_words,252
 reporter:status:Finalizadno procesamiento
 (DA)    1
 (see    1
 Analytics       2
 Analytics,      1
 Big     1
-Data    2
+Data    3
 Especially      1
 Organizations   1
 Since   1
@@ -813,19 +843,32 @@ Specifically,   1
 </div>
 <div class="section" id="Paso-6-(solo-en-modo-pseudo-distribuido)">
 <h3>Paso 6 (solo en modo pseudo-distribuido)<a class="headerlink" href="#Paso-6-(solo-en-modo-pseudo-distribuido)" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Una vez se tienen las versiones anteriores funcionando, se puede proceder a ejecutar la tarea directamente en Hadoop. Si Hadoop se ejecuta en modo pseudo-distribuido, será necesario ejecutar los siguientes comandos para copiar los datos al HDFS.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$HADOOP_HOME/bin/hadoop fs -mkdir input
-
-$HADOOP_HOME/bin/hadoop fs -put  input/* input
-
-$HADOOP_HOME/bin/hadoop fs -ls input/*
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -mkdir input
+<span class="o">!</span>hadoop fs -copyFromLocal input/* input
+<span class="o">!</span>hadoop fs -ls input/*
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-rw-r--r--   1 root supergroup       1093 2019-11-07 16:19 input/text0.txt
+-rw-r--r--   1 root supergroup        352 2019-11-07 16:19 input/text1.txt
+-rw-r--r--   1 root supergroup        440 2019-11-07 16:19 input/text2.txt
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Paso-7">
 <h3>Paso 7<a class="headerlink" href="#Paso-7" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -836,18 +879,26 @@ $HADOOP_HOME/bin/hadoop fs -ls input/*
 <span class="c1">##   -maper: programa que ejecuta el map</span>
 <span class="c1">##   -reducer: programa que ejecuta la reducción</span>
 <span class="c1">##</span>
-<span class="o">!</span><span class="nv">$HADOOP_HOME</span>/bin/hadoop jar <span class="nv">$HADOOP_HOME</span>/share/hadoop/tools/lib/hadoop-streaming-*.jar -input input -output output  -mapper mapper.py -reducer reducer.py
+<span class="o">!</span>hadoop jar <span class="nv">$HADOOP_HOME</span>/share/hadoop/tools/lib/hadoop-streaming-*.jar -files mapper.py,reducer.py  -input input  -output output  -mapper mapper.py  -reducer reducer.py
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+packageJobJar: [/tmp/hadoop-unjar5252231254921039867/] [] /tmp/streamjob515557589901139003.jar tmpDir=null
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">## contenido del directorio con los</span>
 <span class="c1">## resultados de la corrida</span>
-<span class="o">!</span><span class="nv">$HADOOP_HOME</span>/bin/hadoop fs -ls output
+<span class="o">!</span>hadoop fs -ls output
 </pre></div>
 </div>
 </div>
@@ -857,18 +908,18 @@ $HADOOP_HOME/bin/hadoop fs -ls input/*
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 2 items
--rw-r--r--   1 jdvelasq admin          0 2018-10-15 20:58 output/_SUCCESS
--rw-r--r--   1 jdvelasq admin       1649 2018-10-15 20:58 output/part-00000
+-rw-r--r--   1 root supergroup          0 2019-11-07 16:20 output/_SUCCESS
+-rw-r--r--   1 root supergroup       1649 2019-11-07 16:20 output/part-00000
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">## se visualiza el archivo con los</span>
 <span class="c1">## resultados de la corrida</span>
-<span class="o">!</span><span class="nv">$HADOOP_HOME</span>/bin/hadoop fs -cat output/part-00000 <span class="p">|</span> head
+<span class="o">!</span>hadoop fs -cat output/part-00000 <span class="p">|</span> head
 </pre></div>
 </div>
 </div>
@@ -890,10 +941,58 @@ Specifically,   1
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Limpieza">
-<h3>Limpieza<a class="headerlink" href="#Limpieza" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="Paso-8-(Movimiento-de-los-resultados-al-sistema-local)">
+<h3>Paso 8 (Movimiento de los resultados al sistema local)<a class="headerlink" href="#Paso-8-(Movimiento-de-los-resultados-al-sistema-local)" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -copyToLocal output output
+<span class="o">!</span>ls output/*
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+output/_SUCCESS  output/part-00000
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Paso-9-(Limpieza-del-hdfs)">
+<h3>Paso 9 (Limpieza del hdfs)<a class="headerlink" href="#Paso-9-(Limpieza-del-hdfs)" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## Se elimina el directorio de salida en el hdfs si existe</span>
+<span class="o">!</span>hadoop fs -rm input/*
+<span class="o">!</span>hadoop fs -rm output/*
+<span class="o">!</span>hadoop fs -rmdir input output
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Deleted input/text0.txt
+Deleted input/text1.txt
+Deleted input/text2.txt
+Deleted output/_SUCCESS
+Deleted output/part-00000
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Limpieza-de-la-máquina-local">
+<h3>Limpieza de la máquina local<a class="headerlink" href="#Limpieza-de-la-máquina-local" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

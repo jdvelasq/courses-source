@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -37,7 +38,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Transacciones ACID (Insert/ Update / Delete) en Hive" href="2-05-transacciones-acid.html" />
+    <link rel="prev" title="Operaciones básicas en Hive" href="1-02-operaciones-basicas-en-hive.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +82,14 @@
             
             
               <p class="caption"><span class="caption-text">Cursos</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../analitica-de-grandes-datos/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/setup.html">Configuración del software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/grades.html">Laboratorios de Programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/course-info.html">Información del curso</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
@@ -131,6 +140,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/content.html">Sesiones</a> &raquo;</li>
         
       <li>Procesamiento de datos con Hive</li>
     
@@ -395,7 +408,100 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Los datos se encuentran almacenados en la carpeta <code class="docutils literal notranslate"><span class="pre">drivers</span></code> del directorio actual. A continución se procede a crear la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/drivers</span></code> en el sistema de archivos de Hadoop (HDFS).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>apt-get update <span class="o">&amp;&amp;</span> apt-get install wget
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Get:1 https://deb.nodesource.com/node_13.x bionic InRelease [4584 B]
+Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:4 https://deb.nodesource.com/node_13.x bionic/main amd64 Packages [764 B]
+Get:5 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [12.6 kB]
+Get:6 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [782 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [700 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]
+Get:11 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [5944 B]
+Get:12 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [996 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [25.9 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1309 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [9022 B]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [4234 B]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [2496 B]
+Fetched 17.2 MB in 20s (865 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  wget
+0 upgraded, 1 newly installed, 0 to remove and 3 not upgraded.
+Need to get 316 kB of archives.
+After this operation, 954 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 wget amd64 1.19.4-1ubuntu2.2 [316 kB]
+Fetched 316 kB in 1s (269 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package wget.
+(Reading database ... 25970 files and directories currently installed.)
+Preparing to unpack .../wget_1.19.4-1ubuntu2.2_amd64.deb ...
+Unpacking wget (1.19.4-1ubuntu2.2) ...
+Setting up wget (1.19.4-1ubuntu2.2) ...
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.csv
+<span class="o">!</span>wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/timesheet.csv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2019-11-08 10:12:22--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2043 (2.0K) [text/plain]
+Saving to: &#39;drivers.csv&#39;
+
+drivers.csv         100%[===================&gt;]   2.00K  --.-KB/s    in 0.001s
+
+2019-11-08 10:12:22 (1.32 MB/s) - &#39;drivers.csv&#39; saved [2043/2043]
+
+--2019-11-08 10:12:23--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/timesheet.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 26205 (26K) [text/plain]
+Saving to: &#39;timesheet.csv&#39;
+
+timesheet.csv       100%[===================&gt;]  25.59K  --.-KB/s    in 0.03s
+
+2019-11-08 10:12:24 (934 KB/s) - &#39;timesheet.csv&#39; saved [26205/26205]
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -407,7 +513,8 @@ div.rendered_html tbody tr:hover {
 <span class="c1">##</span>
 <span class="c1">## Copia los archivos al HDFS</span>
 <span class="c1">##</span>
-<span class="o">!</span>hdfs dfs -copyFromLocal drivers/*  /tmp/drivers/
+<span class="o">!</span>hdfs dfs -copyFromLocal drivers.csv  /tmp/drivers/
+<span class="o">!</span>hdfs dfs -copyFromLocal timesheet.csv  /tmp/drivers/
 
 <span class="c1">##</span>
 <span class="c1">## Lista los archivos al HDFS para verificar</span>
@@ -423,18 +530,13 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 mkdir: `/tmp/drivers&#39;: File exists
-copyFromLocal: `/tmp/drivers/drivers.csv&#39;: File exists
-copyFromLocal: `/tmp/drivers/timesheet.csv&#39;: File exists
--rw-r--r--   1 vagrant supergroup       2043 2019-05-26 13:52 /tmp/drivers/drivers.csv
-Found 1 items
--rwxr-xr-x   1 vagrant supergroup       1800 2019-05-26 13:54 /tmp/drivers/specific-columns/000000_0
--rw-r--r--   1 vagrant supergroup      26205 2019-05-26 13:52 /tmp/drivers/timesheet.csv
--rw-r--r--   1 vagrant supergroup    2272077 2019-05-26 13:59 /tmp/drivers/truck_event_text_partition.csv
+-rw-r--r--   1 root supergroup       2043 2019-11-08 10:13 /tmp/drivers/drivers.csv
+-rw-r--r--   1 root supergroup      26205 2019-11-08 10:13 /tmp/drivers/timesheet.csv
 </pre></div></div>
 </div>
 <p>El contenido de un archivo puede ser visualizado parcialmente usando el comando <code class="docutils literal notranslate"><span class="pre">tail</span></code>. Se usa para realizar una inspección rápida del contenido de los archivos.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -471,7 +573,7 @@ Box 213- 8948 Nec Ave,Y,hours
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -560,7 +662,7 @@ Box 213- 8948 Nec Ave,Y,hours
 <h2>Creación de la tabla <code class="docutils literal notranslate"><span class="pre">temp_drivers</span></code><a class="headerlink" href="#Creación-de-la-tabla-temp_drivers" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación se crea la tabla <code class="docutils literal notranslate"><span class="pre">temp_drivers</span></code>, que es almacenada en el disco como un archivo de texto, para almacenar la información de los conductores.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -578,16 +680,16 @@ TBLPROPERTIES (&quot;skip.header.line.count&quot;=&quot;1&quot;);
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS temp_drivers;
 OK
-Time taken: 9.983 seconds
+Time taken: 6.917 seconds
 CREATE TABLE temp_drivers (col_value STRING) STORED AS TEXTFILE
 TBLPROPERTIES (&#34;skip.header.line.count&#34;=&#34;1&#34;);
 OK
-Time taken: 0.7 seconds
+Time taken: 1.094 seconds
 </pre></div></div>
 </div>
 <p>Seguidamente, se visualizan las tablas en la base de datos actual que empiezan por t para verificar que la tabla fue creada.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -604,11 +706,7 @@ SHOW TABLES LIKE &#39;t*&#39;;
 SHOW TABLES LIKE &#39;t*&#39;;
 OK
 temp_drivers
-temp_timesheet
-timesheet
-truck_events
-truck_events_subset
-Time taken: 0.115 seconds, Fetched: 5 row(s)
+Time taken: 0.155 seconds, Fetched: 1 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -616,7 +714,7 @@ Time taken: 0.115 seconds, Fetched: 5 row(s)
 <h2>Carga de datos para la tabla <code class="docutils literal notranslate"><span class="pre">temp_drivers</span></code><a class="headerlink" href="#Carga-de-datos-para-la-tabla-temp_drivers" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La siguiente consulta realiza la carga de los datos del archivo <code class="docutils literal notranslate"><span class="pre">drivers.csv</span></code> en la tabla <code class="docutils literal notranslate"><span class="pre">temp_drivers</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -630,15 +728,15 @@ LOAD DATA INPATH &#39;/tmp/drivers/drivers.csv&#39; OVERWRITE INTO TABLE temp_dr
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ers;
+ers; DATA INPATH &#39;/tmp/drivers/drivers.csv&#39; OVERWRITE INTO TABLE temp_driv
 Loading data to table default.temp_drivers
 OK
-Time taken: 0.892 seconds
+Time taken: 1.093 seconds
 </pre></div></div>
 </div>
 <p>Hive consume los datos, es decir, mueve los datos a la bodega de datos, de tal forma que el archivo <code class="docutils literal notranslate"><span class="pre">drivers.csv</span></code> es eliminado de la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/drivers</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -651,15 +749,13 @@ Time taken: 0.892 seconds
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Found 3 items
-drwxr-xr-x   - vagrant supergroup          0 2019-05-26 13:54 /tmp/drivers/specific-columns
--rw-r--r--   1 vagrant supergroup      26205 2019-05-26 13:52 /tmp/drivers/timesheet.csv
--rw-r--r--   1 vagrant supergroup    2272077 2019-05-26 13:59 /tmp/drivers/truck_event_text_partition.csv
+Found 1 items
+-rw-r--r--   1 root supergroup      26205 2019-11-08 10:13 /tmp/drivers/timesheet.csv
 </pre></div></div>
 </div>
 <p>Se obtiene los primeros 10 registros de la tabla para realizar una inspección rápida de los datos y verificar que los datos fueron cargados correctamente.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -685,7 +781,7 @@ OK
 17,Eric Mizell,123808238,P.O. Box 579- 2191 Gravida. Street,Y,hours
 18,Grant Liu,171010151,Ap #928-3159 Vestibulum Av.,Y,hours
 19,Ajay Singh,160005158,592-9430 Nonummy Avenue,Y,hours
-Time taken: 1.219 seconds, Fetched: 10 row(s)
+Time taken: 2.294 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -693,7 +789,7 @@ Time taken: 1.219 seconds, Fetched: 10 row(s)
 <h2>Creación de la tabla <code class="docutils literal notranslate"><span class="pre">drivers</span></code><a class="headerlink" href="#Creación-de-la-tabla-drivers" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación se crea la tabla <code class="docutils literal notranslate"><span class="pre">drivers</span></code> en donde se colocará la información extraída de la tabla <code class="docutils literal notranslate"><span class="pre">temp_drivers</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -719,7 +815,7 @@ TBLPROPERTIES (&quot;skip.header.line.count&quot;=&quot;1&quot;);
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS drivers;
 OK
-Time taken: 0.104 seconds
+Time taken: 0.008 seconds
 CREATE TABLE drivers (driverId  INT,
                       name      STRING,
                       ssn       BIGINT,
@@ -728,12 +824,12 @@ CREATE TABLE drivers (driverId  INT,
                       wageplan  STRING)
 TBLPROPERTIES (&#34;skip.header.line.count&#34;=&#34;1&#34;);
 OK
-Time taken: 0.046 seconds
+Time taken: 0.074 seconds
 </pre></div></div>
 </div>
 <p>Ya que cada registro de la tabla <code class="docutils literal notranslate"><span class="pre">temp_drivers</span></code> es una línea de texto, se aplica una expresión regular (<code class="docutils literal notranslate"><span class="pre">regexp_extract</span></code>) para realizar la división del texto por las comas. La parte <code class="docutils literal notranslate"><span class="pre">{1}</span></code> representa la primera cadena de caracteres después de realizar la partición, <code class="docutils literal notranslate"><span class="pre">{2}</span></code> la segunda y así sucesivamente. Después de la llamada a la función <code class="docutils literal notranslate"><span class="pre">regexp_extract</span></code> se indica el nombre de la columna en la tabla <code class="docutils literal notranslate"><span class="pre">drivers</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -767,32 +863,32 @@ SELECT
 FROM
     temp_drivers;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190526135929_aa7a8e2b-cf1b-447c-b45d-5cc173930c9a
+Query ID = root_20191108101459_e2544eb9-0944-4166-b56a-1a6d34c91757
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1558824450495_0028, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0028/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0028
+Starting Job = job_1573207742881_0001, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0001/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0001
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-2019-05-26 13:59:36,998 Stage-1 map = 0%,  reduce = 0%
-2019-05-26 13:59:41,513 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.79 sec
-MapReduce Total cumulative CPU time: 1 seconds 790 msec
-Ended Job = job_1558824450495_0028
+2019-11-08 10:15:15,481 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 10:15:23,934 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.44 sec
+MapReduce Total cumulative CPU time: 2 seconds 440 msec
+Ended Job = job_1573207742881_0001
 Stage-4 is selected by condition resolver.
 Stage-3 is filtered out by condition resolver.
 Stage-5 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/drivers/.hive-staging_hive_2019-05-26_13-59-29_324_9173285359057532304-1/-ext-10000
+Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/drivers/.hive-staging_hive_2019-11-08_10-14-59_974_3520773915705597245-1/-ext-10000
 Loading data to table default.drivers
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.79 sec   HDFS Read: 6812 HDFS Write: 2036 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 790 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 2.44 sec   HDFS Read: 6812 HDFS Write: 2036 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 440 msec
 OK
-Time taken: 13.89 seconds
+Time taken: 26.606 seconds
 </pre></div></div>
 </div>
 <p>Se aplica la instrucción <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> para revisar el resultado de la carga de los datos.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -818,7 +914,7 @@ OK
 18      Grant Liu       171010151       Ap #928-3159 Vestibulum Av.     Y       hours
 19      Ajay Singh      160005158       592-9430 Nonummy Avenue Y       hours
 20      Chris Harris    921812303       883-2691 Proin Avenue   Y       hours
-Time taken: 0.125 seconds, Fetched: 10 row(s)
+Time taken: 0.144 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -826,7 +922,7 @@ Time taken: 0.125 seconds, Fetched: 10 row(s)
 <h2>Creación de la tabla <code class="docutils literal notranslate"><span class="pre">temp_timesheet</span></code><a class="headerlink" href="#Creación-de-la-tabla-temp_timesheet" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se procede a crear la tabla y cargar los datos para el archivo <code class="docutils literal notranslate"><span class="pre">time_sheet</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -851,16 +947,16 @@ SELECT * FROM temp_timesheet LIMIT 10;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS temp_timesheet;
 OK
-Time taken: 0.082 seconds
+Time taken: 0.009 seconds
 CREATE TABLE temp_timesheet (col_value string)
 STORED AS TEXTFILE
 TBLPROPERTIES (&#34;skip.header.line.count&#34;=&#34;1&#34;);
 OK
-Time taken: 0.039 seconds
-mesheet;
+Time taken: 0.06 seconds
+mesheet;A INPATH &#39;/tmp/drivers/timesheet.csv&#39; OVERWRITE INTO TABLE temp_ti
 Loading data to table default.temp_timesheet
 OK
-Time taken: 0.492 seconds
+Time taken: 0.414 seconds
 SELECT * FROM temp_timesheet LIMIT 10;
 OK
 10,1,70,3300
@@ -873,7 +969,7 @@ OK
 10,8,70,3300
 10,9,70,3200
 10,10,50,2500
-Time taken: 0.109 seconds, Fetched: 10 row(s)
+Time taken: 0.131 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -881,7 +977,7 @@ Time taken: 0.109 seconds, Fetched: 10 row(s)
 <h2>Creación de la tabla <code class="docutils literal notranslate"><span class="pre">timesheet</span></code><a class="headerlink" href="#Creación-de-la-tabla-timesheet" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se procede igual que en las tablas anteriores.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -912,11 +1008,11 @@ SELECT * FROM timesheet LIMIT 10;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS timesheet;
 OK
-Time taken: 0.061 seconds
-ogged INT)
+Time taken: 0.008 seconds
+ogged INT)LE timesheet (driverId INT, week INT, hours_logged INT , miles_l
 TBLPROPERTIES (&#34;skip.header.line.count&#34;=&#34;1&#34;);
 OK
-Time taken: 0.038 seconds
+Time taken: 0.065 seconds
 INSERT OVERWRITE TABLE timesheet
 SELECT
     regexp_extract(col_value, &#39;^(?:([^,]*),?){1}&#39;, 1) driverId,
@@ -926,27 +1022,27 @@ SELECT
 FROM
     temp_timesheet;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190526135945_aec017dd-051f-4936-aa3b-361f9948f08d
+Query ID = root_20191108101549_2497d5ff-edf4-4076-84de-aa5034d5ebf2
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1558824450495_0029, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0029/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0029
+Starting Job = job_1573207742881_0002, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0002/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0002
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-2019-05-26 13:59:52,540 Stage-1 map = 0%,  reduce = 0%
-2019-05-26 13:59:57,979 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.2 sec
-MapReduce Total cumulative CPU time: 2 seconds 200 msec
-Ended Job = job_1558824450495_0029
+2019-11-08 10:16:00,076 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 10:16:07,488 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.4 sec
+MapReduce Total cumulative CPU time: 3 seconds 400 msec
+Ended Job = job_1573207742881_0002
 Stage-4 is selected by condition resolver.
 Stage-3 is filtered out by condition resolver.
 Stage-5 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/timesheet/.hive-staging_hive_2019-05-26_13-59-45_243_3849914088891625676-1/-ext-10000
+Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/timesheet/.hive-staging_hive_2019-11-08_10-15-49_287_5049985891851790760-1/-ext-10000
 Loading data to table default.timesheet
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1   Cumulative CPU: 2.2 sec   HDFS Read: 30729 HDFS Write: 24476 SUCCESS
-Total MapReduce CPU Time Spent: 2 seconds 200 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 3.4 sec   HDFS Read: 30739 HDFS Write: 24476 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 400 msec
 OK
-Time taken: 14.3 seconds
+Time taken: 20.737 seconds
 SELECT * FROM timesheet LIMIT 10;
 OK
 10      2       70      3300
@@ -959,7 +1055,7 @@ OK
 10      9       70      3200
 10      10      50      2500
 10      11      70      2900
-Time taken: 0.1 seconds, Fetched: 10 row(s)
+Time taken: 0.146 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -967,7 +1063,7 @@ Time taken: 0.1 seconds, Fetched: 10 row(s)
 <h2>Cantidad de horas y millas de cada conductor por año.<a class="headerlink" href="#Cantidad-de-horas-y-millas-de-cada-conductor-por-año." title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En la siguiente consulta se desea obtener para cada conductor la cantidad de horas y millas por año.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -997,7 +1093,7 @@ FROM
 GROUP BY
     driverId;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190526140000_883d5933-efd0-4f05-bf42-515cb864b49d
+Query ID = root_20191108101620_a7136990-cc28-4594-b59e-bdce97b50c0f
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -1007,17 +1103,17 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0030, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0030/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0030
+Starting Job = job_1573207742881_0003, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0003/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0003
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-05-26 14:00:08,822 Stage-1 map = 0%,  reduce = 0%
-2019-05-26 14:00:13,157 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.5 sec
-2019-05-26 14:00:18,572 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 2.83 sec
-MapReduce Total cumulative CPU time: 2 seconds 830 msec
-Ended Job = job_1558824450495_0030
+2019-11-08 10:16:31,957 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 10:16:39,327 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.97 sec
+2019-11-08 10:16:46,749 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.91 sec
+MapReduce Total cumulative CPU time: 3 seconds 910 msec
+Ended Job = job_1573207742881_0003
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 2.83 sec   HDFS Read: 33424 HDFS Write: 1005 SUCCESS
-Total MapReduce CPU Time Spent: 2 seconds 830 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.91 sec   HDFS Read: 33422 HDFS Write: 1005 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 910 msec
 OK
 10      3162    143850
 11      3642    179300
@@ -1053,7 +1149,7 @@ OK
 41      2723    138407
 42      2697    136673
 43      2750    136993
-Time taken: 19.496 seconds, Fetched: 34 row(s)
+Time taken: 28.094 seconds, Fetched: 34 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -1061,7 +1157,7 @@ Time taken: 19.496 seconds, Fetched: 34 row(s)
 <h2>Consulta para unir las tablas<a class="headerlink" href="#Consulta-para-unir-las-tablas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El paso final consiste en crear una consulta que agregue el nombre del conductor de la tabla <code class="docutils literal notranslate"><span class="pre">drivers</span></code> con la cantidad de horas y millas por año.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1113,7 +1209,7 @@ JOIN (
 ON
     (d.driverId = t.driverId);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190526140020_29ccbd1b-c07c-4b6b-9c03-e591c24b92dd
+Query ID = root_20191108101653_b0d3d8c5-7207-4371-bffe-3056c25e3a12
 Total jobs = 2
 Launching Job 1 out of 2
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -1123,38 +1219,38 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0031, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0031/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0031
+Starting Job = job_1573207742881_0004, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0004/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0004
 Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
-2019-05-26 14:00:29,173 Stage-2 map = 0%,  reduce = 0%
-2019-05-26 14:00:34,523 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 2.15 sec
-2019-05-26 14:00:38,865 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 3.31 sec
-MapReduce Total cumulative CPU time: 3 seconds 310 msec
-Ended Job = job_1558824450495_0031
+2019-11-08 10:17:03,162 Stage-2 map = 0%,  reduce = 0%
+2019-11-08 10:17:11,514 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 2.51 sec
+2019-11-08 10:17:18,833 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 4.93 sec
+MapReduce Total cumulative CPU time: 4 seconds 930 msec
+Ended Job = job_1573207742881_0004
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/usr/local/hive-2.3.4/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/usr/local/hadoop-2.8.5/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
-2019-05-26 14:00:45     Starting to launch local task to process map join;      maximum memory = 477626368
-2019-05-26 14:00:47     Dump the side-table for tag: 0 with group count: 33 into file: file:/tmp/vagrant/1a0d2a35-e99a-4d93-bff5-37a7462a341d/hive_2019-05-26_14-00-20_821_8120342489066290102-1/-local-10005/HashTable-Stage-3/MapJoin-mapfile00--.hashtable
-2019-05-26 14:00:47     Uploaded 1 File to: file:/tmp/vagrant/1a0d2a35-e99a-4d93-bff5-37a7462a341d/hive_2019-05-26_14-00-20_821_8120342489066290102-1/-local-10005/HashTable-Stage-3/MapJoin-mapfile00--.hashtable (1325 bytes)
-2019-05-26 14:00:47     End of local task; Time Taken: 1.418 sec.
+2019-11-08 10:17:28     Starting to launch local task to process map join;      maximum memory = 477626368
+2019-11-08 10:17:30     Dump the side-table for tag: 0 with group count: 33 into file: file:/tmp/root/ec3a1d9b-0cbc-40cf-8ebe-40cc9fedd110/hive_2019-11-08_10-16-53_998_9182128341134448677-1/-local-10005/HashTable-Stage-3/MapJoin-mapfile00--.hashtable
+2019-11-08 10:17:30     Uploaded 1 File to: file:/tmp/root/ec3a1d9b-0cbc-40cf-8ebe-40cc9fedd110/hive_2019-11-08_10-16-53_998_9182128341134448677-1/-local-10005/HashTable-Stage-3/MapJoin-mapfile00--.hashtable (1325 bytes)
+2019-11-08 10:17:30     End of local task; Time Taken: 2.087 sec.
 Execution completed successfully
 MapredLocal task succeeded
 Launching Job 2 out of 2
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1558824450495_0032, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0032/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0032
+Starting Job = job_1573207742881_0005, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0005/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0005
 Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 0
-2019-05-26 14:00:53,327 Stage-3 map = 0%,  reduce = 0%
-2019-05-26 14:00:57,606 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.32 sec
-MapReduce Total cumulative CPU time: 1 seconds 320 msec
-Ended Job = job_1558824450495_0032
+2019-11-08 10:17:41,007 Stage-3 map = 0%,  reduce = 0%
+2019-11-08 10:17:48,341 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.97 sec
+MapReduce Total cumulative CPU time: 1 seconds 970 msec
+Ended Job = job_1573207742881_0005
 MapReduce Jobs Launched:
-Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.31 sec   HDFS Read: 32524 HDFS Write: 946 SUCCESS
-Stage-Stage-3: Map: 1   Cumulative CPU: 1.32 sec   HDFS Read: 6808 HDFS Write: 1411 SUCCESS
-Total MapReduce CPU Time Spent: 4 seconds 630 msec
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 4.93 sec   HDFS Read: 32512 HDFS Write: 946 SUCCESS
+Stage-Stage-3: Map: 1   Cumulative CPU: 1.97 sec   HDFS Read: 6784 HDFS Write: 1411 SUCCESS
+Total MapReduce CPU Time Spent: 6 seconds 900 msec
 OK
 11      Jamie Engesser  3642    179300
 12      Paul Coddin     2639    135962
@@ -1189,7 +1285,7 @@ OK
 41      Greg Phillips   2723    138407
 42      Randy Gelhausen 2697    136673
 43      Dave Patton     2750    136993
-Time taken: 37.865 seconds, Fetched: 33 row(s)
+Time taken: 55.425 seconds, Fetched: 33 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -1197,7 +1293,7 @@ Time taken: 37.865 seconds, Fetched: 33 row(s)
 <h2>Almacenamiento de los resultados<a class="headerlink" href="#Almacenamiento-de-los-resultados" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Finalmente, se agrega una porción de codigo adicional a la consulta anterior para almacenar la tabla final obtenida en la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/drivers/summary</span></code> del HDFS para que otras aplicaciones puedan usar estos resultados.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1253,7 +1349,7 @@ JOIN (
 ON
     (d.driverId = t.driverId);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190526140100_79bddcf8-a683-4fdd-9950-afa1b6fc8b61
+Query ID = root_20191108101759_fcf02464-be59-4e0b-bea8-c46ec3eb05f0
 Total jobs = 2
 Launching Job 1 out of 2
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -1263,45 +1359,45 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0033, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0033/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0033
+Starting Job = job_1573207742881_0006, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0006/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0006
 Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
-2019-05-26 14:01:09,384 Stage-2 map = 0%,  reduce = 0%
-2019-05-26 14:01:13,796 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.96 sec
-2019-05-26 14:01:18,088 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 3.37 sec
-MapReduce Total cumulative CPU time: 3 seconds 370 msec
-Ended Job = job_1558824450495_0033
+2019-11-08 10:18:10,199 Stage-2 map = 0%,  reduce = 0%
+2019-11-08 10:18:17,608 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 2.61 sec
+2019-11-08 10:18:24,901 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 4.5 sec
+MapReduce Total cumulative CPU time: 4 seconds 500 msec
+Ended Job = job_1573207742881_0006
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/usr/local/hive-2.3.4/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/usr/local/hadoop-2.8.5/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
-2019-05-26 14:01:24     Starting to launch local task to process map join;      maximum memory = 477626368
-2019-05-26 14:01:26     Dump the side-table for tag: 0 with group count: 33 into file: file:/tmp/vagrant/1a0d2a35-e99a-4d93-bff5-37a7462a341d/hive_2019-05-26_14-01-00_064_2059878834031344160-1/-local-10003/HashTable-Stage-3/MapJoin-mapfile10--.hashtable
-2019-05-26 14:01:26     Uploaded 1 File to: file:/tmp/vagrant/1a0d2a35-e99a-4d93-bff5-37a7462a341d/hive_2019-05-26_14-01-00_064_2059878834031344160-1/-local-10003/HashTable-Stage-3/MapJoin-mapfile10--.hashtable (1325 bytes)
-2019-05-26 14:01:26     End of local task; Time Taken: 1.607 sec.
+2019-11-08 10:18:35     Starting to launch local task to process map join;      maximum memory = 477626368
+2019-11-08 10:18:37     Dump the side-table for tag: 0 with group count: 33 into file: file:/tmp/root/ec3a1d9b-0cbc-40cf-8ebe-40cc9fedd110/hive_2019-11-08_10-17-59_214_4330731367707089611-1/-local-10003/HashTable-Stage-3/MapJoin-mapfile10--.hashtable
+2019-11-08 10:18:37     Uploaded 1 File to: file:/tmp/root/ec3a1d9b-0cbc-40cf-8ebe-40cc9fedd110/hive_2019-11-08_10-17-59_214_4330731367707089611-1/-local-10003/HashTable-Stage-3/MapJoin-mapfile10--.hashtable (1325 bytes)
+2019-11-08 10:18:37     End of local task; Time Taken: 2.068 sec.
 Execution completed successfully
 MapredLocal task succeeded
 Launching Job 2 out of 2
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1558824450495_0034, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0034/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0034
+Starting Job = job_1573207742881_0007, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0007/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0007
 Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 0
-2019-05-26 14:01:33,590 Stage-3 map = 0%,  reduce = 0%
-2019-05-26 14:01:37,908 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.32 sec
-MapReduce Total cumulative CPU time: 1 seconds 320 msec
-Ended Job = job_1558824450495_0034
+2019-11-08 10:18:48,260 Stage-3 map = 0%,  reduce = 0%
+2019-11-08 10:18:55,570 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.97 sec
+MapReduce Total cumulative CPU time: 1 seconds 970 msec
+Ended Job = job_1573207742881_0007
 Moving data to directory /tmp/drivers/summary
 MapReduce Jobs Launched:
-Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.37 sec   HDFS Read: 32515 HDFS Write: 946 SUCCESS
-Stage-Stage-3: Map: 1   Cumulative CPU: 1.32 sec   HDFS Read: 6357 HDFS Write: 928 SUCCESS
-Total MapReduce CPU Time Spent: 4 seconds 690 msec
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 4.5 sec   HDFS Read: 32512 HDFS Write: 946 SUCCESS
+Stage-Stage-3: Map: 1   Cumulative CPU: 1.97 sec   HDFS Read: 6345 HDFS Write: 928 SUCCESS
+Total MapReduce CPU Time Spent: 6 seconds 470 msec
 OK
-Time taken: 38.942 seconds
+Time taken: 58.506 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1315,11 +1411,11 @@ Time taken: 38.942 seconds
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxr-xr-x   1 vagrant supergroup        928 2019-05-26 14:01 /tmp/drivers/summary/000000_0
+-rwxr-xr-x   1 root supergroup        928 2019-11-08 10:18 /tmp/drivers/summary/000000_0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1366,6 +1462,15 @@ Found 1 items
 42,Randy Gelhausen,2697,136673
 43,Dave Patton,2750,136993
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm *.csv *.log
+</pre></div>
+</div>
 </div>
 </div>
 </div>

@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -37,7 +38,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Manejo de Datos Complejos y Tablas Particionadas" href="2-07-manejo-de-datos-complejos.html" />
+    <link rel="prev" title="Transacciones ACID (Insert/ Update / Delete) en Hive" href="2-05-transacciones-acid.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +82,14 @@
             
             
               <p class="caption"><span class="caption-text">Cursos</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../analitica-de-grandes-datos/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/setup.html">Configuración del software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/grades.html">Laboratorios de Programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/course-info.html">Información del curso</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
@@ -131,6 +140,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/content.html">Sesiones</a> &raquo;</li>
         
       <li>Carga de datos en distintos formatos</li>
     
@@ -414,24 +427,123 @@ div.rendered_html tbody tr:hover {
 Deleted /tmp/drivers
 </pre></div></div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>apt-get update <span class="o">&amp;&amp;</span> apt-get install wget
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hit:1 https://deb.nodesource.com/node_13.x bionic InRelease
+Hit:2 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu bionic InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+wget is already the newest version (1.19.4-1ubuntu2.2).
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.csv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2019-11-08 11:53:13--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2043 (2.0K) [text/plain]
+Saving to: &#39;drivers.csv&#39;
+
+drivers.csv         100%[===================&gt;]   2.00K  --.-KB/s    in 0.001s
+
+2019-11-08 11:53:13 (1.48 MB/s) - &#39;drivers.csv&#39; saved [2043/2043]
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.json
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2019-11-08 11:53:14--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/drivers.json
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4308 (4.2K) [text/plain]
+Saving to: &#39;drivers.json&#39;
+
+drivers.json        100%[===================&gt;]   4.21K  --.-KB/s    in 0.001s
+
+2019-11-08 11:53:14 (3.95 MB/s) - &#39;drivers.json&#39; saved [4308/4308]
+
+</pre></div></div>
+</div>
 <div class="section" id="Lectura-de-formato-JSON-desde-un-archivo-cargado-como-texto">
 <h2>Lectura de formato JSON desde un archivo cargado como texto<a class="headerlink" href="#Lectura-de-formato-JSON-desde-un-archivo-cargado-como-texto" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En esta estrategía de carga de datos, el archivo original con formato JSON es cargado como texto, donde cada registro de la tabla corresponde a una línea del archivo original.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
 <span class="c1">## Copia el archivo al HDFS para su importación posterior a Hive</span>
 <span class="c1">##</span>
-<span class="o">!</span>hdfs dfs -copyFromLocal drivers/drivers.json  /tmp/drivers/drivers.json
+<span class="o">!</span>hdfs dfs -copyFromLocal drivers.json  /tmp/drivers/
 </pre></div>
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hdfs dfs -ls /tmp/drivers/
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Found 1 items
+-rw-r--r--   1 root supergroup       4308 2019-11-08 11:53 /tmp/drivers/drivers.json
+</pre></div></div>
+</div>
 <p>En la siguiente celda, se crea la tabla <code class="docutils literal notranslate"><span class="pre">drivers_raw_json</span></code>, la cual tiene una única columna llamada <code class="docutils literal notranslate"><span class="pre">textcol</span></code>. Luego, el archivo <code class="docutils literal notranslate"><span class="pre">drivers.json</span></code> es cargado en dicha tabla. Finalmente, se visualizan los primeros cinco registros para verificar que la lectura fue correcta.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -458,19 +570,19 @@ SELECT * FROM drivers_raw_json LIMIT 5;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS drivers_raw_json;
 OK
-Time taken: 8.193 seconds
+Time taken: 7.144 seconds
 CREATE TABLE drivers_raw_json (
     textcol STRING
 )
 STORED AS TEXTFILE;
 OK
-Time taken: 0.557 seconds
+Time taken: 0.966 seconds
 LOAD DATA INPATH
     &#39;/tmp/drivers/drivers.json&#39;
 OVERWRITE INTO TABLE drivers_raw_json;
 Loading data to table default.drivers_raw_json
 OK
-Time taken: 0.889 seconds
+Time taken: 0.893 seconds
 SELECT * FROM drivers_raw_json LIMIT 5;
 OK
 {&#34;driverId&#34;:10,&#34;name&#34;:&#34;George Vetticaden&#34;,&#34;ssn&#34;:621011971,&#34;location&#34;:&#34;244-4532 Nulla Rd.&#34;,&#34;certified&#34;:&#34;N&#34;,&#34;wage-plan&#34;:&#34;miles&#34;}
@@ -478,7 +590,7 @@ OK
 {&#34;driverId&#34;:12,&#34;name&#34;:&#34;Paul Coddin&#34;,&#34;ssn&#34;:198041975,&#34;location&#34;:&#34;Ap #622-957 Risus. Street&#34;,&#34;certified&#34;:&#34;Y&#34;,&#34;wage-plan&#34;:&#34;hours&#34;}
 {&#34;driverId&#34;:13,&#34;name&#34;:&#34;Joe Niemiec&#34;,&#34;ssn&#34;:139907145,&#34;location&#34;:&#34;2071 Hendrerit. Ave&#34;,&#34;certified&#34;:&#34;Y&#34;,&#34;wage-plan&#34;:&#34;hours&#34;}
 {&#34;driverId&#34;:14,&#34;name&#34;:&#34;Adis Cesir&#34;,&#34;ssn&#34;:820812209,&#34;location&#34;:&#34;Ap #810-1228 In St.&#34;,&#34;certified&#34;:&#34;Y&#34;,&#34;wage-plan&#34;:&#34;hours&#34;}
-Time taken: 1.254 seconds, Fetched: 5 row(s)
+Time taken: 2.372 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 <p>Note que en la salida anterior, cada fila corresponde a un registro.</p>
@@ -486,7 +598,7 @@ Time taken: 1.254 seconds, Fetched: 5 row(s)
 <h3>Lectura usando get_json_object<a class="headerlink" href="#Lectura-usando-get_json_object" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los valores de los campos pueden ser extraídos usando la función <code class="docutils literal notranslate"><span class="pre">get_json_object</span></code>, cuyos parámetros son el nombre del campo en la tabla y el nombre del campo en la estructura JSON. En el siguiente fragmento de código, se utiliza una consulta para extraer los campos <code class="docutils literal notranslate"><span class="pre">driverId</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code> y <code class="docutils literal notranslate"><span class="pre">ssn</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -526,7 +638,7 @@ OK
 17      Eric Mizell     123808238
 18      Grant Liu       171010151
 19      Ajay Singh      160005158
-Time taken: 0.361 seconds, Fetched: 10 row(s)
+Time taken: 0.657 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -534,7 +646,7 @@ Time taken: 0.361 seconds, Fetched: 10 row(s)
 <h3>Uso de json_tuple<a class="headerlink" href="#Uso-de-json_tuple" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Esta función cumple el mismo objetivo de la anterior, pero es mucho más eficiente ya que el registro es procesado únicamente una vez para realizar la extracción de la información requerida. Ya que <code class="docutils literal notranslate"><span class="pre">json_tuple</span></code> es una UDF, debe usarse <code class="docutils literal notranslate"><span class="pre">LATERAL</span> <span class="pre">VIEW</span></code> para realizar la consulta, tal como se ejemplifica a continuación.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -573,7 +685,7 @@ OK
 12      Paul Coddin     198041975
 13      Joe Niemiec     139907145
 14      Adis Cesir      820812209
-Time taken: 0.079 seconds, Fetched: 5 row(s)
+Time taken: 0.106 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -582,20 +694,20 @@ Time taken: 0.079 seconds, Fetched: 5 row(s)
 <h2>Carga de archivos en formato JSON<a class="headerlink" href="#Carga-de-archivos-en-formato-JSON" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Hive también permite la importación directa de archivos en formato JSON usando el serde <code class="docutils literal notranslate"><span class="pre">JsonSerDe</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
 <span class="c1">## Se copia el archivo al sistema HDFS</span>
 <span class="c1">##</span>
-<span class="o">!</span>hdfs dfs -copyFromLocal drivers/drivers.json  /tmp/drivers/drivers.json
+<span class="o">!</span>hdfs dfs -copyFromLocal drivers.*  /tmp/drivers/
 </pre></div>
 </div>
 </div>
 <p>En la siguiente celda, se crea la tabla <code class="docutils literal notranslate"><span class="pre">drivers_json</span></code> donde el formato de cada registro es especificado como JSON</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -626,7 +738,7 @@ SELECT * FROM drivers_json LIMIT 5;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS drivers_json;
 OK
-Time taken: 0.083 seconds
+Time taken: 0.121 seconds
 CREATE TABLE drivers_json (
     driverId  INT,
     name      STRING,
@@ -638,11 +750,11 @@ ROW FORMAT SERDE &#39;org.apache.hive.hcatalog.data.JsonSerDe&#39;
 STORED AS TEXTFILE
 LOCATION &#39;/tmp/drivers-json&#39;;
 OK
-Time taken: 0.074 seconds
-json;
+Time taken: 0.099 seconds
+json;DATA INPATH &#39;/tmp/drivers/drivers.json&#39; OVERWRITE INTO TABLE drivers_
 Loading data to table default.drivers_json
 OK
-Time taken: 0.559 seconds
+Time taken: 0.436 seconds
 SELECT * FROM drivers_json LIMIT 5;
 OK
 10      George Vetticaden       621011971       244-4532 Nulla Rd.      N       NULL
@@ -650,27 +762,15 @@ OK
 12      Paul Coddin     198041975       Ap #622-957 Risus. Street       Y       NULL
 13      Joe Niemiec     139907145       2071 Hendrerit. Ave     Y       NULL
 14      Adis Cesir      820812209       Ap #810-1228 In St.     Y       NULL
-Time taken: 0.116 seconds, Fetched: 5 row(s)
+Time taken: 0.154 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Carga-de-archivos-en-formato-CSV">
 <h2>Carga de archivos en formato CSV<a class="headerlink" href="#Carga-de-archivos-en-formato-CSV" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En este ejemplo se usa el serde <code class="docutils literal notranslate"><span class="pre">OpenCSVSerde</span></code> para leer archivo en formato CSV. Note que se usa la cláusula <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">serdeproperties</span></code> para indicar las características del formato CSV utilizado.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## Se copia el archivo al sistema HDFS</span>
-<span class="c1">##</span>
-<span class="o">!</span>hdfs dfs -copyFromLocal drivers/drivers.csv  /tmp/drivers/drivers.csv
-</pre></div>
-</div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -703,7 +803,7 @@ SELECT * FROM drivers_csv LIMIT 5;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS drivers_csv;
 OK
-Time taken: 0.065 seconds
+Time taken: 0.096 seconds
 CREATE TABLE drivers_csv (driverId  INT,
                          name      STRING,
                          ssn       BIGINT,
@@ -717,11 +817,11 @@ WITH SERDEPROPERTIES (
    &#39;quoteChar&#39;     = &#39;\&#39;&#39;,
    &#39;escapeChar&#39;    = &#34;\\&#34;);
 OK
-Time taken: 0.046 seconds
-sv;
+Time taken: 0.074 seconds
+sv;D DATA INPATH &#39;/tmp/drivers/drivers.csv&#39; OVERWRITE INTO TABLE drivers_c
 Loading data to table default.drivers_csv
 OK
-Time taken: 0.483 seconds
+Time taken: 0.425 seconds
 SELECT * FROM drivers_csv LIMIT 5;
 OK
 driverId        name    ssn     location        certified       wage-plan
@@ -729,7 +829,7 @@ driverId        name    ssn     location        certified       wage-plan
 11      Jamie Engesser  262112338       366-4125 Ac Street      N       miles
 12      Paul Coddin     198041975       Ap #622-957 Risus. Street       Y       hours
 13      Joe Niemiec     139907145       2071 Hendrerit. Ave     Y       hours
-Time taken: 0.107 seconds, Fetched: 5 row(s)
+Time taken: 0.158 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -737,19 +837,19 @@ Time taken: 0.107 seconds, Fetched: 5 row(s)
 <h2>Carga usando expresiones regulaes y RegexSerDe<a class="headerlink" href="#Carga-usando-expresiones-regulaes-y-RegexSerDe" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En este caso, se realiza la carga de datos especificando los campos mediante el uso de expresiones regulares.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
 <span class="c1">## Copia los archivos al HDFS</span>
 <span class="c1">##</span>
-<span class="o">!</span>hdfs dfs -copyFromLocal drivers/drivers.csv  /tmp/drivers/drivers.csv
+<span class="o">!</span>hdfs dfs -copyFromLocal drivers.csv  /tmp/drivers/
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -782,7 +882,7 @@ SELECT * FROM drivers_regex LIMIT 5;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS drivers_regex;
 OK
-Time taken: 0.052 seconds
+Time taken: 0.079 seconds
 CREATE TABLE drivers_regex(
     driverId  INT,
     name      STRING,
@@ -796,11 +896,11 @@ WITH SERDEPROPERTIES (
    &#39;input.regex&#39; = &#39;(\\d+),([^,]*),(\\d+),([^,]*),([^,]*),([^,]*)&#39;)
 TBLPROPERTIES (&#34;skip.header.line.count&#34;=&#34;1&#34;);
 OK
-Time taken: 0.049 seconds
-egex;
+Time taken: 0.074 seconds
+egex;DATA INPATH &#39;/tmp/drivers/drivers.csv&#39; OVERWRITE INTO TABLE drivers_r
 Loading data to table default.drivers_regex
 OK
-Time taken: 0.438 seconds
+Time taken: 0.433 seconds
 SELECT * FROM drivers_regex LIMIT 5;
 OK
 10      George Vetticaden       621011971       244-4532 Nulla Rd.      N       miles
@@ -808,7 +908,7 @@ OK
 12      Paul Coddin     198041975       Ap #622-957 Risus. Street       Y       hours
 13      Joe Niemiec     139907145       2071 Hendrerit. Ave     Y       hours
 14      Adis Cesir      820812209       Ap #810-1228 In St.     Y       hours
-Time taken: 0.102 seconds, Fetched: 5 row(s)
+Time taken: 0.132 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 <p>La expresión regular usada es la siguiente:</p>
@@ -823,6 +923,15 @@ Time taken: 0.102 seconds, Fetched: 5 row(s)
 <li><p><code class="docutils literal notranslate"><span class="pre">[...]</span></code> representan uno o más posibles caracteres, de tal forma que <code class="docutils literal notranslate"><span class="pre">[^,]</span></code> indica cualquier caracter excepto una coma. Finalmente, el * indica cero, una o más ocurrencias. Es así como <code class="docutils literal notranslate"><span class="pre">[^,]*</span></code> representa cualquier cadena de caracteres que no contenga una coma.</p></li>
 <li><p>La expresión regular usada indica que los campos 1 y 3 son numéricos, y los restantes son texto.</p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm drivers.* *.log
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

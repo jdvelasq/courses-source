@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -37,7 +38,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Funciones de Usuario (udfs)" href="2-06-udfs.html" />
+    <link rel="prev" title="Programación Avanzada" href="2-04-advanced.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +82,14 @@
             
             
               <p class="caption"><span class="caption-text">Cursos</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../analitica-de-grandes-datos/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/setup.html">Configuración del software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/grades.html">Laboratorios de Programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/course-info.html">Información del curso</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
@@ -131,6 +140,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/content.html">Sesiones</a> &raquo;</li>
         
       <li>Tipos de datos complejos</li>
     
@@ -375,13 +388,33 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Tipos-de-datos-complejos">
 <h1>Tipos de datos complejos<a class="headerlink" href="#Tipos-de-datos-complejos" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p>60 min | Última modificación: Noviembre 07, 2019</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">load_ext</span> bigdata
-<span class="o">%</span><span class="k">pig_init</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">pig_start</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeout</span> 300
 </pre></div>
 </div>
 </div>
@@ -401,7 +434,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p>### TUPLE</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -421,8 +454,17 @@ div.rendered_html tbody tr:hover {
 Writing data.tsv
 </pre></div></div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -put data.tsv
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -442,6 +484,41 @@ DUMP u;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ --
+ -- Los campos del archivo est??n separados por
+ -- tabuladores.
+ --
+ u = LOAD &#39;data.tsv&#39;
+    AS (f1:CHARARRAY, f2:INT, f3:TUPLE(p:INT, q:INT));
+ DUMP u;
+2019-11-07 21:09:05,968 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:06,260 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.job.reduce.markreset.buffer.percent is deprecated. Instead, use mapreduce.reduce.markreset.buffer.percent
+2019-11-07 21:09:06,265 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.output.compress is deprecated. Instead, use mapreduce.output.fileoutputformat.compress
+2019-11-07 21:09:06,279 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.submit.replication is deprecated. Instead, use mapreduce.client.submit.file.replication
+2019-11-07 21:09:06,723 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.job.tracker.http.address is deprecated. Instead, use mapreduce.jobtracker.http.address
+2019-11-07 21:09:06,737 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:06,761 [JobControl] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+2019-11-07 21:09:06,891 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:09:06,918 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:09:07,008 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:09:07,156 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0084
+2019-11-07 21:09:07,347 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:09:07,504 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0084
+2019-11-07 21:09:07,564 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0084/
+2019-11-07 21:09:27,833 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:27,844 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:28,025 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:28,032 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:28,058 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.reduce.tasks is deprecated. Instead, use mapreduce.job.reduces
+2019-11-07 21:09:28,059 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:28,063 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:28,159 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:28,164 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:28,207 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:28,211 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:28,241 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:28,246 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:28,298 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (A,10,(1,2))
 (B,20,(3,4))
 (C,30,(5,6))
@@ -449,7 +526,7 @@ DUMP u;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -468,6 +545,34 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ --
+ -- Los campos de la tupla pueden ser accesados
+ -- por nombre o por posici??n.
+ --
+ r = FOREACH u GENERATE f3.p, f3.$1 ;
+ DUMP r;
+2019-11-07 21:09:28,874 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:29,840 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:29,855 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:09:29,869 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:09:29,907 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:09:29,966 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0085
+2019-11-07 21:09:29,971 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:09:30,212 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0085
+2019-11-07 21:09:30,217 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0085/
+2019-11-07 21:09:50,578 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:50,585 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:50,645 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:50,651 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:50,673 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:50,676 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:50,704 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:50,707 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:50,737 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:50,742 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:50,763 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:50,768 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:09:50,800 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (1,2)
 (3,4)
 (5,6)
@@ -475,14 +580,14 @@ DUMP r;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">pig</span>
 --
--- Aquí se accesan los campos de la tupla por
--- posición ya que no tienen nombre.
+-- Aqui se accesan los campos de la tupla por
+-- posicion ya que no tienen nombre.
 --
 u = LOAD &#39;data.tsv&#39; AS (f1:CHARARRAY, f2:INT, f3:TUPLE(INT, INT));
 r = FOREACH u GENERATE $2.$0, $2.$1;
@@ -495,6 +600,35 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ --
+ -- Aqu?? se accesan los campos de la tupla por
+ -- posici??n ya que no tienen nombre.
+ --
+ u = LOAD &#39;data.tsv&#39; AS (f1:CHARARRAY, f2:INT, f3:TUPLE(INT, INT));
+ r = FOREACH u GENERATE $2.$0, $2.$1;
+ DUMP r;
+2019-11-07 21:09:51,431 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:51,967 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:09:51,995 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:09:52,011 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:09:52,045 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:09:52,067 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0086
+2019-11-07 21:09:52,070 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:09:52,103 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0086
+2019-11-07 21:09:52,109 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0086/
+2019-11-07 21:10:12,606 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:12,620 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:12,683 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:12,687 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:12,712 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:12,715 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:12,743 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:12,747 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:12,796 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:12,808 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:12,831 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:12,834 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:12,861 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (1,2)
 (3,4)
 (5,6)
@@ -502,7 +636,7 @@ DUMP r;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -521,8 +655,26 @@ DUMP r;
 Overwriting data.tsv
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -rm data.tsv
+<span class="o">!</span>hadoop fs -put data.tsv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Deleted data.tsv
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -538,10 +690,25 @@ r = FOREACH u GENERATE f1, t2.t2b;
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ --
+ -- Se seleccionan los campos por nombre
+ --
+ u = LOAD &#39;data.tsv&#39;
+    AS (f1: CHARARRAY,
+        t1: TUPLE(t1a: INT, t1b: INT),
+        t2: TUPLE(t2a: INT, t2b: INT));
+ r = FOREACH u GENERATE f1, t2.t2b;
+</pre></div></div>
+</div>
 <div class="section" id="BAG">
 <h3>BAG<a class="headerlink" href="#BAG" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -562,7 +729,25 @@ Overwriting data.tsv
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -rm data.tsv
+<span class="o">!</span>hadoop fs -put data.tsv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Deleted data.tsv
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -582,6 +767,35 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ --
+ -- Se selecciona el `bag` por nombre
+ --
+ u = LOAD &#39;data.tsv&#39;
+    AS (f1:CHARARRAY, f2:INT, f3:BAG{t: TUPLE(p:INT, q:INT)});
+ r = FOREACH u GENERATE f3;
+ DUMP r;
+2019-11-07 21:10:29,847 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:29,965 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:29,989 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:10:30,000 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:10:30,040 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:10:30,059 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0087
+2019-11-07 21:10:30,062 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:10:30,088 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0087
+2019-11-07 21:10:30,090 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0087/
+2019-11-07 21:10:50,109 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,117 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:50,177 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,182 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:50,202 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,206 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:50,227 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,230 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:50,256 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,258 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:50,277 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,280 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:10:50,310 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 ({(1,2),(3,4)})
 ({(5,6),(7,8)})
 ({(9,10),(11,12)})
@@ -589,7 +803,7 @@ DUMP r;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -604,6 +818,30 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ r = FOREACH u GENERATE f3.p;
+ DUMP r;
+2019-11-07 21:10:50,612 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,737 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:10:50,754 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:10:50,768 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:10:50,799 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:10:50,831 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0088
+2019-11-07 21:10:50,835 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:10:50,859 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0088
+2019-11-07 21:10:50,864 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0088/
+2019-11-07 21:11:11,300 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:11,307 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:11,368 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:11,375 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:11,396 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:11,398 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:11,421 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:11,424 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:11,446 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:11,449 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:11,468 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:11,471 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:11,500 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 ({(1),(3)})
 ({(5),(7)})
 ({(9),(11)})
@@ -614,7 +852,7 @@ DUMP r;
 <div class="section" id="MAP">
 <h3>MAP<a class="headerlink" href="#MAP" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -635,7 +873,25 @@ Overwriting data.tsv
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -rm data.tsv
+<span class="o">!</span>hadoop fs -put data.tsv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Deleted data.tsv
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -652,6 +908,32 @@ DUMP r
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ u = LOAD &#39;data.tsv&#39;
+    AS (f1:CHARARRAY, f2:INT, f3:MAP[]);
+ r = FOREACH u GENERATE f3#&#39;a&#39;, f3#&#39;c&#39;;
+ DUMP r
+2019-11-07 21:11:19,817 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:19,942 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:19,954 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:11:19,961 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:11:20,002 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:11:20,022 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0089
+2019-11-07 21:11:20,024 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:11:20,054 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0089
+2019-11-07 21:11:20,057 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0089/
+2019-11-07 21:11:40,108 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:40,119 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:40,174 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:40,178 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:40,196 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:40,198 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:40,219 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:40,221 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:40,243 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:40,246 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:40,265 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:40,268 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:11:40,294 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (1,)
 (3,4)
 (,6)
@@ -660,7 +942,7 @@ DUMP r
 </div>
 <p>## Manipulación de datos complejos: FLATTEN</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -681,7 +963,25 @@ Overwriting data.tsv
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -rm data.tsv
+<span class="o">!</span>hadoop fs -put data.tsv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Deleted data.tsv
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -697,6 +997,31 @@ DUMP u;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ u = LOAD &#39;data.tsv&#39;
+    AS (f1:CHARARRAY, f2:INT, f3:TUPLE(p:INT, q:INT));
+ DUMP u;
+2019-11-07 21:11:48,516 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:48,649 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:11:48,660 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:11:48,669 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:11:49,114 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:11:49,540 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0090
+2019-11-07 21:11:49,544 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:11:49,567 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0090
+2019-11-07 21:11:49,571 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0090/
+2019-11-07 21:12:09,698 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:09,706 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:09,759 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:09,762 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:09,785 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:09,788 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:09,808 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:09,816 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:09,839 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:09,841 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:09,861 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:09,863 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:09,891 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (A,10,(1,2))
 (B,20,(3,4))
 (C,30,(5,6))
@@ -704,7 +1029,7 @@ DUMP u;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -719,6 +1044,30 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ r = FOREACH u GENERATE f1, FLATTEN(f3);
+ DUMP r;
+2019-11-07 21:12:10,231 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:10,756 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:10,767 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:12:10,776 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:12:10,808 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:12:10,827 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0091
+2019-11-07 21:12:10,829 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:12:10,849 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0091
+2019-11-07 21:12:10,853 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0091/
+2019-11-07 21:12:30,934 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:30,947 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:30,995 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:30,998 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:31,015 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:31,018 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:31,038 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:31,040 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:31,062 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:31,065 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:31,082 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:31,088 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:31,125 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (A,1,2)
 (B,3,4)
 (C,5,6)
@@ -726,7 +1075,7 @@ DUMP r;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -747,7 +1096,25 @@ Overwriting data.tsv
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -rm data.tsv
+<span class="o">!</span>hadoop fs -put data.tsv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Deleted data.tsv
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -763,6 +1130,31 @@ DUMP u;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ u = LOAD &#39;data.tsv&#39;
+    AS (f1:CHARARRAY, f2:INT, f3:BAG{t:(p:INT)});
+ DUMP u;
+2019-11-07 21:12:39,620 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:39,731 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:39,741 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:12:39,750 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:12:39,782 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:12:39,817 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0092
+2019-11-07 21:12:39,820 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:12:39,846 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0092
+2019-11-07 21:12:39,849 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0092/
+2019-11-07 21:12:59,853 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:59,862 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:59,918 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:59,923 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:59,941 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:59,944 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:59,965 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:59,968 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:12:59,991 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:12:59,994 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:00,012 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:00,015 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:00,041 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (A,10,{(1),(2)})
 (B,20,{(3),(4)})
 (C,30,{(5),(6)})
@@ -770,7 +1162,7 @@ DUMP u;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -785,6 +1177,30 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ r = FOREACH u GENERATE f1, FLATTEN(f3);
+ DUMP r;
+2019-11-07 21:13:00,396 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:00,488 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:00,501 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:13:00,509 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:13:00,540 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:13:00,558 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0093
+2019-11-07 21:13:00,561 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:13:00,590 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0093
+2019-11-07 21:13:00,593 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0093/
+2019-11-07 21:13:20,708 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:20,718 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:20,774 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:20,778 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:20,796 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:20,801 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:20,821 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:20,826 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:20,848 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:20,851 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:20,867 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:20,870 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:20,897 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (A,1)
 (A,2)
 (B,3)
@@ -796,7 +1212,7 @@ DUMP r;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -811,6 +1227,30 @@ DUMP r;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ r = FOREACH u GENERATE FLATTEN(f3);
+ DUMP r;
+2019-11-07 21:13:21,257 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:21,386 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:21,397 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:13:21,408 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:13:21,444 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:13:21,462 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0094
+2019-11-07 21:13:21,464 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:13:21,487 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0094
+2019-11-07 21:13:21,490 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0094/
+2019-11-07 21:13:41,645 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:41,649 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:41,702 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:41,714 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:41,737 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:41,740 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:41,760 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:41,763 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:41,784 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:41,786 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:41,803 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:41,805 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:13:41,840 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (1)
 (2)
 (3)
@@ -822,7 +1262,7 @@ DUMP r;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -843,6 +1283,36 @@ DUMP r1;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ --
+ -- se pueden colocar varios comandos dentro de
+ -- un FOREACH
+ --
+ r1 = FOREACH u {
+        GENERATE FLATTEN(f3);
+};
+ DUMP r1;
+2019-11-07 21:13:42,554 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:42,674 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:13:42,686 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:13:42,703 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:13:42,734 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:13:42,753 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0095
+2019-11-07 21:13:42,758 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:13:42,782 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0095
+2019-11-07 21:13:42,789 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0095/
+2019-11-07 21:14:02,793 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:02,796 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:02,862 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:02,865 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:02,888 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:02,891 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:02,913 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:02,916 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:02,934 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:02,937 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:02,954 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:02,957 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:02,982 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (1)
 (2)
 (3)
@@ -854,7 +1324,7 @@ DUMP r1;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -869,19 +1339,56 @@ DUMP r1;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+ r1 = FOREACH u GENERATE (DOUBLE) $1;
+ DUMP r1;
+2019-11-07 21:14:03,339 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:03,873 [JobControl] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:03,885 [JobControl] WARN  org.apache.hadoop.mapreduce.JobResourceUploader - No job jar file set.  User classes may not be found. See Job or Job#setJar(String).
+2019-11-07 21:14:03,896 [JobControl] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
+2019-11-07 21:14:04,336 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - number of splits:1
+2019-11-07 21:14:04,763 [JobControl] INFO  org.apache.hadoop.mapreduce.JobSubmitter - Submitting tokens for job: job_1573155851190_0096
+2019-11-07 21:14:04,767 [JobControl] INFO  org.apache.hadoop.mapred.YARNRunner - Job jar is not present. Not adding any jar to the list of resources.
+2019-11-07 21:14:04,792 [JobControl] INFO  org.apache.hadoop.yarn.client.api.impl.YarnClientImpl - Submitted application application_1573155851190_0096
+2019-11-07 21:14:04,795 [JobControl] INFO  org.apache.hadoop.mapreduce.Job - The url to track the job: http://e02c53b9a946:8088/proxy/application_1573155851190_0096/
+2019-11-07 21:14:24,936 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:24,940 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:24,999 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:25,002 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:25,020 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:25,022 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:25,041 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:25,044 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:25,065 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:25,069 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:25,086 [main] INFO  org.apache.hadoop.yarn.client.RMProxy - Connecting to ResourceManager at /0.0.0.0:8032
+2019-11-07 21:14:25,088 [main] INFO  org.apache.hadoop.mapred.ClientServiceDelegate - Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+2019-11-07 21:14:25,112 [main] INFO  org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input files to process : 1
 (10.0)
 (20.0)
 (30.0)
 (40.0)
 </pre></div></div>
 </div>
-<hr class="docutils" />
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</div>
+</div>
+<div class="section" id="Limpieza-del-sistema">
+<h2>Limpieza del sistema<a class="headerlink" href="#Limpieza-del-sistema" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>rm attempt_local* pig_* persons.* data.* demo.py jointable.*
+<span></span><span class="o">%</span><span class="k">pig_quit</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm *.tsv
+<span class="o">!</span>hadoop fs -rm *.tsv
 </pre></div>
 </div>
 </div>
@@ -890,12 +1397,8 @@ DUMP r1;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-rm: attempt_local*: No such file or directory
-rm: persons.*: No such file or directory
-rm: demo.py: No such file or directory
-rm: jointable.*: No such file or directory
+Deleted data.tsv
 </pre></div></div>
-</div>
 </div>
 </div>
 </div>

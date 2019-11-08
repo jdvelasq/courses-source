@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -37,7 +38,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Carga de datos en distintos formatos" href="2-06-carga-de-datos-en-distintos-formatos.html" />
+    <link rel="prev" title="Procesamiento de datos con Hive" href="2-03-procesamiento-de-datos-con-hive.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +82,14 @@
             
             
               <p class="caption"><span class="caption-text">Cursos</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../analitica-de-grandes-datos/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/setup.html">Configuración del software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/grades.html">Laboratorios de Programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/course-info.html">Información del curso</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
@@ -131,6 +140,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/content.html">Sesiones</a> &raquo;</li>
         
       <li>Transacciones ACID (Insert/ Update / Delete) en Hive</li>
     
@@ -423,13 +436,13 @@ TBLPROPERTIES (&#39;transactional&#39;=&#39;true&#39;);
 <div class="highlight"><pre>
 DROP DATABASE IF EXISTS demo CASCADE;
 OK
-Time taken: 8.526 seconds
+Time taken: 5.96 seconds
 CREATE DATABASE demo;
 OK
-Time taken: 0.49 seconds
+Time taken: 0.48 seconds
 USE demo;
 OK
-Time taken: 0.011 seconds
+Time taken: 0.014 seconds
 CREATE TABLE persons (
     id        INT,
     firstname STRING,
@@ -443,7 +456,7 @@ STORED AS ORC
 LOCATION &#39;/tmp/hive-partitioned&#39;
 TBLPROPERTIES (&#39;transactional&#39;=&#39;true&#39;);
 OK
-Time taken: 0.539 seconds
+Time taken: 0.508 seconds
 </pre></div></div>
 </div>
 </div>
@@ -545,7 +558,7 @@ INSERT INTO persons PARTITION (color=&#39;yellow&#39;) VALUES
 <div class="highlight"><pre>
 --
 -- Inserta el registro en la tabla.
--- Los valores están en el mismo orden de los campos.
+-- Los valores est??n en el mismo orden de los campos.
 --
 INSERT INTO persons PARTITION (color=&#39;green&#39;) VALUES
     (1,&#34;Vivian&#34;,&#34;Hamilton&#34;,&#34;1971-07-08&#34;,1),
@@ -553,7 +566,7 @@ INSERT INTO persons PARTITION (color=&#39;green&#39;) VALUES
     (12,&#34;Hope&#34;,&#34;Coffey&#34;,&#34;1973-12-24&#34;,5),
     (17,&#34;Chanda&#34;,&#34;Boyer&#34;,&#34;1973-04-01&#34;,4);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124023_1702031a-ab20-4e2d-9aa6-e71950b914aa
+Query ID = root_20191108112709_a9562cf2-8654-4a91-b09a-fd8b80db5cd3
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -563,27 +576,27 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0111, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0111/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0111
+Starting Job = job_1573207742881_0008, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0008/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0008
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:40:32,541 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:40:38,058 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.67 sec
-2019-06-07 12:40:43,636 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.07 sec
-2019-06-07 12:40:44,713 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 6.56 sec
-2019-06-07 12:40:45,785 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.92 sec
-MapReduce Total cumulative CPU time: 8 seconds 920 msec
-Ended Job = job_1558824450495_0111
+2019-11-08 11:27:25,014 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:27:32,536 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.38 sec
+2019-11-08 11:27:42,181 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 5.59 sec
+2019-11-08 11:27:43,236 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 9.41 sec
+2019-11-08 11:27:44,293 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.01 sec
+MapReduce Total cumulative CPU time: 13 seconds 10 msec
+Ended Job = job_1573207742881_0008
 Loading data to table demo.persons partition (color=green)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.92 sec   HDFS Read: 20564 HDFS Write: 3008 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 920 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 13.01 sec   HDFS Read: 20555 HDFS Write: 2970 SUCCESS
+Total MapReduce CPU Time Spent: 13 seconds 10 msec
 OK
-Time taken: 24.135 seconds
+Time taken: 37.69 seconds
 INSERT INTO persons PARTITION (color=&#39;black&#39;) VALUES
     (4,&#34;Roth&#34;,&#34;Fry&#34;,&#34;1975-01-29&#34;,1),
     (10,&#34;Kylan&#34;,&#34;Sexton&#34;,&#34;1975-02-28&#34;,4);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124047_e65ba5b5-7b81-45e7-9789-a2e8590b59ae
+Query ID = root_20191108112747_a9040acb-8857-4afb-b2c2-7d72ea27b941
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -593,28 +606,28 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0112, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0112/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0112
+Starting Job = job_1573207742881_0009, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0009/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0009
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:40:56,574 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:41:00,927 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.6 sec
-2019-06-07 12:41:07,485 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.15 sec
-2019-06-07 12:41:09,702 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 7.12 sec
-2019-06-07 12:41:10,768 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 9.5 sec
-MapReduce Total cumulative CPU time: 9 seconds 500 msec
-Ended Job = job_1558824450495_0112
+2019-11-08 11:28:01,558 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:28:08,951 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.47 sec
+2019-11-08 11:28:19,614 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 5.37 sec
+2019-11-08 11:28:20,658 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 8.86 sec
+2019-11-08 11:28:21,708 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 11.78 sec
+MapReduce Total cumulative CPU time: 11 seconds 780 msec
+Ended Job = job_1573207742881_0009
 Loading data to table demo.persons partition (color=black)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 9.5 sec   HDFS Read: 20575 HDFS Write: 1578 SUCCESS
-Total MapReduce CPU Time Spent: 9 seconds 500 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 11.78 sec   HDFS Read: 20557 HDFS Write: 1567 SUCCESS
+Total MapReduce CPU Time Spent: 11 seconds 780 msec
 OK
-Time taken: 24.386 seconds
+Time taken: 36.561 seconds
 INSERT INTO persons PARTITION (color=&#39;blue&#39;) VALUES
     (5,&#34;Zoe&#34;,&#34;Conway&#34;,&#34;1974-07-03&#34;,2),
     (7,&#34;Driscoll&#34;,&#34;Klein&#34;,&#34;1970-10-05&#34;,5),
     (15,&#34;Hope&#34;,&#34;Silva&#34;,&#34;1970-07-01&#34;,5);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124112_3e6be5d3-9cb7-4d6e-8889-73edc95fd00a
+Query ID = root_20191108112824_2a8dd8c1-8a5b-429e-8a42-0fc51256d00f
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -624,26 +637,26 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0113, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0113/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0113
+Starting Job = job_1573207742881_0010, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0010/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0010
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:41:21,737 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:41:26,053 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.71 sec
-2019-06-07 12:41:32,686 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.07 sec
-2019-06-07 12:41:33,759 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.79 sec
-MapReduce Total cumulative CPU time: 8 seconds 790 msec
-Ended Job = job_1558824450495_0113
+2019-11-08 11:28:36,862 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:28:45,255 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.05 sec
+2019-11-08 11:28:57,007 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 7.12 sec
+2019-11-08 11:28:58,082 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 14.66 sec
+MapReduce Total cumulative CPU time: 14 seconds 660 msec
+Ended Job = job_1573207742881_0010
 Loading data to table demo.persons partition (color=blue)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.79 sec   HDFS Read: 20572 HDFS Write: 2917 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 790 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 14.66 sec   HDFS Read: 20581 HDFS Write: 2884 SUCCESS
+Total MapReduce CPU Time Spent: 14 seconds 660 msec
 OK
-Time taken: 22.788 seconds
+Time taken: 36.14 seconds
 INSERT INTO persons PARTITION (color=&#39;orange&#39;) VALUES
     (3,&#34;Cody&#34;,&#34;Garrett&#34;,&#34;1973-04-22&#34;,1),
     (16,&#34;Ayanna&#34;,&#34;Jarvis&#34;,&#34;1974-02-11&#34;,5);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124135_4c5d56e3-a86d-4edd-876d-515f70829871
+Query ID = root_20191108112900_bf7dbd6b-13ce-49ec-8ac6-fae0c9ef375f
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -653,26 +666,25 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0114, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0114/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0114
+Starting Job = job_1573207742881_0011, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0011/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0011
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:41:45,122 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:41:49,420 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.63 sec
-2019-06-07 12:41:55,967 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.11 sec
-2019-06-07 12:41:57,026 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 6.63 sec
-2019-06-07 12:41:58,088 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.76 sec
-MapReduce Total cumulative CPU time: 8 seconds 760 msec
-Ended Job = job_1558824450495_0114
+2019-11-08 11:29:14,491 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:29:21,934 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.31 sec
+2019-11-08 11:29:31,462 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 5.44 sec
+2019-11-08 11:29:33,528 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.42 sec
+MapReduce Total cumulative CPU time: 12 seconds 420 msec
+Ended Job = job_1573207742881_0011
 Loading data to table demo.persons partition (color=orange)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.76 sec   HDFS Read: 20595 HDFS Write: 2225 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 760 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 12.42 sec   HDFS Read: 20586 HDFS Write: 2202 SUCCESS
+Total MapReduce CPU Time Spent: 12 seconds 420 msec
 OK
-Time taken: 24.07 seconds
+Time taken: 35.164 seconds
 INSERT INTO persons PARTITION (color=&#39;violet&#39;) VALUES
     (6,&#34;Gretchen&#34;,&#34;Kinney&#34;,&#34;1974-10-18&#34;,1);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124159_e18522ab-3080-4e47-b6a6-463d5f32307c
+Query ID = root_20191108112936_c1e0d4d3-23e9-41e8-907c-98eea81c3549
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -682,27 +694,26 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0115, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0115/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0115
+Starting Job = job_1573207742881_0012, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0012/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0012
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:42:09,504 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:42:13,785 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.64 sec
-2019-06-07 12:42:20,404 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.23 sec
-2019-06-07 12:42:21,475 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 6.53 sec
-2019-06-07 12:42:22,542 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.65 sec
-MapReduce Total cumulative CPU time: 8 seconds 650 msec
-Ended Job = job_1558824450495_0115
+2019-11-08 11:29:50,350 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:29:57,734 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.54 sec
+2019-11-08 11:30:08,216 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 5.68 sec
+2019-11-08 11:30:10,296 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.39 sec
+MapReduce Total cumulative CPU time: 12 seconds 390 msec
+Ended Job = job_1573207742881_0012
 Loading data to table demo.persons partition (color=violet)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.65 sec   HDFS Read: 20568 HDFS Write: 1538 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 650 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 12.39 sec   HDFS Read: 20550 HDFS Write: 1531 SUCCESS
+Total MapReduce CPU Time Spent: 12 seconds 390 msec
 OK
-Time taken: 24.337 seconds
+Time taken: 36.923 seconds
 INSERT INTO persons PARTITION (color=&#39;red&#39;) VALUES
     (8,&#34;Karyn&#34;,&#34;Diaz&#34;,&#34;1969-02-24&#34;,1),
     (14,&#34;Clio&#34;,&#34;Noel&#34;,&#34;1972-12-12&#34;,5);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124224_f086bb64-984d-4ca3-8007-961d85964a6e
+Query ID = root_20191108113013_846ea62a-4984-4482-851e-d34386cf875f
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -712,27 +723,27 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0116, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0116/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0116
+Starting Job = job_1573207742881_0013, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0013/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0013
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:42:33,627 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:42:37,967 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.66 sec
-2019-06-07 12:42:43,422 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 3.45 sec
-2019-06-07 12:42:44,494 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 5.58 sec
-2019-06-07 12:42:46,629 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 7.87 sec
-MapReduce Total cumulative CPU time: 7 seconds 870 msec
-Ended Job = job_1558824450495_0116
+2019-11-08 11:30:26,374 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:30:34,752 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.4 sec
+2019-11-08 11:30:45,371 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 6.07 sec
+2019-11-08 11:30:46,409 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 9.25 sec
+2019-11-08 11:30:47,451 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.0 sec
+MapReduce Total cumulative CPU time: 13 seconds 0 msec
+Ended Job = job_1573207742881_0013
 Loading data to table demo.persons partition (color=red)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 7.87 sec   HDFS Read: 20544 HDFS Write: 1584 SUCCESS
-Total MapReduce CPU Time Spent: 7 seconds 870 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 13.0 sec   HDFS Read: 20535 HDFS Write: 1570 SUCCESS
+Total MapReduce CPU Time Spent: 13 seconds 0 msec
 OK
-Time taken: 23.864 seconds
+Time taken: 35.664 seconds
 INSERT INTO persons PARTITION (color=&#39;indigo&#39;) VALUES
     (9,&#34;Merritt&#34;,&#34;Guy&#34;,&#34;1974-10-17&#34;,4),
     (11,&#34;Jordan&#34;,&#34;Estes&#34;,&#34;1969-12-07&#34;,4);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124248_e6715129-f9b5-4cd5-864b-31d2a954f7e0
+Query ID = root_20191108113049_8416c3fb-13fc-4f00-9537-85fa7ffff037
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -742,26 +753,26 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0117, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0117/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0117
+Starting Job = job_1573207742881_0014, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0014/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0014
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:42:57,475 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:43:01,811 Stage-1 map = 100%,  reduce = 0%
-2019-06-07 12:43:08,380 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.04 sec
-2019-06-07 12:43:09,503 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 4.04 sec
-2019-06-07 12:43:10,552 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.61 sec
-MapReduce Total cumulative CPU time: 8 seconds 610 msec
-Ended Job = job_1558824450495_0117
+2019-11-08 11:31:02,710 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:31:11,065 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.59 sec
+2019-11-08 11:31:21,691 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 6.03 sec
+2019-11-08 11:31:22,746 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 9.77 sec
+2019-11-08 11:31:24,829 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.63 sec
+MapReduce Total cumulative CPU time: 13 seconds 630 msec
+Ended Job = job_1573207742881_0014
 Loading data to table demo.persons partition (color=indigo)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.61 sec   HDFS Read: 20593 HDFS Write: 2230 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 610 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 13.63 sec   HDFS Read: 20584 HDFS Write: 2207 SUCCESS
+Total MapReduce CPU Time Spent: 13 seconds 630 msec
 OK
-Time taken: 23.745 seconds
+Time taken: 37.22 seconds
 INSERT INTO persons PARTITION (color=&#39;gray&#39;) VALUES
     (13,&#34;Vivian&#34;,&#34;Crane&#34;,&#34;1970-08-27&#34;,5);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124312_f3b55fca-5a9e-4135-b840-703d20e5caf4
+Query ID = root_20191108113126_90ccd071-670f-45b3-a813-7f4cbc719a4d
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -771,26 +782,26 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0118, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0118/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0118
+Starting Job = job_1573207742881_0015, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0015/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0015
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:43:21,695 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:43:25,928 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.71 sec
-2019-06-07 12:43:32,452 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 3.95 sec
-2019-06-07 12:43:33,752 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 6.28 sec
-2019-06-07 12:43:34,805 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.48 sec
-MapReduce Total cumulative CPU time: 8 seconds 480 msec
-Ended Job = job_1558824450495_0118
+2019-11-08 11:31:40,547 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:31:47,876 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.38 sec
+2019-11-08 11:31:58,442 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 6.04 sec
+2019-11-08 11:31:59,492 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 9.43 sec
+2019-11-08 11:32:00,549 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.83 sec
+MapReduce Total cumulative CPU time: 12 seconds 830 msec
+Ended Job = job_1573207742881_0015
 Loading data to table demo.persons partition (color=gray)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.48 sec   HDFS Read: 20536 HDFS Write: 1532 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 480 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 12.83 sec   HDFS Read: 20527 HDFS Write: 1520 SUCCESS
+Total MapReduce CPU Time Spent: 12 seconds 830 msec
 OK
-Time taken: 24.139 seconds
+Time taken: 36.646 seconds
 INSERT INTO persons PARTITION (color=&#39;yellow&#39;) VALUES
     (18,&#34;Chadwick&#34;,&#34;Knight&#34;,&#34;1973-04-29&#34;,1);
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124336_d51ffd3b-30a8-4047-96c4-3772e3b4cf6b
+Query ID = root_20191108113203_aa3fb695-2d94-41f2-bb07-28498a7ed4d3
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -800,22 +811,21 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0119, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0119/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0119
+Starting Job = job_1573207742881_0016, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0016/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0016
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 3
-2019-06-07 12:43:45,550 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:43:49,873 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.69 sec
-2019-06-07 12:43:56,439 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 4.07 sec
-2019-06-07 12:43:57,515 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 6.2 sec
-2019-06-07 12:43:58,588 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.33 sec
-MapReduce Total cumulative CPU time: 8 seconds 330 msec
-Ended Job = job_1558824450495_0119
+2019-11-08 11:32:16,515 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:32:24,900 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.35 sec
+2019-11-08 11:32:36,553 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 9.85 sec
+2019-11-08 11:32:37,597 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 12.84 sec
+MapReduce Total cumulative CPU time: 12 seconds 840 msec
+Ended Job = job_1573207742881_0016
 Loading data to table demo.persons partition (color=yellow)
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 8.33 sec   HDFS Read: 20569 HDFS Write: 1546 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 330 msec
+Stage-Stage-1: Map: 1  Reduce: 3   Cumulative CPU: 12.84 sec   HDFS Read: 20560 HDFS Write: 1539 SUCCESS
+Total MapReduce CPU Time Spent: 12 seconds 840 msec
 OK
-Time taken: 23.655 seconds
+Time taken: 36.831 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -853,7 +863,7 @@ OK
 8       Karyn   Diaz    1969-02-24 00:00:00     1       red
 6       Gretchen        Kinney  1974-10-18 00:00:00     1       violet
 18      Chadwick        Knight  1973-04-29 00:00:00     1       yellow
-Time taken: 0.292 seconds, Fetched: 18 row(s)
+Time taken: 0.387 seconds, Fetched: 18 row(s)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -871,15 +881,15 @@ Time taken: 0.292 seconds, Fetched: 18 row(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 9 items
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:41 /tmp/hive-partitioned/color=black
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:41 /tmp/hive-partitioned/color=blue
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:43 /tmp/hive-partitioned/color=gray
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:40 /tmp/hive-partitioned/color=green
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:43 /tmp/hive-partitioned/color=indigo
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:41 /tmp/hive-partitioned/color=orange
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:42 /tmp/hive-partitioned/color=red
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:42 /tmp/hive-partitioned/color=violet
-drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:44 /tmp/hive-partitioned/color=yellow
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:28 /tmp/hive-partitioned/color=black
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:29 /tmp/hive-partitioned/color=blue
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:32 /tmp/hive-partitioned/color=gray
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:27 /tmp/hive-partitioned/color=green
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:31 /tmp/hive-partitioned/color=indigo
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:29 /tmp/hive-partitioned/color=orange
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:30 /tmp/hive-partitioned/color=red
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:30 /tmp/hive-partitioned/color=violet
+drwxrwxrwx   - root supergroup          0 2019-11-08 11:32 /tmp/hive-partitioned/color=yellow
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -897,15 +907,15 @@ drwxrwxrwx   - vagrant supergroup          0 2019-06-07 12:44 /tmp/hive-partitio
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
-drwxr-xr-x   - vagrant supergroup          0 2019-06-07 12:41 /tmp/hive-partitioned/color=black/delta_0000026_0000026_0000
+drwxr-xr-x   - root supergroup          0 2019-11-08 11:28 /tmp/hive-partitioned/color=black/delta_0000002_0000002_0000
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>hdfs dfs -ls /tmp/hive-partitioned/color<span class="o">=</span>black/delta_0000026_0000026_0000
+<span></span><span class="o">!</span>hdfs dfs -ls /tmp/hive-partitioned/color<span class="o">=</span>black/delta_0000002_0000002_0000
 </pre></div>
 </div>
 </div>
@@ -915,9 +925,9 @@ drwxr-xr-x   - vagrant supergroup          0 2019-06-07 12:41 /tmp/hive-partitio
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 3 items
--rw-r--r--   1 vagrant supergroup        223 2019-06-07 12:41 /tmp/hive-partitioned/color=black/delta_0000026_0000026_0000/bucket_00000
--rw-r--r--   1 vagrant supergroup        940 2019-06-07 12:41 /tmp/hive-partitioned/color=black/delta_0000026_0000026_0000/bucket_00001
--rw-r--r--   1 vagrant supergroup        223 2019-06-07 12:41 /tmp/hive-partitioned/color=black/delta_0000026_0000026_0000/bucket_00002
+-rw-r--r--   1 root supergroup        223 2019-11-08 11:28 /tmp/hive-partitioned/color=black/delta_0000002_0000002_0000/bucket_00000
+-rw-r--r--   1 root supergroup        929 2019-11-08 11:28 /tmp/hive-partitioned/color=black/delta_0000002_0000002_0000/bucket_00001
+-rw-r--r--   1 root supergroup        223 2019-11-08 11:28 /tmp/hive-partitioned/color=black/delta_0000002_0000002_0000/bucket_00002
 </pre></div></div>
 </div>
 </div>
@@ -928,7 +938,7 @@ Found 3 items
 </div>
 <p>Véase <a class="reference external" href="https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions">https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -944,7 +954,7 @@ UPDATE persons SET quantity = 100 WHERE color = &#39;red&#39;;
 <div class="highlight"><pre>
 UPDATE persons SET quantity = 100 WHERE color = &#39;red&#39;;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124609_a78bda28-0719-40d5-aeae-02076a67d2c6
+Query ID = root_20191108113344_07889bb0-e73e-42b4-9cd4-efcb568ecef6
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -954,31 +964,30 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0120, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0120/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0120
+Starting Job = job_1573207742881_0017, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0017/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0017
 Hadoop job information for Stage-1: number of mappers: 3; number of reducers: 3
-2019-06-07 12:46:14,724 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:46:20,153 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 1.74 sec
-2019-06-07 12:46:21,209 Stage-1 map = 67%,  reduce = 0%, Cumulative CPU 3.38 sec
-2019-06-07 12:46:22,267 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 5.38 sec
-2019-06-07 12:46:26,754 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 6.99 sec
-2019-06-07 12:46:27,811 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 10.21 sec
-MapReduce Total cumulative CPU time: 10 seconds 210 msec
-Ended Job = job_1558824450495_0120
+2019-11-08 11:33:54,812 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:34:03,341 Stage-1 map = 67%,  reduce = 0%, Cumulative CPU 4.28 sec
+2019-11-08 11:34:05,430 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 6.9 sec
+2019-11-08 11:34:11,807 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 8.85 sec
+2019-11-08 11:34:12,853 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 13.15 sec
+MapReduce Total cumulative CPU time: 13 seconds 150 msec
+Ended Job = job_1573207742881_0017
 Loading data to table demo.persons partition (color=null)
 
 
-         Time taken to load dynamic partitions: 0.221 seconds
-         Time taken for adding to write entity : 0.001 seconds
+         Time taken to load dynamic partitions: 0.291 seconds
+         Time taken for adding to write entity : 0.0 seconds
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 3  Reduce: 3   Cumulative CPU: 10.21 sec   HDFS Read: 33153 HDFS Write: 1084 SUCCESS
-Total MapReduce CPU Time Spent: 10 seconds 210 msec
+Stage-Stage-1: Map: 3  Reduce: 3   Cumulative CPU: 13.15 sec   HDFS Read: 33126 HDFS Write: 1056 SUCCESS
+Total MapReduce CPU Time Spent: 13 seconds 150 msec
 OK
-Time taken: 20.08 seconds
+Time taken: 31.273 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1012,7 +1021,7 @@ OK
 8       Karyn   Diaz    1969-02-24 00:00:00     100     red
 6       Gretchen        Kinney  1974-10-18 00:00:00     1       violet
 18      Chadwick        Knight  1973-04-29 00:00:00     1       yellow
-Time taken: 0.168 seconds, Fetched: 18 row(s)
+Time taken: 0.223 seconds, Fetched: 18 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -1023,7 +1032,7 @@ Time taken: 0.168 seconds, Fetched: 18 row(s)
 </div>
 <p>Véase <a class="reference external" href="https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions">https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1039,7 +1048,7 @@ DELETE FROM persons WHERE id = 10;
 <div class="highlight"><pre>
 DELETE FROM persons WHERE id = 10;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124655_41039dd6-fdf7-467d-bd81-ddd51a02037f
+Query ID = root_20191108113437_3c66940e-3ce6-4b1e-b10a-5dec6246bdef
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 3
@@ -1049,52 +1058,56 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0121, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0121/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0121
+Starting Job = job_1573207742881_0018, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0018/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0018
 Hadoop job information for Stage-1: number of mappers: 27; number of reducers: 3
-2019-06-07 12:47:00,892 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:47:06,488 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 2.22 sec
-2019-06-07 12:47:08,729 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 4.47 sec
-2019-06-07 12:47:11,072 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 6.77 sec
-2019-06-07 12:47:13,331 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 9.09 sec
-2019-06-07 12:47:15,689 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 11.49 sec
-2019-06-07 12:47:16,826 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 13.79 sec
-2019-06-07 12:47:17,953 Stage-1 map = 30%,  reduce = 0%, Cumulative CPU 18.59 sec
-2019-06-07 12:47:20,219 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 20.8 sec
-2019-06-07 12:47:21,383 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 23.01 sec
-2019-06-07 12:47:24,791 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 25.34 sec
-2019-06-07 12:47:27,051 Stage-1 map = 48%,  reduce = 0%, Cumulative CPU 29.83 sec
-2019-06-07 12:47:28,169 Stage-1 map = 52%,  reduce = 0%, Cumulative CPU 32.2 sec
-2019-06-07 12:47:31,627 Stage-1 map = 56%,  reduce = 0%, Cumulative CPU 34.36 sec
-2019-06-07 12:47:33,856 Stage-1 map = 59%,  reduce = 0%, Cumulative CPU 36.84 sec
-2019-06-07 12:47:34,977 Stage-1 map = 67%,  reduce = 7%, Cumulative CPU 41.99 sec
-2019-06-07 12:47:40,566 Stage-1 map = 70%,  reduce = 15%, Cumulative CPU 44.89 sec
-2019-06-07 12:47:41,675 Stage-1 map = 78%,  reduce = 15%, Cumulative CPU 49.62 sec
-2019-06-07 12:47:44,993 Stage-1 map = 81%,  reduce = 15%, Cumulative CPU 51.97 sec
-2019-06-07 12:47:46,092 Stage-1 map = 85%,  reduce = 16%, Cumulative CPU 54.23 sec
-2019-06-07 12:47:47,202 Stage-1 map = 89%,  reduce = 18%, Cumulative CPU 56.79 sec
-2019-06-07 12:47:48,324 Stage-1 map = 89%,  reduce = 28%, Cumulative CPU 57.04 sec
-2019-06-07 12:47:50,562 Stage-1 map = 93%,  reduce = 28%, Cumulative CPU 59.56 sec
-2019-06-07 12:47:51,694 Stage-1 map = 93%,  reduce = 29%, Cumulative CPU 59.59 sec
-2019-06-07 12:47:52,841 Stage-1 map = 100%,  reduce = 30%, Cumulative CPU 64.61 sec
-2019-06-07 12:47:53,910 Stage-1 map = 100%,  reduce = 77%, Cumulative CPU 67.15 sec
-2019-06-07 12:47:54,982 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 69.11 sec
-MapReduce Total cumulative CPU time: 1 minutes 9 seconds 110 msec
-Ended Job = job_1558824450495_0121
+2019-11-08 11:34:49,133 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:35:02,037 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 3.79 sec
+2019-11-08 11:35:05,274 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 11.21 sec
+2019-11-08 11:35:07,442 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 14.47 sec
+2019-11-08 11:35:08,528 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 17.85 sec
+2019-11-08 11:35:09,579 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 21.14 sec
+2019-11-08 11:35:16,094 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 24.09 sec
+2019-11-08 11:35:20,465 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 29.83 sec
+2019-11-08 11:35:22,596 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 36.87 sec
+2019-11-08 11:35:30,265 Stage-1 map = 44%,  reduce = 0%, Cumulative CPU 40.1 sec
+2019-11-08 11:35:32,380 Stage-1 map = 44%,  reduce = 5%, Cumulative CPU 40.49 sec
+2019-11-08 11:35:33,404 Stage-1 map = 52%,  reduce = 5%, Cumulative CPU 47.72 sec
+2019-11-08 11:35:35,533 Stage-1 map = 56%,  reduce = 5%, Cumulative CPU 51.2 sec
+2019-11-08 11:35:38,783 Stage-1 map = 56%,  reduce = 6%, Cumulative CPU 51.29 sec
+2019-11-08 11:35:41,999 Stage-1 map = 59%,  reduce = 6%, Cumulative CPU 54.89 sec
+2019-11-08 11:35:44,133 Stage-1 map = 59%,  reduce = 13%, Cumulative CPU 55.31 sec
+2019-11-08 11:35:45,179 Stage-1 map = 67%,  reduce = 13%, Cumulative CPU 61.29 sec
+2019-11-08 11:35:50,424 Stage-1 map = 70%,  reduce = 15%, Cumulative CPU 64.3 sec
+2019-11-08 11:35:53,605 Stage-1 map = 74%,  reduce = 15%, Cumulative CPU 67.12 sec
+2019-11-08 11:35:54,644 Stage-1 map = 78%,  reduce = 15%, Cumulative CPU 70.54 sec
+2019-11-08 11:35:55,725 Stage-1 map = 78%,  reduce = 23%, Cumulative CPU 70.92 sec
+2019-11-08 11:35:56,810 Stage-1 map = 78%,  reduce = 26%, Cumulative CPU 71.09 sec
+2019-11-08 11:35:58,927 Stage-1 map = 81%,  reduce = 26%, Cumulative CPU 74.37 sec
+2019-11-08 11:36:01,039 Stage-1 map = 85%,  reduce = 26%, Cumulative CPU 77.59 sec
+2019-11-08 11:36:02,104 Stage-1 map = 85%,  reduce = 28%, Cumulative CPU 77.74 sec
+2019-11-08 11:36:03,108 Stage-1 map = 89%,  reduce = 28%, Cumulative CPU 81.1 sec
+2019-11-08 11:36:07,328 Stage-1 map = 93%,  reduce = 29%, Cumulative CPU 83.94 sec
+2019-11-08 11:36:08,396 Stage-1 map = 93%,  reduce = 30%, Cumulative CPU 84.04 sec
+2019-11-08 11:36:09,436 Stage-1 map = 96%,  reduce = 30%, Cumulative CPU 87.25 sec
+2019-11-08 11:36:10,496 Stage-1 map = 100%,  reduce = 30%, Cumulative CPU 89.88 sec
+2019-11-08 11:36:12,582 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 96.27 sec
+MapReduce Total cumulative CPU time: 1 minutes 36 seconds 270 msec
+Ended Job = job_1573207742881_0018
 Loading data to table demo.persons partition (color=null)
 
 
-         Time taken to load dynamic partitions: 0.149 seconds
+         Time taken to load dynamic partitions: 0.192 seconds
          Time taken for adding to write entity : 0.0 seconds
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 27  Reduce: 3   Cumulative CPU: 69.11 sec   HDFS Read: 216192 HDFS Write: 618 SUCCESS
-Total MapReduce CPU Time Spent: 1 minutes 9 seconds 110 msec
+Stage-Stage-1: Map: 27  Reduce: 3   Cumulative CPU: 96.27 sec   HDFS Read: 215526 HDFS Write: 602 SUCCESS
+Total MapReduce CPU Time Spent: 1 minutes 36 seconds 270 msec
 OK
-Time taken: 60.562 seconds
+Time taken: 97.61 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1110,7 +1123,7 @@ SELECT * FROM persons ORDER BY id;
 <div class="highlight"><pre>
 SELECT * FROM persons ORDER BY id;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190607124801_b7d15cb7-d826-4693-8eff-9714f6d585a2
+Query ID = root_20191108113615_3bb1226f-a005-4823-878f-39a241961ff0
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 1
@@ -1120,39 +1133,42 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558824450495_0122, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558824450495_0122/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558824450495_0122
+Starting Job = job_1573207742881_0019, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0019/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0019
 Hadoop job information for Stage-1: number of mappers: 27; number of reducers: 1
-2019-06-07 12:48:08,318 Stage-1 map = 0%,  reduce = 0%
-2019-06-07 12:48:12,690 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 1.47 sec
-2019-06-07 12:48:14,953 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 3.05 sec
-2019-06-07 12:48:17,258 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 4.44 sec
-2019-06-07 12:48:20,718 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 5.96 sec
-2019-06-07 12:48:21,857 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 8.98 sec
-2019-06-07 12:48:22,992 Stage-1 map = 30%,  reduce = 0%, Cumulative CPU 12.17 sec
-2019-06-07 12:48:25,337 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 13.63 sec
-2019-06-07 12:48:28,796 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 15.13 sec
-2019-06-07 12:48:29,955 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 16.21 sec
-2019-06-07 12:48:31,084 Stage-1 map = 44%,  reduce = 0%, Cumulative CPU 17.65 sec
-2019-06-07 12:48:32,222 Stage-1 map = 48%,  reduce = 0%, Cumulative CPU 19.4 sec
-2019-06-07 12:48:33,369 Stage-1 map = 52%,  reduce = 0%, Cumulative CPU 21.07 sec
-2019-06-07 12:48:35,606 Stage-1 map = 56%,  reduce = 0%, Cumulative CPU 22.58 sec
-2019-06-07 12:48:37,916 Stage-1 map = 59%,  reduce = 0%, Cumulative CPU 24.27 sec
-2019-06-07 12:48:39,085 Stage-1 map = 63%,  reduce = 0%, Cumulative CPU 25.66 sec
-2019-06-07 12:48:40,222 Stage-1 map = 67%,  reduce = 0%, Cumulative CPU 27.31 sec
-2019-06-07 12:48:41,361 Stage-1 map = 70%,  reduce = 22%, Cumulative CPU 29.05 sec
-2019-06-07 12:48:43,680 Stage-1 map = 74%,  reduce = 22%, Cumulative CPU 30.83 sec
-2019-06-07 12:48:45,929 Stage-1 map = 81%,  reduce = 22%, Cumulative CPU 34.06 sec
-2019-06-07 12:48:48,157 Stage-1 map = 85%,  reduce = 27%, Cumulative CPU 35.62 sec
-2019-06-07 12:48:49,315 Stage-1 map = 89%,  reduce = 27%, Cumulative CPU 37.35 sec
-2019-06-07 12:48:51,563 Stage-1 map = 96%,  reduce = 27%, Cumulative CPU 40.73 sec
-2019-06-07 12:48:52,632 Stage-1 map = 100%,  reduce = 27%, Cumulative CPU 42.11 sec
-2019-06-07 12:48:53,689 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 43.32 sec
-MapReduce Total cumulative CPU time: 43 seconds 320 msec
-Ended Job = job_1558824450495_0122
+2019-11-08 11:36:28,053 Stage-1 map = 0%,  reduce = 0%
+2019-11-08 11:36:38,657 Stage-1 map = 4%,  reduce = 0%, Cumulative CPU 2.13 sec
+2019-11-08 11:36:40,840 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 4.27 sec
+2019-11-08 11:36:41,908 Stage-1 map = 11%,  reduce = 0%, Cumulative CPU 6.38 sec
+2019-11-08 11:36:44,023 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 8.5 sec
+2019-11-08 11:36:45,087 Stage-1 map = 19%,  reduce = 0%, Cumulative CPU 10.47 sec
+2019-11-08 11:36:46,144 Stage-1 map = 22%,  reduce = 0%, Cumulative CPU 12.49 sec
+2019-11-08 11:36:51,563 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 14.83 sec
+2019-11-08 11:36:53,747 Stage-1 map = 30%,  reduce = 0%, Cumulative CPU 16.95 sec
+2019-11-08 11:36:54,834 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 19.38 sec
+2019-11-08 11:36:56,988 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 21.92 sec
+2019-11-08 11:36:58,050 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 24.04 sec
+2019-11-08 11:37:04,414 Stage-1 map = 44%,  reduce = 0%, Cumulative CPU 26.15 sec
+2019-11-08 11:37:05,479 Stage-1 map = 48%,  reduce = 0%, Cumulative CPU 28.72 sec
+2019-11-08 11:37:06,535 Stage-1 map = 52%,  reduce = 0%, Cumulative CPU 30.8 sec
+2019-11-08 11:37:07,603 Stage-1 map = 56%,  reduce = 0%, Cumulative CPU 32.85 sec
+2019-11-08 11:37:08,699 Stage-1 map = 59%,  reduce = 19%, Cumulative CPU 35.32 sec
+2019-11-08 11:37:15,210 Stage-1 map = 63%,  reduce = 20%, Cumulative CPU 37.38 sec
+2019-11-08 11:37:16,306 Stage-1 map = 70%,  reduce = 20%, Cumulative CPU 41.52 sec
+2019-11-08 11:37:19,497 Stage-1 map = 78%,  reduce = 20%, Cumulative CPU 45.59 sec
+2019-11-08 11:37:21,651 Stage-1 map = 78%,  reduce = 26%, Cumulative CPU 45.66 sec
+2019-11-08 11:37:25,955 Stage-1 map = 81%,  reduce = 26%, Cumulative CPU 48.22 sec
+2019-11-08 11:37:26,997 Stage-1 map = 85%,  reduce = 27%, Cumulative CPU 50.32 sec
+2019-11-08 11:37:28,044 Stage-1 map = 89%,  reduce = 27%, Cumulative CPU 52.52 sec
+2019-11-08 11:37:30,174 Stage-1 map = 93%,  reduce = 27%, Cumulative CPU 54.99 sec
+2019-11-08 11:37:31,228 Stage-1 map = 96%,  reduce = 27%, Cumulative CPU 57.56 sec
+2019-11-08 11:37:33,311 Stage-1 map = 100%,  reduce = 32%, Cumulative CPU 59.64 sec
+2019-11-08 11:37:34,353 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 61.62 sec
+MapReduce Total cumulative CPU time: 1 minutes 1 seconds 620 msec
+Ended Job = job_1573207742881_0019
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 27  Reduce: 1   Cumulative CPU: 43.32 sec   HDFS Read: 201732 HDFS Write: 1030 SUCCESS
-Total MapReduce CPU Time Spent: 43 seconds 320 msec
+Stage-Stage-1: Map: 27  Reduce: 1   Cumulative CPU: 61.62 sec   HDFS Read: 201083 HDFS Write: 1030 SUCCESS
+Total MapReduce CPU Time Spent: 1 minutes 1 seconds 620 msec
 OK
 1       Vivian  Hamilton        1971-07-08 00:00:00     1       green
 2       Karen   Holcomb 1974-05-23 00:00:00     4       green
@@ -1171,7 +1187,7 @@ OK
 16      Ayanna  Jarvis  1974-02-11 00:00:00     5       orange
 17      Chanda  Boyer   1973-04-01 00:00:00     4       green
 18      Chadwick        Knight  1973-04-29 00:00:00     1       yellow
-Time taken: 54.091 seconds, Fetched: 17 row(s)
+Time taken: 81.227 seconds, Fetched: 17 row(s)
 </pre></div></div>
 </div>
 <p>## MERGE</p>
@@ -1184,14 +1200,34 @@ Time taken: 54.091 seconds, Fetched: 17 row(s)
 </div>
 <p>Véase <a class="reference external" href="https://community.hortonworks.com/articles/97113/hive-acid-merge-by-example.html">https://community.hortonworks.com/articles/97113/hive-acid-merge-by-example.html</a></p>
 <hr class="docutils" />
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">hive</span>
 -- limpia la base de datos
 DROP DATABASE IF EXISTS demo CASCADE;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-- limpia la base de datos
+DROP DATABASE IF EXISTS demo CASCADE;
+OK
+Time taken: 0.667 seconds
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm *.log
 </pre></div>
 </div>
 </div>

@@ -6,6 +6,13 @@
    "source": [
     "# Funciones de Usuario (udfs)\n",
     "\n",
+    "* 30 min | Última modificación: Noviembre 07, 2019"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "Apache Pig permite la ejecución de funciones escritas en Java, Jython (http://www.jython.org/index.html), JavaScript, Ruby, Groovy y Python. Información detallada de la ejecución de udfs en estos lenguajes puede ser obtenida en https://pig.apache.org/docs/latest/udf.html#python-udfs.\n",
     "\n",
     "\n",
@@ -20,8 +27,25 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "%load_ext bigdata\n",
-    "%pig_init"
+    "%load_ext bigdata"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%pig_start"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%timeout 300"
    ]
   },
   {
@@ -44,6 +68,15 @@
     "E\tF\t3\n",
     "G\tH\t4\n",
     "I\tJ\t5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!hadoop fs -put udf.tsv"
    ]
   },
   {
@@ -151,10 +184,10 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.5"
+   "version": "3.6.8"
   },
   "toc-autonumbering": false
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

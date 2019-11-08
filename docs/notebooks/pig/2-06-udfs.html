@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -37,7 +38,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Conteo de palabras en Apache Hive" href="../hive/1-01-conteo-de-palabras-en-hive.html" />
+    <link rel="prev" title="Tipos de datos complejos" href="2-05-tipos-de-datos.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +82,14 @@
             
             
               <p class="caption"><span class="caption-text">Cursos</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../analitica-de-grandes-datos/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/setup.html">Configuración del software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/grades.html">Laboratorios de Programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/course-info.html">Información del curso</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
@@ -131,6 +140,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/content.html">Sesiones</a> &raquo;</li>
         
       <li>Funciones de Usuario (udfs)</li>
     
@@ -375,6 +388,9 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Funciones-de-Usuario-(udfs)">
 <h1>Funciones de Usuario (udfs)<a class="headerlink" href="#Funciones-de-Usuario-(udfs)" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p>30 min | Última modificación: Noviembre 07, 2019</p></li>
+</ul>
 <p>Apache Pig permite la ejecución de funciones escritas en Java, Jython (<a class="reference external" href="http://www.jython.org/index.html">http://www.jython.org/index.html</a>), JavaScript, Ruby, Groovy y Python. Información detallada de la ejecución de udfs en estos lenguajes puede ser obtenida en <a class="reference external" href="https://pig.apache.org/docs/latest/udf.html#python-udfs">https://pig.apache.org/docs/latest/udf.html#python-udfs</a>.</p>
 <p>Véase <a class="reference external" href="http://www.jython.org/index.html">http://www.jython.org/index.html</a>. Para su uso, el script de Python debe estar ubicado en el directorio de trabajo. Para poder usar Jython, hay dos opciones; en la primera se debe indicar la ubicación del inteprete en la variable <code class="docutils literal notranslate"><span class="pre">PIG_CLASSPATH</span></code>. En algunos casos es necesario establacer la variable <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> para que Pig pueda compilar las udfs. Para mayor información revise <a class="reference external" href="https://pig.apache.org/docs/latest/udf.html#jython-udfs">https://pig.apache.org/docs/latest/udf.html#jython-udfs</a>.</p>
 <p>(deprecated) En la segunda se puede usar <code class="docutils literal notranslate"><span class="pre">org.apache.pig.scripting.jython.JythonScriptEngin</span></code> como intérprete.</p>
@@ -384,7 +400,24 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">load_ext</span> bigdata
-<span class="o">%</span><span class="k">pig_init</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">pig_start</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeout</span> 300
 </pre></div>
 </div>
 </div>
@@ -409,6 +442,15 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
 Writing udf.tsv
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -put udf.tsv
+</pre></div>
+</div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:

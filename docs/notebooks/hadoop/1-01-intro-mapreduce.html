@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -388,12 +389,51 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Algoritmo-MapReduce-–-WordCount-en-Python">
 <h1>Algoritmo MapReduce – WordCount en Python<a class="headerlink" href="#Algoritmo-MapReduce-–-WordCount-en-Python" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>60 min</em> | Última modificación: Junio 22, 2019</p></li>
+<li><p><em>60 min</em> | Última modificación: Noviembre 05, 2019</p></li>
 </ul>
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se desea contar la frecuencia de ocurrencia de palabras en un conjunto de documentos. Debido a los requerimientos de diseño (gran volúmen de datos y tiempos rápidos de respuesta) se desea implementar una arquitectura Big Data. Se desea implementar la solución en Python.</p>
-<p>A continuación se generarán tres archivos de prueba para probar el sistema.</p>
+</div>
+<div class="section" id="Solución">
+<h2>Solución<a class="headerlink" href="#Solución" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Algoritmo-Map/Reduce">
+<h3>Algoritmo Map/Reduce<a class="headerlink" href="#Algoritmo-Map/Reduce" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><img alt="assets/map-reduce.jpg" src="../../_images/map-reduce.jpg" /></p>
+</div>
+<div class="section" id="Organización-de-trabajos">
+<h3>Organización de trabajos<a class="headerlink" href="#Organización-de-trabajos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><img alt="assets/map-reduce-jobs.jpg" src="../../_images/map-reduce-jobs.jpg" /></p>
+</div>
+<div class="section" id="Inicio-de-la-máquina-virtual">
+<h3>Inicio de la máquina virtual<a class="headerlink" href="#Inicio-de-la-máquina-virtual" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si usa linux o macOS puede pasar directamente al siguiente paso. Inicie la VM con:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant up
+</pre></div>
+</div>
+<p>y luego vaya a la carpeta de trabajo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">vagrant</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Ejecución-del-contendor-de-Docker">
+<h3>Ejecución del contendor de Docker<a class="headerlink" href="#Ejecución-del-contendor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si va a iniciar el contendor de Hadoop en la carpeta compartida con su máquina local use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Si desea iniciar la sesión en el <code class="docutils literal notranslate"><span class="pre">datalake</span></code> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Si un contenedor ya se está ejecutando puede abrir un nuevo terminal con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">hadoop</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Archivos-de-prueba">
+<h3>Archivos de prueba<a class="headerlink" href="#Archivos-de-prueba" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>A continuación se generarán tres archivos de prueba para probar el sistema. Puede usar directamente comandos del sistema operativo en el Terminal y el editor de texto <code class="docutils literal notranslate"><span class="pre">pico</span></code> para crear los archivos.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -481,22 +521,12 @@ Writing input/text2.txt
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Solución">
-<h2>Solución<a class="headerlink" href="#Solución" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="Algoritmo-Map/Reduce">
-<h3>Algoritmo Map/Reduce<a class="headerlink" href="#Algoritmo-Map/Reduce" title="Enlazar permanentemente con este título">¶</a></h3>
-<p><img alt="assets/map-reduce.jpg" src="../../_images/map-reduce.jpg" /></p>
-</div>
-<div class="section" id="Organización-de-trabajos">
-<h3>Organización de trabajos<a class="headerlink" href="#Organización-de-trabajos" title="Enlazar permanentemente con este título">¶</a></h3>
-<p><img alt="assets/map-reduce-jobs.jpg" src="../../_images/map-reduce-jobs.jpg" /></p>
-</div>
-<div class="section" id="Prueba-de-la-implementación-fuera-de-Hadoop">
-<h3>Prueba de la implementación fuera de Hadoop<a class="headerlink" href="#Prueba-de-la-implementación-fuera-de-Hadoop" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="Prueba-de-la-implementación-en-la-máquina-local">
+<h3>Prueba de la implementación en la máquina local<a class="headerlink" href="#Prueba-de-la-implementación-en-la-máquina-local" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En un sistema Hadoop, se requiere un programa para realizar el mapeo y otro para la reducción que se ejecutan independientemente; Hadoop se encarga de la coordinación entre ellos. El intercambio de información se hace a traves de texto, que es el lenguaje universal para intercambio de información.</p>
 <div class="section" id="Paso-1">
 <h4>Paso 1<a class="headerlink" href="#Paso-1" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>Se implementa la función map en Python y se guarda en el archivo <code class="docutils literal notranslate"><span class="pre">mapper.py</span></code>.</p>
+<p>Se implementa la función map en Python y se guarda en el archivo <code class="docutils literal notranslate"><span class="pre">mapper.py</span></code>. Si esta trabajando en el Terminal puede usar el editor pico con <code class="docutils literal notranslate"><span class="pre">pico</span> <span class="pre">mapper.py</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -535,7 +565,7 @@ Writing input/text2.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting mapper.py
+Writing mapper.py
 </pre></div></div>
 </div>
 </div>
@@ -551,6 +581,7 @@ Overwriting mapper.py
 </pre></div>
 </div>
 </div>
+<p><strong>Nota.</strong> El uso de <code class="docutils literal notranslate"><span class="pre">chmod</span></code> puede obviarse pero se requiere llamar explicitamente a Python para ejecutar el programa.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -578,12 +609,39 @@ meaningful      1
 patterns        1
 </pre></div></div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## Alternativamente:</span>
+<span class="o">!</span>cat ./input/text*.txt <span class="p">|</span> python3 mapper.py <span class="p">|</span> head
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Analytics       1
+is      1
+the     1
+discovery,      1
+interpretation, 1
+and     1
+communication   1
+of      1
+meaningful      1
+patterns        1
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Paso-3">
 <h4>Paso 3<a class="headerlink" href="#Paso-3" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Se implementa la función <code class="docutils literal notranslate"><span class="pre">reduce</span></code> y se salva en el archivo <code class="docutils literal notranslate"><span class="pre">reducer.py</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -632,6 +690,8 @@ patterns        1
 
             <span class="n">curkey</span> <span class="o">=</span> <span class="n">key</span>
             <span class="n">total</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">curkey</span><span class="p">,</span> <span class="n">total</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -640,14 +700,14 @@ patterns        1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting reducer.py
+Writing reducer.py
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Paso-4">
 <h4>Paso 4<a class="headerlink" href="#Paso-4" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -661,7 +721,7 @@ Overwriting reducer.py
 <h4>Paso 5<a class="headerlink" href="#Paso-5" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Se realiza la prueba de la implementación en el directorio actual antes de realizar la ejecución en el modo pseudo-distribuido. En este caso, se simula el comportamiento de Hadoop mediante la función <code class="docutils literal notranslate"><span class="pre">sort</span></code> del sistema operativo Linux.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -679,161 +739,25 @@ Overwriting reducer.py
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-a       1
-about   1
-aid     1
-algorithms      1
-analysis,       1
-analysis.       1
-analytics,      8
-analytics.      1
-analytics       8
+(DA)    1
+(see    1
+Analytics       2
 Analytics,      1
+Big     1
+Data    3
+Especially      1
+Organizations   1
+Since   1
+Specifically,   1
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Mejora-en-la-implementación">
-<h3>Mejora en la implementación<a class="headerlink" href="#Mejora-en-la-implementación" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="section" id="Mapper">
-<h4>Mapper<a class="headerlink" href="#Mapper" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> mapper.py
-<span class="ch">#! /usr/bin/env python</span>
-
-<span class="c1">##</span>
-<span class="c1">## Esta es la funcion que mapea la entrada a parejas (clave, valor)</span>
-<span class="c1">##</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-
-<span class="c1">##</span>
-<span class="c1">## Se usa una clase iterable para implementar el mapper.</span>
-<span class="c1">##</span>
-
-<span class="k">class</span> <span class="nc">Mapper</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
-        <span class="c1">##</span>
-        <span class="c1">## almacena el flujo de entrada como una</span>
-        <span class="c1">## variable del objeto</span>
-        <span class="c1">##</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">stream</span>
-
-    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="c1">##</span>
-        <span class="c1">## escribe al flujo estandar de salida</span>
-        <span class="c1">##</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-
-
-    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-        <span class="c1">##</span>
-        <span class="c1">## imprime un reporte en el flujo de error</span>
-        <span class="c1">## no se debe usar el stdout, ya que en este</span>
-        <span class="c1">## unicamente deben ir las parejas (key, value)</span>
-        <span class="c1">##</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;reporter:status:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
-
-
-    <span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s2">&quot;ApplicationCounter&quot;</span><span class="p">):</span>
-        <span class="c1">##</span>
-        <span class="c1">## imprime el valor del contador</span>
-        <span class="c1">##</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;reporter:counter:</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">amount</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-        <span class="n">word_counter</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="c1">##</span>
-        <span class="c1">## imprime un mensaje a la entrada</span>
-        <span class="c1">##</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="s1">&#39;Iniciando procesamiento &#39;</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-            <span class="c1">##</span>
-            <span class="c1">## cuenta la cantidad de palabras procesadas</span>
-            <span class="c1">##</span>
-            <span class="n">word_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-
-            <span class="c1">##</span>
-            <span class="c1">## por cada palabra del flujo de datos</span>
-            <span class="c1">## emite la pareja (word, 1)</span>
-            <span class="c1">##</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">word</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1">##</span>
-        <span class="c1">## imprime un mensaje a la salida</span>
-        <span class="c1">##</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">(</span><span class="s1">&#39;num_words&#39;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="n">word_counter</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="s1">&#39;Finalizadno procesamiento &#39;</span><span class="p">)</span>
-
-
-
-
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1">##</span>
-        <span class="c1">## itera sobre cada linea de codigo recibida</span>
-        <span class="c1">## a traves del flujo de entrada</span>
-        <span class="c1">##</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span>
-            <span class="c1">##</span>
-            <span class="c1">## itera sobre cada palabra de la linea</span>
-            <span class="c1">## (en los ciclos for, retorna las palabras</span>
-            <span class="c1">## una a una)</span>
-            <span class="c1">##</span>
-            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
-                <span class="c1">##</span>
-                <span class="c1">## retorna la palabra siguiente en el</span>
-                <span class="c1">## ciclo for</span>
-                <span class="c1">##</span>
-                <span class="k">yield</span> <span class="n">word</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="c1">##</span>
-    <span class="c1">## inicializa el objeto con el flujo de entrada</span>
-    <span class="c1">##</span>
-    <span class="n">mapper</span> <span class="o">=</span> <span class="n">Mapper</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
-
-    <span class="c1">##</span>
-    <span class="c1">## ejecuta el mapper</span>
-    <span class="c1">##</span>
-    <span class="n">mapper</span><span class="o">.</span><span class="n">map</span><span class="p">()</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Overwriting mapper.py
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## El programa anterior se hace ejecutable</span>
-<span class="o">!</span>chmod +x mapper.py
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## la salida de la función anterior es:</span>
-<span class="o">!</span>cat ./input/text*.txt <span class="p">|</span> ./mapper.py <span class="p">|</span> head
+<span></span><span class="c1">## Alternativamente</span>
+<span class="o">!</span>cat ./input/text*.txt <span class="p">|</span> python3 mapper.py <span class="p">|</span> sort <span class="p">|</span> python3 reducer.py <span class="p">|</span> head
 </pre></div>
 </div>
 </div>
@@ -842,197 +766,21 @@ Overwriting mapper.py
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-reporter:status:Iniciando procesamiento
-reporter:counter:ApplicationCounter,num_words,252
-reporter:status:Finalizadno procesamiento
-Analytics       1
-is      1
-the     1
-discovery,      1
-interpretation, 1
-and     1
-communication   1
-of      1
-meaningful      1
-patterns        1
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="Reducer">
-<h4>Reducer<a class="headerlink" href="#Reducer" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>El reducer recibe las parejas (key, value) a través del flujo de salida. En los ejemplos anteriores, el reducer verifica si la clave cambia de un elemento al siguiente. Sin embargo, resulta más eficiente que se pueda iterar directamente sobre elementos consecutivos que tienen la misma clave. La función <code class="docutils literal notranslate"><span class="pre">groupby</span></code> de la librería <code class="docutils literal notranslate"><span class="pre">itertools</span></code> permite hacer esto. Dicha función recibe como argumentos los datos y una función que genera la clave para cada dato. Retorna una tupla con la clave y los
-elementos consecutivos que contienen la misma clave. El siguiente ejemplo permite clarificar su operación.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">itertools</span>
-
-<span class="c1">## la letra es la clave y los números son los valores</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
-
-<span class="c1">## retorna la parte correspondiente a la clave</span>
-<span class="k">def</span> <span class="nf">keyfun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">x</span>
-    <span class="k">return</span> <span class="n">k</span>
-
-<span class="c1">## itera sobre la clave y los elementos que contiene</span>
-<span class="c1">## la misma clave</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keyfun</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-A
-    (&#39;A&#39;, 1)
-B
-    (&#39;B&#39;, 10)
-A
-    (&#39;A&#39;, 2)
-    (&#39;A&#39;, 3)
-    (&#39;A&#39;, 4)
-B
-    (&#39;B&#39;, 20)
-</pre></div></div>
-</div>
-<p>A continuación se modifica el reducer para incoporar el uso de clases y de la función <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> reducer.py
-<span class="ch">#!/usr/bin/env python</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-
-<span class="k">class</span> <span class="nc">Reducer</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">stream</span>
-
-    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1">##</span>
-        <span class="c1">## Esta funcion reduce los elementos que</span>
-        <span class="c1">## tienen la misma clave</span>
-        <span class="c1">##</span>
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
-                <span class="n">total</span> <span class="o">+=</span> <span class="n">val</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">total</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span>
-            <span class="c1">##</span>
-            <span class="c1">## Lee el stream de datos y lo parte</span>
-            <span class="c1">## en (clave, valor)</span>
-            <span class="c1">##</span>
-            <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-
-            <span class="c1">##</span>
-            <span class="c1">## retorna la tupla (clave, valor)</span>
-            <span class="c1">## como el siguiente elemento del ciclo for</span>
-            <span class="c1">##</span>
-            <span class="k">yield</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-
-    <span class="n">reducer</span> <span class="o">=</span> <span class="n">Reducer</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
-    <span class="n">reducer</span><span class="o">.</span><span class="n">reduce</span><span class="p">()</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Overwriting reducer.py
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## Se hace ejecutable el archivo</span>
-<span class="o">!</span>chmod +x reducer.py
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Ejecución">
-<h4>Ejecución<a class="headerlink" href="#Ejecución" title="Enlazar permanentemente con este título">¶</a></h4>
-<p>Se prueba la implementación localmente.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## La función sort hace que todos los elementos con</span>
-<span class="c1">## la misma clave queden en lineas consecutivas.</span>
-<span class="c1">## Hace el papel del módulo Shuffle &amp; Sort</span>
-<span class="o">!</span>cat ./input/text*.txt <span class="p">|</span> ./mapper.py <span class="p">|</span> sort <span class="p">|</span> ./reducer.py <span class="p">|</span> head
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-reporter:status:Iniciando procesamiento
-reporter:counter:ApplicationCounter,num_words,252
-reporter:status:Finalizadno procesamiento
-a       1
-about   1
-aid     1
-algorithms      1
-analysis,       1
-analysis.       1
-analytics,      8
-analytics.      1
-analytics       8
+(DA)    1
+(see    1
+Analytics       2
 Analytics,      1
+Big     1
+Data    3
+Especially      1
+Organizations   1
+Since   1
+Specifically,   1
 </pre></div></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="Notas">
-<h2>Notas<a class="headerlink" href="#Notas" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><strong>Combiners.–</strong> Los combiners son <em>reducers</em> que se ejecutan sobre los resultdos que produce cada mapper antes de pasar al modulo de suffle-&amp;-sort, con el fin de reducir la carga computacional. Suelen ser identicos a los <em>reducers</em>. Una llamada típica sería:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
-   -input input \
-   -output output  \
-   -mapper mapper.py \
-   -reducer reducer.py \
-   -combiner combiner.py
-</pre></div>
-</div>
-<p><strong>Partitioners.–</strong> Son rutinas que controlan como se enviar las parejas (clave, valor) a cada reducers, tal que elementos con la misma clave son enviados al mismo reducer.</p>
-<p><strong>Job Chain.–</strong> Se refiere al encadenamiento de varias tareas cuando el cómputo que se desea realizar es muy complejo para que pueda realizarse en un MapReduce.</p>
 <hr class="docutils" />
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1040,6 +788,8 @@ Analytics,      1
 <span class="o">!</span>rm reducer.py mapper.py
 <span class="o">!</span>rm -rf input
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

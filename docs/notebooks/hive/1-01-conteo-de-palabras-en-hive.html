@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -37,7 +38,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
-    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Operaciones básicas en Hive" href="1-02-operaciones-basicas-en-hive.html" />
+    <link rel="prev" title="Funciones de Usuario (udfs)" href="../pig/2-06-udfs.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +82,14 @@
             
             
               <p class="caption"><span class="caption-text">Cursos</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../analitica-de-grandes-datos/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/setup.html">Configuración del software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/grades.html">Laboratorios de Programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../analitica-de-grandes-datos/course-info.html">Información del curso</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-financiera/index.html">Analítica Financiera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
@@ -131,6 +140,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a> &raquo;</li>
+        
+          <li><a href="../../analitica-de-grandes-datos/content.html">Sesiones</a> &raquo;</li>
         
       <li>Conteo de palabras en Apache Hive</li>
     
@@ -376,7 +389,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Conteo-de-palabras-en-Apache-Hive">
 <h1>Conteo de palabras en Apache Hive<a class="headerlink" href="#Conteo-de-palabras-en-Apache-Hive" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>30 min</em> | Última modificación: Junio 22, 2019</p></li>
+<li><p><em>30 min</em> | Última modificación: Noviembre 07, 2019</p></li>
 </ul>
 <p>En este tutorial se aborda el proceso de construcción de aplicaciones en Apache Hive.</p>
 <div class="section" id="Carga-de-la-librería-de-Jupyter">
@@ -388,7 +401,24 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">load_ext</span> bigdata
-<span class="o">%</span><span class="k">timeout</span> 300
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">hive_start</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">timeout</span> 300
 </pre></div>
 </div>
 </div>
@@ -400,7 +430,7 @@ div.rendered_html tbody tr:hover {
 <h3>Generación de datos de prueba<a class="headerlink" href="#Generación-de-datos-de-prueba" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los datos que usa la aplicación se encuentran localizados como una carpeta en el directorio actual de trabajo. Estos datos serán consumidos por Hive directamente.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -414,7 +444,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>A continuación se generan tres archivos de prueba que se almacenan en la carpeta <code class="docutils literal notranslate"><span class="pre">wordcount/</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -445,7 +475,7 @@ Overwriting wordcount/text0.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -466,7 +496,7 @@ Overwriting wordcount/text1.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -498,7 +528,7 @@ Overwriting wordcount/text2.txt
 </ul>
 <p>A continuación se elimnan dichas tablas si existen en el sistema, y luego se crea la tabla <code class="docutils literal notranslate"><span class="pre">docs</span></code> con un solo campo del tipo <code class="docutils literal notranslate"><span class="pre">STRING</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -516,13 +546,13 @@ CREATE TABLE docs (line STRING);
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS docs;
 OK
-Time taken: 9.982 seconds
+Time taken: 6.994 seconds
 DROP TABLE IF EXISTS word_counts;
 OK
-Time taken: 0.117 seconds
+Time taken: 0.108 seconds
 CREATE TABLE docs (line STRING);
 OK
-Time taken: 0.669 seconds
+Time taken: 0.902 seconds
 </pre></div></div>
 </div>
 </div>
@@ -530,7 +560,7 @@ Time taken: 0.669 seconds
 <h3>Carga de datos<a class="headerlink" href="#Carga-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En el siguiente código, se hace la carga directa de todos los archivos que se encuentran en el directorio <code class="docutils literal notranslate"><span class="pre">wordcount</span></code> en la tabla <code class="docutils literal notranslate"><span class="pre">docs</span></code>. Luego, se imprimen los primeros cinco registros de la tabla para verificar que la lectura fue correcta.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -548,7 +578,7 @@ SELECT * FROM docs LIMIT 5;
 LOAD DATA LOCAL INPATH &#34;wordcount/&#34; OVERWRITE INTO TABLE docs;
 Loading data to table default.docs
 OK
-Time taken: 1.232 seconds
+Time taken: 1.485 seconds
 SELECT * FROM docs LIMIT 5;
 OK
 Analytics is the discovery, interpretation, and communication of meaningful patterns
@@ -556,7 +586,7 @@ in data. Especially valuable in areas rich with recorded information, analytics 
 on the simultaneous application of statistics, computer programming and operations research
 to quantify performance.
 
-Time taken: 1.401 seconds, Fetched: 5 row(s)
+Time taken: 2.353 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -564,7 +594,7 @@ Time taken: 1.401 seconds, Fetched: 5 row(s)
 <h3>Transformación de datos<a class="headerlink" href="#Transformación-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una vez cargados los archivos, se procede a partir las líneas por palabras, usando la función <code class="docutils literal notranslate"><span class="pre">split(line,</span> <span class="pre">'\\s')</span></code>; la expresión <code class="docutils literal notranslate"><span class="pre">\\s</span></code> indica que se realice la partición por los espacios en blanco; de esta forma, <code class="docutils literal notranslate"><span class="pre">split()</span></code> genera una lista de palabras. La función <code class="docutils literal notranslate"><span class="pre">explode(.)</span></code> de Hive en conjunto con <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>, genera un nuevo registro por cada palabra en <code class="docutils literal notranslate"><span class="pre">line</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -585,14 +615,14 @@ is
 the
 discovery,
 interpretation,
-Time taken: 0.469 seconds, Fetched: 5 row(s)
+Time taken: 0.664 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 <div class="section" id="Conteo-de-palabras">
 <h4>Conteo de palabras<a class="headerlink" href="#Conteo-de-palabras" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Para realizar el conteo, la expresión <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">word,</span> <span class="pre">count(1)</span> <span class="pre">AS</span> <span class="pre">count</span> <span class="pre">...</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">word</span></code> genera una tabla con dos columnas, donde la primera columna (<code class="docutils literal notranslate"><span class="pre">word</span></code>) correspodne a cada palabra en el texto, y la segunda columna representa la cantidad de veces que aparece en los registros generados por la expresión <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">explode(split(line,</span> <span class="pre">'\\s'))</span> <span class="pre">AS</span> <span class="pre">word</span> <span class="pre">FROM</span> <span class="pre">docs</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -624,7 +654,7 @@ GROUP BY
 ORDER BY
     word;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = vagrant_20190524163121_b50c4a94-3298-41ff-83fe-2a699ac6f832
+Query ID = root_20191107225955_12a7eb35-f510-48bf-b7e4-89eb18e611c1
 Total jobs = 2
 Launching Job 1 out of 2
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -634,14 +664,14 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558627508041_0060, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558627508041_0060/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558627508041_0060
+Starting Job = job_1573166698775_0006, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0006/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0006
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-05-24 16:31:28,294 Stage-1 map = 0%,  reduce = 0%
-2019-05-24 16:31:32,992 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.62 sec
-2019-05-24 16:31:38,709 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 2.84 sec
-MapReduce Total cumulative CPU time: 2 seconds 840 msec
-Ended Job = job_1558627508041_0060
+2019-11-07 23:00:07,416 Stage-1 map = 0%,  reduce = 0%
+2019-11-07 23:00:14,896 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.54 sec
+2019-11-07 23:00:22,237 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.45 sec
+MapReduce Total cumulative CPU time: 4 seconds 450 msec
+Ended Job = job_1573166698775_0006
 Launching Job 2 out of 2
 Number of reduce tasks determined at compile time: 1
 In order to change the average load for a reducer (in bytes):
@@ -650,21 +680,21 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1558627508041_0061, Tracking URL = http://ubuntu-bionic:8088/proxy/application_1558627508041_0061/
-Kill Command = /usr/local/hadoop-2.8.5/bin/hadoop job  -kill job_1558627508041_0061
+Starting Job = job_1573166698775_0007, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0007/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0007
 Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
-2019-05-24 16:31:51,000 Stage-2 map = 0%,  reduce = 0%
-2019-05-24 16:31:55,602 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 0.98 sec
-2019-05-24 16:32:01,273 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 2.17 sec
-MapReduce Total cumulative CPU time: 2 seconds 170 msec
-Ended Job = job_1558627508041_0061
+2019-11-07 23:00:37,748 Stage-2 map = 0%,  reduce = 0%
+2019-11-07 23:00:44,077 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.68 sec
+2019-11-07 23:00:52,477 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 3.62 sec
+MapReduce Total cumulative CPU time: 3 seconds 620 msec
+Ended Job = job_1573166698775_0007
 Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/word_counts
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 2.84 sec   HDFS Read: 10201 HDFS Write: 4345 SUCCESS
-Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 2.17 sec   HDFS Read: 9507 HDFS Write: 1731 SUCCESS
-Total MapReduce CPU Time Spent: 5 seconds 10 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.45 sec   HDFS Read: 10198 HDFS Write: 4345 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.62 sec   HDFS Read: 9498 HDFS Write: 1731 SUCCESS
+Total MapReduce CPU Time Spent: 8 seconds 70 msec
 OK
-Time taken: 42.768 seconds
+Time taken: 58.545 seconds
 </pre></div></div>
 </div>
 </div>
@@ -673,7 +703,7 @@ Time taken: 42.768 seconds
 <h3>Resultado<a class="headerlink" href="#Resultado" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Para visualizar los resultados obtenidos, se realiza un <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> sobre la tabla <code class="docutils literal notranslate"><span class="pre">word_counts</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -699,7 +729,7 @@ Data    3
 Especially      1
 Organizations   1
 Since   1
-Time taken: 0.167 seconds, Fetched: 10 row(s)
+Time taken: 0.125 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -707,7 +737,7 @@ Time taken: 0.167 seconds, Fetched: 10 row(s)
 <h3>Cierre de Hive<a class="headerlink" href="#Cierre-de-Hive" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Finalmente, y una vez se ha terminado de depurar el código, se cierra el interprete de Hive que se abrió en el background.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -728,7 +758,7 @@ Time taken: 0.167 seconds, Fetched: 10 row(s)
 <div class="section" id="Copia-de-los-datos-al-sistema-HDFS">
 <h3>Copia de los datos al sistema HDFS<a class="headerlink" href="#Copia-de-los-datos-al-sistema-HDFS" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -746,13 +776,13 @@ Time taken: 0.167 seconds, Fetched: 10 row(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 3 items
-drwx------   - vagrant supergroup          0 2019-05-23 17:24 /tmp/hadoop-yarn
-drwxrwxrwx   - vagrant supergroup          0 2019-05-23 16:09 /tmp/hive
-drwxrwxr-x   - vagrant supergroup          0 2019-05-24 16:14 /tmp/output
+drwxrwx---   - root supergroup          0 2019-11-07 22:45 /tmp/hadoop-yarn
+drwxrwxrwx   - root supergroup          0 2019-11-07 22:48 /tmp/hive
+drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -764,7 +794,7 @@ drwxrwxr-x   - vagrant supergroup          0 2019-05-24 16:14 /tmp/output
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -781,14 +811,14 @@ drwxrwxr-x   - vagrant supergroup          0 2019-05-24 16:14 /tmp/output
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 4 items
-drwx------   - vagrant supergroup          0 2019-05-23 17:24 /tmp/hadoop-yarn
-drwxrwxrwx   - vagrant supergroup          0 2019-05-23 16:09 /tmp/hive
-drwxrwxr-x   - vagrant supergroup          0 2019-05-24 16:14 /tmp/output
-drwxr-xr-x   - vagrant supergroup          0 2019-05-24 16:32 /tmp/wordcount
+drwxrwx---   - root supergroup          0 2019-11-07 22:45 /tmp/hadoop-yarn
+drwxrwxrwx   - root supergroup          0 2019-11-07 22:48 /tmp/hive
+drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output
+drwxr-xr-x   - root supergroup          0 2019-11-07 23:01 /tmp/wordcount
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -801,7 +831,7 @@ drwxr-xr-x   - vagrant supergroup          0 2019-05-24 16:32 /tmp/wordcount
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -819,9 +849,9 @@ drwxr-xr-x   - vagrant supergroup          0 2019-05-24 16:32 /tmp/wordcount
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 3 items
--rw-r--r--   1 vagrant supergroup       1093 2019-05-24 16:32 /tmp/wordcount/text0.txt
--rw-r--r--   1 vagrant supergroup        352 2019-05-24 16:32 /tmp/wordcount/text1.txt
--rw-r--r--   1 vagrant supergroup        440 2019-05-24 16:32 /tmp/wordcount/text2.txt
+-rw-r--r--   1 root supergroup       1093 2019-11-07 23:01 /tmp/wordcount/text0.txt
+-rw-r--r--   1 root supergroup        352 2019-11-07 23:01 /tmp/wordcount/text1.txt
+-rw-r--r--   1 root supergroup        440 2019-11-07 23:01 /tmp/wordcount/text2.txt
 </pre></div></div>
 </div>
 </div>
@@ -843,7 +873,7 @@ Found 3 items
 </div>
 <p>para que los resultados sean almacenados en la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/output</span></code> como un archivo en formato CSV. El programa es guadado como <code class="docutils literal notranslate"><span class="pre">wordcount.hql</span></code> en el computador local.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -886,7 +916,7 @@ Overwriting wordcount.hql
 <h3>Ejecución<a class="headerlink" href="#Ejecución" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una vez se ha almacenado el programa, se puede ejecutar con:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -900,8 +930,8 @@ Overwriting wordcount.hql
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/usr/local/hive-2.3.4/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/usr/local/hadoop-2.8.5/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
 </pre></div></div>
@@ -915,7 +945,7 @@ SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
 <h3>Visualización de resultados<a class="headerlink" href="#Visualización-de-resultados" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los resultados quedan almacenados en la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/output</span></code> del sistema HDFS</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -930,11 +960,11 @@ SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxrwxr-x   1 vagrant supergroup       1653 2019-05-24 16:33 /tmp/output/000000_0
+-rwxrwxrwx   1 root supergroup       1653 2019-11-07 23:02 /tmp/output/000000_0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -958,6 +988,206 @@ Data,3
 Especially,1
 Organizations,1
 Since,1
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Copia-de-los-resultados-a-la-máquina-local">
+<h3>Copia de los resultados a la máquina local<a class="headerlink" href="#Copia-de-los-resultados-a-la-máquina-local" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>hadoop fs -copyToLocal /tmp/output output
+<span class="o">!</span>ls output/*
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+output/000000_0
+
+output/output:
+000000_0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>cat output/000000_0
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+,20
+(DA),1
+(see,1
+Analytics,2
+Analytics,,1
+Big,1
+Data,3
+Especially,1
+Organizations,1
+Since,1
+Specifically,,1
+The,2
+a,1
+about,1
+aid,1
+algorithms,1
+analysis,,1
+analysis.,1
+analytics,8
+analytics,,8
+analytics.,1
+analyze,1
+and,15
+application,1
+apply,1
+are,1
+areas,2
+assortment,1
+be,1
+big,1
+business,4
+by,2
+call,1
+can,2
+certain,1
+changes.,1
+cognitive,1
+commercial,1
+communication,1
+computation,1
+computer,2
+conclusions,1
+contain,,1
+credit,1
+current,1
+data,4
+data),,1
+data.,1
+decision,1
+decisions,2
+describe,,1
+descriptive,1
+discovery,,1
+disprove,1
+draw,1
+effects,1
+enable,1
+enterprise,1
+evaluate,1
+events,,1
+examining,1
+extensive,1
+field,1
+for,1
+force,1
+fraud,1
+gaining,1
+given,1
+goal,1
+harness,1
+historical,1
+hypotheses.,1
+improve,2
+improvements,1
+in,5
+include,1
+increasingly,1
+industries,1
+information,1
+information,,1
+interpretation,,1
+involves,1
+is,3
+knowledge,1
+make,2
+management,,1
+marketing,2
+mathematics.,1
+may,1
+meaningful,1
+methods,1
+mix,1
+modeling,,2
+models,,1
+more-informed,1
+most,1
+of,8
+often,1
+on,1
+operations,1
+optimization,1
+optimization,,2
+or,5
+order,1
+organizations,1
+past,1
+patterns,1
+performance,1
+performance.,2
+potential,1
+predict,,1
+predictive,2
+prescriptive,1
+price,1
+process,1
+programming,1
+promotion,1
+quantify,1
+recorded,1
+relies,1
+require,1
+research,2
+researchers,1
+retail,1
+rich,1
+risk,1
+sales,1
+scenario.,1
+science,,2
+scientific,1
+scientists,1
+sets,1
+simultaneous,1
+sizing,1
+software,1
+software.,1
+specialized,1
+speech,1
+statistics,,2
+stock-keeping,1
+store,1
+studying,1
+systems,1
+techniques,1
+technologies,1
+the,10
+theories,1
+they,1
+to,12
+tool,1
+trends,,1
+unit,1
+used,3
+valuable,1
+verify,1
+web,1
+which,1
+widely,1
+with,2
+within,1
 </pre></div></div>
 </div>
 <p>Otra opción para extraer los resultados es usar</p>
