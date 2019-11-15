@@ -99,6 +99,33 @@
    "cell_type": "code",
    "execution_count": 3,
    "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "--2019-11-15 00:54:50--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/oreilly.csv\n",
+      "Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133\n",
+      "Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.\n",
+      "HTTP request sent, awaiting response... 200 OK\n",
+      "Length: 203329 (199K) [text/plain]\n",
+      "Saving to: 'oreilly.csv'\n",
+      "\n",
+      "oreilly.csv         100%[===================>] 198.56K   534KB/s    in 0.4s    \n",
+      "\n",
+      "2019-11-15 00:54:51 (534 KB/s) - 'oreilly.csv' saved [203329/203329]\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "!wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/oreilly.csv"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
    "outputs": [],
    "source": [
     "##\n",
@@ -116,7 +143,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -141,7 +168,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [
     {
@@ -182,7 +209,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -233,7 +260,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -282,7 +309,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -335,7 +362,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -404,7 +431,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -468,7 +495,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -502,7 +529,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -529,7 +556,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -557,7 +584,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -602,7 +629,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -618,8 +645,8 @@
       "  areaUnderPR  : 0.8805442176870748\n",
       "\n",
       "RFC\n",
-      "  areaUnderROC : 0.9803921568627452\n",
-      "  areaUnderPR  : 0.9903921568627451\n",
+      "  areaUnderROC : 0.9503205128205129\n",
+      "  areaUnderPR  : 0.92921768707483\n",
       "\n"
      ]
     }
@@ -697,5 +724,5 @@
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

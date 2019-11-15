@@ -21,6 +21,37 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Ejecución de Hive en un contenedor de Docker"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* Usando el directorio de trabajo de la máquina local:\n",
+    "\n",
+    "```\n",
+    "docker run --rm -it -v \"$PWD\":/datalake  --name hive -p 50070:50070 -p 8088:8088 -p 8888:8888 -p 5000:5000 jdvelasq/hive:2.3.6-pseudo\n",
+    "```\n",
+    "\n",
+    "* Usando un volumen de Docker (llamado `datalake`):\n",
+    "\n",
+    "```\n",
+    "docker run --rm -it -v datalake:/datalake --name hive  -p 50070:50070 -p 8088:8088 -p 8888:8888 -p 5000:5000 jdvelasq/hive:2.3.6-pseudo\n",
+    "```\n",
+    "\n",
+    "\n",
+    "* Consola conectada a un contendor que ya está corriendo:\n",
+    "\n",
+    "```\n",
+    "docker exec -it hive bash\n",
+    "```\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Carga de la librería de Jupyter"
    ]
   },
@@ -115,7 +146,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Overwriting wordcount/text0.txt\n"
+      "Writing wordcount/text0.txt\n"
      ]
     }
    ],
@@ -146,7 +177,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Overwriting wordcount/text1.txt\n"
+      "Writing wordcount/text1.txt\n"
      ]
     }
    ],
@@ -167,7 +198,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Overwriting wordcount/text2.txt\n"
+      "Writing wordcount/text2.txt\n"
      ]
     }
    ],
@@ -212,13 +243,13 @@
      "text": [
       "DROP TABLE IF EXISTS docs;\n",
       "OK\n",
-      "Time taken: 6.994 seconds\n",
+      "Time taken: 6.67 seconds\n",
       "DROP TABLE IF EXISTS word_counts;\n",
       "OK\n",
-      "Time taken: 0.108 seconds\n",
+      "Time taken: 0.015 seconds\n",
       "CREATE TABLE docs (line STRING);\n",
       "OK\n",
-      "Time taken: 0.902 seconds\n"
+      "Time taken: 1.153 seconds\n"
      ]
     }
    ],
@@ -255,7 +286,7 @@
       "LOAD DATA LOCAL INPATH \"wordcount/\" OVERWRITE INTO TABLE docs;\n",
       "Loading data to table default.docs\n",
       "OK\n",
-      "Time taken: 1.485 seconds\n",
+      "Time taken: 2.137 seconds\n",
       "SELECT * FROM docs LIMIT 5;\n",
       "OK\n",
       "Analytics is the discovery, interpretation, and communication of meaningful patterns \n",
@@ -263,7 +294,7 @@
       "on the simultaneous application of statistics, computer programming and operations research \n",
       "to quantify performance.\n",
       "\n",
-      "Time taken: 2.353 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 2.524 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -303,7 +334,7 @@
       "the\n",
       "discovery,\n",
       "interpretation,\n",
-      "Time taken: 0.664 seconds, Fetched: 5 row(s)\n"
+      "Time taken: 0.717 seconds, Fetched: 5 row(s)\n"
      ]
     }
    ],
@@ -345,7 +376,7 @@
       "ORDER BY \n",
       "    word;\n",
       "WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.\n",
-      "Query ID = root_20191107225955_12a7eb35-f510-48bf-b7e4-89eb18e611c1\n",
+      "Query ID = root_20191115154423_f2ef2aff-685c-4f0d-b9f5-266b35a179a8\n",
       "Total jobs = 2\n",
       "Launching Job 1 out of 2\n",
       "Number of reduce tasks not specified. Estimated from input data size: 1\n",
@@ -355,14 +386,14 @@
       "  set hive.exec.reducers.max=<number>\n",
       "In order to set a constant number of reducers:\n",
       "  set mapreduce.job.reduces=<number>\n",
-      "Starting Job = job_1573166698775_0006, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0006/\n",
-      "Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0006\n",
+      "Starting Job = job_1573832555792_0001, Tracking URL = http://06367ac710b0:8088/proxy/application_1573832555792_0001/\n",
+      "Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573832555792_0001\n",
       "Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1\n",
-      "2019-11-07 23:00:07,416 Stage-1 map = 0%,  reduce = 0%\n",
-      "2019-11-07 23:00:14,896 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.54 sec\n",
-      "2019-11-07 23:00:22,237 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.45 sec\n",
-      "MapReduce Total cumulative CPU time: 4 seconds 450 msec\n",
-      "Ended Job = job_1573166698775_0006\n",
+      "2019-11-15 15:44:38,273 Stage-1 map = 0%,  reduce = 0%\n",
+      "2019-11-15 15:44:45,715 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.56 sec\n",
+      "2019-11-15 15:44:53,186 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.5 sec\n",
+      "MapReduce Total cumulative CPU time: 4 seconds 500 msec\n",
+      "Ended Job = job_1573832555792_0001\n",
       "Launching Job 2 out of 2\n",
       "Number of reduce tasks determined at compile time: 1\n",
       "In order to change the average load for a reducer (in bytes):\n",
@@ -371,21 +402,21 @@
       "  set hive.exec.reducers.max=<number>\n",
       "In order to set a constant number of reducers:\n",
       "  set mapreduce.job.reduces=<number>\n",
-      "Starting Job = job_1573166698775_0007, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0007/\n",
-      "Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0007\n",
+      "Starting Job = job_1573832555792_0002, Tracking URL = http://06367ac710b0:8088/proxy/application_1573832555792_0002/\n",
+      "Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573832555792_0002\n",
       "Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1\n",
-      "2019-11-07 23:00:37,748 Stage-2 map = 0%,  reduce = 0%\n",
-      "2019-11-07 23:00:44,077 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.68 sec\n",
-      "2019-11-07 23:00:52,477 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 3.62 sec\n",
-      "MapReduce Total cumulative CPU time: 3 seconds 620 msec\n",
-      "Ended Job = job_1573166698775_0007\n",
+      "2019-11-15 15:45:08,210 Stage-2 map = 0%,  reduce = 0%\n",
+      "2019-11-15 15:45:15,576 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.69 sec\n",
+      "2019-11-15 15:45:22,940 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 1.69 sec\n",
+      "MapReduce Total cumulative CPU time: 3 seconds 830 msec\n",
+      "Ended Job = job_1573832555792_0002\n",
       "Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/word_counts\n",
       "MapReduce Jobs Launched: \n",
-      "Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.45 sec   HDFS Read: 10198 HDFS Write: 4345 SUCCESS\n",
-      "Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.62 sec   HDFS Read: 9498 HDFS Write: 1731 SUCCESS\n",
-      "Total MapReduce CPU Time Spent: 8 seconds 70 msec\n",
+      "Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.5 sec   HDFS Read: 10198 HDFS Write: 4345 SUCCESS\n",
+      "Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.83 sec   HDFS Read: 9498 HDFS Write: 1731 SUCCESS\n",
+      "Total MapReduce CPU Time Spent: 8 seconds 330 msec\n",
       "OK\n",
-      "Time taken: 58.545 seconds\n"
+      "Time taken: 62.463 seconds\n"
      ]
     }
    ],
@@ -437,7 +468,7 @@
       "Especially\t1\n",
       "Organizations\t1\n",
       "Since\t1\n",
-      "Time taken: 0.125 seconds, Fetched: 10 row(s)\n"
+      "Time taken: 0.27 seconds, Fetched: 10 row(s)\n"
      ]
     }
    ],
@@ -505,10 +536,9 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Found 3 items\n",
-      "drwxrwx---   - root supergroup          0 2019-11-07 22:45 /tmp/hadoop-yarn\n",
-      "drwxrwxrwx   - root supergroup          0 2019-11-07 22:48 /tmp/hive\n",
-      "drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output\n"
+      "Found 2 items\n",
+      "drwxrwx---   - root supergroup          0 2019-11-15 15:43 /tmp/hadoop-yarn\n",
+      "drwxrwxrwx   - root supergroup          0 2019-11-15 15:44 /tmp/hive\n"
      ]
     }
    ],
@@ -541,11 +571,10 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Found 4 items\n",
-      "drwxrwx---   - root supergroup          0 2019-11-07 22:45 /tmp/hadoop-yarn\n",
-      "drwxrwxrwx   - root supergroup          0 2019-11-07 22:48 /tmp/hive\n",
-      "drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output\n",
-      "drwxr-xr-x   - root supergroup          0 2019-11-07 23:01 /tmp/wordcount\n"
+      "Found 3 items\n",
+      "drwxrwx---   - root supergroup          0 2019-11-15 15:43 /tmp/hadoop-yarn\n",
+      "drwxrwxrwx   - root supergroup          0 2019-11-15 15:44 /tmp/hive\n",
+      "drwxr-xr-x   - root supergroup          0 2019-11-15 15:45 /tmp/wordcount\n"
      ]
     }
    ],
@@ -579,9 +608,9 @@
      "output_type": "stream",
      "text": [
       "Found 3 items\n",
-      "-rw-r--r--   1 root supergroup       1093 2019-11-07 23:01 /tmp/wordcount/text0.txt\n",
-      "-rw-r--r--   1 root supergroup        352 2019-11-07 23:01 /tmp/wordcount/text1.txt\n",
-      "-rw-r--r--   1 root supergroup        440 2019-11-07 23:01 /tmp/wordcount/text2.txt\n"
+      "-rw-r--r--   1 root supergroup       1093 2019-11-15 15:45 /tmp/wordcount/text0.txt\n",
+      "-rw-r--r--   1 root supergroup        352 2019-11-15 15:45 /tmp/wordcount/text1.txt\n",
+      "-rw-r--r--   1 root supergroup        440 2019-11-15 15:45 /tmp/wordcount/text2.txt\n"
      ]
     }
    ],
@@ -630,7 +659,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Overwriting wordcount.hql\n"
+      "Writing wordcount.hql\n"
      ]
     }
    ],
@@ -729,7 +758,7 @@
      "output_type": "stream",
      "text": [
       "Found 1 items\n",
-      "-rwxrwxrwx   1 root supergroup       1653 2019-11-07 23:02 /tmp/output/000000_0\n"
+      "-rwxrwxrwx   1 root supergroup       1653 2019-11-15 15:47 /tmp/output/000000_0\n"
      ]
     }
    ],
@@ -781,10 +810,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "output/000000_0\n",
-      "\n",
-      "output/output:\n",
-      "000000_0\n"
+      "output/000000_0\n"
      ]
     }
    ],
@@ -979,6 +1005,15 @@
     "     \n",
     "     \n",
     "en donde el archivo `result.txt` se almacena localmente."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!rm -rf output wordcount *.hql *.log"
    ]
   }
  ],

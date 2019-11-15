@@ -657,7 +657,7 @@ Writing wordcount/text2.txt
 <span class="c1">## en el sistema hdfs. Note se creó la carpeta</span>
 <span class="c1">## /tmp/out como resultado del paso anterior</span>
 <span class="c1">##</span>
-<span class="o">!</span>hdfs dfs -ls /user/vagrant/
+<span class="o">!</span>hdfs dfs -ls /tmp/out/
 </pre></div>
 </div>
 </div>
@@ -666,11 +666,12 @@ Writing wordcount/text2.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Found 4 items
--rw-r--r--   1 vagrant supergroup       1436 2019-05-19 14:51 /user/vagrant/data.txt
-drwxr-xr-x   - vagrant supergroup          0 2019-05-20 14:40 /user/vagrant/flightsWithDelays.orc
-drwxr-xr-x   - vagrant supergroup          0 2019-05-20 13:04 /user/vagrant/output
-drwxr-xr-x   - vagrant supergroup          0 2019-05-19 14:51 /user/vagrant/wordcount
+Found 5 items
+-rw-r--r--   1 root supergroup          0 2019-11-15 00:44 /tmp/out/_SUCCESS
+-rw-r--r--   1 root supergroup        108 2019-11-15 00:44 /tmp/out/part-00000
+-rw-r--r--   1 root supergroup        108 2019-11-15 00:44 /tmp/out/part-00001
+-rw-r--r--   1 root supergroup        108 2019-11-15 00:44 /tmp/out/part-00002
+-rw-r--r--   1 root supergroup        124 2019-11-15 00:44 /tmp/out/part-00003
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -816,7 +817,7 @@ Deleted /tmp/out
 <span class="c1">## wholeTextFiles() retorna una lista de pares que contienen el nombre</span>
 <span class="c1">## del archivo y su correspondiente texto</span>
 <span class="c1">##</span>
-<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">wholeTextFiles</span><span class="p">(</span><span class="s2">&quot;wordcount/&quot;</span><span class="p">)</span>
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">wholeTextFiles</span><span class="p">(</span><span class="s2">&quot;/tmp/wordcount/&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----&#39;</span><span class="p">)</span>
@@ -828,11 +829,11 @@ Deleted /tmp/out
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(&#39;hdfs://0.0.0.0:9000/user/vagrant/wordcount/text0.txt&#39;, &#39;Analytics is the discovery, interpretation, and communication of meaningful patterns \nin data. Especially valuable in areas rich with recorded information, analytics relies \non the simultaneous application of statistics, computer programming and operations research \nto quantify performance.\n\nOrganizations may apply analytics to business data to describe, predict, and improve business \nperformance. Specifically, areas within analytics include predictive analytics, prescriptive \nanalytics, enterprise decision management, descriptive analytics, cognitive analytics, Big \nData Analytics, retail analytics, store assortment and stock-keeping unit optimization, \nmarketing optimization and marketing mix modeling, web analytics, call analytics, speech \nanalytics, sales force sizing and optimization, price and promotion modeling, predictive \nscience, credit risk analysis, and fraud analytics. Since analytics can require extensive \ncomputation (see big data), the algorithms and software used for analytics harness the most \ncurrent methods in computer science, statistics, and mathematics.\n&#39;)
+(&#39;hdfs://0.0.0.0:9000/tmp/wordcount/text0.txt&#39;, &#39;Analytics is the discovery, interpretation, and communication of meaningful patterns \nin data. Especially valuable in areas rich with recorded information, analytics relies \non the simultaneous application of statistics, computer programming and operations research \nto quantify performance.\n\nOrganizations may apply analytics to business data to describe, predict, and improve business \nperformance. Specifically, areas within analytics include predictive analytics, prescriptive \nanalytics, enterprise decision management, descriptive analytics, cognitive analytics, Big \nData Analytics, retail analytics, store assortment and stock-keeping unit optimization, \nmarketing optimization and marketing mix modeling, web analytics, call analytics, speech \nanalytics, sales force sizing and optimization, price and promotion modeling, predictive \nscience, credit risk analysis, and fraud analytics. Since analytics can require extensive \ncomputation (see big data), the algorithms and software used for analytics harness the most \ncurrent methods in computer science, statistics, and mathematics.\n&#39;)
 ----
-(&#39;hdfs://0.0.0.0:9000/user/vagrant/wordcount/text1.txt&#39;, &#39;The field of data analysis. Analytics often involves studying past historical data to \nresearch potential trends, to analyze the effects of certain decisions or events, or to \nevaluate the performance of a given tool or scenario. The goal of analytics is to improve \nthe business by gaining knowledge which can be used to make improvements or changes.\n&#39;)
+(&#39;hdfs://0.0.0.0:9000/tmp/wordcount/text1.txt&#39;, &#39;The field of data analysis. Analytics often involves studying past historical data to \nresearch potential trends, to analyze the effects of certain decisions or events, or to \nevaluate the performance of a given tool or scenario. The goal of analytics is to improve \nthe business by gaining knowledge which can be used to make improvements or changes.\n&#39;)
 ----
-(&#39;hdfs://0.0.0.0:9000/user/vagrant/wordcount/text2.txt&#39;, &#39;Data analytics (DA) is the process of examining data sets in order to draw conclusions \nabout the information they contain, increasingly with the aid of specialized systems \nand software. Data analytics technologies and techniques are widely used in commercial \nindustries to enable organizations to make more-informed business decisions and by \nscientists and researchers to verify or disprove scientific models, theories and \nhypotheses.\n&#39;)
+(&#39;hdfs://0.0.0.0:9000/tmp/wordcount/text2.txt&#39;, &#39;Data analytics (DA) is the process of examining data sets in order to draw conclusions \nabout the information they contain, increasingly with the aid of specialized systems \nand software. Data analytics technologies and techniques are widely used in commercial \nindustries to enable organizations to make more-informed business decisions and by \nscientists and researchers to verify or disprove scientific models, theories and \nhypotheses.\n&#39;)
 ----
 </pre></div></div>
 </div>
@@ -1014,7 +1015,7 @@ Deleted /tmp/out
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[(&#39;b&#39;, 2), (&#39;c&#39;, 1), (&#39;d&#39;, 1), (&#39;a&#39;, 3)]
+[(&#39;b&#39;, 2), (&#39;c&#39;, 1), (&#39;a&#39;, 3), (&#39;d&#39;, 1)]
 </pre></div></div>
 </div>
 </div>
@@ -1576,7 +1577,7 @@ Overwriting data.txt
 <hr class="docutils" />
 <p><strong>Limpieza de la carpeta de trabajo</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1593,9 +1594,6 @@ Overwriting data.txt
 <div class="highlight"><pre>
 Deleted /tmp/wordcount
 Deleted /tmp/data.txt
-Found 2 items
-drwx------   - vagrant supergroup          0 2019-05-18 03:23 /tmp/hadoop-yarn
-drwxrwxrwx   - vagrant supergroup          0 2019-05-18 11:30 /tmp/hive
 </pre></div></div>
 </div>
 </div>

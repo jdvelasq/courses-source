@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="WordCount en PySpark" href="../pyspark/1-01-pyspark-wordcount.html" />
+    <link rel="next" title="Conteo de palabras en Apache Hive en modo standalone" href="2-08-standalone.html" />
     <link rel="prev" title="Carga de datos en distintos formatos" href="2-06-carga-de-datos-en-distintos-formatos.html" /> 
 </head>
 
@@ -399,6 +399,27 @@ div.rendered_html tbody tr:hover {
 <li><p>La construcción de consultas sobre campos complejos.</p></li>
 <li><p>La creación de tablas particionadas y la inserción de registros en ellas.</p></li>
 </ul>
+<div class="section" id="Ejecución-de-Hive-en-un-contenedor-de-Docker">
+<h2>Ejecución de Hive en un contenedor de Docker<a class="headerlink" href="#Ejecución-de-Hive-en-un-contenedor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Usando el directorio de trabajo de la máquina local:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span>  <span class="o">--</span><span class="n">name</span> <span class="n">hive</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Usando un volumen de Docker (llamado <code class="docutils literal notranslate"><span class="pre">datalake</span></code>):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hive</span>  <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Consola conectada a un contendor que ya está corriendo:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">hive</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="Información-utilizada">
 <h2>Información utilizada<a class="headerlink" href="#Información-utilizada" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La información utilizada corresponde al ranking de popularidad de lenguajes de programación publicado por IEEE en sus sitios web:</p>
@@ -421,33 +442,6 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>apt-get update <span class="o">&amp;&amp;</span> apt-get install wget
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Hit:1 http://security.ubuntu.com/ubuntu bionic-security InRelease
-Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
-Hit:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
-Hit:4 https://deb.nodesource.com/node_13.x bionic InRelease
-Hit:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
-Reading package lists... Done
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-wget is already the newest version (1.19.4-1ubuntu2.2).
-0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">!</span>wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/language-score.tsv
 </pre></div>
 </div>
@@ -457,21 +451,21 @@ wget is already the newest version (1.19.4-1ubuntu2.2).
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2019-11-08 12:34:46--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/language-score.tsv
+--2019-11-14 23:56:52--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/language-score.tsv
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 3490 (3.4K) [text/plain]
 Saving to: &#39;language-score.tsv&#39;
 
-language-score.tsv  100%[===================&gt;]   3.41K  --.-KB/s    in 0.03s
+language-score.tsv  100%[===================&gt;]   3.41K  --.-KB/s    in 0.005s
 
-2019-11-08 12:34:46 (99.3 KB/s) - &#39;language-score.tsv&#39; saved [3490/3490]
+2019-11-14 23:56:53 (756 KB/s) - &#39;language-score.tsv&#39; saved [3490/3490]
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -545,7 +539,7 @@ NetLogo 2014#0.0        Enterprise
 <h2>Preparación<a class="headerlink" href="#Preparación" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se carga la extensión para enviar interactivamente comandos a Hive. Se fija el tiempo máximo de espera en 300 segundos.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -554,8 +548,8 @@ NetLogo 2014#0.0        Enterprise
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -565,14 +559,6 @@ NetLogo 2014#0.0        Enterprise
 <span class="o">!</span>hdfs dfs -copyFromLocal language-score.tsv /tmp/language-score.tsv
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-copyFromLocal: `/tmp/language-score.tsv&#39;: File exists
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="Creación-de-la-tabla-journals">
@@ -589,7 +575,7 @@ copyFromLocal: `/tmp/language-score.tsv&#39;: File exists
 <li><p>La tabla se almacenará en la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/hive-journals</span></code> del HDFS como un archivo de texto.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -618,7 +604,7 @@ LOCATION &#39;/tmp/hive-journals&#39;;
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS languages;
 OK
-Time taken: 6.075 seconds
+Time taken: 4.221 seconds
 CREATE TABLE languages (
     language   STRING,
     ranking    MAP&lt;INT,FLOAT&gt;,
@@ -632,7 +618,7 @@ LINES TERMINATED BY &#39;\n&#39;
 STORED AS TEXTFILE
 LOCATION &#39;/tmp/hive-journals&#39;;
 OK
-Time taken: 0.867 seconds
+Time taken: 0.645 seconds
 </pre></div></div>
 </div>
 </div>
@@ -640,7 +626,7 @@ Time taken: 0.867 seconds
 <h2>Carga de datos<a class="headerlink" href="#Carga-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se cargan los datos en la forma usual.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -657,12 +643,12 @@ LOAD DATA INPATH &#39;/tmp/language-score.tsv&#39; INTO TABLE languages;
 LOAD DATA INPATH &#39;/tmp/language-score.tsv&#39; INTO TABLE languages;
 Loading data to table default.languages
 OK
-Time taken: 1.347 seconds
+Time taken: 1.054 seconds
 </pre></div></div>
 </div>
 <p>Se muestran los primeros 10 registros para verificar que la tabla fue cargada exitósamente. Note que los campos MAP (columna ranking), aparecen delimitados por <code class="docutils literal notranslate"><span class="pre">{</span></code> y <code class="docutils literal notranslate"><span class="pre">}</span></code>, donde las parejas clave-valor están separadas entre si por comas, y la separación entre la clave y el valor se hace mediante <code class="docutils literal notranslate"><span class="pre">:</span></code>. Los ARRAY están delimitados por <code class="docutils literal notranslate"><span class="pre">[</span></code> y <code class="docutils literal notranslate"><span class="pre">]</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -688,7 +674,7 @@ C#      {2018:89.4,2017:88.8,2016:86.4,2015:91.8,2014:92.2}     [&#34;Web&#34;,&
 C++     {2018:99.7,2017:97.4,2016:95.8,2015:99.6,2014:95.5}     [&#34;Mobile&#34;,&#34; Enterprise&#34;,&#34; Embedded&#34;]
 Clojure {2018:25.6,2017:28.8,2016:22.0,2015:30.9,2014:36.0}     [&#34;Web&#34;,&#34;Enterprise&#34;]
 Cobol   {2018:24.6,2017:29.2,2016:17.9,2015:19.0,2014:30.6}     [&#34;Enterprise&#34;]
-Time taken: 2.416 seconds, Fetched: 10 row(s)
+Time taken: 1.112 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -696,7 +682,7 @@ Time taken: 2.416 seconds, Fetched: 10 row(s)
 <h2>Almacenamiento de la tabla en el HDFS<a class="headerlink" href="#Almacenamiento-de-la-tabla-en-el-HDFS" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La tabla es almacenada en la carpeta <code class="docutils literal notranslate"><span class="pre">/tmp/hive-journals</span></code>, tal como se indicó en su creación.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -710,12 +696,12 @@ Time taken: 2.416 seconds, Fetched: 10 row(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxrwxrwx   1 root supergroup       3490 2019-11-08 11:58 /tmp/hive-journals/language-score.tsv
+-rwxrwxrwx   1 root supergroup       3490 2019-11-14 23:56 /tmp/hive-journals/language-score.tsv
 </pre></div></div>
 </div>
 <p>La tabla ahora es administrada por Hive y conserva el mismo formato que se indicó en su creación.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -754,7 +740,7 @@ NetLogo 2014#0.0        Enterprise
 <h2>Popularidad por año<a class="headerlink" href="#Popularidad-por-año" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En la siguiente consulta se obtienen los diez lenguajes de programación más populares para el año 2017. En Hive no es posible aplicar ORDER BY sobre un valor de un MAP, por lo que se crea una subconsulta que crea una tabla, llamada <code class="docutils literal notranslate"><span class="pre">table1</span></code>, en donde el ranking para el año 2017 se nombra como <code class="docutils literal notranslate"><span class="pre">ranking2017</span></code> con el fin de poder realizar el ordenamiento.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -794,7 +780,7 @@ ORDER BY
     ranking2017 DESC
 LIMIT 10;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108123641_a7794b7e-b9e8-47a1-b4c0-28d15f83c410
+Query ID = root_20191114235715_a9bdce9c-7983-4bd1-97e6-4620d23a15ca
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 1
@@ -804,17 +790,17 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1573207742881_0020, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0020/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0020
+Starting Job = job_1573774297554_0029, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0029/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0029
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-11-08 12:36:53,001 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 12:37:00,433 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.38 sec
-2019-11-08 12:37:07,836 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.4 sec
-MapReduce Total cumulative CPU time: 4 seconds 400 msec
-Ended Job = job_1573207742881_0020
+2019-11-14 23:57:21,579 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:57:26,885 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.95 sec
+2019-11-14 23:57:32,163 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.26 sec
+MapReduce Total cumulative CPU time: 3 seconds 260 msec
+Ended Job = job_1573774297554_0029
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.4 sec   HDFS Read: 11897 HDFS Write: 305 SUCCESS
-Total MapReduce CPU Time Spent: 4 seconds 400 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.26 sec   HDFS Read: 11890 HDFS Write: 305 SUCCESS
+Total MapReduce CPU Time Spent: 3 seconds 260 msec
 OK
 Python  100.0
 C       99.7
@@ -826,7 +812,7 @@ JavaScript      86.2
 PHP     82.3
 Go      77.2
 Swift   76.5
-Time taken: 27.646 seconds, Fetched: 10 row(s)
+Time taken: 17.751 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -834,7 +820,7 @@ Time taken: 27.646 seconds, Fetched: 10 row(s)
 <h2>Popularidad por Categoría y por Año<a class="headerlink" href="#Popularidad-por-Categoría-y-por-Año" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En la siguiente consulta se obtienen los lenguajes más populares para la categoría <code class="docutils literal notranslate"><span class="pre">Mobile</span></code> en el año 2017. En este caso, se usa la función <code class="docutils literal notranslate"><span class="pre">array_contains(categories,</span> <span class="pre">'Mobile')</span></code> que retorna verdadero si <code class="docutils literal notranslate"><span class="pre">Mobile</span></code> aparece en <code class="docutils literal notranslate"><span class="pre">categories</span></code>. Las funciones disponibles pueden ser consultadas en <a class="reference external" href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-StringFunctions">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-StringFunctions</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -892,7 +878,7 @@ JavaScript      82.6    86.2    81.9
 Objective-C     50.5    48.4    52.4
 Scala   72.1    70.0    66.3
 Scheme  18.8    24.5    14.5
-Time taken: 0.286 seconds, Fetched: 10 row(s)
+Time taken: 0.275 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -900,7 +886,7 @@ Time taken: 0.286 seconds, Fetched: 10 row(s)
 <h2>Expansión de la tabla por categoría<a class="headerlink" href="#Expansión-de-la-tabla-por-categoría" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es posible generar un registro por cada valor de un campo complejo. En el siguiente ejemplo, se expande la tabla por cada valor del campo <code class="docutils literal notranslate"><span class="pre">categories</span></code>. El proceso de expansión es realizado mediante la instrucción <code class="docutils literal notranslate"><span class="pre">LATERAL</span> <span class="pre">VIEW</span></code> que genera un valor por cada categoría en el campo <code class="docutils literal notranslate"><span class="pre">categories</span></code>, el cual es combinado con el resto de los campos indicados de la instrucción <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -942,7 +928,7 @@ Assembly        74.1    Embedded
 C       96.7    Mobile
 C       96.7    Enterprise
 C       96.7    Embedded
-Time taken: 0.11 seconds, Fetched: 10 row(s)
+Time taken: 0.068 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -957,7 +943,7 @@ Time taken: 0.11 seconds, Fetched: 10 row(s)
 </ul>
 <p>La tabla es llenada mediante la expansión de las columnas <code class="docutils literal notranslate"><span class="pre">ranking</span></code> y <code class="docutils literal notranslate"><span class="pre">categories</span></code>. Note que en este código, primero, se realiza una subconsulta para expandir por el campo <code class="docutils literal notranslate"><span class="pre">categories</span></code> y luego en la consulta principal se expande por el campo <code class="docutils literal notranslate"><span class="pre">ranking</span></code>;</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1018,27 +1004,27 @@ AS
         explode(ranking) t0
 ;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108123757_ed946058-c4a1-46a8-a53a-5ae2cea87183
+Query ID = root_20191114235736_aa156095-7295-4b4a-8420-f91e9b640297
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1573207742881_0021, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0021/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0021
+Starting Job = job_1573774297554_0030, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0030/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0030
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-2019-11-08 12:38:06,199 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 12:38:13,587 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.02 sec
-MapReduce Total cumulative CPU time: 2 seconds 20 msec
-Ended Job = job_1573207742881_0021
+2019-11-14 23:57:43,976 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:57:49,235 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.22 sec
+MapReduce Total cumulative CPU time: 1 seconds 220 msec
+Ended Job = job_1573774297554_0030
 Stage-4 is selected by condition resolver.
 Stage-3 is filtered out by condition resolver.
 Stage-5 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/.hive-staging_hive_2019-11-08_12-37-57_330_6275656640861261471-1/-ext-10001
+Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/.hive-staging_hive_2019-11-14_23-57-36_248_681205234592942397-1/-ext-10001
 Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/detail
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1   Cumulative CPU: 2.02 sec   HDFS Read: 9857 HDFS Write: 9876 SUCCESS
-Total MapReduce CPU Time Spent: 2 seconds 20 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.22 sec   HDFS Read: 9853 HDFS Write: 9876 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 220 msec
 OK
-Time taken: 17.775 seconds
+Time taken: 14.394 seconds
 SELECT * FROM detail LIMIT 10;
 OK
 ABAP    2018    22.8    Enterprise
@@ -1051,12 +1037,12 @@ Actionscript    2017    0.0     Web
 Actionscript    2016    3.3     Web
 Actionscript    2015    6.8     Web
 Actionscript    2014    22.0    Web
-Time taken: 0.147 seconds, Fetched: 10 row(s)
+Time taken: 0.093 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 <p>La instrucción <code class="docutils literal notranslate"><span class="pre">DESCRIBE</span></code> permite ver los tipos de datos de la tabla.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1076,7 +1062,7 @@ language                string
 year                    int
 popularity              float
 category                string
-Time taken: 0.042 seconds, Fetched: 4 row(s)
+Time taken: 0.029 seconds, Fetched: 4 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -1084,7 +1070,7 @@ Time taken: 0.042 seconds, Fetched: 4 row(s)
 <h2>Construcción de campos compuestos<a class="headerlink" href="#Construcción-de-campos-compuestos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>También es posible crear datos complejos a partir de los campos de una tabla. En la siguiente consulta, se construye un ARRAY mediante la función <code class="docutils literal notranslate"><span class="pre">collect_set()</span></code> agrupando las catetorias por lenguaje de la tabla <code class="docutils literal notranslate"><span class="pre">detail</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1114,7 +1100,7 @@ GROUP BY
     language
 LIMIT 10;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108123949_6856ccc1-16b0-478a-aae1-481d61af5434
+Query ID = root_20191114235751_b499f3e7-48a5-430f-8180-103364522333
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -1124,17 +1110,17 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1573207742881_0022, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0022/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0022
+Starting Job = job_1573774297554_0031, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0031/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0031
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-11-08 12:39:59,216 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 12:40:06,522 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.91 sec
-2019-11-08 12:40:13,882 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.46 sec
-MapReduce Total cumulative CPU time: 4 seconds 460 msec
-Ended Job = job_1573207742881_0022
+2019-11-14 23:58:00,070 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:58:05,290 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.42 sec
+2019-11-14 23:58:09,528 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 2.71 sec
+MapReduce Total cumulative CPU time: 2 seconds 710 msec
+Ended Job = job_1573774297554_0031
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.46 sec   HDFS Read: 18995 HDFS Write: 426 SUCCESS
-Total MapReduce CPU Time Spent: 4 seconds 460 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 2.71 sec   HDFS Read: 18995 HDFS Write: 426 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 710 msec
 OK
 ABAP    [&#34;Enterprise&#34;]
 ASP.NET [&#34;Web&#34;]
@@ -1146,12 +1132,12 @@ Assembly        [&#34;Embedded&#34;]
 C       [&#34;Mobile&#34;,&#34;Enterprise&#34;,&#34;Embedded&#34;]
 C#      [&#34;Web&#34;,&#34;Mobile&#34;,&#34;Enterprise&#34;]
 C++     [&#34;Mobile&#34;,&#34; Enterprise&#34;,&#34; Embedded&#34;]
-Time taken: 25.15 seconds, Fetched: 10 row(s)
+Time taken: 20.304 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 <p>En la siguiente consulta, se construye un MAP a partir del año y la popularidad del lenguaje.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1189,7 +1175,7 @@ Actionscript    {2017:0.0}      Web
 Actionscript    {2016:3.3}      Web
 Actionscript    {2015:6.8}      Web
 Actionscript    {2014:22.0}     Web
-Time taken: 0.156 seconds, Fetched: 10 row(s)
+Time taken: 0.13 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -1197,7 +1183,7 @@ Time taken: 0.156 seconds, Fetched: 10 row(s)
 <h2>Particionamiento<a class="headerlink" href="#Particionamiento" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Como ya se indicó, las tablas pueden partirse físicamente dependiendo del valor de uno o más campos usados como claves. Esto permite que las búsquedas sean más eficientes, ya que las consultas operan sobre las partficiones. En el siguiente código, se crea la tabla <code class="docutils literal notranslate"><span class="pre">detailpart</span></code> en que la partición está dada por el campo <code class="docutils literal notranslate"><span class="pre">year</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1243,13 +1229,13 @@ LINES TERMINATED BY &#39;\n&#39;
 STORED AS TEXTFILE
 LOCATION &#39;/tmp/hive-partitioned&#39;;
 OK
-Time taken: 0.072 seconds
+Time taken: 0.046 seconds
 ;
 </pre></div></div>
 </div>
 <p>Seguidamente, se llena la tabla <code class="docutils literal notranslate"><span class="pre">detailpart</span></code> con la información almacenada en la tabla <code class="docutils literal notranslate"><span class="pre">detail</span></code>. Note que se indicar una instrucción <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">OVERWRITE</span></code> por cada valor posible de la partición (columna <code class="docutils literal notranslate"><span class="pre">year</span></code>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1337,17 +1323,17 @@ WHERE
     year=2014
 ;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108124124_48303041-f97a-4b47-81b2-7b55f4849b5f
+Query ID = root_20191114235815_7e54c49c-3fa6-48a9-a14e-e3b41298938c
 Total jobs = 11
 Launching Job 1 out of 11
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1573207742881_0023, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0023/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0023
+Starting Job = job_1573774297554_0032, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0032/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0032
 Hadoop job information for Stage-5: number of mappers: 1; number of reducers: 0
-2019-11-08 12:41:34,139 Stage-5 map = 0%,  reduce = 0%
-2019-11-08 12:41:41,503 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 2.82 sec
-MapReduce Total cumulative CPU time: 2 seconds 820 msec
-Ended Job = job_1573207742881_0023
+2019-11-14 23:58:21,328 Stage-5 map = 0%,  reduce = 0%
+2019-11-14 23:58:26,553 Stage-5 map = 100%,  reduce = 0%, Cumulative CPU 2.48 sec
+MapReduce Total cumulative CPU time: 2 seconds 480 msec
+Ended Job = job_1573774297554_0032
 Stage-8 is selected by condition resolver.
 Stage-7 is filtered out by condition resolver.
 Stage-9 is filtered out by condition resolver.
@@ -1363,26 +1349,26 @@ Stage-27 is filtered out by condition resolver.
 Stage-32 is selected by condition resolver.
 Stage-31 is filtered out by condition resolver.
 Stage-33 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2018/.hive-staging_hive_2019-11-08_12-41-24_459_1365519083681476686-1/-ext-10000
-Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2017/.hive-staging_hive_2019-11-08_12-41-24_459_1365519083681476686-1/-ext-10002
-Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2016/.hive-staging_hive_2019-11-08_12-41-24_459_1365519083681476686-1/-ext-10004
-Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2015/.hive-staging_hive_2019-11-08_12-41-24_459_1365519083681476686-1/-ext-10006
-Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2014/.hive-staging_hive_2019-11-08_12-41-24_459_1365519083681476686-1/-ext-10008
+Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2018/.hive-staging_hive_2019-11-14_23-58-15_037_5152171077483528852-1/-ext-10000
+Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2017/.hive-staging_hive_2019-11-14_23-58-15_037_5152171077483528852-1/-ext-10002
+Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2016/.hive-staging_hive_2019-11-14_23-58-15_037_5152171077483528852-1/-ext-10004
+Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2015/.hive-staging_hive_2019-11-14_23-58-15_037_5152171077483528852-1/-ext-10006
+Moving data to directory hdfs://0.0.0.0:9000/tmp/hive-partitioned/year=2014/.hive-staging_hive_2019-11-14_23-58-15_037_5152171077483528852-1/-ext-10008
 Loading data to table default.detailpart partition (year=2018)
 Loading data to table default.detailpart partition (year=2017)
 Loading data to table default.detailpart partition (year=2016)
 Loading data to table default.detailpart partition (year=2015)
 Loading data to table default.detailpart partition (year=2014)
 MapReduce Jobs Launched:
-Stage-Stage-5: Map: 1   Cumulative CPU: 2.82 sec   HDFS Read: 18792 HDFS Write: 12254 SUCCESS
-Total MapReduce CPU Time Spent: 2 seconds 820 msec
+Stage-Stage-5: Map: 1   Cumulative CPU: 2.48 sec   HDFS Read: 18792 HDFS Write: 12254 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 480 msec
 OK
-Time taken: 21.105 seconds
+Time taken: 14.112 seconds
 </pre></div></div>
 </div>
 <p>A conitnuación se verifican las particiones creadas.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1403,12 +1389,12 @@ year=2015
 year=2016
 year=2017
 year=2018
-Time taken: 0.079 seconds, Fetched: 5 row(s)
+Time taken: 0.045 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 <p>En una tabla particionada, se crea un subdirectorio por cada uno de los valores posibles que puede tomar el campo usado para especificar la partición; es así, como existe un directorio para <code class="docutils literal notranslate"><span class="pre">year=2014</span></code>, otro para <code class="docutils literal notranslate"><span class="pre">year=2015</span></code> y así sucesivamente.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1422,15 +1408,15 @@ Time taken: 0.079 seconds, Fetched: 5 row(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 5 items
-drwxrwxrwx   - root supergroup          0 2019-11-08 12:41 /tmp/hive-partitioned/year=2014
-drwxrwxrwx   - root supergroup          0 2019-11-08 12:41 /tmp/hive-partitioned/year=2015
-drwxrwxrwx   - root supergroup          0 2019-11-08 12:41 /tmp/hive-partitioned/year=2016
-drwxrwxrwx   - root supergroup          0 2019-11-08 12:41 /tmp/hive-partitioned/year=2017
-drwxrwxrwx   - root supergroup          0 2019-11-08 12:41 /tmp/hive-partitioned/year=2018
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:58 /tmp/hive-partitioned/year=2014
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:58 /tmp/hive-partitioned/year=2015
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:58 /tmp/hive-partitioned/year=2016
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:58 /tmp/hive-partitioned/year=2017
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:58 /tmp/hive-partitioned/year=2018
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1444,12 +1430,12 @@ drwxrwxrwx   - root supergroup          0 2019-11-08 12:41 /tmp/hive-partitioned
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxrwxrwx   1 root supergroup       2347 2019-11-08 12:41 /tmp/hive-partitioned/year=2014/000000_0
+-rwxrwxrwx   1 root supergroup       2347 2019-11-14 23:58 /tmp/hive-partitioned/year=2014/000000_0
 </pre></div></div>
 </div>
 <p>Note que <code class="docutils literal notranslate"><span class="pre">year</span></code> ya no es parte del contenido de la tabla.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1505,7 +1491,7 @@ NetLogo 0.0     Enterprise
 <h2>Tablas externas<a class="headerlink" href="#Tablas-externas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Las tablas creadas hasta el momento son completamente manejadas por <code class="docutils literal notranslate"><span class="pre">Hive</span></code>. Sin embargo, estas tablas no son convenientes para compartir directamente información con otras aplicaciones, ya que <code class="docutils literal notranslate"><span class="pre">Hive</span></code> administra los datos. Para analizar la información generada por otras aplicaciones resulta más conveniente usar tablas externas.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1527,12 +1513,12 @@ LIKE
     languages
 LOCATION &#39;/tmp/externaltbl&#39;;
 OK
-Time taken: 0.077 seconds
+Time taken: 0.043 seconds
 </pre></div></div>
 </div>
 <p>La carga de datos se realizar como en los ejemplos anteriores.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1560,27 +1546,27 @@ SELECT
     ranking,
     categories;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108124417_a1e73c14-ba12-4a81-9ad7-ebcb453c31f4
+Query ID = root_20191114235837_9c7d4ac3-9ef6-4fcf-9616-26cbbe145631
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1573207742881_0024, Tracking URL = http://dd8f0caea87b:8088/proxy/application_1573207742881_0024/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573207742881_0024
+Starting Job = job_1573774297554_0033, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0033/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0033
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-2019-11-08 12:44:27,212 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 12:44:34,571 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.9 sec
-MapReduce Total cumulative CPU time: 1 seconds 900 msec
-Ended Job = job_1573207742881_0024
+2019-11-14 23:58:41,748 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:58:46,984 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.19 sec
+MapReduce Total cumulative CPU time: 1 seconds 190 msec
+Ended Job = job_1573774297554_0033
 Stage-4 is selected by condition resolver.
 Stage-3 is filtered out by condition resolver.
 Stage-5 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/tmp/externaltbl/.hive-staging_hive_2019-11-08_12-44-17_525_5205682974048987697-1/-ext-10000
+Moving data to directory hdfs://0.0.0.0:9000/tmp/externaltbl/.hive-staging_hive_2019-11-14_23-58-37_081_2701677704143997727-1/-ext-10000
 Loading data to table default.externaltbl
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.9 sec   HDFS Read: 7777 HDFS Write: 3581 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 900 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.19 sec   HDFS Read: 7777 HDFS Write: 3581 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 190 msec
 OK
-Time taken: 18.461 seconds
+Time taken: 11.269 seconds
 SELECT * FROM externaltbl LIMIT 10;
 OK
 ABAP    {2018:22.8,2017:28.9,2016:15.9,2015:24.6,2014:20.8}     [&#34;Enterprise&#34;]
@@ -1593,11 +1579,11 @@ C#      {2018:89.4,2017:88.8,2016:86.4,2015:91.8,2014:92.2}     [&#34;Web&#34;,&
 C++     {2018:99.7,2017:97.4,2016:95.8,2015:99.6,2014:95.5}     [&#34;Mobile&#34;,&#34; Enterprise&#34;,&#34; Embedded&#34;]
 Clojure {2018:25.6,2017:28.8,2016:22.0,2015:30.9,2014:36.0}     [&#34;Web&#34;,&#34;Enterprise&#34;]
 Cobol   {2018:24.6,2017:29.2,2016:17.9,2015:19.0,2014:30.6}     [&#34;Enterprise&#34;]
-Time taken: 0.135 seconds, Fetched: 10 row(s)
+Time taken: 0.079 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1611,11 +1597,11 @@ Time taken: 0.135 seconds, Fetched: 10 row(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxrwxrwx   1 root supergroup       3504 2019-11-08 12:44 /tmp/externaltbl/000000_0
+-rwxrwxrwx   1 root supergroup       3504 2019-11-14 23:58 /tmp/externaltbl/000000_0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1655,7 +1641,7 @@ NetLogo 2014#0.0        Enterprise
 <h2>Borrado de las tablas<a class="headerlink" href="#Borrado-de-las-tablas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Cuando se borra la tabla <code class="docutils literal notranslate"><span class="pre">languages</span></code> también se borra la carpeta correspondiente del HDFS.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1674,20 +1660,20 @@ DROP TABLE externaltbl;
 <div class="highlight"><pre>
 DROP TABLE languages;
 OK
-Time taken: 0.553 seconds
+Time taken: 0.459 seconds
 DROP TABLE detail;
 OK
-Time taken: 0.073 seconds
+Time taken: 0.06 seconds
 DROP TABLE detailpart;
 OK
-Time taken: 0.269 seconds
+Time taken: 0.237 seconds
 DROP TABLE externaltbl;
 OK
-Time taken: 0.059 seconds
+Time taken: 0.04 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1701,19 +1687,19 @@ Time taken: 0.059 seconds
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 5 items
-drwxr-xr-x   - root supergroup          0 2019-11-08 11:53 /tmp/drivers
-drwxrwxrwx   - root supergroup          0 2019-11-08 11:53 /tmp/drivers-json
-drwxrwxrwx   - root supergroup          0 2019-11-08 12:44 /tmp/externaltbl
-drwxrwx---   - root supergroup          0 2019-11-08 10:09 /tmp/hadoop-yarn
-drwxrwxrwx   - root supergroup          0 2019-11-08 10:14 /tmp/hive
+drwxr-xr-x   - root supergroup          0 2019-11-14 23:47 /tmp/drivers
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:58 /tmp/externaltbl
+drwxrwx---   - root supergroup          0 2019-11-14 23:32 /tmp/hadoop-yarn
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:33 /tmp/hive
+drwxrwxrwx   - root supergroup          0 2019-11-14 23:35 /tmp/output
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>rm *.tsv
+<span></span><span class="o">!</span>rm *.tsv *.log
 </pre></div>
 </div>
 </div>

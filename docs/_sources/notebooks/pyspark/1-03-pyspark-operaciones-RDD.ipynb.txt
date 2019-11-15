@@ -335,11 +335,12 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Found 4 items\n",
-      "-rw-r--r--   1 vagrant supergroup       1436 2019-05-19 14:51 /user/vagrant/data.txt\n",
-      "drwxr-xr-x   - vagrant supergroup          0 2019-05-20 14:40 /user/vagrant/flightsWithDelays.orc\n",
-      "drwxr-xr-x   - vagrant supergroup          0 2019-05-20 13:04 /user/vagrant/output\n",
-      "drwxr-xr-x   - vagrant supergroup          0 2019-05-19 14:51 /user/vagrant/wordcount\n"
+      "Found 5 items\n",
+      "-rw-r--r--   1 root supergroup          0 2019-11-15 00:44 /tmp/out/_SUCCESS\n",
+      "-rw-r--r--   1 root supergroup        108 2019-11-15 00:44 /tmp/out/part-00000\n",
+      "-rw-r--r--   1 root supergroup        108 2019-11-15 00:44 /tmp/out/part-00001\n",
+      "-rw-r--r--   1 root supergroup        108 2019-11-15 00:44 /tmp/out/part-00002\n",
+      "-rw-r--r--   1 root supergroup        124 2019-11-15 00:44 /tmp/out/part-00003\n"
      ]
     }
    ],
@@ -350,7 +351,7 @@
     "## en el sistema hdfs. Note se creó la carpeta \n",
     "## /tmp/out como resultado del paso anterior\n",
     "##\n",
-    "!hdfs dfs -ls /user/vagrant/"
+    "!hdfs dfs -ls /tmp/out/"
    ]
   },
   {
@@ -507,11 +508,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "('hdfs://0.0.0.0:9000/user/vagrant/wordcount/text0.txt', 'Analytics is the discovery, interpretation, and communication of meaningful patterns \\nin data. Especially valuable in areas rich with recorded information, analytics relies \\non the simultaneous application of statistics, computer programming and operations research \\nto quantify performance.\\n\\nOrganizations may apply analytics to business data to describe, predict, and improve business \\nperformance. Specifically, areas within analytics include predictive analytics, prescriptive \\nanalytics, enterprise decision management, descriptive analytics, cognitive analytics, Big \\nData Analytics, retail analytics, store assortment and stock-keeping unit optimization, \\nmarketing optimization and marketing mix modeling, web analytics, call analytics, speech \\nanalytics, sales force sizing and optimization, price and promotion modeling, predictive \\nscience, credit risk analysis, and fraud analytics. Since analytics can require extensive \\ncomputation (see big data), the algorithms and software used for analytics harness the most \\ncurrent methods in computer science, statistics, and mathematics.\\n')\n",
+      "('hdfs://0.0.0.0:9000/tmp/wordcount/text0.txt', 'Analytics is the discovery, interpretation, and communication of meaningful patterns \\nin data. Especially valuable in areas rich with recorded information, analytics relies \\non the simultaneous application of statistics, computer programming and operations research \\nto quantify performance.\\n\\nOrganizations may apply analytics to business data to describe, predict, and improve business \\nperformance. Specifically, areas within analytics include predictive analytics, prescriptive \\nanalytics, enterprise decision management, descriptive analytics, cognitive analytics, Big \\nData Analytics, retail analytics, store assortment and stock-keeping unit optimization, \\nmarketing optimization and marketing mix modeling, web analytics, call analytics, speech \\nanalytics, sales force sizing and optimization, price and promotion modeling, predictive \\nscience, credit risk analysis, and fraud analytics. Since analytics can require extensive \\ncomputation (see big data), the algorithms and software used for analytics harness the most \\ncurrent methods in computer science, statistics, and mathematics.\\n')\n",
       "----\n",
-      "('hdfs://0.0.0.0:9000/user/vagrant/wordcount/text1.txt', 'The field of data analysis. Analytics often involves studying past historical data to \\nresearch potential trends, to analyze the effects of certain decisions or events, or to \\nevaluate the performance of a given tool or scenario. The goal of analytics is to improve \\nthe business by gaining knowledge which can be used to make improvements or changes.\\n')\n",
+      "('hdfs://0.0.0.0:9000/tmp/wordcount/text1.txt', 'The field of data analysis. Analytics often involves studying past historical data to \\nresearch potential trends, to analyze the effects of certain decisions or events, or to \\nevaluate the performance of a given tool or scenario. The goal of analytics is to improve \\nthe business by gaining knowledge which can be used to make improvements or changes.\\n')\n",
       "----\n",
-      "('hdfs://0.0.0.0:9000/user/vagrant/wordcount/text2.txt', 'Data analytics (DA) is the process of examining data sets in order to draw conclusions \\nabout the information they contain, increasingly with the aid of specialized systems \\nand software. Data analytics technologies and techniques are widely used in commercial \\nindustries to enable organizations to make more-informed business decisions and by \\nscientists and researchers to verify or disprove scientific models, theories and \\nhypotheses.\\n')\n",
+      "('hdfs://0.0.0.0:9000/tmp/wordcount/text2.txt', 'Data analytics (DA) is the process of examining data sets in order to draw conclusions \\nabout the information they contain, increasingly with the aid of specialized systems \\nand software. Data analytics technologies and techniques are widely used in commercial \\nindustries to enable organizations to make more-informed business decisions and by \\nscientists and researchers to verify or disprove scientific models, theories and \\nhypotheses.\\n')\n",
       "----\n"
      ]
     }
@@ -521,7 +522,7 @@
     "## wholeTextFiles() retorna una lista de pares que contienen el nombre \n",
     "## del archivo y su correspondiente texto\n",
     "##\n",
-    "rdd = sc.wholeTextFiles(\"wordcount/\")\n",
+    "rdd = sc.wholeTextFiles(\"/tmp/wordcount/\")\n",
     "for row in rdd.collect():\n",
     "    print(row)\n",
     "    print('----')"
@@ -799,7 +800,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[('b', 2), ('c', 1), ('d', 1), ('a', 3)]\n"
+      "[('b', 2), ('c', 1), ('a', 3), ('d', 1)]\n"
      ]
     }
    ],
@@ -1444,7 +1445,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
@@ -1452,10 +1453,7 @@
      "output_type": "stream",
      "text": [
       "Deleted /tmp/wordcount\n",
-      "Deleted /tmp/data.txt\n",
-      "Found 2 items\n",
-      "drwx------   - vagrant supergroup          0 2019-05-18 03:23 /tmp/hadoop-yarn\n",
-      "drwxrwxrwx   - vagrant supergroup          0 2019-05-18 11:30 /tmp/hive\n"
+      "Deleted /tmp/data.txt\n"
      ]
     }
    ],
@@ -1487,5 +1485,5 @@
   "toc-autonumbering": false
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

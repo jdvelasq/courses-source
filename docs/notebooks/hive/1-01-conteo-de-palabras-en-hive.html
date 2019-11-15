@@ -40,7 +40,7 @@
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Operaciones básicas en Hive" href="1-02-operaciones-basicas-en-hive.html" />
-    <link rel="prev" title="Funciones de Usuario (udfs)" href="../pig/2-06-udfs.html" /> 
+    <link rel="prev" title="WordCount en Apache Pig en modo standalone" href="../pig/2-07-standalone.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -392,6 +392,27 @@ div.rendered_html tbody tr:hover {
 <li><p><em>30 min</em> | Última modificación: Noviembre 07, 2019</p></li>
 </ul>
 <p>En este tutorial se aborda el proceso de construcción de aplicaciones en Apache Hive.</p>
+<div class="section" id="Ejecución-de-Hive-en-un-contenedor-de-Docker">
+<h2>Ejecución de Hive en un contenedor de Docker<a class="headerlink" href="#Ejecución-de-Hive-en-un-contenedor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Usando el directorio de trabajo de la máquina local:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span>  <span class="o">--</span><span class="n">name</span> <span class="n">hive</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Usando un volumen de Docker (llamado <code class="docutils literal notranslate"><span class="pre">datalake</span></code>):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hive</span>  <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Consola conectada a un contendor que ya está corriendo:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">hive</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="Carga-de-la-librería-de-Jupyter">
 <h2>Carga de la librería de Jupyter<a class="headerlink" href="#Carga-de-la-librería-de-Jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Esta librería permite enviar comandos a Hive de forma interactiva.</p>
@@ -471,7 +492,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting wordcount/text0.txt
+Writing wordcount/text0.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -492,7 +513,7 @@ Overwriting wordcount/text0.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting wordcount/text1.txt
+Writing wordcount/text1.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -515,7 +536,7 @@ Overwriting wordcount/text1.txt
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting wordcount/text2.txt
+Writing wordcount/text2.txt
 </pre></div></div>
 </div>
 </div>
@@ -546,13 +567,13 @@ CREATE TABLE docs (line STRING);
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS docs;
 OK
-Time taken: 6.994 seconds
+Time taken: 6.67 seconds
 DROP TABLE IF EXISTS word_counts;
 OK
-Time taken: 0.108 seconds
+Time taken: 0.015 seconds
 CREATE TABLE docs (line STRING);
 OK
-Time taken: 0.902 seconds
+Time taken: 1.153 seconds
 </pre></div></div>
 </div>
 </div>
@@ -578,7 +599,7 @@ SELECT * FROM docs LIMIT 5;
 LOAD DATA LOCAL INPATH &#34;wordcount/&#34; OVERWRITE INTO TABLE docs;
 Loading data to table default.docs
 OK
-Time taken: 1.485 seconds
+Time taken: 2.137 seconds
 SELECT * FROM docs LIMIT 5;
 OK
 Analytics is the discovery, interpretation, and communication of meaningful patterns
@@ -586,7 +607,7 @@ in data. Especially valuable in areas rich with recorded information, analytics 
 on the simultaneous application of statistics, computer programming and operations research
 to quantify performance.
 
-Time taken: 2.353 seconds, Fetched: 5 row(s)
+Time taken: 2.524 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -615,7 +636,7 @@ is
 the
 discovery,
 interpretation,
-Time taken: 0.664 seconds, Fetched: 5 row(s)
+Time taken: 0.717 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 <div class="section" id="Conteo-de-palabras">
@@ -654,7 +675,7 @@ GROUP BY
 ORDER BY
     word;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191107225955_12a7eb35-f510-48bf-b7e4-89eb18e611c1
+Query ID = root_20191115154423_f2ef2aff-685c-4f0d-b9f5-266b35a179a8
 Total jobs = 2
 Launching Job 1 out of 2
 Number of reduce tasks not specified. Estimated from input data size: 1
@@ -664,14 +685,14 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1573166698775_0006, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0006/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0006
+Starting Job = job_1573832555792_0001, Tracking URL = http://06367ac710b0:8088/proxy/application_1573832555792_0001/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573832555792_0001
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-11-07 23:00:07,416 Stage-1 map = 0%,  reduce = 0%
-2019-11-07 23:00:14,896 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.54 sec
-2019-11-07 23:00:22,237 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.45 sec
-MapReduce Total cumulative CPU time: 4 seconds 450 msec
-Ended Job = job_1573166698775_0006
+2019-11-15 15:44:38,273 Stage-1 map = 0%,  reduce = 0%
+2019-11-15 15:44:45,715 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.56 sec
+2019-11-15 15:44:53,186 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.5 sec
+MapReduce Total cumulative CPU time: 4 seconds 500 msec
+Ended Job = job_1573832555792_0001
 Launching Job 2 out of 2
 Number of reduce tasks determined at compile time: 1
 In order to change the average load for a reducer (in bytes):
@@ -680,21 +701,21 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1573166698775_0007, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0007/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0007
+Starting Job = job_1573832555792_0002, Tracking URL = http://06367ac710b0:8088/proxy/application_1573832555792_0002/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573832555792_0002
 Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
-2019-11-07 23:00:37,748 Stage-2 map = 0%,  reduce = 0%
-2019-11-07 23:00:44,077 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.68 sec
-2019-11-07 23:00:52,477 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 3.62 sec
-MapReduce Total cumulative CPU time: 3 seconds 620 msec
-Ended Job = job_1573166698775_0007
+2019-11-15 15:45:08,210 Stage-2 map = 0%,  reduce = 0%
+2019-11-15 15:45:15,576 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.69 sec
+2019-11-15 15:45:22,940 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 1.69 sec
+MapReduce Total cumulative CPU time: 3 seconds 830 msec
+Ended Job = job_1573832555792_0002
 Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/word_counts
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.45 sec   HDFS Read: 10198 HDFS Write: 4345 SUCCESS
-Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.62 sec   HDFS Read: 9498 HDFS Write: 1731 SUCCESS
-Total MapReduce CPU Time Spent: 8 seconds 70 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.5 sec   HDFS Read: 10198 HDFS Write: 4345 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 3.83 sec   HDFS Read: 9498 HDFS Write: 1731 SUCCESS
+Total MapReduce CPU Time Spent: 8 seconds 330 msec
 OK
-Time taken: 58.545 seconds
+Time taken: 62.463 seconds
 </pre></div></div>
 </div>
 </div>
@@ -729,7 +750,7 @@ Data    3
 Especially      1
 Organizations   1
 Since   1
-Time taken: 0.125 seconds, Fetched: 10 row(s)
+Time taken: 0.27 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -775,10 +796,9 @@ Time taken: 0.125 seconds, Fetched: 10 row(s)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Found 3 items
-drwxrwx---   - root supergroup          0 2019-11-07 22:45 /tmp/hadoop-yarn
-drwxrwxrwx   - root supergroup          0 2019-11-07 22:48 /tmp/hive
-drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output
+Found 2 items
+drwxrwx---   - root supergroup          0 2019-11-15 15:43 /tmp/hadoop-yarn
+drwxrwxrwx   - root supergroup          0 2019-11-15 15:44 /tmp/hive
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -810,11 +830,10 @@ drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Found 4 items
-drwxrwx---   - root supergroup          0 2019-11-07 22:45 /tmp/hadoop-yarn
-drwxrwxrwx   - root supergroup          0 2019-11-07 22:48 /tmp/hive
-drwxrwxrwx   - root supergroup          0 2019-11-07 22:54 /tmp/output
-drwxr-xr-x   - root supergroup          0 2019-11-07 23:01 /tmp/wordcount
+Found 3 items
+drwxrwx---   - root supergroup          0 2019-11-15 15:43 /tmp/hadoop-yarn
+drwxrwxrwx   - root supergroup          0 2019-11-15 15:44 /tmp/hive
+drwxr-xr-x   - root supergroup          0 2019-11-15 15:45 /tmp/wordcount
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -849,9 +868,9 @@ drwxr-xr-x   - root supergroup          0 2019-11-07 23:01 /tmp/wordcount
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 3 items
--rw-r--r--   1 root supergroup       1093 2019-11-07 23:01 /tmp/wordcount/text0.txt
--rw-r--r--   1 root supergroup        352 2019-11-07 23:01 /tmp/wordcount/text1.txt
--rw-r--r--   1 root supergroup        440 2019-11-07 23:01 /tmp/wordcount/text2.txt
+-rw-r--r--   1 root supergroup       1093 2019-11-15 15:45 /tmp/wordcount/text0.txt
+-rw-r--r--   1 root supergroup        352 2019-11-15 15:45 /tmp/wordcount/text1.txt
+-rw-r--r--   1 root supergroup        440 2019-11-15 15:45 /tmp/wordcount/text2.txt
 </pre></div></div>
 </div>
 </div>
@@ -908,7 +927,7 @@ Found 3 items
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting wordcount.hql
+Writing wordcount.hql
 </pre></div></div>
 </div>
 </div>
@@ -960,7 +979,7 @@ SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxrwxrwx   1 root supergroup       1653 2019-11-07 23:02 /tmp/output/000000_0
+-rwxrwxrwx   1 root supergroup       1653 2019-11-15 15:47 /tmp/output/000000_0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1009,9 +1028,6 @@ Since,1
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 output/000000_0
-
-output/output:
-000000_0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1195,6 +1211,15 @@ within,1
 </pre></div>
 </div>
 <p>en donde el archivo <code class="docutils literal notranslate"><span class="pre">result.txt</span></code> se almacena localmente.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm -rf output wordcount *.hql *.log
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

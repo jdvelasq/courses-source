@@ -398,11 +398,32 @@ div.rendered_html tbody tr:hover {
 <li><p>El uso básico de consultas.</p></li>
 <li><p>La exportación de resultados.</p></li>
 </ul>
+<div class="section" id="Ejecución-de-Hive-en-un-contenedor-de-Docker">
+<h2>Ejecución de Hive en un contenedor de Docker<a class="headerlink" href="#Ejecución-de-Hive-en-un-contenedor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Usando el directorio de trabajo de la máquina local:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span>  <span class="o">--</span><span class="n">name</span> <span class="n">hive</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Usando un volumen de Docker (llamado <code class="docutils literal notranslate"><span class="pre">datalake</span></code>):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hive</span>  <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Consola conectada a un contendor que ya está corriendo:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">hive</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="Preparación">
 <h2>Preparación<a class="headerlink" href="#Preparación" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En este tutorial se usa el magic <code class="docutils literal notranslate"><span class="pre">bigdata</span></code> para usar interactivamente Hive desde un notebook de Jupyter. El parámetro <code class="docutils literal notranslate"><span class="pre">timeout</span></code> es el tiempo máximo de espera de procesamiento antes de que se reporte un error por procesamiento.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -411,7 +432,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -434,16 +455,16 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2019-11-08 03:39:20--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/truck_event_text_partition.csv
+--2019-11-14 23:42:05--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/truck_event_text_partition.csv
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 2272077 (2.2M) [text/plain]
 Saving to: &#39;truck_event_text_partition.csv&#39;
 
-truck_event_text_pa 100%[===================&gt;]   2.17M  2.07MB/s    in 1.0s
+truck_event_text_pa 100%[===================&gt;]   2.17M  2.59MB/s    in 0.8s
 
-2019-11-08 03:39:22 (2.07 MB/s) - &#39;truck_event_text_partition.csv&#39; saved [2272077/2272077]
+2019-11-14 23:42:07 (2.59 MB/s) - &#39;truck_event_text_partition.csv&#39; saved [2272077/2272077]
 
 </pre></div></div>
 </div>
@@ -478,8 +499,7 @@ truck_event_text_pa 100%[===================&gt;]   2.17M  2.07MB/s    in 1.0s
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Deleted /tmp/drivers
--rw-r--r--   1 root supergroup    2272077 2019-11-08 03:39 /tmp/drivers/truck_event_text_partition.csv
+-rw-r--r--   1 root supergroup    2272077 2019-11-14 23:42 /tmp/drivers/truck_event_text_partition.csv
 </pre></div></div>
 </div>
 </div>
@@ -520,7 +540,7 @@ TBLPROPERTIES (&quot;skip.header.line.count&quot;=&quot;1&quot;);
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS truck_events;
 OK
-Time taken: 7.324 seconds
+Time taken: 3.98 seconds
 CREATE TABLE truck_events (driverId       INT,
                            truckId        INT,
                            eventTime      STRING,
@@ -537,7 +557,7 @@ ROW FORMAT DELIMITED
 FIELDS TERMINATED BY &#39;,&#39;
 TBLPROPERTIES (&#34;skip.header.line.count&#34;=&#34;1&#34;);
 OK
-Time taken: 0.99 seconds
+Time taken: 0.777 seconds
 </pre></div></div>
 </div>
 <p>Se verifican las tablas existentes en la base de datos.</p>
@@ -561,7 +581,7 @@ OK
 docs
 truck_events
 word_counts
-Time taken: 0.156 seconds, Fetched: 3 row(s)
+Time taken: 0.093 seconds, Fetched: 3 row(s)
 </pre></div></div>
 </div>
 <p>A continuación se muestra la información detallada de creación de la tabla <code class="docutils literal notranslate"><span class="pre">truck_events</span></code>.</p>
@@ -608,8 +628,8 @@ LOCATION
   &#39;hdfs://0.0.0.0:9000/user/hive/warehouse/truck_events&#39;
 TBLPROPERTIES (
   &#39;skip.header.line.count&#39;=&#39;1&#39;,
-  &#39;transient_lastDdlTime&#39;=&#39;1573184397&#39;)
-Time taken: 0.131 seconds, Fetched: 27 row(s)
+  &#39;transient_lastDdlTime&#39;=&#39;1573774948&#39;)
+Time taken: 0.273 seconds, Fetched: 27 row(s)
 </pre></div></div>
 </div>
 <p>También es posible visualizar los campos y su contenido con el comando <code class="docutils literal notranslate"><span class="pre">DESCRIBE</span></code>.</p>
@@ -642,7 +662,7 @@ drivername              string
 routeid                 bigint
 routename               string
 eventdate               string
-Time taken: 0.056 seconds, Fetched: 12 row(s)
+Time taken: 0.045 seconds, Fetched: 12 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -669,7 +689,7 @@ LOAD DATA INPATH &#39;/tmp/drivers/truck_event_text_partition.csv&#39; OVERWRITE
 INTO TABLE truck_events;
 Loading data to table default.truck_events
 OK
-Time taken: 0.889 seconds
+Time taken: 0.744 seconds
 </pre></div></div>
 </div>
 <p>Se verifican las propieades de la tabla después de la carga de datos.</p>
@@ -695,8 +715,8 @@ numRows 0
 rawDataSize     0
 skip.header.line.count  1
 totalSize       2272077
-transient_lastDdlTime   1573184398
-Time taken: 0.039 seconds, Fetched: 6 row(s)
+transient_lastDdlTime   1573774949
+Time taken: 0.03 seconds, Fetched: 6 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -730,7 +750,7 @@ OK
 11      74      59:22.5 Normal  -89.74  39.1    11|74|9223370572464813355       3.66E+18        Jamie Engesser  1567254452      Saint Louis to Memphis Route2   2016-05-27-22
 20      41      59:22.5 Normal  -93.36  41.69   20|41|9223370572464813344       3.66E+18        Chris Harris    160779139       Des Moines to Chicago Route 2   2016-05-27-22
 32      42      59:22.5 Normal  -90.37  35.21   32|42|9223370572464813296       3.66E+18        Ryan Templeton  1090292248      Peoria to Ceder Rapids Route 2  2016-05-27-22
-Time taken: 2.34 seconds, Fetched: 10 row(s)
+Time taken: 1.113 seconds, Fetched: 10 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -760,14 +780,14 @@ AS
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS truck_events_subset;
 OK
-Time taken: 0.026 seconds
+Time taken: 0.008 seconds
 CREATE TABLE truck_events_subset
 AS
     SELECT *
     FROM truck_events
     LIMIT 100;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108034001_da2716c7-4453-4205-aa86-c83db08a2737
+Query ID = root_20191114234231_aa3b3b9a-d3db-493d-85f3-4d873df2fc4a
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 1
@@ -777,20 +797,20 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1573166698775_0015, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0015/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0015
+Starting Job = job_1573774297554_0006, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0006/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0006
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-11-08 03:40:12,345 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 03:40:19,767 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.23 sec
-2019-11-08 03:40:27,144 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.31 sec
-MapReduce Total cumulative CPU time: 4 seconds 310 msec
-Ended Job = job_1573166698775_0015
+2019-11-14 23:42:38,953 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:42:43,223 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.26 sec
+2019-11-14 23:42:48,485 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 2.97 sec
+MapReduce Total cumulative CPU time: 2 seconds 970 msec
+Ended Job = job_1573774297554_0006
 Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/truck_events_subset
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.31 sec   HDFS Read: 28725 HDFS Write: 13676 SUCCESS
-Total MapReduce CPU Time Spent: 4 seconds 310 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 2.97 sec   HDFS Read: 28725 HDFS Write: 13676 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 970 msec
 OK
-Time taken: 27.753 seconds
+Time taken: 18.59 seconds
 </pre></div></div>
 </div>
 <p>El código anterior es equivalente al siguiente, donde se usa <code class="docutils literal notranslate"><span class="pre">LIKE</span></code> en <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> para indicar que la nueva tabla <code class="docutils literal notranslate"><span class="pre">truck_events_subset</span></code> tiene la misma estructura de la tabla existente <code class="docutils literal notranslate"><span class="pre">truck_events</span></code>.</p>
@@ -822,10 +842,10 @@ LIMIT
 <div class="highlight"><pre>
 DROP TABLE IF EXISTS truck_events_subset;
 OK
-Time taken: 0.084 seconds
+Time taken: 0.269 seconds
 CREATE TABLE truck_events_subset LIKE truck_events;
 OK
-Time taken: 0.073 seconds
+Time taken: 0.061 seconds
 INSERT OVERWRITE TABLE truck_events_subset
 SELECT
     *
@@ -834,7 +854,7 @@ FROM
 LIMIT
     100;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108034030_9f8b8683-ed71-4038-b457-36dd86e119da
+Query ID = root_20191114234250_52b61a88-2397-4c40-8975-5f93c8eca79e
 Total jobs = 1
 Launching Job 1 out of 1
 Number of reduce tasks determined at compile time: 1
@@ -844,20 +864,20 @@ In order to limit the maximum number of reducers:
   set hive.exec.reducers.max=&lt;number&gt;
 In order to set a constant number of reducers:
   set mapreduce.job.reduces=&lt;number&gt;
-Starting Job = job_1573166698775_0016, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0016/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0016
+Starting Job = job_1573774297554_0007, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0007/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0007
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-2019-11-08 03:40:43,032 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 03:40:50,370 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.9 sec
-2019-11-08 03:40:57,751 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 3.92 sec
-MapReduce Total cumulative CPU time: 3 seconds 920 msec
-Ended Job = job_1573166698775_0016
+2019-11-14 23:43:00,379 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:43:04,580 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.2 sec
+2019-11-14 23:43:09,820 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 2.8 sec
+MapReduce Total cumulative CPU time: 2 seconds 800 msec
+Ended Job = job_1573774297554_0007
 Loading data to table default.truck_events_subset
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.92 sec   HDFS Read: 29413 HDFS Write: 13676 SUCCESS
-Total MapReduce CPU Time Spent: 3 seconds 920 msec
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 2.8 sec   HDFS Read: 29426 HDFS Write: 13676 SUCCESS
+Total MapReduce CPU Time Spent: 2 seconds 800 msec
 OK
-Time taken: 28.781 seconds
+Time taken: 20.401 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -882,7 +902,7 @@ OK
 26      57      59:35.9 Normal  -92.74  37.6    26|57|9223370572464799895       3.66E+18        Michael Aube    1325712174      Saint Louis to Tulsa Route2     2016-05-27-22
 14      25      59:35.8 Normal  -94.46  37.16   14|25|9223370572464800006       3.66E+18        Adis Cesir      160405074       Joplin to Kansas City Route 2   2016-05-27-22
 27      105     59:35.6 Normal  -92.85  38.93   27|105|9223370572464800175      3.66E+18        Mark Lochbihler 1325562373      Springfield to KC Via Columbia Route 2  2016-05-27-22
-Time taken: 0.156 seconds, Fetched: 5 row(s)
+Time taken: 0.1 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -928,27 +948,27 @@ AS
     FROM
         truck_events_subset;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108034059_c4f3f135-b6f1-4d55-8ad4-72cd8194dae2
+Query ID = root_20191114234311_31e15baa-b4c5-43db-8e2e-9869a1e864a9
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1573166698775_0017, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0017/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0017
+Starting Job = job_1573774297554_0008, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0008/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0008
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-2019-11-08 03:41:12,820 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 03:41:20,165 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.89 sec
-MapReduce Total cumulative CPU time: 1 seconds 890 msec
-Ended Job = job_1573166698775_0017
+2019-11-14 23:43:22,087 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:43:26,254 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.21 sec
+MapReduce Total cumulative CPU time: 1 seconds 210 msec
+Ended Job = job_1573774297554_0008
 Stage-4 is selected by condition resolver.
 Stage-3 is filtered out by condition resolver.
 Stage-5 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/.hive-staging_hive_2019-11-08_03-40-59_926_6007670254891365722-1/-ext-10002
+Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/.hive-staging_hive_2019-11-14_23-43-11_877_7266039308226205704-1/-ext-10002
 Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/specific_columns
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.89 sec   HDFS Read: 18146 HDFS Write: 1883 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 890 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.21 sec   HDFS Read: 18146 HDFS Write: 1883 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 210 msec
 OK
-Time taken: 21.672 seconds
+Time taken: 15.784 seconds
 SELECT * FROM specific_columns LIMIT 5;
 OK
 31      59:36.3 Normal
@@ -956,7 +976,7 @@ OK
 26      59:35.9 Normal
 14      59:35.8 Normal
 27      59:35.6 Normal
-Time taken: 0.124 seconds, Fetched: 5 row(s)
+Time taken: 0.086 seconds, Fetched: 5 row(s)
 </pre></div></div>
 </div>
 </div>
@@ -990,27 +1010,27 @@ SELECT
 FROM
     specific_columns;
 WARNING: Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-Query ID = root_20191108034122_45691a61-0261-4fd7-af4b-c8fc1468d5ab
+Query ID = root_20191114234328_b45a3c77-76b9-4ce6-975c-fd25941d9010
 Total jobs = 3
 Launching Job 1 out of 3
 Number of reduce tasks is set to 0 since there&#39;s no reduce operator
-Starting Job = job_1573166698775_0018, Tracking URL = http://9b35a93e9173:8088/proxy/application_1573166698775_0018/
-Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573166698775_0018
+Starting Job = job_1573774297554_0009, Tracking URL = http://0982451e3758:8088/proxy/application_1573774297554_0009/
+Kill Command = /usr/local/hadoop/bin/hadoop job  -kill job_1573774297554_0009
 Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
-2019-11-08 03:41:34,963 Stage-1 map = 0%,  reduce = 0%
-2019-11-08 03:41:42,311 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.79 sec
-MapReduce Total cumulative CPU time: 1 seconds 790 msec
-Ended Job = job_1573166698775_0018
+2019-11-14 23:43:38,228 Stage-1 map = 0%,  reduce = 0%
+2019-11-14 23:43:43,473 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.57 sec
+MapReduce Total cumulative CPU time: 1 seconds 570 msec
+Ended Job = job_1573774297554_0009
 Stage-3 is selected by condition resolver.
 Stage-2 is filtered out by condition resolver.
 Stage-4 is filtered out by condition resolver.
-Moving data to directory hdfs://0.0.0.0:9000/tmp/drivers/specific-columns/.hive-staging_hive_2019-11-08_03-41-22_136_8228773271773107606-1/-ext-10000
+Moving data to directory hdfs://0.0.0.0:9000/tmp/drivers/specific-columns/.hive-staging_hive_2019-11-14_23-43-28_153_2409794566538603448-1/-ext-10000
 Moving data to directory /tmp/drivers/specific-columns
 MapReduce Jobs Launched:
-Stage-Stage-1: Map: 1   Cumulative CPU: 1.79 sec   HDFS Read: 5526 HDFS Write: 1800 SUCCESS
-Total MapReduce CPU Time Spent: 1 seconds 790 msec
+Stage-Stage-1: Map: 1   Cumulative CPU: 1.57 sec   HDFS Read: 5509 HDFS Write: 1800 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 570 msec
 OK
-Time taken: 21.295 seconds
+Time taken: 16.412 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1031,7 +1051,7 @@ Time taken: 21.295 seconds
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
--rwxr-xr-x   1 root supergroup       1800 2019-11-08 03:41 /tmp/drivers/specific-columns/000000_0
+-rwxr-xr-x   1 root supergroup       1800 2019-11-14 23:43 /tmp/drivers/specific-columns/000000_0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1133,33 +1153,33 @@ DROP TABLE truck_events_subset;
 <div class="highlight"><pre>
 DROP TABLE drivers;
 OK
-Time taken: 0.083 seconds
+Time taken: 0.069 seconds
 DROP TABLE specific_columns;
 OK
-Time taken: 0.096 seconds
+Time taken: 0.071 seconds
 DROP TABLE temp_drivers;
 OK
-Time taken: 0.014 seconds
+Time taken: 0.011 seconds
 DROP TABLE temp_timesheet;
 OK
-Time taken: 0.017 seconds
+Time taken: 0.011 seconds
 DROP TABLE timesheet;
 OK
 Time taken: 0.008 seconds
 DROP TABLE truck_events;
 OK
-Time taken: 0.111 seconds
+Time taken: 0.057 seconds
 DROP TABLE truck_events_subset;
 OK
-Time taken: 0.107 seconds
+Time taken: 0.059 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>rm *.csv *hql *.log
+<span></span><span class="o">!</span>rm *.csv *.log
 </pre></div>
 </div>
 </div>
@@ -1168,7 +1188,6 @@ Time taken: 0.107 seconds
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-rm: cannot remove &#39;*.csv&#39;: No such file or directory
 rm: cannot remove &#39;*hql&#39;: No such file or directory
 </pre></div></div>
 </div>

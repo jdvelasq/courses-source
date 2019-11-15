@@ -454,11 +454,38 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>wget https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/flights.csv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2019-11-15 00:51:18--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/flights.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9719482 (9.3M) [text/plain]
+Saving to: &#39;flights.csv.1&#39;
+
+flights.csv.1       100%[===================&gt;]   9.27M  1.47MB/s    in 13s
+
+2019-11-15 00:51:34 (721 KB/s) - &#39;flights.csv.1&#39; saved [9719482/9719482]
+
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Copia-de-archivos-al-HDFS">
 <h2>Copia de archivos al HDFS<a class="headerlink" href="#Copia-de-archivos-al-HDFS" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -482,14 +509,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
--rw-r--r--   1 vagrant supergroup    9719582 2019-05-20 21:43 /tmp/flights.csv
+-rw-r--r--   1 root supergroup    9719482 2019-11-15 00:51 /tmp/flights.csv
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Carga-de-datos-en-Spark">
 <h2>Carga de datos en Spark<a class="headerlink" href="#Carga-de-datos-en-Spark" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -505,7 +532,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -556,7 +583,7 @@ root
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -587,7 +614,7 @@ only showing top 5 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -600,11 +627,11 @@ only showing top 5 rows
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>100000
+<span></span>99999
 </pre></div>
 </div>
 </div>
@@ -614,7 +641,7 @@ only showing top 5 rows
 <div class="section" id="Cómputo-del-porcentaje-de-vuelos-retrasados">
 <h3>Cómputo del porcentaje de vuelos retrasados<a class="headerlink" href="#Cómputo-del-porcentaje-de-vuelos-retrasados" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -646,7 +673,7 @@ only showing top 5 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -663,7 +690,7 @@ only showing top 5 rows
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Porcentaje de vuelos retrasados: 19.587%
+Porcentaje de vuelos retrasados: 19.58719587195872%
 </pre></div></div>
 </div>
 </div>
@@ -671,7 +698,7 @@ Porcentaje de vuelos retrasados: 19.587%
 <h3>Creación de variables usando funciones de usuario<a class="headerlink" href="#Creación-de-variables-usando-funciones-de-usuario" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A continuación se desea crear una nueva columna llamada <code class="docutils literal notranslate"><span class="pre">IsDelayed</span></code> que vale 0 si el vuelo se realizó a tiempo y 1 si se retraso. Ya que la nueva columna, es computada como función de otra, se una una función de usuario (o udf) programada en Python.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -691,7 +718,7 @@ Porcentaje de vuelos retrasados: 19.587%
 </div>
 <p>A continuación se registra la función en Spark y se aplica sobre el Dataframe.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -762,7 +789,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -783,7 +810,7 @@ only showing top 20 rows
 +-------------------------------+
 |Porcentaje de vuelos retrasados|
 +-------------------------------+
-|                         19.587|
+|              19.58719587195872|
 +-------------------------------+
 
 </pre></div></div>
@@ -792,7 +819,7 @@ only showing top 20 rows
 <div class="section" id="Cómputo-de-los-tiempos-promedio-de-despegue-(Taxi-in)">
 <h3>Cómputo de los tiempos promedio de despegue (Taxi-in)<a class="headerlink" href="#Cómputo-de-los-tiempos-promedio-de-despegue-(Taxi-in)" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -836,7 +863,7 @@ only showing top 10 rows
 <div class="section" id="Cómputo-de-los-tiempos-promedio-de-aterrizaje">
 <h3>Cómputo de los tiempos promedio de aterrizaje<a class="headerlink" href="#Cómputo-de-los-tiempos-promedio-de-aterrizaje" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -882,7 +909,7 @@ only showing top 10 rows
 <h2>Cómputos usando SQL<a class="headerlink" href="#Cómputos-usando-SQL" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación se realizan los mismos cálculos anteriores, pero usando SQL desde Spark.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -894,7 +921,7 @@ only showing top 10 rows
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -951,7 +978,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -985,7 +1012,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1007,11 +1034,11 @@ only showing top 20 rows
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pyspark_2-05-pyspark-flights_33_0.png" src="../../_images/notebooks_pyspark_2-05-pyspark-flights_33_0.png" />
+<img alt="../../_images/notebooks_pyspark_2-05-pyspark-flights_34_0.png" src="../../_images/notebooks_pyspark_2-05-pyspark-flights_34_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1038,14 +1065,14 @@ only showing top 20 rows
 +-------------+--------------+
 |UniqueCarrier|TotalTimeDelay|
 +-------------+--------------+
-|           XE|       47505.0|
+|           XE|       47502.0|
 |           WN|      978547.0|
 +-------------+--------------+
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1074,7 +1101,7 @@ only showing top 20 rows
 +-------------+-------------------+
 |UniqueCarrier|AvgDistanceTraveled|
 +-------------+-------------------+
-|           XE|  738.0677880571909|
+|           XE|  738.0462651413189|
 |           WN|  623.7926638668864|
 +-------------+-------------------+
 
@@ -1083,7 +1110,7 @@ only showing top 20 rows
 <div class="section" id="Retrasos-por-día-de-la-semana">
 <h3>Retrasos por día de la semana<a class="headerlink" href="#Retrasos-por-día-de-la-semana" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1117,16 +1144,16 @@ only showing top 20 rows
 +---------+-------+-----+
 |        1|      0|11863|
 |        1|      1| 2656|
-|        2|      0|12911|
 |        2|      1| 1799|
+|        2|      0|12910|
 |        3|      1| 1434|
 |        3|      0|13260|
-|        4|      0|12271|
 |        4|      1| 4808|
+|        4|      0|12271|
 |        5|      1| 3514|
 |        5|      0|11003|
-|        6|      0| 9407|
 |        6|      1| 1878|
+|        6|      0| 9407|
 |        7|      0| 9698|
 |        7|      1| 3498|
 +---------+-------+-----+
@@ -1137,7 +1164,7 @@ only showing top 20 rows
 <div class="section" id="Retrasos-por-hora-del-día">
 <h3>Retrasos por hora del día<a class="headerlink" href="#Retrasos-por-hora-del-día" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1179,14 +1206,14 @@ only showing top 20 rows
 |   8|      0| 5956|
 |   9|      1|  761|
 |   9|      0| 5861|
-|  10|      1|  903|
 |  10|      0| 5783|
-|  11|      1|  986|
+|  10|      1|  903|
 |  11|      0| 5115|
-|  12|      0| 5174|
+|  11|      1|  986|
 |  12|      1| 1128|
-|  13|      0| 5225|
+|  12|      0| 5174|
 |  13|      1| 1346|
+|  13|      0| 5225|
 |  14|      0| 4434|
 |  14|      1| 1335|
 |  15|      0| 4818|
@@ -1203,7 +1230,7 @@ only showing top 20 rows
 <div class="section" id="Escritura-de-resultados-en-el-HDFS-con-formato-ORC">
 <h3>Escritura de resultados en el HDFS con formato ORC<a class="headerlink" href="#Escritura-de-resultados-en-el-HDFS-con-formato-ORC" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1219,7 +1246,7 @@ only showing top 20 rows
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1235,17 +1262,18 @@ only showing top 20 rows
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Found 3 items
--rw-r--r--   1 vagrant supergroup          0 2019-05-20 21:43 /tmp/flightsWithDelays.orc/_SUCCESS
--rw-r--r--   1 vagrant supergroup     162174 2019-05-20 21:43 /tmp/flightsWithDelays.orc/part-00000-4d2e6e19-e865-4198-a9ac-656366eeeeb0-c000.snappy.orc
--rw-r--r--   1 vagrant supergroup      69710 2019-05-20 21:43 /tmp/flightsWithDelays.orc/part-00001-4d2e6e19-e865-4198-a9ac-656366eeeeb0-c000.snappy.orc
+Found 4 items
+-rw-r--r--   1 root supergroup          0 2019-11-15 00:52 /tmp/flightsWithDelays.orc/_SUCCESS
+-rw-r--r--   1 root supergroup      89140 2019-11-15 00:52 /tmp/flightsWithDelays.orc/part-00000-86363a17-4ec0-4c5d-8fe1-2bb6d54d18f0-c000.snappy.orc
+-rw-r--r--   1 root supergroup     104943 2019-11-15 00:52 /tmp/flightsWithDelays.orc/part-00001-86363a17-4ec0-4c5d-8fe1-2bb6d54d18f0-c000.snappy.orc
+-rw-r--r--   1 root supergroup      34305 2019-11-15 00:52 /tmp/flightsWithDelays.orc/part-00002-86363a17-4ec0-4c5d-8fe1-2bb6d54d18f0-c000.snappy.orc
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="Carga-de-los-resultados-desde-el-HDFS">
 <h3>Carga de los resultados desde el HDFS<a class="headerlink" href="#Carga-de-los-resultados-desde-el-HDFS" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1263,7 +1291,7 @@ Found 3 items
 <div class="section" id="Salva-el-DataFrame-como-una-tabla-permamente">
 <h3>Salva el DataFrame como una tabla permamente<a class="headerlink" href="#Salva-el-DataFrame-como-una-tabla-permamente" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1280,7 +1308,7 @@ Found 3 items
 <div class="section" id="Tablas-almacenadas">
 <h3>Tablas almacenadas<a class="headerlink" href="#Tablas-almacenadas" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1307,7 +1335,7 @@ Found 3 items
 <div class="section" id="Consultas-en-un-tabla-permanente">
 <h2>Consultas en un tabla permanente<a class="headerlink" href="#Consultas-en-un-tabla-permanente" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1325,16 +1353,16 @@ Found 3 items
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-+------+
-| Total|
-+------+
-|100000|
-+------+
++-----+
+|Total|
++-----+
+|99999|
++-----+
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1361,7 +1389,7 @@ Found 3 items
 <hr class="docutils" />
 <p><strong>Limpieza</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1374,7 +1402,24 @@ Found 3 items
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Deleted /tmp/flights.csv
+rm: `/tmp/flights.csv&#39;: No such file or directory
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm flights* data.txt
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+rm: cannot remove &#39;flights*&#39;: No such file or directory
 </pre></div></div>
 </div>
 </div>

@@ -414,11 +414,11 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Ejecución-del-contendor-de-Docker">
 <h4>Ejecución del contendor de Docker<a class="headerlink" href="#Ejecución-del-contendor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Si va a iniciar el contendor de Hadoop en la carpeta compartida con su máquina local use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="n">pseudo</span>
 </pre></div>
 </div>
 <p>Si desea iniciar la sesión en el <code class="docutils literal notranslate"><span class="pre">datalake</span></code> use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hadoop</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hadoop</span><span class="p">:</span><span class="mf">2.8</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="n">pseudo</span>
 </pre></div>
 </div>
 <p>Si un contenedor ya se está ejecutando puede abrir un nuevo terminal con:</p>
@@ -750,9 +750,9 @@ Specifically,   1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
--rw-r--r--   1 root supergroup       1093 2019-11-07 16:17 input/text0.txt
--rw-r--r--   1 root supergroup        352 2019-11-07 16:17 input/text1.txt
--rw-r--r--   1 root supergroup        440 2019-11-07 16:17 input/text2.txt
+-rw-r--r--   1 root supergroup       1093 2019-11-14 22:06 input/text0.txt
+-rw-r--r--   1 root supergroup        352 2019-11-14 22:06 input/text1.txt
+-rw-r--r--   1 root supergroup        440 2019-11-14 22:06 input/text2.txt
 </pre></div></div>
 </div>
 <p><strong>Vaya a la pantalla de monitoreo del NameNode (http://127.0.0.1:50070/) y ubique los archivos en el HDFS.</strong></p>
@@ -808,7 +808,7 @@ Specifically,   1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-packageJobJar: [/tmp/hadoop-unjar3781837407417591894/] [] /tmp/streamjob4424725188918655889.jar tmpDir=null
+packageJobJar: [/tmp/hadoop-unjar8434641534785643469/] [] /tmp/streamjob2548476558488568105.jar tmpDir=null
 </pre></div></div>
 </div>
 <p>Alternativamente, podria usar:</p>
@@ -837,8 +837,8 @@ packageJobJar: [/tmp/hadoop-unjar3781837407417591894/] [] /tmp/streamjob44247251
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 2 items
--rw-r--r--   1 root supergroup          0 2019-11-07 16:17 output/_SUCCESS
--rw-r--r--   1 root supergroup       1649 2019-11-07 16:17 output/part-00000
+-rw-r--r--   1 root supergroup          0 2019-11-14 22:07 output/_SUCCESS
+-rw-r--r--   1 root supergroup       1649 2019-11-14 22:07 output/part-00000
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">

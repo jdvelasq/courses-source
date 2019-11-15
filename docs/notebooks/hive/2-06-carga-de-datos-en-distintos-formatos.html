@@ -392,7 +392,29 @@ div.rendered_html tbody tr:hover {
 <li><p><em>30 min</em> | Última modificación: Junio 22, 2019</p></li>
 </ul>
 <p>Hive permite la lectura de archivos en distintos formatos. Al finalizar este tutorial, el lector estará en capacidad de leer archivos en formatos de texto, CSV y JSON.</p>
-<p><strong>Preparación</strong></p>
+<div class="section" id="Ejecución-de-Hive-en-un-contenedor-de-Docker">
+<h2>Ejecución de Hive en un contenedor de Docker<a class="headerlink" href="#Ejecución-de-Hive-en-un-contenedor-de-Docker" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Usando el directorio de trabajo de la máquina local:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span>  <span class="o">--</span><span class="n">name</span> <span class="n">hive</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Usando un volumen de Docker (llamado <code class="docutils literal notranslate"><span class="pre">datalake</span></code>):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">hive</span>  <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">hive</span><span class="p">:</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Consola conectada a un contendor que ya está corriendo:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">hive</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Preparación">
+<h2>Preparación<a class="headerlink" href="#Preparación" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -507,6 +529,7 @@ drivers.json        100%[===================&gt;]   4.21K  --.-KB/s    in 0.001s
 2019-11-08 11:53:14 (3.95 MB/s) - &#39;drivers.json&#39; saved [4308/4308]
 
 </pre></div></div>
+</div>
 </div>
 <div class="section" id="Lectura-de-formato-JSON-desde-un-archivo-cargado-como-texto">
 <h2>Lectura de formato JSON desde un archivo cargado como texto<a class="headerlink" href="#Lectura-de-formato-JSON-desde-un-archivo-cargado-como-texto" title="Enlazar permanentemente con este título">¶</a></h2>

@@ -40,7 +40,7 @@
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Desarrollo de Aplicaciones en PySpark" href="1-02-pyspark-app.html" />
-    <link rel="prev" title="Manejo de Datos Complejos y Tablas Particionadas" href="../hive/2-07-manejo-de-datos-complejos.html" /> 
+    <link rel="prev" title="Conteo de palabras en Apache Hive en modo standalone" href="../hive/2-08-standalone.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -398,6 +398,27 @@ div.rendered_html tbody tr:hover {
 <li><p>Mover un conjunto de archivos entre el sistema local y el sistema HDFS.</p></li>
 <li><p>Aplicar MapReduce al conteo de frecuencia de elementos.</p></li>
 </ul>
+<div class="section" id="Contenedor-en-Docker">
+<h2>Contenedor en Docker<a class="headerlink" href="#Contenedor-en-Docker" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Usando la máquina local:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;$PWD&quot;</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span>  <span class="o">--</span><span class="n">name</span> <span class="n">pyspark</span> <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">pyspark</span><span class="p">:</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Usando un volumen de docker:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">v</span> <span class="n">datalake</span><span class="p">:</span><span class="o">/</span><span class="n">datalake</span> <span class="o">--</span><span class="n">name</span> <span class="n">pyspark</span>  <span class="o">-</span><span class="n">p</span> <span class="mi">50070</span><span class="p">:</span><span class="mi">50070</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8088</span><span class="p">:</span><span class="mi">8088</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8888</span><span class="p">:</span><span class="mi">8888</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5000</span><span class="p">:</span><span class="mi">5000</span> <span class="n">jdvelasq</span><span class="o">/</span><span class="n">pyspark</span><span class="p">:</span><span class="mf">2.4</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">pseudo</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Acceso a un contenedor corriendo:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">pyspark</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se desea contar la frecuencia de las palabras que aparecen en varios archivos de textos. Para simplificar el problema, pruebe el algoritmo con los archivos generados en las siguientes celdas.</p>
@@ -416,7 +437,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -447,7 +468,7 @@ Writing wordcount/text0.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -468,7 +489,7 @@ Writing wordcount/text1.txt
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -554,7 +575,7 @@ Writing wordcount/text2.txt
 <li><p><code class="docutils literal notranslate"><span class="pre">hdfs</span> <span class="pre">dfs</span> <span class="pre">-appendToFile</span> <span class="pre">&lt;localsrc&gt;</span> <span class="pre">&lt;dest&gt;</span></code>: pega al final de <code class="docutils literal notranslate"><span class="pre">&lt;dest&gt;</span></code> el contenido de los archivos en <code class="docutils literal notranslate"><span class="pre">&lt;localsrc&gt;</span></code>.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -567,7 +588,7 @@ Writing wordcount/text2.txt
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -579,7 +600,7 @@ Writing wordcount/text2.txt
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -596,11 +617,11 @@ Writing wordcount/text2.txt
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 1 items
-drwxr-xr-x   - root supergroup          0 2019-07-30 18:53 /tmp/wordcount
+drwxr-xr-x   - root supergroup          0 2019-11-15 00:37 /tmp/wordcount
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -613,7 +634,7 @@ drwxr-xr-x   - root supergroup          0 2019-07-30 18:53 /tmp/wordcount
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -631,9 +652,9 @@ drwxr-xr-x   - root supergroup          0 2019-07-30 18:53 /tmp/wordcount
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 3 items
--rw-r--r--   1 root supergroup       1093 2019-07-30 18:54 /tmp/wordcount/text0.txt
--rw-r--r--   1 root supergroup        352 2019-07-30 18:54 /tmp/wordcount/text1.txt
--rw-r--r--   1 root supergroup        440 2019-07-30 18:54 /tmp/wordcount/text2.txt
+-rw-r--r--   1 root supergroup       1093 2019-11-15 00:37 /tmp/wordcount/text0.txt
+-rw-r--r--   1 root supergroup        352 2019-11-15 00:37 /tmp/wordcount/text1.txt
+-rw-r--r--   1 root supergroup        440 2019-11-15 00:37 /tmp/wordcount/text2.txt
 </pre></div></div>
 </div>
 </div>
@@ -641,7 +662,7 @@ Found 3 items
 <h4>Implementación en PySpark<a class="headerlink" href="#Implementación-en-PySpark" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>La implementación en PySpark es la siguiente.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -677,7 +698,7 @@ Found 3 items
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -693,7 +714,7 @@ Found 3 items
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -711,7 +732,7 @@ Found 3 items
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -727,7 +748,7 @@ Found 3 items
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -745,7 +766,7 @@ Found 3 items
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -759,7 +780,7 @@ Found 3 items
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -777,7 +798,7 @@ Found 3 items
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -791,7 +812,7 @@ Found 3 items
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
@@ -809,7 +830,7 @@ Found 3 items
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -825,7 +846,7 @@ Found 3 items
 <h4>Archivo de resultados<a class="headerlink" href="#Archivo-de-resultados" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Los resultados son escritos al HDFS.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -839,12 +860,12 @@ Found 3 items
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 2 items
-drwxr-xr-x   - root supergroup          0 2019-07-30 18:55 /tmp/output
-drwxr-xr-x   - root supergroup          0 2019-07-30 18:54 /tmp/wordcount
+drwxr-xr-x   - root supergroup          0 2019-11-15 00:37 /tmp/output
+drwxr-xr-x   - root supergroup          0 2019-11-15 00:37 /tmp/wordcount
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -860,16 +881,16 @@ drwxr-xr-x   - root supergroup          0 2019-07-30 18:54 /tmp/wordcount
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Found 5 items
--rw-r--r--   1 root supergroup          0 2019-07-30 18:55 /tmp/output/_SUCCESS
--rw-r--r--   1 root supergroup        778 2019-07-30 18:55 /tmp/output/part-00000
--rw-r--r--   1 root supergroup        562 2019-07-30 18:55 /tmp/output/part-00001
--rw-r--r--   1 root supergroup        510 2019-07-30 18:55 /tmp/output/part-00002
--rw-r--r--   1 root supergroup        594 2019-07-30 18:55 /tmp/output/part-00003
+-rw-r--r--   1 root supergroup          0 2019-11-15 00:37 /tmp/output/_SUCCESS
+-rw-r--r--   1 root supergroup        778 2019-11-15 00:37 /tmp/output/part-00000
+-rw-r--r--   1 root supergroup        562 2019-11-15 00:37 /tmp/output/part-00001
+-rw-r--r--   1 root supergroup        510 2019-11-15 00:37 /tmp/output/part-00002
+-rw-r--r--   1 root supergroup        594 2019-11-15 00:37 /tmp/output/part-00003
 </pre></div></div>
 </div>
 <p>El archivo <code class="docutils literal notranslate"><span class="pre">/tmp/output/_SUCCESS</span></code> es un archivo vacio que indica que el programa fue ejecutado correctamente.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -937,7 +958,7 @@ Found 5 items
 <div class="section" id="Movimiento-de-los-archivos-de-resultados-a-la-máquina-local">
 <h4>Movimiento de los archivos de resultados a la máquina local<a class="headerlink" href="#Movimiento-de-los-archivos-de-resultados-a-la-máquina-local" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -948,7 +969,7 @@ Found 5 items
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -961,15 +982,15 @@ Found 5 items
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
--rw-r--r-- 1 root root   0 Jul 30 18:56 output/_SUCCESS
--rw-r--r-- 1 root root 778 Jul 30 18:56 output/part-00000
--rw-r--r-- 1 root root 562 Jul 30 18:56 output/part-00001
--rw-r--r-- 1 root root 510 Jul 30 18:56 output/part-00002
--rw-r--r-- 1 root root 594 Jul 30 18:56 output/part-00003
+-rw-r--r-- 1 root root   0 Nov 15 00:37 output/_SUCCESS
+-rw-r--r-- 1 root root 778 Nov 15 00:37 output/part-00000
+-rw-r--r-- 1 root root 562 Nov 15 00:37 output/part-00001
+-rw-r--r-- 1 root root 510 Nov 15 00:37 output/part-00002
+-rw-r--r-- 1 root root 594 Nov 15 00:37 output/part-00003
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
