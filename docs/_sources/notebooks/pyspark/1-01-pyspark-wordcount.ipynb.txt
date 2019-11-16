@@ -378,7 +378,7 @@
      "output_type": "stream",
      "text": [
       "Found 1 items\n",
-      "drwxr-xr-x   - root supergroup          0 2019-11-15 00:37 /tmp/wordcount\n"
+      "drwxr-xr-x   - root supergroup          0 2019-11-16 11:12 /tmp/wordcount\n"
      ]
     }
    ],
@@ -412,9 +412,9 @@
      "output_type": "stream",
      "text": [
       "Found 3 items\n",
-      "-rw-r--r--   1 root supergroup       1093 2019-11-15 00:37 /tmp/wordcount/text0.txt\n",
-      "-rw-r--r--   1 root supergroup        352 2019-11-15 00:37 /tmp/wordcount/text1.txt\n",
-      "-rw-r--r--   1 root supergroup        440 2019-11-15 00:37 /tmp/wordcount/text2.txt\n"
+      "-rw-r--r--   1 root supergroup       1093 2019-11-16 11:12 /tmp/wordcount/text0.txt\n",
+      "-rw-r--r--   1 root supergroup        352 2019-11-16 11:12 /tmp/wordcount/text1.txt\n",
+      "-rw-r--r--   1 root supergroup        440 2019-11-16 11:12 /tmp/wordcount/text2.txt\n"
      ]
     }
    ],
@@ -652,8 +652,8 @@
      "output_type": "stream",
      "text": [
       "Found 2 items\n",
-      "drwxr-xr-x   - root supergroup          0 2019-11-15 00:37 /tmp/output\n",
-      "drwxr-xr-x   - root supergroup          0 2019-11-15 00:37 /tmp/wordcount\n"
+      "drwxr-xr-x   - root supergroup          0 2019-11-16 11:12 /tmp/output\n",
+      "drwxr-xr-x   - root supergroup          0 2019-11-16 11:12 /tmp/wordcount\n"
      ]
     }
    ],
@@ -671,11 +671,11 @@
      "output_type": "stream",
      "text": [
       "Found 5 items\n",
-      "-rw-r--r--   1 root supergroup          0 2019-11-15 00:37 /tmp/output/_SUCCESS\n",
-      "-rw-r--r--   1 root supergroup        778 2019-11-15 00:37 /tmp/output/part-00000\n",
-      "-rw-r--r--   1 root supergroup        562 2019-11-15 00:37 /tmp/output/part-00001\n",
-      "-rw-r--r--   1 root supergroup        510 2019-11-15 00:37 /tmp/output/part-00002\n",
-      "-rw-r--r--   1 root supergroup        594 2019-11-15 00:37 /tmp/output/part-00003\n"
+      "-rw-r--r--   1 root supergroup          0 2019-11-16 11:12 /tmp/output/_SUCCESS\n",
+      "-rw-r--r--   1 root supergroup        778 2019-11-16 11:12 /tmp/output/part-00000\n",
+      "-rw-r--r--   1 root supergroup        562 2019-11-16 11:12 /tmp/output/part-00001\n",
+      "-rw-r--r--   1 root supergroup        510 2019-11-16 11:12 /tmp/output/part-00002\n",
+      "-rw-r--r--   1 root supergroup        594 2019-11-16 11:12 /tmp/output/part-00003\n"
      ]
     }
    ],
@@ -784,11 +784,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "-rw-r--r-- 1 root root   0 Nov 15 00:37 output/_SUCCESS\n",
-      "-rw-r--r-- 1 root root 778 Nov 15 00:37 output/part-00000\n",
-      "-rw-r--r-- 1 root root 562 Nov 15 00:37 output/part-00001\n",
-      "-rw-r--r-- 1 root root 510 Nov 15 00:37 output/part-00002\n",
-      "-rw-r--r-- 1 root root 594 Nov 15 00:37 output/part-00003\n"
+      "-rw-r--r-- 1 root root   0 Nov 16 11:12 output/_SUCCESS\n",
+      "-rw-r--r-- 1 root root 778 Nov 16 11:12 output/part-00000\n",
+      "-rw-r--r-- 1 root root 562 Nov 16 11:12 output/part-00001\n",
+      "-rw-r--r-- 1 root root 510 Nov 16 11:12 output/part-00002\n",
+      "-rw-r--r-- 1 root root 594 Nov 16 11:12 output/part-00003\n"
      ]
     }
    ],
