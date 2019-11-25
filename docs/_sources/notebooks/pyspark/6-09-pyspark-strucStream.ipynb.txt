@@ -48,7 +48,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Solución"
+    "## Solución"
    ]
   },
   {
@@ -391,7 +391,7 @@
    "source": [
     "Su pantalla debe mostrar una salida similar a la siguiente:\n",
     "\n",
-    "![images/pyspark-wc-spark.py-1.jpg](images/pyspark-wc-spark.py-1.jpg)"
+    "![assets/pyspark-wc-spark.py-1.jpg](assets/pyspark-wc-spark.py-1.jpg)"
    ]
   },
   {
@@ -407,7 +407,7 @@
    "source": [
     "Digite `A B C A` y luego la tecla enter; después de un momento, la aplicación reportará el conteo preliminar de letras:\n",
     "\n",
-    "![images/pyspark-wc-spark.py-2.jpg](images/pyspark-wc-spark.py-2.jpg)"
+    "![assets/pyspark-wc-spark.py-2.jpg](assets/pyspark-wc-spark.py-2.jpg)"
    ]
   },
   {
@@ -423,7 +423,7 @@
    "source": [
     "Digite la segunda línea de texto `A B A A`; luego aparecerá el conteo actualizado de letras.\n",
     "\n",
-    "![images/pyspark-wc-spark.py-3.jpg](images/pyspark-wc-spark.py-3.jpg)"
+    "![assets/pyspark-wc-spark.py-3.jpg](assets/pyspark-wc-spark.py-3.jpg)"
    ]
   },
   {
@@ -554,7 +554,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "![images/data-stream.jpg](images/data-stream.jpg)"
+    "![assets/data-stream.jpg](assets/data-stream.jpg)"
    ]
   },
   {
@@ -782,5 +782,5 @@
   "toc-autonumbering": false
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

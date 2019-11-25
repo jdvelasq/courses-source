@@ -399,7 +399,9 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se desea realizar el conteo de frecuencia de palabras en tiempo real, a partir de frases o letras digitas obtenidas desde un puerto en el sistema operativo.</p>
-<p>## Solución</p>
+</div>
+<div class="section" id="Solución">
+<h2>Solución<a class="headerlink" href="#Solución" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="Conteo-de-palabras-en-PySpark">
 <h3>Conteo de palabras en PySpark<a class="headerlink" href="#Conteo-de-palabras-en-PySpark" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En esta sección se revisará como contar palabras de la forma tradicional usando SparkSQL, las cuales están almacenadas y representadas como letras en el siguiente archivo de texto:</p>
@@ -677,17 +679,17 @@ Overwriting wc-pyspark.py
 <h4>Paso 2<a class="headerlink" href="#Paso-2" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Abra otro Terminal y ejecute el comando <code class="docutils literal notranslate"><span class="pre">spark-submit</span> <span class="pre">wc-pyspark.py</span></code> para lanzar la aplicación de conteo de palabras.</p>
 <p>Su pantalla debe mostrar una salida similar a la siguiente:</p>
-<p><img alt="images/pyspark-wc-spark.py-1.jpg" src="notebooks/pyspark/images/pyspark-wc-spark.py-1.jpg" /></p>
+<p><img alt="assets/pyspark-wc-spark.py-1.jpg" src="../../_images/pyspark-wc-spark.py-1.jpg" /></p>
 </div>
 <div class="section" id="Paso-3">
 <h4>Paso 3<a class="headerlink" href="#Paso-3" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Digite <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span> <span class="pre">A</span></code> y luego la tecla enter; después de un momento, la aplicación reportará el conteo preliminar de letras:</p>
-<p><img alt="images/pyspark-wc-spark.py-2.jpg" src="notebooks/pyspark/images/pyspark-wc-spark.py-2.jpg" /></p>
+<p><img alt="assets/pyspark-wc-spark.py-2.jpg" src="../../_images/pyspark-wc-spark.py-2.jpg" /></p>
 </div>
 <div class="section" id="Paso-4">
 <h4>Paso 4<a class="headerlink" href="#Paso-4" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Digite la segunda línea de texto <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">B</span> <span class="pre">A</span> <span class="pre">A</span></code>; luego aparecerá el conteo actualizado de letras.</p>
-<p><img alt="images/pyspark-wc-spark.py-3.jpg" src="notebooks/pyspark/images/pyspark-wc-spark.py-3.jpg" /></p>
+<p><img alt="assets/pyspark-wc-spark.py-3.jpg" src="../../_images/pyspark-wc-spark.py-3.jpg" /></p>
 </div>
 <div class="section" id="Paso-5">
 <h4>Paso 5<a class="headerlink" href="#Paso-5" title="Enlazar permanentemente con este título">¶</a></h4>
@@ -750,7 +752,7 @@ Overwriting wc-sparkR.R
 </pre></div>
 </div>
 <p>puede interpretarse como un DataFrame infinito, donde los nuevos datos se van agragando al final de la tabla, tal como se indica a continuación:</p>
-<p><img alt="images/data-stream.jpg" src="notebooks/pyspark/images/data-stream.jpg" /></p>
+<p><img alt="assets/data-stream.jpg" src="../../_images/data-stream.jpg" /></p>
 </div>
 <div class="section" id="Operaciones-sobre-el-flujo-de-entrada">
 <h4>Operaciones sobre el flujo de entrada<a class="headerlink" href="#Operaciones-sobre-el-flujo-de-entrada" title="Enlazar permanentemente con este título">¶</a></h4>
