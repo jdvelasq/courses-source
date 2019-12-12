@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -166,16 +166,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -184,13 +184,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -198,35 +198,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -234,56 +234,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -364,13 +364,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -418,7 +418,7 @@ div.rendered_html tbody tr:hover {
 <p>Interés equivalente para un préstamo en moneda extranjera:</p>
 <div class="math notranslate nohighlight">
 \[1+i=(1+i_e)(1+d)\]</div>
-<p><strong>Ejemplo.–</strong> ¿Cuál es la rentabilidad en pesos de un proyecto extranjero que ofrece una rentabilidad del 1.5% mensual?, se estima una devaluación mensual de 2.0%</p>
+<p><strong>*Ejemplo.–*</strong> ¿Cuál es la rentabilidad en pesos de un proyecto extranjero que ofrece una rentabilidad del 1.5% mensual?, se estima una devaluación mensual de 2.0%</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -432,10 +432,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0.0353
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.0353
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">currency_conversion(cflo,</span> <span class="pre">exchange_rate=1,</span>&#160;&#160;&#160; <span class="pre">devaluation=None,</span> <span class="pre">base_date=0)</span></code></p>
 <p>Convierte un flujo de efectivo de moneda extranjera a moneda local usando la tasa de cambio especificada.</p>
@@ -445,7 +445,7 @@ div.rendered_html tbody tr:hover {
 <li><p><code class="docutils literal notranslate"><span class="pre">devaluation</span></code> – devaluación de la moneda local frente a la extranjera expresada como una tasa nominal.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">base_date</span></code> – período base para realizar los cálculos de devaluación.</p></li>
 </ul>
-<p><strong>Ejemplo.–</strong> Considere un flujo de efectivo constante de <code class="docutils literal notranslate"><span class="pre">$</span></code> 1000 durante 10 períodos. Conviértalo a moneda extranjera si la tasa de cambio es de <code class="docutils literal notranslate"><span class="pre">$</span></code> 2.</p>
+<p><strong>*Ejemplo.–*</strong> Considere un flujo de efectivo constante de <code class="docutils literal notranslate"><span class="pre">$</span></code> 1000 durante 10 períodos. Conviértalo a moneda extranjera si la tasa de cambio es de <code class="docutils literal notranslate"><span class="pre">$</span></code> 2.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -460,8 +460,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2016    2000.0
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2016    2000.0
 2017    2000.0
 2018    2000.0
 2019    2000.0
@@ -472,10 +473,9 @@ div.rendered_html tbody tr:hover {
 2024    2000.0
 2025    2000.0
 Freq: A-DEC, dtype: float64
-</pre></div>
+</pre></div></div>
 </div>
-</div>
-<p><strong>Ejemplo.–</strong> Considere el mismo caso anterior con una devaluación por período del 1%.</p>
+<p><strong>*Ejemplo.–*</strong> Considere el mismo caso anterior con una devaluación por período del 1%.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -491,8 +491,9 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2016    2000.000000
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2016    2000.000000
 2017    2020.000000
 2018    2040.200000
 2019    2060.602000
@@ -503,10 +504,9 @@ Freq: A-DEC, dtype: float64
 2024    2165.713411
 2025    2187.370545
 Freq: A-DEC, dtype: float64
-</pre></div>
+</pre></div></div>
 </div>
-</div>
-<p><strong>Ejemplo.–</strong> Considere el mismo caso anterior pero usando el período 10 como base.</p>
+<p><strong>*Ejemplo.–*</strong> Considere el mismo caso anterior pero usando el período 10 como base.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -524,8 +524,9 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2016    1828.679648
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2016    1828.679648
 2017    1846.966445
 2018    1865.436109
 2019    1884.090471
@@ -536,8 +537,7 @@ Freq: A-DEC, dtype: float64
 2024    1980.198020
 2025    2000.000000
 Freq: A-DEC, dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -555,8 +555,9 @@ Freq: A-DEC, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>2016    1828.679648
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2016    1828.679648
 2017    1846.966445
 2018    1865.436109
 2019    1884.090471
@@ -567,10 +568,9 @@ Freq: A-DEC, dtype: float64
 2024    1980.198020
 2025    2000.000000
 Freq: A-DEC, dtype: float64
-</pre></div>
+</pre></div></div>
 </div>
-</div>
-<p><strong>Ejercicio.–</strong> Un proyecto de generación de energía eléctrica genera ventas trimestrales totales de <code class="docutils literal notranslate"><span class="pre">$</span></code> 100 durante el primer año, <code class="docutils literal notranslate"><span class="pre">$</span></code> 112 para el segundo y <code class="docutils literal notranslate"><span class="pre">$</span></code> 120 para el tercer año. Si la tasa de cambio es de 3 para el primer trimestre, se devalua al 0.75% durante los primeros 7 trimestres primer año; se revalua al 0.42% durante el resto del período de análisis, compute las ventas trimestrales totales en moneda extranjera.</p>
+<p><strong>*Ejercicio.–*</strong> Un proyecto de generación de energía eléctrica genera ventas trimestrales totales de <code class="docutils literal notranslate"><span class="pre">$</span></code> 100 durante el primer año, <code class="docutils literal notranslate"><span class="pre">$</span></code> 112 para el segundo y <code class="docutils literal notranslate"><span class="pre">$</span></code> 120 para el tercer año. Si la tasa de cambio es de 3 para el primer trimestre, se devalua al 0.75% durante los primeros 7 trimestres primer año; se revalua al 0.42% durante el resto del período de análisis, compute las ventas trimestrales totales en moneda extranjera.</p>
 </div>
 </div>
 

@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -426,11 +426,11 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>NULL
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+NULL
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -488,11 +488,11 @@ Attaching package: ‘SparkR’
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Launching java with spark-submit command /usr/local/spark/bin/spark-submit   sparkr-shell /tmp/RtmpLZLidu/backend_port93b30b95e46
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Launching java with spark-submit command /usr/local/spark/bin/spark-submit   sparkr-shell /tmp/RtmpLZLidu/backend_port93b30b95e46
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Creación-de-DataFrames">
@@ -570,8 +570,9 @@ Writing people.json
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    birthdate  color firstname id quantity  surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    birthdate  color firstname id quantity  surname
 1  1971-07-08  green    Vivian  1        1 Hamilton
 2  1974-05-23  green     Karen  2        4  Holcomb
 3  1973-04-22 orange      Cody  3        1  Garrett
@@ -591,8 +592,7 @@ Writing people.json
 17 1973-04-01  green    Chanda 17        4    Boyer
 18 1973-04-29 yellow  Chadwick 18        1   Knight
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Formato-CSV">
@@ -659,8 +659,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  id firstname  surname  birthdate  color quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  id firstname  surname  birthdate  color quantity
 1  1    Vivian Hamilton 1971-07-08  green        1
 2  2     Karen  Holcomb 1974-05-23  green        4
 3  3      Cody  Garrett 1973-04-22 orange        1
@@ -668,8 +669,7 @@ Writing people.csv
 5  5       Zoe   Conway 1974-07-03   blue        2
 6  6  Gretchen   Kinney 1974-10-18 violet        1
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -684,17 +684,17 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;SparkDataFrame&#39;: 6 variables:
- $ id       : chr &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot;
- $ firstname: chr &quot;Vivian&quot; &quot;Karen&quot; &quot;Cody&quot; &quot;Roth&quot; &quot;Zoe&quot; &quot;Gretchen&quot;
- $ surname  : chr &quot;Hamilton&quot; &quot;Holcomb&quot; &quot;Garrett&quot; &quot;Fry&quot; &quot;Conway&quot; &quot;Kinney&quot;
- $ birthdate: chr &quot;1971-07-08&quot; &quot;1974-05-23&quot; &quot;1973-04-22&quot; &quot;1975-01-29&quot; &quot;1974-07-03&quot; &quot;1974-10-18&quot;
- $ color    : chr &quot;green&quot; &quot;green&quot; &quot;orange&quot; &quot;black&quot; &quot;blue&quot; &quot;violet&quot;
- $ quantity : chr &quot;1&quot; &quot;4&quot; &quot;1&quot; &quot;1&quot; &quot;2&quot; &quot;1&quot;
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;SparkDataFrame&#39;: 6 variables:
+ $ id       : chr &#34;1&#34; &#34;2&#34; &#34;3&#34; &#34;4&#34; &#34;5&#34; &#34;6&#34;
+ $ firstname: chr &#34;Vivian&#34; &#34;Karen&#34; &#34;Cody&#34; &#34;Roth&#34; &#34;Zoe&#34; &#34;Gretchen&#34;
+ $ surname  : chr &#34;Hamilton&#34; &#34;Holcomb&#34; &#34;Garrett&#34; &#34;Fry&#34; &#34;Conway&#34; &#34;Kinney&#34;
+ $ birthdate: chr &#34;1971-07-08&#34; &#34;1974-05-23&#34; &#34;1973-04-22&#34; &#34;1975-01-29&#34; &#34;1974-07-03&#34; &#34;1974-10-18&#34;
+ $ color    : chr &#34;green&#34; &#34;green&#34; &#34;orange&#34; &#34;black&#34; &#34;blue&#34; &#34;violet&#34;
+ $ quantity : chr &#34;1&#34; &#34;4&#34; &#34;1&#34; &#34;1&#34; &#34;2&#34; &#34;1&#34;
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -713,8 +713,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                                          value
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                                          value
 1 id,firstname,surname,birthdate,color,quantity
 2          1,Vivian,Hamilton,1971-07-08,green,1
 3            2,Karen,Holcomb,1974-05-23,green,4
@@ -722,8 +723,7 @@ Writing people.csv
 5                 4,Roth,Fry,1975-01-29,black,1
 6                5,Zoe,Conway,1974-07-03,blue,2
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -743,8 +743,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  id firstname  surname  birthdate  color quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  id firstname  surname  birthdate  color quantity
 1  1    Vivian Hamilton 1971-07-08  green        1
 2  2     Karen  Holcomb 1974-05-23  green        4
 3  3      Cody  Garrett 1973-04-22 orange        1
@@ -752,8 +753,7 @@ Writing people.csv
 5  5       Zoe   Conway 1974-07-03   blue        2
 6  6  Gretchen   Kinney 1974-10-18 violet        1
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -771,8 +771,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>root
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root
  |-- id: string (nullable = true)
  |-- firstname: string (nullable = true)
  |-- surname: string (nullable = true)
@@ -780,8 +781,7 @@ Writing people.csv
  |-- color: string (nullable = true)
  |-- quantity: string (nullable = true)
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -799,8 +799,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  firstname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  firstname
 1    Vivian
 2     Karen
 3      Cody
@@ -808,8 +809,7 @@ Writing people.csv
 5       Zoe
 6  Gretchen
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -827,8 +827,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  firstname  surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  firstname  surname
 1    Vivian Hamilton
 2     Karen  Holcomb
 3      Cody  Garrett
@@ -836,8 +837,7 @@ Writing people.csv
 5       Zoe   Conway
 6  Gretchen   Kinney
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -855,14 +855,14 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  id firstname surname  birthdate color quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  id firstname surname  birthdate color quantity
 1  5       Zoe  Conway 1974-07-03  blue        2
 2  7  Driscoll   Klein 1970-10-05  blue        5
 3 15      Hope   Silva 1970-07-01  blue        5
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -887,8 +887,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  id firstname  surname  birthdate  color quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  id firstname  surname  birthdate  color quantity
 1  1    Vivian Hamilton 1971-07-08  green        1
 2  2     Karen  Holcomb 1974-05-23  green        4
 3  3      Cody  Garrett 1973-04-22 orange        1
@@ -896,8 +897,7 @@ Writing people.csv
 5  5       Zoe   Conway 1974-07-03   blue        2
 6  6  Gretchen   Kinney 1974-10-18 violet        1
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -914,15 +914,15 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  quantity count
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  quantity count
 1        5     6
 2        1     6
 3        4     5
 4        2     1
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Ejecución-de-SQL-directamente-sobre-archivos">
@@ -942,8 +942,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   birthdate  color firstname id quantity  surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   birthdate  color firstname id quantity  surname
 1 1971-07-08  green    Vivian  1        1 Hamilton
 2 1974-05-23  green     Karen  2        4  Holcomb
 3 1973-04-22 orange      Cody  3        1  Garrett
@@ -951,8 +952,7 @@ Writing people.csv
 5 1974-07-03   blue       Zoe  5        2   Conway
 6 1974-10-18 violet  Gretchen  6        1   Kinney
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -968,8 +968,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  _c0       _c1      _c2        _c3    _c4      _c5
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  _c0       _c1      _c2        _c3    _c4      _c5
 1  id firstname  surname  birthdate  color quantity
 2   1    Vivian Hamilton 1971-07-08  green        1
 3   2     Karen  Holcomb 1974-05-23  green        4
@@ -977,8 +978,7 @@ Writing people.csv
 5   4      Roth      Fry 1975-01-29  black        1
 6   5       Zoe   Conway 1974-07-03   blue        2
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -994,8 +994,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>     _c4
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+     _c4
 1 violet
 2 orange
 3  green
@@ -1003,8 +1004,7 @@ Writing people.csv
 5 indigo
 6   gray
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Ejemplos">
@@ -1039,8 +1039,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   birthdate  color firstname id quantity surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   birthdate  color firstname id quantity surname
 1 1974-05-23  green     Karen  2        4 Holcomb
 2 1975-01-29  black      Roth  4        1     Fry
 3 1974-07-03   blue       Zoe  5        2  Conway
@@ -1048,8 +1049,7 @@ Writing people.csv
 5 1974-10-17 indigo   Merritt  9        4     Guy
 6 1975-02-28  black     Kylan 10        4  Sexton
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -1069,8 +1069,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   birthdate  color firstname id quantity surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   birthdate  color firstname id quantity surname
 1 1974-05-23  green     Karen  2        4 Holcomb
 2 1975-01-29  black      Roth  4        1     Fry
 3 1974-07-03   blue       Zoe  5        2  Conway
@@ -1078,8 +1079,7 @@ Writing people.csv
 5 1974-10-17 indigo   Merritt  9        4     Guy
 6 1975-02-28  black     Kylan 10        4  Sexton
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Ejemplo-2">
@@ -1101,8 +1101,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   color
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   color
 1 violet
 2 orange
 3  green
@@ -1110,8 +1111,7 @@ Writing people.csv
 5 indigo
 6   gray
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
@@ -1129,8 +1129,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   color
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   color
 1 violet
 2 orange
 3  green
@@ -1138,8 +1139,7 @@ Writing people.csv
 5 indigo
 6   gray
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Ejemplo-3">
@@ -1162,8 +1162,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   birthdate color firstname id quantity surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   birthdate color firstname id quantity surname
 1 1975-01-29 black      Roth  4        1     Fry
 2 1975-02-28 black     Kylan 10        4  Sexton
 3 1974-07-03  blue       Zoe  5        2  Conway
@@ -1171,8 +1172,7 @@ Writing people.csv
 5 1970-10-05  blue  Driscoll  7        5   Klein
 6 1970-08-27  gray    Vivian 13        5   Crane
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -1190,8 +1190,9 @@ Writing people.csv
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   birthdate  color firstname id quantity  surname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   birthdate  color firstname id quantity  surname
 1 1975-01-29  black      Roth  4        1      Fry
 2 1971-07-08  green    Vivian  1        1 Hamilton
 3 1973-04-22 orange      Cody  3        1  Garrett
@@ -1199,8 +1200,7 @@ Writing people.csv
 5 1974-10-18 violet  Gretchen  6        1   Kinney
 6 1973-04-29 yellow  Chadwick 18        1   Knight
 
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:

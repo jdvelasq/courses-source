@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -579,10 +579,10 @@ memory usage: 5.9+ KB
 </div>
 <div class="section" id="Respuesta-a-las-preguntas">
 <h3>Respuesta a las preguntas<a class="headerlink" href="#Respuesta-a-las-preguntas" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="section" id="P1.—-¿Cuál-es-la-longitud-y-ancho-típicos-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?">
-<h4>P1.— ¿Cuál es la longitud y ancho típicos del pétalo y del sépalo para cada uno de los tipos de flores?<a class="headerlink" href="#P1.—-¿Cuál-es-la-longitud-y-ancho-típicos-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="section" id="P1.----¿Cuál-es-la-longitud-y-ancho-típicos-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?">
+<h4>P1.— ¿Cuál es la longitud y ancho típicos del pétalo y del sépalo para cada uno de los tipos de flores?<a class="headerlink" href="#P1.----¿Cuál-es-la-longitud-y-ancho-típicos-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>En esta pregunta se esta pidiendo una medida o estimación de localización del valor típico de la longitud del pétalo. Existen varias medidas.</p>
-<p><strong>Media o promedio muestral:</strong> valor “típico” de los datos.</p>
+<p><strong>Media o promedio muestral:</strong> valor «típico» de los datos.</p>
 <div class="math notranslate nohighlight">
 \[\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\]</div>
 <div class="nbinput docutils container">
@@ -598,14 +598,14 @@ memory usage: 5.9+ KB
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    5.843333
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    5.843333
 Sepal_Width     3.057333
 Petal_Length    3.758000
 Petal_Width     1.199333
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -699,14 +699,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    5.80
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    5.80
 Sepal_Width     3.00
 Petal_Length    4.35
 Petal_Width     1.30
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -780,8 +780,8 @@ dtype: float64
 </div></div>
 </div>
 </div>
-<div class="section" id="P2.—-¿Cuál-es-el-rango-típico-de-la-longitud-y-ancho-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?">
-<h4>P2.— ¿Cuál es el rango típico de la longitud y ancho del pétalo y del sépalo para cada uno de los tipos de flores?<a class="headerlink" href="#P2.—-¿Cuál-es-el-rango-típico-de-la-longitud-y-ancho-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="section" id="P2.----¿Cuál-es-el-rango-típico-de-la-longitud-y-ancho-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?">
+<h4>P2.— ¿Cuál es el rango típico de la longitud y ancho del pétalo y del sépalo para cada uno de los tipos de flores?<a class="headerlink" href="#P2.----¿Cuál-es-el-rango-típico-de-la-longitud-y-ancho-del-pétalo-y-del-sépalo-para-cada-uno-de-los-tipos-de-flores?" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Esta pregunta hace referencia a una medida de dispersión o variabiilidad de los datos, y a como se distribuyen los datos</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -840,15 +840,15 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length          7.9
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length          7.9
 Sepal_Width           4.4
 Petal_Length          6.9
 Petal_Width           2.5
 Species         virginica
 dtype: object
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -863,15 +863,15 @@ dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length       4.3
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length       4.3
 Sepal_Width          2
 Petal_Length         1
 Petal_Width        0.1
 Species         setosa
 dtype: object
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -1031,14 +1031,14 @@ dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    3.6
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    3.6
 Sepal_Width     2.4
 Petal_Length    5.9
 Petal_Width     2.4
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -1053,14 +1053,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    3.6
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    3.6
 Sepal_Width     2.4
 Petal_Length    5.9
 Petal_Width     2.4
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p><strong>Varianza muestral:</strong></p>
 <div class="math notranslate nohighlight">
@@ -1078,14 +1078,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    0.685694
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    0.685694
 Sepal_Width     0.189979
 Petal_Length    3.116278
 Petal_Width     0.581006
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -1172,14 +1172,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    0.828066
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    0.828066
 Sepal_Width     0.435866
 Petal_Length    1.765298
 Petal_Width     0.762238
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -1268,14 +1268,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    0.687556
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    0.687556
 Sepal_Width     0.336782
 Petal_Length    1.562747
 Petal_Width     0.658133
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -1371,14 +1371,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    0.687556
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    0.687556
 Sepal_Width     0.336782
 Petal_Length    1.562747
 Petal_Width     0.658133
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <p><strong>Estadísticos de orden:</strong> Métricas calculadas sobre los datos ordenados.</p>
 <p><strong>Percentil</strong> <span class="math notranslate nohighlight">\(p\)</span>: Valor para el cual el <span class="math notranslate nohighlight">\(p\)</span> por ciento de los datos son menores o iguales.</p>
@@ -1400,14 +1400,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    5.1
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    5.1
 Sepal_Width     2.8
 Petal_Length    1.6
 Petal_Width     0.3
 Name: 0.25, dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1493,14 +1493,14 @@ Name: 0.25, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    6.4
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    6.4
 Sepal_Width     3.3
 Petal_Length    5.1
 Petal_Width     1.8
 Name: 0.75, dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -1586,14 +1586,14 @@ Name: 0.75, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    1.3
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    1.3
 Sepal_Width     0.5
 Petal_Length    3.5
 Petal_Width     1.5
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -1682,14 +1682,14 @@ dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Sepal_Length    14.171126
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sepal_Length    14.171126
 Sepal_Width     14.256420
 Petal_Length    46.974407
 Petal_Width     63.555114
 dtype: float64
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -1898,7 +1898,7 @@ virginica    50.0  2.026  0.274650  1.4  1.8  2.0  2.3  2.5
 </div>
 <div class="section" id="Análisis-de-la-distribución-de-los-datos">
 <h5>Análisis de la distribución de los datos<a class="headerlink" href="#Análisis-de-la-distribución-de-los-datos" title="Enlazar permanentemente con este título">¶</a></h5>
-<p><strong>Boxplot o diagrama de caja y bigotes:</strong> gráfico que representa la distribución de los datos. En la siguiente figura se presentan dichos diagramas para los datos que aparecen en el archivo <code class="docutils literal notranslate"><span class="pre">muestra.csv</span></code>. La caja central representa el rango intercuartil; la línea central en la caja corresponde a la mediana de los datos; los “bigotes” se extienden hasta el dato más lejano en cada dirección, sin supera 1.5 (u otro valor) veces el rango intercuartil. Los puntos representan valores en los datos
+<p><strong>Boxplot o diagrama de caja y bigotes:</strong> gráfico que representa la distribución de los datos. En la siguiente figura se presentan dichos diagramas para los datos que aparecen en el archivo <code class="docutils literal notranslate"><span class="pre">muestra.csv</span></code>. La caja central representa el rango intercuartil; la línea central en la caja corresponde a la mediana de los datos; los «bigotes» se extienden hasta el dato más lejano en cada dirección, sin supera 1.5 (u otro valor) veces el rango intercuartil. Los puntos representan valores en los datos
 que son más lejanos de 1.5 veces el rango intercuartil y podrían ser considerados outliers.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -1991,8 +1991,8 @@ que son más lejanos de 1.5 veces el rango intercuartil y podrían ser considera
 </div>
 </div>
 </div>
-<div class="section" id="P3.—-¿Qué-relación-existe-entre-el-largo-y-el-ancho-del-pétalo-y-el-sépalo?">
-<h4>P3.— ¿Qué relación existe entre el largo y el ancho del pétalo y el sépalo?<a class="headerlink" href="#P3.—-¿Qué-relación-existe-entre-el-largo-y-el-ancho-del-pétalo-y-el-sépalo?" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="section" id="P3.----¿Qué-relación-existe-entre-el-largo-y-el-ancho-del-pétalo-y-el-sépalo?">
+<h4>P3.— ¿Qué relación existe entre el largo y el ancho del pétalo y el sépalo?<a class="headerlink" href="#P3.----¿Qué-relación-existe-entre-el-largo-y-el-ancho-del-pétalo-y-el-sépalo?" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="section" id="Relaciones-entre-dos-o-más-variables">
 <h5>Relaciones entre dos o más variables<a class="headerlink" href="#Relaciones-entre-dos-o-más-variables" title="Enlazar permanentemente con este título">¶</a></h5>
 <p><strong>Diagrama de dispersión:</strong> Gráfico en que en el eje <span class="math notranslate nohighlight">\(X\)</span> corresponde a una variable, mientras que el eje <span class="math notranslate nohighlight">\(Y\)</span> corresponde a otra. Se usa para visualizar relaciones de dependencia.</p>

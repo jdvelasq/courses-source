@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -172,16 +172,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -190,13 +190,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -204,35 +204,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -240,56 +240,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -370,13 +370,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -1511,12 +1511,12 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
-<span></span>    setosa versicolor  virginica
+    setosa versicolor  virginica
          0         49         50
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Adición-de-filas">
@@ -1828,14 +1828,16 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
-<span></span>    setosa versicolor  virginica
+    setosa versicolor  virginica
         50         50         50
-</pre></div>
+</pre></div></div>
 </div>
 </div>
-<p>## Agregación</p>
+<div class="section" id=" Agregación">
+<h2> Agregación<a class="headerlink" href="# Agregación" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">`table</span> <span class="pre">{base}</span></code> &lt;<a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/table.html">https://stat.ethz.ch/R-manual/R-devel/library/base/html/table.html</a>&gt;`__</p>
 </div></blockquote>
@@ -1853,12 +1855,12 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
-<span></span>    setosa versicolor  virginica
+    setosa versicolor  virginica
         50         50         50
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
@@ -1868,6 +1870,19 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="c1">## conteo de casos por `Sepal.Length`</span>
 <span class="nf">table</span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+4.3 4.4 4.5 4.6 4.7 4.8 4.9   5 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9   6 6.1 6.2
+  1   3   1   4   2   5   6  10   9   4   1   6   7   6   8   7   3   6   6   4
+6.3 6.4 6.5 6.6 6.7 6.8 6.9   7 7.1 7.2 7.3 7.4 7.6 7.7 7.9
+  9   7   5   2   8   3   4   1   1   3   1   1   1   4   1
+</pre></div><p><code class="docutils literal notranslate"><span class="pre">`lapply</span> <span class="pre">{base}</span></code> &lt;<a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/lapply.html">https://stat.ethz.ch/R-manual/R-devel/library/base/html/lapply.html</a>&gt;`__</p>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2038,7 +2053,9 @@ div.rendered_html tbody tr:hover {
 </tbody>
 </table></div>
 </div>
-<p>## Casos duplicados y casos faltantes</p>
+</div>
+<div class="section" id=" Casos-duplicados-y-casos-faltantes">
+<h2> Casos duplicados y casos faltantes<a class="headerlink" href="# Casos-duplicados-y-casos-faltantes" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
@@ -2289,12 +2306,12 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
-<span></span>FALSE  TRUE
+FALSE  TRUE
    10   160
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
@@ -2416,12 +2433,12 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
-<span></span>TRUE
+TRUE
  149
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Estadísticos-descriptivos">
@@ -2439,20 +2456,23 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span> Sepal.Length    Sepal.Width     Petal.Length    Petal.Width
-Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100
-1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300
-Median :5.800   Median :3.000   Median :4.350   Median :1.300
-Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199
-3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800
-Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500
-      Species
-setosa    :50
-versicolor:50
-virginica :50
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500
+       Species
+ setosa    :50
+ versicolor:50
+ virginica :50
+
+
+
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="R-dummy">

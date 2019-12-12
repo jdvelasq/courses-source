@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -464,12 +464,14 @@ The following objects are masked from ‘package:base’:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[1] ‘2.4.3’
-</pre></div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1] ‘2.4.3’
+</pre></div></div>
 </div>
 </div>
-<p>### Carga de datos</p>
+<div class="section" id=" Carga-de-datos">
+<h3> Carga de datos<a class="headerlink" href="# Carga-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El archivo con los datos se encuentra en la carpeta actual de trabajo en la máquina local.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -515,29 +517,29 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;snsdata&gt; [?? x 40][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;snsdata&gt; [?? x 40]</span>
    gradyear gender   age friends basketball football soccer softball volleyball
-      [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m  [3m[38;5;246m&lt;dbl&gt;[39m[23m   [3m[38;5;246m&lt;int&gt;[39m[23m      [3m[38;5;246m&lt;int&gt;[39m[23m    [3m[38;5;246m&lt;int&gt;[39m[23m  [3m[38;5;246m&lt;int&gt;[39m[23m    [3m[38;5;246m&lt;int&gt;[39m[23m      [3m[38;5;246m&lt;int&gt;[39m[23m
-[38;5;250m 1[39m     [4m2[24m006 M       19.0       7          0        0      0        0          0
-[38;5;250m 2[39m     [4m2[24m006 F       18.8       0          0        1      0        0          0
-[38;5;250m 3[39m     [4m2[24m006 M       18.3      69          0        1      0        0          0
-[38;5;250m 4[39m     [4m2[24m006 F       18.9       0          0        0      0        0          0
-[38;5;250m 5[39m     [4m2[24m006 NA      19.0      10          0        0      0        0          0
-[38;5;250m 6[39m     [4m2[24m006 F      [31mNaN[39m       142          0        0      0        0          0
-[38;5;250m 7[39m     [4m2[24m006 F       18.9      72          0        0      0        0          0
-[38;5;250m 8[39m     [4m2[24m006 M       18.3      17          0        0      0        1          0
-[38;5;250m 9[39m     [4m2[24m006 F       19.1      52          0        0      0        0          0
-[38;5;250m10[39m     [4m2[24m006 F       18.7      39          0        0      0        0          0
-[38;5;246m# … with more rows, and 31 more variables: swimming [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, cheerleading [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   baseball [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, tennis [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, sports [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, cute [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, sex [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   sexy [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, hot [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, kissed [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, dance [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, band [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   marching [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, music [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, rock [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, god [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, church [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   jesus [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, bible [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, hair [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, dress [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, blonde [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   mall [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, shopping [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, clothes [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, hollister [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   abercrombie [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, die [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, death [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, drunk [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, drugs [3m[38;5;246m&lt;int&gt;[38;5;246m[23m[39m
-</pre></div>
-</div>
+      <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>  <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>   <span style="color: rgb(148,148,148)">&lt;int&gt;</span>      <span style="color: rgb(148,148,148)">&lt;int&gt;</span>    <span style="color: rgb(148,148,148)">&lt;int&gt;</span>  <span style="color: rgb(148,148,148)">&lt;int&gt;</span>    <span style="color: rgb(148,148,148)">&lt;int&gt;</span>      <span style="color: rgb(148,148,148)">&lt;int&gt;</span>
+<span style="color: rgb(188,188,188)"> 1</span>     <span class="ansi-underline">2</span>006 M       19.0       7          0        0      0        0          0
+<span style="color: rgb(188,188,188)"> 2</span>     <span class="ansi-underline">2</span>006 F       18.8       0          0        1      0        0          0
+<span style="color: rgb(188,188,188)"> 3</span>     <span class="ansi-underline">2</span>006 M       18.3      69          0        1      0        0          0
+<span style="color: rgb(188,188,188)"> 4</span>     <span class="ansi-underline">2</span>006 F       18.9       0          0        0      0        0          0
+<span style="color: rgb(188,188,188)"> 5</span>     <span class="ansi-underline">2</span>006 NA      19.0      10          0        0      0        0          0
+<span style="color: rgb(188,188,188)"> 6</span>     <span class="ansi-underline">2</span>006 F      <span class="ansi-red-fg">NaN</span>       142          0        0      0        0          0
+<span style="color: rgb(188,188,188)"> 7</span>     <span class="ansi-underline">2</span>006 F       18.9      72          0        0      0        0          0
+<span style="color: rgb(188,188,188)"> 8</span>     <span class="ansi-underline">2</span>006 M       18.3      17          0        0      0        1          0
+<span style="color: rgb(188,188,188)"> 9</span>     <span class="ansi-underline">2</span>006 F       19.1      52          0        0      0        0          0
+<span style="color: rgb(188,188,188)">10</span>     <span class="ansi-underline">2</span>006 F       18.7      39          0        0      0        0          0
+<span style="color: rgb(148,148,148)"># … with more rows, and 31 more variables: swimming </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, cheerleading </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   baseball </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, tennis </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, sports </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, cute </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, sex </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   sexy </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, hot </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, kissed </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, dance </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, band </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   marching </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, music </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, rock </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, god </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, church </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   jesus </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, bible </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, hair </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, dress </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, blonde </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   mall </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, shopping </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, clothes </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, hollister </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   abercrombie </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, die </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, death </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, drunk </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, drugs </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -554,13 +556,13 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 1][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 1]</span>
       n
-  [3m[38;5;246m&lt;dbl&gt;[39m[23m
-[38;5;250m1[39m [4m3[24m[4m0[24m000
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> <span class="ansi-underline">3</span><span class="ansi-underline">0</span>000
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Análisis-exploratorio">
@@ -581,15 +583,15 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 2][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 2]</span>
   gender count
-  [3m[38;5;246m&lt;chr&gt;[39m[23m  [3m[38;5;246m&lt;dbl&gt;[39m[23m
-[38;5;250m1[39m M       [4m5[24m222
-[38;5;250m2[39m F      [4m2[24m[4m2[24m054
-[38;5;250m3[39m NA      [4m2[24m724
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>  <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> M       <span class="ansi-underline">5</span>222
+<span style="color: rgb(188,188,188)">2</span> F      <span class="ansi-underline">2</span><span class="ansi-underline">2</span>054
+<span style="color: rgb(188,188,188)">3</span> NA      <span class="ansi-underline">2</span>724
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -606,12 +608,12 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 
-<span></span>    F     M    NA
+    F     M    NA
 22054  5222  2724
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -628,17 +630,17 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>     age
-Min.   :  3.086
-1st Qu.: 16.312
-Median : 17.287
-Mean   : 17.994
-3rd Qu.: 18.259
-Max.   :106.927
-NA&#39;s   :5086
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+      age
+ Min.   :  3.086
+ 1st Qu.: 16.312
+ Median : 17.287
+ Mean   : 17.994
+ 3rd Qu.: 18.259
+ Max.   :106.927
+ NA&#39;s   :5086
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -655,17 +657,17 @@ NA&#39;s   :5086
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 2][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 2]</span>
   summary age
-  [3m[38;5;246m&lt;chr&gt;[39m[23m   [3m[38;5;246m&lt;chr&gt;[39m[23m
-[38;5;250m1[39m count   24914
-[38;5;250m2[39m mean    17.993949546439772
-[38;5;250m3[39m stddev  7.858054477853863
-[38;5;250m4[39m min     3.086
-[38;5;250m5[39m max     106.927
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>   <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> count   24914
+<span style="color: rgb(188,188,188)">2</span> mean    17.993949546439772
+<span style="color: rgb(188,188,188)">3</span> stddev  7.858054477853863
+<span style="color: rgb(188,188,188)">4</span> min     3.086
+<span style="color: rgb(188,188,188)">5</span> max     106.927
+</pre></div></div>
 </div>
 <p>Los métodos que pueden aplicarse a las columnas están listados en: <a class="reference external" href="https://spark.rstudio.com/reference/">https://spark.rstudio.com/reference/</a></p>
 <div class="nbinput docutils container">
@@ -683,13 +685,13 @@ NA&#39;s   :5086
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 1][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 1]</span>
       n
-  [3m[38;5;246m&lt;dbl&gt;[39m[23m
-[38;5;250m1[39m  [4m5[24m086
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+<span style="color: rgb(188,188,188)">1</span>  <span class="ansi-underline">5</span>086
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -715,17 +717,17 @@ NA&#39;s   :5086
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 2][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 2]</span>
   summary age1319
-  [3m[38;5;246m&lt;chr&gt;[39m[23m   [3m[38;5;246m&lt;chr&gt;[39m[23m
-[38;5;250m1[39m count   24477
-[38;5;250m2[39m mean    17.25242893328433
-[38;5;250m3[39m stddev  1.1574649278955391
-[38;5;250m4[39m min     13.027
-[38;5;250m5[39m max     19.995
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>   <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> count   24477
+<span style="color: rgb(188,188,188)">2</span> mean    17.25242893328433
+<span style="color: rgb(188,188,188)">3</span> stddev  1.1574649278955391
+<span style="color: rgb(188,188,188)">4</span> min     13.027
+<span style="color: rgb(188,188,188)">5</span> max     19.995
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:

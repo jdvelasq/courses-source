@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -388,8 +388,8 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Uso-de-TensorBoard-desde-R">
 <h1>Uso de TensorBoard desde R<a class="headerlink" href="#Uso-de-TensorBoard-desde-R" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>TensorBoard es una herramienta para visualizar gráficas computacionales, facilitar su comprensión y analizar resultados provenientes de la ejecución de modelos. TensorBoard usa la información almacenada en archivos de eventos generados por TensorFlow. La página <a class="reference external" href="https://www.tensorflow.org/guide/summaries_and_tensorboard">https://www.tensorflow.org/guide/summaries_and_tensorboard</a> presenta información detallada sobre su uso desde Python; la página <a class="reference external" href="https://tensorflow.rstudio.com/tensorflow/articles/howto_summaries_and_tensorboard.html">https://tensorflow.rstudio.com/tensorflow/articles/howto_summaries_and_tensorboard.html</a> presenta información
-adicional sobre su uso desde el lenguaje R. El lector debe consultar estas referencias para profundizar su conocimiento sobre TensorBoard.</p>
+<p>TensorBoard es una herramienta para visualizar gráficas computacionales, facilitar su comprensión y analizar resultados provenientes de la ejecución de modelos. TensorBoard usa la información almacenada en archivos de eventos generados por TensorFlow. La página <a class="reference external" href="https://www.tensorflow.org/guide/summaries_and_tensorboard">https://www.tensorflow.org/guide/summaries_and_tensorboard</a> presenta información detallada sobre su uso desde Python; la página <a class="reference external" href="https://tensorflow.rstudio.com/tensorflow/articles/howto_summaries_and_tensorboard.html">https://tensorflow.rstudio.com/tensorflow/articles/howto_summaries_and_tensorboard.html</a> presenta
+información adicional sobre su uso desde el lenguaje R. El lector debe consultar estas referencias para profundizar su conocimiento sobre TensorBoard.</p>
 <p>Para abordar los temas tratados en este documento es necesario que el lector domine los temas abordados en el documento <em>Cómputos usando el API de bajo nivel de TensorFlow for R</em>.</p>
 <p>Esta lección presenta una introducción al uso de TensorBoard desde R, y especificamente enseña:</p>
 <ul class="simple">
@@ -454,10 +454,10 @@ adicional sobre su uso desde el lenguaje R. El lector debe consultar estas refer
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;tensorflow.python.summary.writer.writer.FileWriter&gt;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.summary.writer.writer.FileWriter&gt;
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Visualización-de-la-gráfica-en-TensorBoard">
@@ -465,11 +465,11 @@ adicional sobre su uso desde el lenguaje R. El lector debe consultar estas refer
 <p>Para visualizar el grafo, puede usar una de las siguientes alternativas:</p>
 <ul>
 <li><p>Lanzar <code class="docutils literal notranslate"><span class="pre">TensorBoard</span></code> desde el Terminal usando:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensorboard</span> <span class="o">--</span><span class="n">logdir</span><span class="o">=</span><span class="s2">&quot;/tmp/example&quot;</span>
-</pre></div>
-</div>
-<p>Abra el explorador de internet en la dirección <a class="reference external" href="http://localhost:6006">http://localhost:6006</a></p>
+<p>tensorboard –logdir=»/tmp/example»</p>
 </li>
+</ul>
+<p>Abra el explorador de internet en la dirección <a class="reference external" href="http://localhost:6006">http://localhost:6006</a></p>
+<ul class="simple">
 <li><p>Abrir la extensión TensorBoards en la pestaña lateral de Jupyter Lab.</p></li>
 </ul>
 <p><strong>Nota:</strong> Si desea escribir la gráfica al directorio actual puede usar</p>
@@ -543,10 +543,10 @@ adicional sobre su uso desde el lenguaje R. El lector debe consultar estas refer
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;tensorflow.python.summary.writer.writer.FileWriter&gt;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.summary.writer.writer.FileWriter&gt;
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Visualización-de-la-gráfica-en-TensorBoard">

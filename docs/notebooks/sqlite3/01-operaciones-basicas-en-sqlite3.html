@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -550,10 +550,10 @@ eventDate
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;truck_events&#39;,)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;truck_events&#39;,)]
+</pre></div></div>
 </div>
 <p>A continuación se muestra la información detallada de creación de la tabla <code class="docutils literal notranslate"><span class="pre">truck_events</span></code>.</p>
 <div class="nbinput docutils container">
@@ -573,10 +573,10 @@ eventDate
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;CREATE TABLE truck_events (driverId       INT, \n                           truckId        INT,\n                           eventTime      STRING,\n                           eventType      STRING, \n                           longitude      DOUBLE, \n                           latitude       DOUBLE,\n                           eventKey       STRING, \n                           correlationId  STRING, \n                           driverName     STRING,\n                           routeId        STRING,\n                           routeName      STRING,\n                           eventDate      STRING)&#39;,)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;CREATE TABLE truck_events (driverId       INT, \n                           truckId        INT,\n                           eventTime      STRING,\n                           eventType      STRING, \n                           longitude      DOUBLE, \n                           latitude       DOUBLE,\n                           eventKey       STRING, \n                           correlationId  STRING, \n                           driverName     STRING,\n                           routeId        STRING,\n                           routeName      STRING,\n                           eventDate      STRING)&#39;,)]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -645,8 +645,9 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;14&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;14&#39;,
   &#39;25&#39;,
   &#39;59:21.4&#39;,
   &#39;Normal&#39;,
@@ -682,8 +683,7 @@ CREATE TABLE truck_events (driverId       INT,
   &#39;1325562373&#39;,
   &#39;Springfield to KC Via Columbia Route 2&#39;,
   &#39;2016-05-27-22&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -707,8 +707,9 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(14,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(14,
   25,
   &#39;59:21.4&#39;,
   &#39;Normal&#39;,
@@ -720,8 +721,7 @@ CREATE TABLE truck_events (driverId       INT,
   160405074,
   &#39;Joplin to Kansas City Route 2&#39;,
   &#39;2016-05-27-22&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Consulta-de-datos">
@@ -748,8 +748,9 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(14,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(14,
   25,
   &#39;59:21.4&#39;,
   &#39;Normal&#39;,
@@ -785,8 +786,7 @@ CREATE TABLE truck_events (driverId       INT,
   1325562373,
   &#39;Springfield to KC Via Columbia Route 2&#39;,
   &#39;2016-05-27-22&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Obtención-de-un-subconjunto-de-registros">
@@ -823,8 +823,9 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(14,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(14,
   25,
   &#39;59:21.4&#39;,
   &#39;Normal&#39;,
@@ -836,8 +837,7 @@ CREATE TABLE truck_events (driverId       INT,
   160405074,
   &#39;Joplin to Kansas City Route 2&#39;,
   &#39;2016-05-27-22&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Obtención-de-un-subconjunto-de-campos">
@@ -880,12 +880,12 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(27, &#39;59:21.7&#39;, &#39;Normal&#39;),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(27, &#39;59:21.7&#39;, &#39;Normal&#39;),
  (11, &#39;59:21.7&#39;, &#39;Normal&#39;),
  (22, &#39;59:21.7&#39;, &#39;Normal&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -903,14 +903,14 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(11, &#39;59:21.7&#39;, &#39;Normal&#39;),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(11, &#39;59:21.7&#39;, &#39;Normal&#39;),
  (11, &#39;59:22.5&#39;, &#39;Normal&#39;),
  (11, &#39;59:28.3&#39;, &#39;Normal&#39;),
  (11, &#39;59:30.0&#39;, &#39;Normal&#39;),
  (11, &#39;59:31.8&#39;, &#39;Normal&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -928,10 +928,10 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;Normal&#39;,)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;Normal&#39;,)]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Escritura-de-la-tabla-en-el-disco">
@@ -969,10 +969,10 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>14688
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+14688
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -1033,8 +1033,8 @@ CREATE TABLE truck_events (driverId       INT,
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Apéndice-—-Manejo-de-nulos">
-<h2>Apéndice — Manejo de nulos<a class="headerlink" href="#Apéndice-—-Manejo-de-nulos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Apéndice-----Manejo-de-nulos">
+<h2>Apéndice — Manejo de nulos<a class="headerlink" href="#Apéndice-----Manejo-de-nulos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -1063,10 +1063,10 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(1, &#39;A&#39;), (2, None), (None, &#39;C&#39;), (None, None), (5, &#39;E&#39;)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(1, &#39;A&#39;), (2, None), (None, &#39;C&#39;), (None, None), (5, &#39;E&#39;)]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -1081,10 +1081,10 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(None, &#39;C&#39;), (None, None)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(None, &#39;C&#39;), (None, None)]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -1099,10 +1099,10 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(2, None), (None, None)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(2, None), (None, None)]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1120,10 +1120,10 @@ CREATE TABLE truck_events (driverId       INT,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(1, &#39;A&#39;), (2, &#39;Unknown&#39;), (&#39;Unknown&#39;, &#39;C&#39;), (&#39;Unknown&#39;, &#39;Unknown&#39;), (5, &#39;E&#39;)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(1, &#39;A&#39;), (2, &#39;Unknown&#39;), (&#39;Unknown&#39;, &#39;C&#39;), (&#39;Unknown&#39;, &#39;Unknown&#39;), (5, &#39;E&#39;)]
+</pre></div></div>
 </div>
 <hr class="docutils" />
 <div class="nbinput nblast docutils container">

@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -170,16 +170,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -188,13 +188,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -202,35 +202,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -238,56 +238,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -368,13 +368,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -392,10 +392,11 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p><em>60 min</em> | Última modificación: Junio 22, 2019</p></li>
 </ul>
-<p>## Lectura y escritura de archivos de texto con <code class="docutils literal notranslate"><span class="pre">open</span></code></p>
+<div class="section" id=" Lectura-y-escritura-de-archivos-de-texto-con-open">
+<h2> Lectura y escritura de archivos de texto con <code class="docutils literal notranslate"><span class="pre">open</span></code><a class="headerlink" href="# Lectura-y-escritura-de-archivos-de-texto-con-open" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La función <code class="docutils literal notranslate"><span class="pre">open(&lt;filename&gt;,</span> <span class="pre">&lt;mode&gt;)</span></code> permite abrir el archivo llamado <code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;</span></code>; <code class="docutils literal notranslate"><span class="pre">&lt;mode&gt;</span></code> es una cadena de texto que especifica la forma en que se habre el archivo asi: <code class="docutils literal notranslate"><span class="pre">'r'</span></code> para lectura, <code class="docutils literal notranslate"><span class="pre">'w'</span></code> para escritura (borra el contenido del archivo) y <code class="docutils literal notranslate"><span class="pre">'a'</span></code> para escribir al final (append); adicionalmente, se puede agregar <code class="docutils literal notranslate"><span class="pre">'b'</span></code> para indicar que el archivo se abre en modo binario (por defecto se abre en mdoeo texto). <code class="docutils literal notranslate"><span class="pre">open</span></code> devuelve un objeto que permite manipuar el archivo.</p>
 <div class="section" id="Escritura-de-una-variable-con-texto-a-un-archivo">
-<h2>Escritura de una variable con texto a un archivo<a class="headerlink" href="#Escritura-de-una-variable-con-texto-a-un-archivo" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Escritura de una variable con texto a un archivo<a class="headerlink" href="#Escritura-de-una-variable-con-texto-a-un-archivo" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -448,10 +449,10 @@ databases show that R&#39;s popularity has increased substantially in recent yea
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>433
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+433
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -467,14 +468,14 @@ databases show that R&#39;s popularity has increased substantially in recent yea
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&quot;R is a programming language and software environment for statistical computing \nand graphics supported by the R Foundation for Statistical Computing.[3] The R language \nis widely used among statisticians and data miners for developing statistical software[4] \nand data analysis.[5] Polls, surveys of data miners, and studies of scholarly literature \ndatabases show that R&#39;s popularity has increased substantially in recent years.[6]\n&quot;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;R is a programming language and software environment for statistical computing \nand graphics supported by the R Foundation for Statistical Computing.[3] The R language \nis widely used among statisticians and data miners for developing statistical software[4] \nand data analysis.[5] Polls, surveys of data miners, and studies of scholarly literature \ndatabases show that R&#39;s popularity has increased substantially in recent years.[6]\n&#34;
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Escritura-secuencial-a-un-archivo">
-<h2>Escritura secuencial a un archivo<a class="headerlink" href="#Escritura-secuencial-a-un-archivo" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Escritura secuencial a un archivo<a class="headerlink" href="#Escritura-secuencial-a-un-archivo" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -521,10 +522,10 @@ databases show that R&#39;s popularity has increased substantially in recent yea
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>7
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+7
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -538,7 +539,7 @@ databases show that R&#39;s popularity has increased substantially in recent yea
 </div>
 </div>
 <div class="section" id="Lectura-de-un-archivo">
-<h2>Lectura de un archivo<a class="headerlink" href="#Lectura-de-un-archivo" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Lectura de un archivo<a class="headerlink" href="#Lectura-de-un-archivo" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -553,10 +554,10 @@ databases show that R&#39;s popularity has increased substantially in recent yea
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;linea 1\nlinea 2\nlinea 3\nlinea 4\nlinea 5\nlinea 6\nlinea 7&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;linea 1\nlinea 2\nlinea 3\nlinea 4\nlinea 5\nlinea 6\nlinea 7&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -620,10 +621,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>True
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -642,20 +643,20 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;linea 1\n&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;linea 1\n&#39;,
  &#39;linea 2\n&#39;,
  &#39;linea 3\n&#39;,
  &#39;linea 4\n&#39;,
  &#39;linea 5\n&#39;,
  &#39;linea 6\n&#39;,
  &#39;linea 7&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Lectura-secuencial-del-contenido-de-un-archivo-línea-por-línea">
-<h2>Lectura secuencial del contenido de un archivo línea por línea<a class="headerlink" href="#Lectura-secuencial-del-contenido-de-un-archivo-línea-por-línea" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Lectura secuencial del contenido de un archivo línea por línea<a class="headerlink" href="#Lectura-secuencial-del-contenido-de-un-archivo-línea-por-línea" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -681,10 +682,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;linea 1\n&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;linea 1\n&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -700,10 +701,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;linea 2\n&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;linea 2\n&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -720,10 +721,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;linea 3\n&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;linea 3\n&#39;
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -736,7 +737,7 @@ linea 7
 </div>
 </div>
 <div class="section" id="Lectura-secuencial-del-contenido-de-un-archivo-usando-un-ciclo-for">
-<h2>Lectura secuencial del contenido de un archivo usando un ciclo for<a class="headerlink" href="#Lectura-secuencial-del-contenido-de-un-archivo-usando-un-ciclo-for" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Lectura secuencial del contenido de un archivo usando un ciclo for<a class="headerlink" href="#Lectura-secuencial-del-contenido-de-un-archivo-usando-un-ciclo-for" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En el siguiente ejemplo se ilustra como usar un ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> para leer el contenido de un archivo.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -768,7 +769,10 @@ linea 6
 linea 7
 </pre></div></div>
 </div>
-<p>## Lectura y escritura de tablas de texto</p>
+</div>
+</div>
+<div class="section" id=" Lectura-y-escritura-de-tablas-de-texto">
+<h2> Lectura y escritura de tablas de texto<a class="headerlink" href="# Lectura-y-escritura-de-tablas-de-texto" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En esta sección se aborda la lectura de archivos delimitados por caracteres. Los delimitadores incluyen el espacio en blanco, la coma y el punto y coma. El parámetro <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> permite especificar el caracter delimitador, mientrasq que el parámetro <code class="docutils literal notranslate"><span class="pre">quoting</span></code> permite especificar los delimitadores para los strings.</p>
 <p>Se crea una tabla para los realizar los ejemplos.</p>
 <div class="nbinput docutils container">
@@ -792,15 +796,15 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;],
  [1, &#39;A&#39;, 3.03],
  [2, &#39;B&#39;, 5.14],
  [3, &#39;C&#39;, 0.4],
  [4, &#39;D&#39;, 1.13],
  [5, &#39;E&#39;, 8.25]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -812,9 +816,8 @@ linea 7
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="Archivos-delimitados-por-espacios">
-<h2>Archivos delimitados por espacios<a class="headerlink" href="#Archivos-delimitados-por-espacios" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Archivos delimitados por espacios<a class="headerlink" href="#Archivos-delimitados-por-espacios" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -875,10 +878,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;&quot;index&quot; &quot;name&quot; &quot;value&quot;\n1 &quot;A&quot; 3.03\n2 &quot;B&quot; 5.14\n3 &quot;C&quot; 0.4\n4 &quot;D&quot; 1.13\n5 &quot;E&quot; 8.25\n&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#34;index&#34; &#34;name&#34; &#34;value&#34;\n1 &#34;A&#34; 3.03\n2 &#34;B&#34; 5.14\n3 &#34;C&#34; 0.4\n4 &#34;D&#34; 1.13\n5 &#34;E&#34; 8.25\n&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -905,7 +908,7 @@ linea 7
 </div>
 </div>
 <div class="section" id="Archivos-delimitados-por-comas-(CSV)">
-<h2>Archivos delimitados por comas (CSV)<a class="headerlink" href="#Archivos-delimitados-por-comas-(CSV)" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Archivos delimitados por comas (CSV)<a class="headerlink" href="#Archivos-delimitados-por-comas-(CSV)" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -934,10 +937,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;&quot;index&quot;,&quot;name&quot;,&quot;value&quot;\n1,&quot;A&quot;,3.03\n2,&quot;B&quot;,5.14\n3,&quot;C&quot;,0.4\n4,&quot;D&quot;,1.13\n5,&quot;E&quot;,8.25\n&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#34;index&#34;,&#34;name&#34;,&#34;value&#34;\n1,&#34;A&#34;,3.03\n2,&#34;B&#34;,5.14\n3,&#34;C&#34;,0.4\n4,&#34;D&#34;,1.13\n5,&#34;E&#34;,8.25\n&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -992,8 +995,10 @@ linea 7
 [5.0, &#39;E&#39;, 8.25]
 </pre></div></div>
 </div>
+</div>
+</div>
 <div class="section" id="Archivos-en-formato-JSON">
-<h3>Archivos en formato JSON<a class="headerlink" href="#Archivos-en-formato-JSON" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>Archivos en formato JSON<a class="headerlink" href="#Archivos-en-formato-JSON" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
@@ -1018,10 +1023,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;[[&quot;index&quot;, &quot;name&quot;, &quot;value&quot;], [1, &quot;A&quot;, 3.03], [2, &quot;B&quot;, 5.14], [3, &quot;C&quot;, 0.4], [4, &quot;D&quot;, 1.13], [5, &quot;E&quot;, 8.25]]&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;[[&#34;index&#34;, &#34;name&#34;, &#34;value&#34;], [1, &#34;A&#34;, 3.03], [2, &#34;B&#34;, 5.14], [3, &#34;C&#34;, 0.4], [4, &#34;D&#34;, 1.13], [5, &#34;E&#34;, 8.25]]&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
@@ -1039,10 +1044,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;[\n    [\n        &quot;index&quot;,\n        &quot;name&quot;,\n        &quot;value&quot;\n    ],\n    [\n        1,\n        &quot;A&quot;,\n        3.03\n    ],\n    [\n        2,\n        &quot;B&quot;,\n        5.14\n    ],\n    [\n        3,\n        &quot;C&quot;,\n        0.4\n    ],\n    [\n        4,\n        &quot;D&quot;,\n        1.13\n    ],\n    [\n        5,\n        &quot;E&quot;,\n        8.25\n    ]\n]&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;[\n    [\n        &#34;index&#34;,\n        &#34;name&#34;,\n        &#34;value&#34;\n    ],\n    [\n        1,\n        &#34;A&#34;,\n        3.03\n    ],\n    [\n        2,\n        &#34;B&#34;,\n        5.14\n    ],\n    [\n        3,\n        &#34;C&#34;,\n        0.4\n    ],\n    [\n        4,\n        &#34;D&#34;,\n        1.13\n    ],\n    [\n        5,\n        &#34;E&#34;,\n        8.25\n    ]\n]&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
@@ -1109,15 +1114,15 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;],
  [1, &#39;A&#39;, 3.03],
  [2, &#39;B&#39;, 5.14],
  [3, &#39;C&#39;, 0.4],
  [4, &#39;D&#39;, 1.13],
  [5, &#39;E&#39;, 8.25]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
@@ -1145,10 +1150,10 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;&quot;index&quot;,&quot;name&quot;,&quot;value&quot;\n1,&quot;A&quot;,3.03\n2,&quot;B&quot;,5.14\n3,&quot;C&quot;,0.4\n4,&quot;D&quot;,1.13\n5,&quot;E&quot;,8.25\n&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#34;index&#34;,&#34;name&#34;,&#34;value&#34;\n1,&#34;A&#34;,3.03\n2,&#34;B&#34;,5.14\n3,&#34;C&#34;,0.4\n4,&#34;D&#34;,1.13\n5,&#34;E&#34;,8.25\n&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
@@ -1166,19 +1171,19 @@ linea 7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;],
  [1, &#39;A&#39;, 3.03],
  [2, &#39;B&#39;, 5.14],
  [3, &#39;C&#39;, 0.4],
  [4, &#39;D&#39;, 1.13],
  [5, &#39;E&#39;, 8.25]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Formato-binario-nativo-de-Python">
-<h3>Formato binario nativo de Python<a class="headerlink" href="#Formato-binario-nativo-de-Python" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2>Formato binario nativo de Python<a class="headerlink" href="#Formato-binario-nativo-de-Python" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
@@ -1257,7 +1262,6 @@ y          str               [\n    [\n        &#34;index&#34;&lt;...&gt;,\n    
 <div class="highlight"><pre>
 [[&#39;index&#39;, &#39;name&#39;, &#39;value&#39;], [1, &#39;A&#39;, 3.03], [2, &#39;B&#39;, 5.14], [3, &#39;C&#39;, 0.4], [4, &#39;D&#39;, 1.13], [5, &#39;E&#39;, 8.25]]
 </pre></div></div>
-</div>
 </div>
 </div>
 </div>

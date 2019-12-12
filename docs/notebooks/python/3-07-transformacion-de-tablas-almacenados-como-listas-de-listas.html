@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -409,8 +409,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;t,srcuser,srchost,dstuser,dsthost,size\n&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;t,srcuser,srchost,dstuser,dsthost,size\n&#39;,
  &#39;2006-05-11 10:15:08,barb,saturn,tricia,mars,58274\n&#39;,
  &#39;2006-05-12 12:48:13,tricia,mars,gene,venus,194925\n&#39;,
  &#39;2006-05-12 15:02:49,phil,mars,phil,saturn,1048\n&#39;,
@@ -427,8 +428,7 @@ div.rendered_html tbody tr:hover {
  &#39;2006-05-16 23:04:19,phil,venus,barb,venus,10294\n&#39;,
  &#39;2006-05-17 12:49:23,phil,mars,tricia,saturn,873\n&#39;,
  &#39;2006-05-19 22:21:51,gene,saturn,gene,venus,23992&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -445,8 +445,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;t,srcuser,srchost,dstuser,dsthost,size&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;t,srcuser,srchost,dstuser,dsthost,size&#39;,
  &#39;2006-05-11 10:15:08,barb,saturn,tricia,mars,58274&#39;,
  &#39;2006-05-12 12:48:13,tricia,mars,gene,venus,194925&#39;,
  &#39;2006-05-12 15:02:49,phil,mars,phil,saturn,1048&#39;,
@@ -463,8 +464,7 @@ div.rendered_html tbody tr:hover {
  &#39;2006-05-16 23:04:19,phil,venus,barb,venus,10294&#39;,
  &#39;2006-05-17 12:49:23,phil,mars,tricia,saturn,873&#39;,
  &#39;2006-05-19 22:21:51,gene,saturn,gene,venus,2399&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -481,8 +481,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;t&#39;, &#39;srcuser&#39;, &#39;srchost&#39;, &#39;dstuser&#39;, &#39;dsthost&#39;, &#39;size&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;t&#39;, &#39;srcuser&#39;, &#39;srchost&#39;, &#39;dstuser&#39;, &#39;dsthost&#39;, &#39;size&#39;],
  [&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;58274&#39;],
  [&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, &#39;194925&#39;],
  [&#39;2006-05-12 15:02:49&#39;, &#39;phil&#39;, &#39;mars&#39;, &#39;phil&#39;, &#39;saturn&#39;, &#39;1048&#39;],
@@ -499,8 +500,7 @@ div.rendered_html tbody tr:hover {
  [&#39;2006-05-16 23:04:19&#39;, &#39;phil&#39;, &#39;venus&#39;, &#39;barb&#39;, &#39;venus&#39;, &#39;10294&#39;],
  [&#39;2006-05-17 12:49:23&#39;, &#39;phil&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;873&#39;],
  [&#39;2006-05-19 22:21:51&#39;, &#39;gene&#39;, &#39;saturn&#39;, &#39;gene&#39;, &#39;venus&#39;, &#39;2399&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -528,8 +528,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-11 10:15:08&#39;, &#39;saturn&#39;, &#39;barb&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;58274&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-11 10:15:08&#39;, &#39;saturn&#39;, &#39;barb&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;58274&#39;],
  [&#39;2006-05-12 12:48:13&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;venus&#39;, &#39;gene&#39;, &#39;194925&#39;],
  [&#39;2006-05-12 15:02:49&#39;, &#39;mars&#39;, &#39;phil&#39;, &#39;saturn&#39;, &#39;phil&#39;, &#39;1048&#39;],
  [&#39;2006-05-13 13:59:18&#39;, &#39;saturn&#39;, &#39;barb&#39;, &#39;venus&#39;, &#39;tricia&#39;, &#39;271&#39;],
@@ -545,8 +546,7 @@ div.rendered_html tbody tr:hover {
  [&#39;2006-05-16 23:04:19&#39;, &#39;venus&#39;, &#39;phil&#39;, &#39;venus&#39;, &#39;barb&#39;, &#39;10294&#39;],
  [&#39;2006-05-17 12:49:23&#39;, &#39;mars&#39;, &#39;phil&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;873&#39;],
  [&#39;2006-05-19 22:21:51&#39;, &#39;saturn&#39;, &#39;gene&#39;, &#39;venus&#39;, &#39;gene&#39;, &#39;2399&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Selección-de-filas">
@@ -566,14 +566,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-14 09:31:37&#39;, &#39;venus&#39;, &#39;gene&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-14 09:31:37&#39;, &#39;venus&#39;, &#39;gene&#39;],
  [&#39;2006-05-14 14:42:21&#39;, &#39;venus&#39;, &#39;barb&#39;],
  [&#39;2006-05-15 08:50:57&#39;, &#39;venus&#39;, &#39;phil&#39;],
  [&#39;2006-05-16 09:00:28&#39;, &#39;venus&#39;, &#39;gene&#39;],
  [&#39;2006-05-16 23:04:19&#39;, &#39;venus&#39;, &#39;phil&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -591,14 +591,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;],
  [&#39;2006-05-13 13:59:18&#39;, &#39;barb&#39;, &#39;saturn&#39;],
  [&#39;2006-05-14 17:03:01&#39;, &#39;tricia&#39;, &#39;saturn&#39;],
  [&#39;2006-05-15 17:35:31&#39;, &#39;gene&#39;, &#39;saturn&#39;],
  [&#39;2006-05-19 22:21:51&#39;, &#39;gene&#39;, &#39;saturn&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -613,11 +613,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;],
  [&#39;2006-05-13 13:59:18&#39;, &#39;barb&#39;, &#39;saturn&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Combinación-de-Columnas">
@@ -635,8 +635,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-11 10:15:08&#39;, &#39;barb@saturn&#39;, &#39;tricia@mars&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-11 10:15:08&#39;, &#39;barb@saturn&#39;, &#39;tricia@mars&#39;],
  [&#39;2006-05-12 12:48:13&#39;, &#39;tricia@mars&#39;, &#39;gene@venus&#39;],
  [&#39;2006-05-12 15:02:49&#39;, &#39;phil@mars&#39;, &#39;phil@saturn&#39;],
  [&#39;2006-05-13 13:59:18&#39;, &#39;barb@saturn&#39;, &#39;tricia@venus&#39;],
@@ -652,8 +653,7 @@ div.rendered_html tbody tr:hover {
  [&#39;2006-05-16 23:04:19&#39;, &#39;phil@venus&#39;, &#39;barb@venus&#39;],
  [&#39;2006-05-17 12:49:23&#39;, &#39;phil@mars&#39;, &#39;tricia@saturn&#39;],
  [&#39;2006-05-19 22:21:51&#39;, &#39;gene@saturn&#39;, &#39;gene@venus&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Selección-condicional">
@@ -671,11 +671,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-14 17:03:01&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;phil&#39;, &#39;venus&#39;, &#39;2394482&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-14 17:03:01&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;phil&#39;, &#39;venus&#39;, &#39;2394482&#39;],
  [&#39;2006-05-15 10:25:52&#39;, &#39;gene&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;998532&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Remoción-de-duplicados">
@@ -693,8 +693,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;barb&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;barb&#39;,
  &#39;tricia&#39;,
  &#39;phil&#39;,
  &#39;barb&#39;,
@@ -710,8 +711,7 @@ div.rendered_html tbody tr:hover {
  &#39;phil&#39;,
  &#39;phil&#39;,
  &#39;gene&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -726,10 +726,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>{&#39;barb&#39;, &#39;gene&#39;, &#39;phil&#39;, &#39;tricia&#39;}
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;barb&#39;, &#39;gene&#39;, &#39;phil&#39;, &#39;tricia&#39;}
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -744,10 +744,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>4
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Manejo-de-NULL">
@@ -768,14 +768,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;name&#39;, &#39;id&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;name&#39;, &#39;id&#39;],
  [&#39;bernina&#39;, &#39;198-48&#39;],
  [&#39;berta&#39;, &#39;NULL&#39;],
  [&#39;ben&#39;, &#39;NULL&#39;],
  [&#39;bill&#39;, &#39;475-8&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -791,14 +791,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;name&#39;, &#39;id&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;name&#39;, &#39;id&#39;],
  [&#39;bernina&#39;, &#39;198-48&#39;],
  [&#39;berta&#39;, None],
  [&#39;ben&#39;, None],
  [&#39;bill&#39;, &#39;475-8&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -813,10 +813,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;name&#39;, &#39;id&#39;], [&#39;bernina&#39;, &#39;198-48&#39;], [&#39;bill&#39;, &#39;475-8&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;name&#39;, &#39;id&#39;], [&#39;bernina&#39;, &#39;198-48&#39;], [&#39;bill&#39;, &#39;475-8&#39;]]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Ordenamiento">
@@ -826,7 +826,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">operator</span> <span class="k">import</span> <span class="n">itemgetter</span>
+<span></span><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
 <span class="nb">sorted</span><span class="p">([</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mail</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">100000</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -835,12 +835,12 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, &#39;194925&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, &#39;194925&#39;],
  [&#39;2006-05-14 17:03:01&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;phil&#39;, &#39;venus&#39;, &#39;2394482&#39;],
  [&#39;2006-05-15 10:25:52&#39;, &#39;gene&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;998532&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -856,8 +856,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;mars&#39;, 58274],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;mars&#39;, 58274],
  [&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, 194925],
  [&#39;2006-05-12 15:02:49&#39;, &#39;phil&#39;, &#39;mars&#39;, &#39;phil&#39;, &#39;saturn&#39;, 1048],
  [&#39;2006-05-13 13:59:18&#39;, &#39;barb&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;venus&#39;, 271],
@@ -873,8 +874,7 @@ div.rendered_html tbody tr:hover {
  [&#39;2006-05-16 23:04:19&#39;, &#39;phil&#39;, &#39;venus&#39;, &#39;barb&#39;, &#39;venus&#39;, 10294],
  [&#39;2006-05-17 12:49:23&#39;, &#39;phil&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;saturn&#39;, 873],
  [&#39;2006-05-19 22:21:51&#39;, &#39;gene&#39;, &#39;saturn&#39;, &#39;gene&#39;, &#39;venus&#39;, 2399]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -889,12 +889,12 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, 194925],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, 194925],
  [&#39;2006-05-15 10:25:52&#39;, &#39;gene&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;saturn&#39;, 998532],
  [&#39;2006-05-14 17:03:01&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;phil&#39;, &#39;venus&#39;, 2394482]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -909,8 +909,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;2006-05-14 14:42:21&#39;, &#39;barb&#39;, &#39;venus&#39;, &#39;barb&#39;, &#39;venus&#39;, 98151],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;2006-05-14 14:42:21&#39;, &#39;barb&#39;, &#39;venus&#39;, &#39;barb&#39;, &#39;venus&#39;, 98151],
  [&#39;2006-05-11 10:15:08&#39;, &#39;barb&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;mars&#39;, 58274],
  [&#39;2006-05-13 13:59:18&#39;, &#39;barb&#39;, &#39;saturn&#39;, &#39;tricia&#39;, &#39;venus&#39;, 271],
  [&#39;2006-05-14 09:31:37&#39;, &#39;gene&#39;, &#39;venus&#39;, &#39;barb&#39;, &#39;mars&#39;, 2291],
@@ -926,8 +927,7 @@ div.rendered_html tbody tr:hover {
  [&#39;2006-05-17 12:49:23&#39;, &#39;phil&#39;, &#39;mars&#39;, &#39;tricia&#39;, &#39;saturn&#39;, 873],
  [&#39;2006-05-12 12:48:13&#39;, &#39;tricia&#39;, &#39;mars&#39;, &#39;gene&#39;, &#39;venus&#39;, 194925],
  [&#39;2006-05-14 17:03:01&#39;, &#39;tricia&#39;, &#39;saturn&#39;, &#39;phil&#39;, &#39;venus&#39;, 2394482]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Joins">
@@ -949,15 +949,15 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1&#39;, &#39;AIM&#39;, &#39;user1-aimid&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1&#39;, &#39;AIM&#39;, &#39;user1-aimid&#39;],
  [&#39;1&#39;, &#39;MSN&#39;, &#39;user1-msnid&#39;],
  [&#39;2&#39;, &#39;AIM&#39;, &#39;user2-aimid&#39;],
  [&#39;2&#39;, &#39;MSN&#39;, &#39;user2-msnid&#39;],
  [&#39;2&#39;, &#39;Yahoo&#39;, &#39;user2-yahooid&#39;],
  [&#39;4&#39;, &#39;Yahoo&#39;, &#39;user4-yahooi&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -976,8 +976,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;Fred&#39;, &#39;1970-04-13&#39;, &#39;black&#39;, &#39;lutefisk:fadge:pizza&#39;, &#39;0&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;Fred&#39;, &#39;1970-04-13&#39;, &#39;black&#39;, &#39;lutefisk:fadge:pizza&#39;, &#39;0&#39;],
  [&#39;Mort&#39;, &#39;1969-09-30&#39;, &#39;white&#39;, &#39;burrito:curry:eggroll&#39;, &#39;3&#39;],
  [&#39;Brit&#39;, &#39;1957-12-01&#39;, &#39;red&#39;, &#39;burrito:curry:pizza&#39;, &#39;1&#39;],
  [&#39;Carl&#39;, &#39;1973-11-02&#39;, &#39;red&#39;, &#39;eggroll:pizza&#39;, &#39;4&#39;],
@@ -987,8 +988,7 @@ div.rendered_html tbody tr:hover {
  [&#39;Shepard&#39;, &#39;1975-09-02&#39;, &#39;black&#39;, &#39;curry:pizza&#39;, &#39;2&#39;],
  [&#39;Dick&#39;, &#39;1952-08-20&#39;, &#39;green&#39;, &#39;lutefisk:fadge&#39;, &#39;0&#39;],
  [&#39;Tony&#39;, &#39;1960-05-01&#39;, &#39;white&#39;, &#39;burrito:pizza&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -1004,8 +1004,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;0&#39;, &#39;Fred&#39;, &#39;1970-04-13&#39;, &#39;black&#39;, &#39;lutefisk:fadge:pizza&#39;, &#39;0&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;0&#39;, &#39;Fred&#39;, &#39;1970-04-13&#39;, &#39;black&#39;, &#39;lutefisk:fadge:pizza&#39;, &#39;0&#39;],
  [&#39;1&#39;, &#39;Mort&#39;, &#39;1969-09-30&#39;, &#39;white&#39;, &#39;burrito:curry:eggroll&#39;, &#39;3&#39;],
  [&#39;2&#39;, &#39;Brit&#39;, &#39;1957-12-01&#39;, &#39;red&#39;, &#39;burrito:curry:pizza&#39;, &#39;1&#39;],
  [&#39;3&#39;, &#39;Carl&#39;, &#39;1973-11-02&#39;, &#39;red&#39;, &#39;eggroll:pizza&#39;, &#39;4&#39;],
@@ -1015,8 +1016,7 @@ div.rendered_html tbody tr:hover {
  [&#39;7&#39;, &#39;Shepard&#39;, &#39;1975-09-02&#39;, &#39;black&#39;, &#39;curry:pizza&#39;, &#39;2&#39;],
  [&#39;8&#39;, &#39;Dick&#39;, &#39;1952-08-20&#39;, &#39;green&#39;, &#39;lutefisk:fadge&#39;, &#39;0&#39;],
  [&#39;9&#39;, &#39;Tony&#39;, &#39;1960-05-01&#39;, &#39;white&#39;, &#39;burrito:pizza&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1031,15 +1031,15 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1&#39;, &#39;Mort&#39;, &#39;AIM&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1&#39;, &#39;Mort&#39;, &#39;AIM&#39;],
  [&#39;1&#39;, &#39;Mort&#39;, &#39;MSN&#39;],
  [&#39;2&#39;, &#39;Brit&#39;, &#39;AIM&#39;],
  [&#39;2&#39;, &#39;Brit&#39;, &#39;MSN&#39;],
  [&#39;2&#39;, &#39;Brit&#39;, &#39;Yahoo&#39;],
  [&#39;4&#39;, &#39;Sean&#39;, &#39;Yahoo&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -1054,10 +1054,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1&#39;, &#39;AIM&#39;, &#39;user1-aimid&#39;], [&#39;1&#39;, &#39;MSN&#39;, &#39;user1-msnid&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1&#39;, &#39;AIM&#39;, &#39;user1-aimid&#39;], [&#39;1&#39;, &#39;MSN&#39;, &#39;user1-msnid&#39;]]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Selección-del-principio-o-el-final">
@@ -1075,14 +1075,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;Fred&#39;, &#39;1970-04-13&#39;, &#39;black&#39;, &#39;lutefisk:fadge:pizza&#39;, &#39;0&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;Fred&#39;, &#39;1970-04-13&#39;, &#39;black&#39;, &#39;lutefisk:fadge:pizza&#39;, &#39;0&#39;],
  [&#39;Mort&#39;, &#39;1969-09-30&#39;, &#39;white&#39;, &#39;burrito:curry:eggroll&#39;, &#39;3&#39;],
  [&#39;Brit&#39;, &#39;1957-12-01&#39;, &#39;red&#39;, &#39;burrito:curry:pizza&#39;, &#39;1&#39;],
  [&#39;Carl&#39;, &#39;1973-11-02&#39;, &#39;red&#39;, &#39;eggroll:pizza&#39;, &#39;4&#39;],
  [&#39;Sean&#39;, &#39;1963-07-04&#39;, &#39;blue&#39;, &#39;burrito:curry&#39;, &#39;5&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
@@ -1097,14 +1097,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;Alan&#39;, &#39;1965-02-14&#39;, &#39;red&#39;, &#39;curry:fadge&#39;, &#39;1&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;Alan&#39;, &#39;1965-02-14&#39;, &#39;red&#39;, &#39;curry:fadge&#39;, &#39;1&#39;],
  [&#39;Mara&#39;, &#39;1968-09-17&#39;, &#39;green&#39;, &#39;lutefisk:fadge&#39;, &#39;1&#39;],
  [&#39;Shepard&#39;, &#39;1975-09-02&#39;, &#39;black&#39;, &#39;curry:pizza&#39;, &#39;2&#39;],
  [&#39;Dick&#39;, &#39;1952-08-20&#39;, &#39;green&#39;, &#39;lutefisk:fadge&#39;, &#39;0&#39;],
  [&#39;Tony&#39;, &#39;1960-05-01&#39;, &#39;white&#39;, &#39;burrito:pizza&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Selección-en-el-medio">
@@ -1122,14 +1122,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;Carl&#39;, &#39;1973-11-02&#39;, &#39;red&#39;, &#39;eggroll:pizza&#39;, &#39;4&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;Carl&#39;, &#39;1973-11-02&#39;, &#39;red&#39;, &#39;eggroll:pizza&#39;, &#39;4&#39;],
  [&#39;Sean&#39;, &#39;1963-07-04&#39;, &#39;blue&#39;, &#39;burrito:curry&#39;, &#39;5&#39;],
  [&#39;Alan&#39;, &#39;1965-02-14&#39;, &#39;red&#39;, &#39;curry:fadge&#39;, &#39;1&#39;],
  [&#39;Mara&#39;, &#39;1968-09-17&#39;, &#39;green&#39;, &#39;lutefisk:fadge&#39;, &#39;1&#39;],
  [&#39;Shepard&#39;, &#39;1975-09-02&#39;, &#39;black&#39;, &#39;curry:pizza&#39;, &#39;2&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Realización-de-cómputos">
@@ -1149,10 +1149,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[1, 2], [3, 4], [5, 6], [7, 8]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[1, 2], [3, 4], [5, 6], [7, 8]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -1167,10 +1167,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[2, 12, 30, 56]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2, 12, 30, 56]
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1195,8 +1195,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;human&#39;, &#39;2&#39;, &#39;2&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;human&#39;, &#39;2&#39;, &#39;2&#39;],
  [&#39;insect&#39;, &#39;6&#39;, &#39;0&#39;],
  [&#39;squid&#39;, &#39;0&#39;, &#39;10&#39;],
  [&#39;octopus&#39;, &#39;0&#39;, &#39;8&#39;],
@@ -1208,8 +1209,7 @@ div.rendered_html tbody tr:hover {
  [&#39;tripod&#39;, &#39;3&#39;, &#39;0&#39;],
  [&#39;Peg Leg Pete&#39;, &#39;1&#39;, &#39;2 &#39;],
  [&#39;space alien&#39;, &#39;NULL&#39;, &#39;NUL&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -1224,8 +1224,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;HUMAN&#39;, &#39;human&#39;, &#39;Human&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;HUMAN&#39;, &#39;human&#39;, &#39;Human&#39;],
  [&#39;INSECT&#39;, &#39;insect&#39;, &#39;Insect&#39;],
  [&#39;SQUID&#39;, &#39;squid&#39;, &#39;Squid&#39;],
  [&#39;OCTOPUS&#39;, &#39;octopus&#39;, &#39;Octopus&#39;],
@@ -1237,8 +1238,7 @@ div.rendered_html tbody tr:hover {
  [&#39;TRIPOD&#39;, &#39;tripod&#39;, &#39;Tripod&#39;],
  [&#39;PEG LEG PETE&#39;, &#39;peg leg pete&#39;, &#39;Peg leg pete&#39;],
  [&#39;SPACE ALIEN&#39;, &#39;space alien&#39;, &#39;Space alien&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Búsqueda-de-patrones">
@@ -1257,8 +1257,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;],
  [&#39;gold&#39;],
  [&#39;iron&#39;],
  [&#39;lead&#39;],
@@ -1266,8 +1267,7 @@ div.rendered_html tbody tr:hover {
  [&#39;platinum&#39;],
  [&#39;silver&#39;],
  [&#39;tin&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
@@ -1283,10 +1283,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
@@ -1302,10 +1302,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;], [&#39;silver&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;], [&#39;silver&#39;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
@@ -1321,10 +1321,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;], [&#39;mercury&#39;], [&#39;silver&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;], [&#39;mercury&#39;], [&#39;silver&#39;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
@@ -1340,10 +1340,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
@@ -1359,10 +1359,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;], [&#39;gold&#39;], [&#39;lead&#39;], [&#39;mercury&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;], [&#39;gold&#39;], [&#39;lead&#39;], [&#39;mercury&#39;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
@@ -1378,10 +1378,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;cop&#39;], [&#39;gol&#39;], [&#39;iro&#39;], [&#39;lea&#39;], [&#39;mer&#39;], [&#39;pla&#39;], [&#39;sil&#39;], [&#39;tin&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;cop&#39;], [&#39;gol&#39;], [&#39;iro&#39;], [&#39;lea&#39;], [&#39;mer&#39;], [&#39;pla&#39;], [&#39;sil&#39;], [&#39;tin&#39;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
@@ -1397,10 +1397,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;copper&#39;], [&#39;iron&#39;], [&#39;silver&#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;copper&#39;], [&#39;iron&#39;], [&#39;silver&#39;]]
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1422,10 +1422,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>datetime.date(2018, 9, 19)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+datetime.date(2018, 9, 19)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
@@ -1440,10 +1440,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;2018-09-19&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;2018-09-19&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
@@ -1458,10 +1458,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;18/09/19&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;18/09/19&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
@@ -1476,10 +1476,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>datetime.datetime(2018, 9, 19, 8, 37, 18, 359576)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+datetime.datetime(2018, 9, 19, 8, 37, 18, 359576)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
@@ -1494,10 +1494,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;2018-09-19 08:37:18.368081&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;2018-09-19 08:37:18.368081&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
@@ -1516,14 +1516,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1970-01-01 00:00:00&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1970-01-01 00:00:00&#39;],
  [&#39;1987-03-05 12:30:15&#39;],
  [&#39;1999-12-31 09:00:00&#39;],
  [&#39;2000-06-04 15:45:30&#39;],
  [&#39;2000-06-04 15:45:30&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
@@ -1582,14 +1582,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1970-01-01 00:00:00&#39;, &#39;1970&#39;, 1, &#39;January&#39;, &#39;Jan&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1970-01-01 00:00:00&#39;, &#39;1970&#39;, 1, &#39;January&#39;, &#39;Jan&#39;],
  [&#39;1987-03-05 12:30:15&#39;, &#39;1987&#39;, 3, &#39;March&#39;, &#39;Mar&#39;],
  [&#39;1999-12-31 09:00:00&#39;, &#39;1999&#39;, 12, &#39;December&#39;, &#39;Dec&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;2000&#39;, 6, &#39;June&#39;, &#39;Jun&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;2000&#39;, 6, &#39;June&#39;, &#39;Jun&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
@@ -1604,14 +1604,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1970-01-01 00:00:00&#39;, &#39;01&#39;, &#39;Thursday&#39;, &#39;Thu&#39;, &#39;4&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1970-01-01 00:00:00&#39;, &#39;01&#39;, &#39;Thursday&#39;, &#39;Thu&#39;, &#39;4&#39;],
  [&#39;1987-03-05 12:30:15&#39;, &#39;05&#39;, &#39;Thursday&#39;, &#39;Thu&#39;, &#39;4&#39;],
  [&#39;1999-12-31 09:00:00&#39;, &#39;31&#39;, &#39;Friday&#39;, &#39;Fri&#39;, &#39;5&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;04&#39;, &#39;Sunday&#39;, &#39;Sun&#39;, &#39;0&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;04&#39;, &#39;Sunday&#39;, &#39;Sun&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
@@ -1644,14 +1644,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1970-01-01 00:00:00&#39;, &#39;00&#39;, &#39;00&#39;, &#39;00&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1970-01-01 00:00:00&#39;, &#39;00&#39;, &#39;00&#39;, &#39;00&#39;],
  [&#39;1987-03-05 12:30:15&#39;, &#39;12&#39;, &#39;30&#39;, &#39;15&#39;],
  [&#39;1999-12-31 09:00:00&#39;, &#39;09&#39;, &#39;00&#39;, &#39;00&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;15&#39;, &#39;45&#39;, &#39;30&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;15&#39;, &#39;45&#39;, &#39;30&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
@@ -1666,14 +1666,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1970-01-01 00:00:00&#39;, &#39;01/01/70&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1970-01-01 00:00:00&#39;, &#39;01/01/70&#39;],
  [&#39;1987-03-05 12:30:15&#39;, &#39;05/03/87&#39;],
  [&#39;1999-12-31 09:00:00&#39;, &#39;31/12/99&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;04/06/00&#39;],
  [&#39;2000-06-04 15:45:30&#39;, &#39;04/06/00&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Cómputos-con-fechas">
@@ -1692,14 +1692,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[datetime.timedelta(17793, 31038, 421259)],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[datetime.timedelta(17793, 31038, 421259)],
  [datetime.timedelta(11520, 72423, 421307)],
  [datetime.timedelta(6836, 85038, 421334)],
  [datetime.timedelta(6680, 60708, 421357)],
  [datetime.timedelta(6680, 60708, 421377)]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
@@ -1717,10 +1717,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>datetime.timedelta(-29)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+datetime.timedelta(-29)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
@@ -1735,10 +1735,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>datetime.datetime(2018, 9, 6, 0, 0)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+datetime.datetime(2018, 9, 6, 0, 0)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
@@ -1755,14 +1755,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1970-01-03 12:00:00&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1970-01-03 12:00:00&#39;],
  [&#39;1987-03-08 00:30:15&#39;],
  [&#39;2000-01-02 21:00:00&#39;],
  [&#39;2000-06-07 03:45:30&#39;],
  [&#39;2000-06-07 03:45:30&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
@@ -1779,14 +1779,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[datetime.timedelta(17793, 31038, 447060)],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[datetime.timedelta(17793, 31038, 447060)],
  [datetime.timedelta(11520, 72423, 447093)],
  [datetime.timedelta(6836, 85038, 447110)],
  [datetime.timedelta(6680, 60708, 447124)],
  [datetime.timedelta(6680, 60708, 447137)]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
@@ -1801,10 +1801,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[48], [31], [18], [18], [18]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[48], [31], [18], [18], [18]]
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1826,10 +1826,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>{&#39;barb&#39;, &#39;gene&#39;, &#39;phil&#39;, &#39;tricia&#39;}
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;barb&#39;, &#39;gene&#39;, &#39;phil&#39;, &#39;tricia&#39;}
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
@@ -1844,10 +1844,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>4
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Búsqueda-del-máximo-o-el-mínimo">
@@ -1865,10 +1865,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;centipede&#39;, &#39;100&#39;, &#39;0 &#39;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;centipede&#39;, &#39;100&#39;, &#39;0 &#39;]]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Agrupamientos">
@@ -1879,7 +1879,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">from</span> <span class="nn">operator</span> <span class="k">import</span> <span class="n">itemgetter</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
 
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">mail</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -1929,10 +1929,10 @@ tricia
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;barb&#39;, 3], [&#39;gene&#39;, 6], [&#39;phil&#39;, 5], [&#39;tricia&#39;, 2]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;barb&#39;, 3], [&#39;gene&#39;, 6], [&#39;phil&#39;, 5], [&#39;tricia&#39;, 2]]
+</pre></div></div>
 </div>
 </div>
 </div>

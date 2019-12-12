@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -422,8 +422,8 @@ div.rendered_html tbody tr:hover {
 <span class="c1">##     escrita en Spark.</span>
 <span class="c1">##  SparkSession representa la conexión para trabajar con SQL.</span>
 <span class="c1">##</span>
-<span class="kn">from</span> <span class="nn">pyspark</span> <span class="k">import</span> <span class="n">SparkConf</span><span class="p">,</span> <span class="n">SparkContext</span>
-<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">SparkSession</span>
+<span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">SparkConf</span><span class="p">,</span> <span class="n">SparkContext</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
 
 <span class="n">sparkConf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s2">&quot;My SparkQL Application&quot;</span><span class="p">)</span>
 <span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">sparkConf</span><span class="p">)</span>
@@ -596,7 +596,7 @@ rm: `/tmp/people.csv&#39;: No such file or directory
 <span></span><span class="c1">##</span>
 <span class="c1">## Row representa una fila en un RDD</span>
 <span class="c1">##</span>
-<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">Row</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">Row</span>
 
 <span class="c1">##</span>
 <span class="c1">## Lectura del archivo como lineas de texto</span>
@@ -610,8 +610,9 @@ rm: `/tmp/people.csv&#39;: No such file or directory
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;1,Vivian,Hamilton,1971-07-08,green,1&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;1,Vivian,Hamilton,1971-07-08,green,1&#39;,
  &#39;2,Karen,Holcomb,1974-05-23,green,4&#39;,
  &#39;3,Cody,Garrett,1973-04-22,orange,1&#39;,
  &#39;4,Roth,Fry,1975-01-29,black,1&#39;,
@@ -629,8 +630,7 @@ rm: `/tmp/people.csv&#39;: No such file or directory
  &#39;16,Ayanna,Jarvis,1974-02-11,orange,5&#39;,
  &#39;17,Chanda,Boyer,1973-04-01,green,4&#39;,
  &#39;18,Chadwick,Knight,1973-04-29,yellow,1&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -649,8 +649,9 @@ rm: `/tmp/people.csv&#39;: No such file or directory
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;1&#39;, &#39;Vivian&#39;, &#39;Hamilton&#39;, &#39;1971-07-08&#39;, &#39;green&#39;, &#39;1&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;1&#39;, &#39;Vivian&#39;, &#39;Hamilton&#39;, &#39;1971-07-08&#39;, &#39;green&#39;, &#39;1&#39;],
  [&#39;2&#39;, &#39;Karen&#39;, &#39;Holcomb&#39;, &#39;1974-05-23&#39;, &#39;green&#39;, &#39;4&#39;],
  [&#39;3&#39;, &#39;Cody&#39;, &#39;Garrett&#39;, &#39;1973-04-22&#39;, &#39;orange&#39;, &#39;1&#39;],
  [&#39;4&#39;, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, &#39;1&#39;],
@@ -668,8 +669,7 @@ rm: `/tmp/people.csv&#39;: No such file or directory
  [&#39;16&#39;, &#39;Ayanna&#39;, &#39;Jarvis&#39;, &#39;1974-02-11&#39;, &#39;orange&#39;, &#39;5&#39;],
  [&#39;17&#39;, &#39;Chanda&#39;, &#39;Boyer&#39;, &#39;1973-04-01&#39;, &#39;green&#39;, &#39;4&#39;],
  [&#39;18&#39;, &#39;Chadwick&#39;, &#39;Knight&#39;, &#39;1973-04-29&#39;, &#39;yellow&#39;, &#39;1&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -695,8 +695,9 @@ rm: `/tmp/people.csv&#39;: No such file or directory
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[Row(birthdate=&#39;1971-07-08&#39;, color=&#39;green&#39;, firstname=&#39;Vivian&#39;, id=&#39;1&#39;, quantity=1, surname=&#39;Hamilton&#39;),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Row(birthdate=&#39;1971-07-08&#39;, color=&#39;green&#39;, firstname=&#39;Vivian&#39;, id=&#39;1&#39;, quantity=1, surname=&#39;Hamilton&#39;),
  Row(birthdate=&#39;1974-05-23&#39;, color=&#39;green&#39;, firstname=&#39;Karen&#39;, id=&#39;2&#39;, quantity=4, surname=&#39;Holcomb&#39;),
  Row(birthdate=&#39;1973-04-22&#39;, color=&#39;orange&#39;, firstname=&#39;Cody&#39;, id=&#39;3&#39;, quantity=1, surname=&#39;Garrett&#39;),
  Row(birthdate=&#39;1975-01-29&#39;, color=&#39;black&#39;, firstname=&#39;Roth&#39;, id=&#39;4&#39;, quantity=1, surname=&#39;Fry&#39;),
@@ -714,8 +715,7 @@ rm: `/tmp/people.csv&#39;: No such file or directory
  Row(birthdate=&#39;1974-02-11&#39;, color=&#39;orange&#39;, firstname=&#39;Ayanna&#39;, id=&#39;16&#39;, quantity=5, surname=&#39;Jarvis&#39;),
  Row(birthdate=&#39;1973-04-01&#39;, color=&#39;green&#39;, firstname=&#39;Chanda&#39;, id=&#39;17&#39;, quantity=4, surname=&#39;Boyer&#39;),
  Row(birthdate=&#39;1973-04-29&#39;, color=&#39;yellow&#39;, firstname=&#39;Chadwick&#39;, id=&#39;18&#39;, quantity=1, surname=&#39;Knight&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -1162,10 +1162,10 @@ root
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[Row(max(quantity)=5)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Row(max(quantity)=5)]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -1178,7 +1178,7 @@ root
 <span class="c1">## se carga el módulo de funciones con el nombre de F.</span>
 <span class="c1">## Se obtiene el valor máximo de la columna quantity</span>
 <span class="c1">##</span>
-<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">F</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">F</span>
 <span class="n">df</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">quantity</span><span class="p">))</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1187,10 +1187,10 @@ root
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[Row(max(quantity)=5)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Row(max(quantity)=5)]
+</pre></div></div>
 </div>
 <p>Las funciones implementadas en el módulo pyspark.sql.functions se encuentran documentadas en <a class="reference external" href="http://spark.apache.org/docs/2.1.0/api/python/pyspark.sql.html#module-pyspark.sql.functions">http://spark.apache.org/docs/2.1.0/api/python/pyspark.sql.html#module-pyspark.sql.functions</a></p>
 </div>

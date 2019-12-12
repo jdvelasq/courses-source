@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -401,7 +401,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Exportar los resultados a archivos en el sistema HDFS.</p></li>
 </ul>
 <p>Este ejemplo está basado en el tutorial de Spark de HortoWorks, disponible en <a class="reference external" href="https://es.hortonworks.com/tutorial/learning-spark-sql-with-zeppelin/">https://es.hortonworks.com/tutorial/learning-spark-sql-with-zeppelin/</a></p>
-<p>En este tutorial se ejemplican los mismos comandos usados en el tutorial ‘Análisis de datos usando PySpark’, por lo que aquí solo se ilustra la sintaxis usada; para obtener información detallada, debe verse el tutorial citado.</p>
+<p>En este tutorial se ejemplican los mismos comandos usados en el tutorial “Análisis de datos usando PySpark”, por lo que aquí solo se ilustra la sintaxis usada; para obtener información detallada, debe verse el tutorial citado.</p>
 <div class="section" id="Preparación">
 <h2>Preparación<a class="headerlink" href="#Preparación" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
@@ -772,18 +772,18 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 5][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 5]</span>
   UniqueCarrier FlightNum DepDelay ArrDelay Distance
-  [3m[38;5;246m&lt;chr&gt;[39m[23m             [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m    [3m[38;5;246m&lt;chr&gt;[39m[23m       [3m[38;5;246m&lt;int&gt;[39m[23m
-[38;5;250m1[39m WN                  335 8        -14           810
-[38;5;250m2[39m WN                 [4m3[24m231 19       2             810
-[38;5;250m3[39m WN                  448 8        14            515
-[38;5;250m4[39m WN                 [4m1[24m746 -4       -6            515
-[38;5;250m5[39m WN                 [4m3[24m920 34       34            515
-[38;5;250m6[39m WN                  378 25       11            688
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>             <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>    <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>       <span style="color: rgb(148,148,148)">&lt;int&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> WN                  335 8        -14           810
+<span style="color: rgb(188,188,188)">2</span> WN                 <span class="ansi-underline">3</span>231 19       2             810
+<span style="color: rgb(188,188,188)">3</span> WN                  448 8        14            515
+<span style="color: rgb(188,188,188)">4</span> WN                 <span class="ansi-underline">1</span>746 -4       -6            515
+<span style="color: rgb(188,188,188)">5</span> WN                 <span class="ansi-underline">3</span>920 34       34            515
+<span style="color: rgb(188,188,188)">6</span> WN                  378 25       11            688
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -800,18 +800,18 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 5][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 5]</span>
   UniqueCarrier FlightNum DepDelay ArrDelay Distance
-  [3m[38;5;246m&lt;chr&gt;[39m[23m             [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m    [3m[38;5;246m&lt;chr&gt;[39m[23m       [3m[38;5;246m&lt;int&gt;[39m[23m
-[38;5;250m1[39m WN                  335 8        -14           810
-[38;5;250m2[39m WN                 [4m3[24m231 19       2             810
-[38;5;250m3[39m WN                  448 8        14            515
-[38;5;250m4[39m WN                 [4m1[24m746 -4       -6            515
-[38;5;250m5[39m WN                 [4m3[24m920 34       34            515
-[38;5;250m6[39m WN                  378 25       11            688
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>             <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>    <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>       <span style="color: rgb(148,148,148)">&lt;int&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> WN                  335 8        -14           810
+<span style="color: rgb(188,188,188)">2</span> WN                 <span class="ansi-underline">3</span>231 19       2             810
+<span style="color: rgb(188,188,188)">3</span> WN                  448 8        14            515
+<span style="color: rgb(188,188,188)">4</span> WN                 <span class="ansi-underline">1</span>746 -4       -6            515
+<span style="color: rgb(188,188,188)">5</span> WN                 <span class="ansi-underline">3</span>920 34       34            515
+<span style="color: rgb(188,188,188)">6</span> WN                  378 25       11            688
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -847,13 +847,13 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 1][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 1]</span>
        n
-   [3m[38;5;246m&lt;dbl&gt;[39m[23m
-[38;5;250m1[39m [4m1[24m[4m0[24m[4m0[24m000
-</pre></div>
-</div>
+   <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> <span class="ansi-underline">1</span><span class="ansi-underline">0</span><span class="ansi-underline">0</span>000
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Cálculos-usando-funciones-de-los-DataFrames">
@@ -878,18 +878,18 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 2][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 2]</span>
   UniqueCarrier DepDelay
-  [3m[38;5;246m&lt;chr&gt;[39m[23m         [3m[38;5;246m&lt;chr&gt;[39m[23m
-[38;5;250m1[39m WN            19
-[38;5;250m2[39m WN            34
-[38;5;250m3[39m WN            25
-[38;5;250m4[39m WN            67
-[38;5;250m5[39m WN            94
-[38;5;250m6[39m WN            27
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>         <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> WN            19
+<span style="color: rgb(188,188,188)">2</span> WN            34
+<span style="color: rgb(188,188,188)">3</span> WN            25
+<span style="color: rgb(188,188,188)">4</span> WN            67
+<span style="color: rgb(188,188,188)">5</span> WN            94
+<span style="color: rgb(188,188,188)">6</span> WN            27
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -907,18 +907,18 @@ Warning message:
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 2][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 2]</span>
   UniqueCarrier DepDelay
-  [3m[38;5;246m&lt;chr&gt;[39m[23m         [3m[38;5;246m&lt;chr&gt;[39m[23m
-[38;5;250m1[39m WN            19
-[38;5;250m2[39m WN            34
-[38;5;250m3[39m WN            25
-[38;5;250m4[39m WN            67
-[38;5;250m5[39m WN            94
-[38;5;250m6[39m WN            27
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>         <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> WN            19
+<span style="color: rgb(188,188,188)">2</span> WN            34
+<span style="color: rgb(188,188,188)">3</span> WN            25
+<span style="color: rgb(188,188,188)">4</span> WN            67
+<span style="color: rgb(188,188,188)">5</span> WN            94
+<span style="color: rgb(188,188,188)">6</span> WN            27
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -994,18 +994,18 @@ Porcentaje de vuelos retrasados:  19.587 %
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 2][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 2]</span>
   DepDelay IsDelayed
-  [3m[38;5;246m&lt;chr&gt;[39m[23m        [3m[38;5;246m&lt;dbl&gt;[39m[23m
-[38;5;250m1[39m 8                0
-[38;5;250m2[39m 19               1
-[38;5;250m3[39m 8                0
-[38;5;250m4[39m -4               0
-[38;5;250m5[39m 34               1
-[38;5;250m6[39m 25               1
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>        <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+<span style="color: rgb(188,188,188)">1</span> 8                0
+<span style="color: rgb(188,188,188)">2</span> 19               1
+<span style="color: rgb(188,188,188)">3</span> 8                0
+<span style="color: rgb(188,188,188)">4</span> -4               0
+<span style="color: rgb(188,188,188)">5</span> 34               1
+<span style="color: rgb(188,188,188)">6</span> 25               1
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -1061,29 +1061,29 @@ This warning is displayed only once per session.”
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;flights_mutated&gt; [?? x 30][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;flights_mutated&gt; [?? x 30]</span>
     Year Month DayofMonth DayOfWeek DepTime CRSDepTime ArrTime CRSArrTime
-   [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;int&gt;[39m[23m      [3m[38;5;246m&lt;int&gt;[39m[23m     [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m        [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m        [3m[38;5;246m&lt;int&gt;[39m[23m
-[38;5;250m 1[39m  [4m2[24m008     1          3         4 2003          [4m1[24m955 2211          [4m2[24m225
-[38;5;250m 2[39m  [4m2[24m008     1          3         4 754            735 1002          [4m1[24m000
-[38;5;250m 3[39m  [4m2[24m008     1          3         4 628            620 804            750
-[38;5;250m 4[39m  [4m2[24m008     1          3         4 926            930 1054          [4m1[24m100
-[38;5;250m 5[39m  [4m2[24m008     1          3         4 1829          [4m1[24m755 1959          [4m1[24m925
-[38;5;250m 6[39m  [4m2[24m008     1          3         4 1940          [4m1[24m915 2121          [4m2[24m110
-[38;5;250m 7[39m  [4m2[24m008     1          3         4 1937          [4m1[24m830 2037          [4m1[24m940
-[38;5;250m 8[39m  [4m2[24m008     1          3         4 1039          [4m1[24m040 1132          [4m1[24m150
-[38;5;250m 9[39m  [4m2[24m008     1          3         4 617            615 652            650
-[38;5;250m10[39m  [4m2[24m008     1          3         4 1620          [4m1[24m620 1639          [4m1[24m655
-[38;5;246m# … with more rows, and 22 more variables: UniqueCarrier [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   FlightNum [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, TailNum [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, ActualElapsedTime [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   CRSElapsedTime [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, AirTime [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, ArrDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, DepDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   Origin [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Dest [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Distance [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, TaxiIn [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, TaxiOut [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   Cancelled [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, CancellationCode [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Diverted [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   CarrierDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, WeatherDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, NASDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   SecurityDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, LateAircraftDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, IsDelayed [3m[38;5;246m&lt;dbl&gt;[38;5;246m[23m[39m
-</pre></div>
-</div>
+   <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;int&gt;</span>      <span style="color: rgb(148,148,148)">&lt;int&gt;</span>     <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>        <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>        <span style="color: rgb(148,148,148)">&lt;int&gt;</span>
+<span style="color: rgb(188,188,188)"> 1</span>  <span class="ansi-underline">2</span>008     1          3         4 2003          <span class="ansi-underline">1</span>955 2211          <span class="ansi-underline">2</span>225
+<span style="color: rgb(188,188,188)"> 2</span>  <span class="ansi-underline">2</span>008     1          3         4 754            735 1002          <span class="ansi-underline">1</span>000
+<span style="color: rgb(188,188,188)"> 3</span>  <span class="ansi-underline">2</span>008     1          3         4 628            620 804            750
+<span style="color: rgb(188,188,188)"> 4</span>  <span class="ansi-underline">2</span>008     1          3         4 926            930 1054          <span class="ansi-underline">1</span>100
+<span style="color: rgb(188,188,188)"> 5</span>  <span class="ansi-underline">2</span>008     1          3         4 1829          <span class="ansi-underline">1</span>755 1959          <span class="ansi-underline">1</span>925
+<span style="color: rgb(188,188,188)"> 6</span>  <span class="ansi-underline">2</span>008     1          3         4 1940          <span class="ansi-underline">1</span>915 2121          <span class="ansi-underline">2</span>110
+<span style="color: rgb(188,188,188)"> 7</span>  <span class="ansi-underline">2</span>008     1          3         4 1937          <span class="ansi-underline">1</span>830 2037          <span class="ansi-underline">1</span>940
+<span style="color: rgb(188,188,188)"> 8</span>  <span class="ansi-underline">2</span>008     1          3         4 1039          <span class="ansi-underline">1</span>040 1132          <span class="ansi-underline">1</span>150
+<span style="color: rgb(188,188,188)"> 9</span>  <span class="ansi-underline">2</span>008     1          3         4 617            615 652            650
+<span style="color: rgb(188,188,188)">10</span>  <span class="ansi-underline">2</span>008     1          3         4 1620          <span class="ansi-underline">1</span>620 1639          <span class="ansi-underline">1</span>655
+<span style="color: rgb(148,148,148)"># … with more rows, and 22 more variables: UniqueCarrier </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   FlightNum </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, TailNum </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, ActualElapsedTime </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   CRSElapsedTime </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, AirTime </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, ArrDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, DepDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   Origin </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Dest </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Distance </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, TaxiIn </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, TaxiOut </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   Cancelled </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, CancellationCode </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Diverted </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   CarrierDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, WeatherDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, NASDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   SecurityDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, LateAircraftDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, IsDelayed </span><span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -1115,25 +1115,25 @@ This warning is displayed only once per session.”
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 29][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 29]</span>
    Year Month DayofMonth DayOfWeek DepTime CRSDepTime ArrTime CRSArrTime
-  [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;int&gt;[39m[23m      [3m[38;5;246m&lt;int&gt;[39m[23m     [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m        [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m        [3m[38;5;246m&lt;int&gt;[39m[23m
-[38;5;250m1[39m  [4m2[24m008     1          3         4 2003          [4m1[24m955 2211          [4m2[24m225
-[38;5;250m2[39m  [4m2[24m008     1          3         4 754            735 1002          [4m1[24m000
-[38;5;250m3[39m  [4m2[24m008     1          3         4 628            620 804            750
-[38;5;250m4[39m  [4m2[24m008     1          3         4 926            930 1054          [4m1[24m100
-[38;5;250m5[39m  [4m2[24m008     1          3         4 1829          [4m1[24m755 1959          [4m1[24m925
-[38;5;250m6[39m  [4m2[24m008     1          3         4 1940          [4m1[24m915 2121          [4m2[24m110
-[38;5;246m# … with 21 more variables: UniqueCarrier [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, FlightNum [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   TailNum [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, ActualElapsedTime [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, CRSElapsedTime [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   AirTime [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, ArrDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, DepDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Origin [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Dest [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   Distance [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, TaxiIn [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, TaxiOut [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Cancelled [3m[38;5;246m&lt;int&gt;[38;5;246m[23m,
-#   CancellationCode [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, Diverted [3m[38;5;246m&lt;int&gt;[38;5;246m[23m, CarrierDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   WeatherDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, NASDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m, SecurityDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m,
-#   LateAircraftDelay [3m[38;5;246m&lt;chr&gt;[38;5;246m[23m[39m
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;int&gt;</span>      <span style="color: rgb(148,148,148)">&lt;int&gt;</span>     <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>        <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>        <span style="color: rgb(148,148,148)">&lt;int&gt;</span>
+<span style="color: rgb(188,188,188)">1</span>  <span class="ansi-underline">2</span>008     1          3         4 2003          <span class="ansi-underline">1</span>955 2211          <span class="ansi-underline">2</span>225
+<span style="color: rgb(188,188,188)">2</span>  <span class="ansi-underline">2</span>008     1          3         4 754            735 1002          <span class="ansi-underline">1</span>000
+<span style="color: rgb(188,188,188)">3</span>  <span class="ansi-underline">2</span>008     1          3         4 628            620 804            750
+<span style="color: rgb(188,188,188)">4</span>  <span class="ansi-underline">2</span>008     1          3         4 926            930 1054          <span class="ansi-underline">1</span>100
+<span style="color: rgb(188,188,188)">5</span>  <span class="ansi-underline">2</span>008     1          3         4 1829          <span class="ansi-underline">1</span>755 1959          <span class="ansi-underline">1</span>925
+<span style="color: rgb(188,188,188)">6</span>  <span class="ansi-underline">2</span>008     1          3         4 1940          <span class="ansi-underline">1</span>915 2121          <span class="ansi-underline">2</span>110
+<span style="color: rgb(148,148,148)"># … with 21 more variables: UniqueCarrier </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, FlightNum </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   TailNum </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, ActualElapsedTime </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, CRSElapsedTime </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   AirTime </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, ArrDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, DepDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Origin </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Dest </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   Distance </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, TaxiIn </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, TaxiOut </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Cancelled </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">,
+#   CancellationCode </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, Diverted </span><span style="color: rgb(148,148,148)">&lt;int&gt;</span><span style="color: rgb(148,148,148)">, CarrierDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   WeatherDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, NASDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">, SecurityDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span><span style="color: rgb(148,148,148)">,
+#   LateAircraftDelay </span><span style="color: rgb(148,148,148)">&lt;chr&gt;</span>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -1451,18 +1451,18 @@ Found 3 items
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[38;5;246m# Source: spark&lt;?&gt; [?? x 7][39m
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span style="color: rgb(148,148,148)"># Source: spark&lt;?&gt; [?? x 7]</span>
    Year Month DayofMonth UniqueCarrier FlightNum DepDelay IsDelayed
-  [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;int&gt;[39m[23m      [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m             [3m[38;5;246m&lt;int&gt;[39m[23m [3m[38;5;246m&lt;chr&gt;[39m[23m        [3m[38;5;246m&lt;dbl&gt;[39m[23m
-[38;5;250m1[39m  [4m2[24m008     1          3 WN                  335 8                0
-[38;5;250m2[39m  [4m2[24m008     1          3 WN                 [4m3[24m231 19               1
-[38;5;250m3[39m  [4m2[24m008     1          3 WN                  448 8                0
-[38;5;250m4[39m  [4m2[24m008     1          3 WN                 [4m1[24m746 -4               0
-[38;5;250m5[39m  [4m2[24m008     1          3 WN                 [4m3[24m920 34               1
-[38;5;250m6[39m  [4m2[24m008     1          3 WN                  378 25               1
-</pre></div>
-</div>
+  <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;int&gt;</span>      <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>             <span style="color: rgb(148,148,148)">&lt;int&gt;</span> <span style="color: rgb(148,148,148)">&lt;chr&gt;</span>        <span style="color: rgb(148,148,148)">&lt;dbl&gt;</span>
+<span style="color: rgb(188,188,188)">1</span>  <span class="ansi-underline">2</span>008     1          3 WN                  335 8                0
+<span style="color: rgb(188,188,188)">2</span>  <span class="ansi-underline">2</span>008     1          3 WN                 <span class="ansi-underline">3</span>231 19               1
+<span style="color: rgb(188,188,188)">3</span>  <span class="ansi-underline">2</span>008     1          3 WN                  448 8                0
+<span style="color: rgb(188,188,188)">4</span>  <span class="ansi-underline">2</span>008     1          3 WN                 <span class="ansi-underline">1</span>746 -4               0
+<span style="color: rgb(188,188,188)">5</span>  <span class="ansi-underline">2</span>008     1          3 WN                 <span class="ansi-underline">3</span>920 34               1
+<span style="color: rgb(188,188,188)">6</span>  <span class="ansi-underline">2</span>008     1          3 WN                  378 25               1
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Salva-el-DataFrame-como-una-tabla-permamente">

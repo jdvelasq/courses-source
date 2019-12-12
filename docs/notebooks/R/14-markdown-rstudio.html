@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -172,13 +172,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -201,20 +201,32 @@
 <div class="line">Webinar RStudio <a class="reference external" href="https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/">Getting Started with R Markdown</a></div>
 </div>
 </div></blockquote>
-<p>## Generación del documento</p>
+<div class="section" id=" Generación-del-documento">
+<h2> Generación del documento<a class="headerlink" href="# Generación-del-documento" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>RStudio permite la creación de reportes y presentaciones en markdown que contienen código en R. Eso hace que el código se ejecute cada vez que el documento se genera. El contenido de estos documentos en markdown solo difiere en la forma en que se dan las opciones para ejecutar el código interno. A continuación se describe el proceso de creación de un documento dinámico en RStudio.</p>
-<p>### Paso 1.</p>
+<div class="section" id=" Paso-1.">
+<h3> Paso 1.<a class="headerlink" href="# Paso-1." title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Seleccione el menu <code class="docutils literal notranslate"><span class="pre">File/New</span> <span class="pre">File/R</span> <span class="pre">Markdown...</span></code>.</p>
-<p>### Paso 2</p>
+</div>
+<div class="section" id=" Paso-2">
+<h3> Paso 2<a class="headerlink" href="# Paso-2" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En este paso, el usuario puede elegir entre <code class="docutils literal notranslate"><span class="pre">Document</span></code> y <code class="docutils literal notranslate"><span class="pre">Presentation</span></code>. De un título al documento y seleccione el tipo de formato de salida. En el ejemplo presentado se seleccionó PDF.</p>
+</div>
 <div class="section" id="Paso-3">
-<h2>Paso 3<a class="headerlink" href="#Paso-3" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Paso 3<a class="headerlink" href="#Paso-3" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>RStudio genera un documento con un texto de ejemplo mostrando las principales funcionalidades de Markdown para RStudio. El ejemplo incluye tanto textos como código ejecutable.</p>
-<p>### Paso 4</p>
+</div>
+<div class="section" id=" Paso-4">
+<h3> Paso 4<a class="headerlink" href="# Paso-4" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Para generar el documento en PDF seleccione el botón <code class="docutils literal notranslate"><span class="pre">Knit</span> <span class="pre">PDF</span></code> en la barra de botones del editor.</p>
-<p>### Paso 5</p>
+</div>
+<div class="section" id=" Paso-5">
+<h3> Paso 5<a class="headerlink" href="# Paso-5" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Como resultado del paso anterior, se abre el visor de documentos de RStudio y se presenta en pantalla el documento generado.</p>
-<p>## Particularidades del RStudio Markdown</p>
+</div>
+</div>
+<div class="section" id=" Particularidades-del-RStudio-Markdown">
+<h2> Particularidades del RStudio Markdown<a class="headerlink" href="# Particularidades-del-RStudio-Markdown" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Existen algunas diferencias entre el Markdown usado en Jupyter y las introducidas en los documentos dinámicos de RStudio, las cuales están relacionadas con la forma en que se ejecuta el código en R.</p>
 <p>Para ilustrarlas, a continuación se discute el código generado automáticamente por RStudio.</p>
 <ul class="simple">
@@ -228,26 +240,20 @@
 </div>
 <ul>
 <li><p>El siguiente código indica que se está realizando la configuración y la opción <code class="docutils literal notranslate"><span class="pre">include=FALSE</span></code> que este bloque de código no aparece en el documento final.</p>
-<p><code class="docutils literal notranslate"><span class="pre">{r</span> <span class="pre">setup,</span> <span class="pre">include=FALSE}</span>&#160;&#160; <span class="pre">knitr::opts_chunk$set(echo</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">{r</span> <span class="pre">setup,</span> <span class="pre">include=FALSE}</span> <span class="pre">knitr::opts_chunk$set(echo</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code></p>
 </li>
 <li><p>Los hipervínculos se hacen con <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> y <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> como en <code class="docutils literal notranslate"><span class="pre">&lt;http://rmarkdown.rstudio.com&gt;</span></code></p></li>
 <li><p>Los comandos de Markdown para indicar formatos funcionan igual.</p></li>
 <li><p>El siguiente bloque de código indica que se usa el dataset <code class="docutils literal notranslate"><span class="pre">cars</span></code>. Todo el código entre ``` y ``` se ejecuta normalmente.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{r cars}
-summary(cars)
-```
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">{r</span> <span class="pre">cars}</span>&#160;&#160; <span class="pre">summary(cars)</span></code></p>
 </li>
 <li><p>La opción <code class="docutils literal notranslate"><span class="pre">echo=FALSE</span></code> indica que el código se ejecuta pero no se imprime el código en el documento final:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{r pressure, echo=FALSE}
-plot(pressure)
-```
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">{r</span> <span class="pre">pressure,</span> <span class="pre">echo=FALSE}</span>&#160;&#160; <span class="pre">plot(pressure)</span></code></p>
 </li>
 </ul>
-<p>## Presentaciones en RStudio</p>
+</div>
+<div class="section" id=" Presentaciones-en-RStudio">
+<h2> Presentaciones en RStudio<a class="headerlink" href="# Presentaciones-en-RStudio" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>Operación similar a la anterior.</p></li>
 <li><p>Los títulos generan una nueva diapositiva.</p></li>

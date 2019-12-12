@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
         <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -168,13 +168,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -194,32 +194,41 @@
 <blockquote>
 <div><p>Realice los siguientes pasos:</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Paso 1</dt><dd><p>Cree una <strong>cuenta gratuita</strong> en <a class="reference external" href="https://github.com">GitHub</a> con su correo electrónico de la universidad. Siga las instrucciones dadas en <a class="reference external" href="https://help.github.com/articles/signing-up-for-a-new-github-account/">https://help.github.com/articles/signing-up-for-a-new-github-account/</a>.</p>
-</dd>
-<dt>Paso 2</dt><dd><p>Configure la autenticación de dos factores <a class="reference external" href="https://help.github.com/articles/configuring-two-factor-authentication/">https://help.github.com/articles/configuring-two-factor-authentication/</a>.</p>
-</dd>
-<dt>Paso 3</dt><dd><p>Modifique su perfil <a class="reference external" href="https://help.github.com/articles/personalizing-your-profile/">https://help.github.com/articles/personalizing-your-profile/</a>, incluyendo nombre completo y fotografía para facilitar su identificación durante la calificación de los laboratios.</p>
-</dd>
-<dt>Paso 4</dt><dd><p>Instale y configure GitHub Desktop (windows y Mac OS) <a class="reference external" href="https://desktop.github.com/">https://desktop.github.com/</a></p>
-</dd>
-</dl>
+<div><p><strong>Paso 1</strong></p>
+<blockquote>
+<div><p>Cree una <strong>cuenta gratuita</strong> en <a class="reference external" href="https://github.com">GitHub</a> con su correo electrónico de la universidad. Siga las instrucciones dadas en <a class="reference external" href="https://help.github.com/articles/signing-up-for-a-new-github-account/">https://help.github.com/articles/signing-up-for-a-new-github-account/</a>.</p>
+</div></blockquote>
+<p><strong>Paso 2</strong></p>
+<blockquote>
+<div><p>Configure la autenticación de dos factores <a class="reference external" href="https://help.github.com/articles/configuring-two-factor-authentication/">https://help.github.com/articles/configuring-two-factor-authentication/</a>.</p>
+</div></blockquote>
+<p><strong>Paso 3</strong></p>
+<blockquote>
+<div><p>Modifique su perfil <a class="reference external" href="https://help.github.com/articles/personalizing-your-profile/">https://help.github.com/articles/personalizing-your-profile/</a>, incluyendo nombre completo y fotografía para facilitar su identificación durante la calificación de los laboratios.</p>
+</div></blockquote>
+<p><strong>Paso 4</strong></p>
+<blockquote>
+<div><p>Instale y configure GitHub Desktop (windows y Mac OS) <a class="reference external" href="https://desktop.github.com/">https://desktop.github.com/</a></p>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Actividad 2.–</strong> Creación de una máquina virtual usando Vagrant.</p>
 <blockquote>
-<div><p>Siga las instrucciones dadas en el repo <a class="reference external" href="https://github.com/jdvelasq/CDA-instalacion-vagrant">https://github.com/jdvelasq/CDA-instalacion-vagrant</a>.</p>
+<div><p>Siga las instrucciones dadas en el repo <a class="reference external" href="https://github.com/jdvelasq/vagrant4docker">https://github.com/jdvelasq/vagrant4docker</a>.</p>
 </div></blockquote>
-<p><strong>Actividad 3.–</strong> Apertura de Jupyter desde la máquina virtual.</p>
+<p><strong>Actividad 3.–</strong> Apertura de un contenedor con una configuración mínima de Python.</p>
 <blockquote>
-<div><dl>
-<dt>Paso 1</dt><dd><p>Abra  <strong>Terminal</strong> y vaya a la carpeta donde configuró Vagrant. Inice la máquna virtual (VM)
+<div><p><strong>Paso 1</strong></p>
+<blockquote>
+<div><p>Abra  <strong>Terminal</strong> y vaya a la carpeta donde configuró Vagrant. Inice la máquna virtual (VM)
 con</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant up
 </pre></div>
 </div>
-</dd>
-<dt>Paso 2</dt><dd><p>Entre en la VM con:</p>
+</div></blockquote>
+<p><strong>Paso 2</strong></p>
+<blockquote>
+<div><p>Entre en la VM con:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant ssh
 </pre></div>
 </div>
@@ -257,44 +266,34 @@ Last login: Wed May  1 22:20:14 2019 from 10.0.2.2
 vagrant@ubuntu-bionic:~$
 </pre></div>
 </div>
-</dd>
-<dt>Paso 3</dt><dd><p>Vaya a la carpeta compartida entre su VM y el sistema operativo anfitrión:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> vagrant
+</div></blockquote>
+<p><strong>Paso 3</strong></p>
+<blockquote>
+<div><p>Vaya a la carpeta compartida entre su VM y el sistema operativo anfitrión:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /vagrant
 </pre></div>
 </div>
-</dd>
-<dt>Paso 4</dt><dd><p>En el prompt digite:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter lab --ip<span class="o">=</span><span class="m">0</span>.0.0.0
+</div></blockquote>
+<p><strong>Paso 4</strong></p>
+<blockquote>
+<div><p>En el prompt digite:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -it -v <span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span>:/datalake -p <span class="m">8888</span>:8888 jdvelasq/python:3.6.9-minimal
 </pre></div>
 </div>
-<p>La salida será similar a la siguiente:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant@ubuntu-bionic:~$ jupyter lab --ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="o">[</span>I <span class="m">15</span>:48:10.052 LabApp<span class="o">]</span> JupyterLab extension loaded from /usr/local/lib/python3.6/dist-packages/jupyterlab
-<span class="o">[</span>I <span class="m">15</span>:48:10.052 LabApp<span class="o">]</span> JupyterLab application directory is /usr/local/share/jupyter/lab
-<span class="o">[</span>W <span class="m">15</span>:48:10.054 LabApp<span class="o">]</span> JupyterLab server extension not enabled, manually loading...
-<span class="o">[</span>I <span class="m">15</span>:48:10.066 LabApp<span class="o">]</span> JupyterLab extension loaded from /usr/local/lib/python3.6/dist-packages/jupyterlab
-<span class="o">[</span>I <span class="m">15</span>:48:10.066 LabApp<span class="o">]</span> JupyterLab application directory is /usr/local/share/jupyter/lab
-<span class="o">[</span>I <span class="m">15</span>:48:10.067 LabApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory: /home/vagrant
-<span class="o">[</span>I <span class="m">15</span>:48:10.067 LabApp<span class="o">]</span> The Jupyter Notebook is running at:
-<span class="o">[</span>I <span class="m">15</span>:48:10.067 LabApp<span class="o">]</span> http://<span class="o">(</span>ubuntu-bionic or <span class="m">127</span>.0.0.1<span class="o">)</span>:8888/?token<span class="o">=</span>4488f98694e7e84c075e92450f7e51275947d974400b8eb5
-<span class="o">[</span>I <span class="m">15</span>:48:10.067 LabApp<span class="o">]</span> Use Control-C to stop this server and shut down all kernels <span class="o">(</span>twice to skip confirmation<span class="o">)</span>.
-<span class="o">[</span>W <span class="m">15</span>:48:10.071 LabApp<span class="o">]</span> No web browser found: could not locate runnable browser.
-<span class="o">[</span>C <span class="m">15</span>:48:10.072 LabApp<span class="o">]</span>
-
-    To access the notebook, open this file in a browser:
-        file:///run/user/1000/jupyter/nbserver-16081-open.html
-    Or copy and paste one of these URLs:
-        http://<span class="o">(</span>ubuntu-bionic or <span class="m">127</span>.0.0.1<span class="o">)</span>:8888/?token<span class="o">=</span>4488f98694e7e84c075e92450f7e51275947d974400b8eb5
+<p>La prompt de comandos cambiará a algo similar a lo siguiente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@1e988d73e631:/datalake#
 </pre></div>
 </div>
-<p>Copie la URL y editela quitando <cite>ubuntu-bionic</cite> y los paréntesis para que quede así:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8888/?token<span class="o">=</span>4488f98694e7e84c075e92450f7e51275947d974400b8eb5
+<p>En este momento, usted se encuentra trabajando dentro del contenedor.</p>
+</div></blockquote>
+<p><strong>Paso 5</strong></p>
+<blockquote>
+<div><p>Para cerrar el contendor y retornar a la máquina virtual use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@1e988d73e631:/datalake# <span class="nb">exit</span>
+vagrant@ubuntu-bionic:~$
 </pre></div>
 </div>
-</dd>
-<dt>Paso 5</dt><dd><p>Copie y peque la dirección URL editada en el navegador de internet. Como resultado se deberá abrir Jupyter Lab.</p>
-</dd>
-</dl>
+</div></blockquote>
 </div></blockquote>
 </div>
 

@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -454,10 +454,10 @@ Successfully installed plotly-2.7.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;2.7.0&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;2.7.0&#39;
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -509,14 +509,16 @@ Successfully installed plotly-2.7.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;https://plot.ly/~jdvelasq/2&#39;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;https://plot.ly/~jdvelasq/2&#39;
+</pre></div></div>
 </div>
 <p>El último comando genera la visualización de los datos en el sitio web de plotly. En el navegador de internet debe aparecer una pestaña como la siguiente:</p>
+</div>
 <hr class="docutils" />
-<p>## Bokeh</p>
+<div class="section" id=" Bokeh">
+<h2> Bokeh<a class="headerlink" href="# Bokeh" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Bokeh es una librería para graficación desarrollada por <a class="reference external" href="https://www.continuum.io">Continuum Analytics</a>. El tutorial de Bokeh puede consultarse en el sitio oficial de la herramienta, cuyo vínculo está suministrado en la bibiografía.</p>
 <p>En este tutorial se presenta un gráfico en Bokeh que tiene como fin probar que la librería está correctamente instalada.</p>
 <div class="nbinput nblast docutils container">
@@ -526,8 +528,8 @@ Successfully installed plotly-2.7.0
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># El primer paso consiste en importar las librerias en Jupyter.</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
-<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="k">import</span> <span class="n">output_notebook</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_notebook</span>
 </pre></div>
 </div>
 </div>
@@ -1041,10 +1043,10 @@ Successfully installed lightning-python-1.2.1
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">lightning</span>
 
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">random</span><span class="p">,</span> <span class="n">asarray</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">clip</span>
-<span class="kn">from</span> <span class="nn">seaborn</span> <span class="k">import</span> <span class="n">color_palette</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">colorsys</span> <span class="k">import</span> <span class="n">hsv_to_rgb</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span><span class="p">,</span> <span class="n">asarray</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">clip</span>
+<span class="kn">from</span> <span class="nn">seaborn</span> <span class="kn">import</span> <span class="n">color_palette</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">colorsys</span> <span class="kn">import</span> <span class="n">hsv_to_rgb</span>
 </pre></div>
 </div>
 </div>
@@ -1053,7 +1055,7 @@ Successfully installed lightning-python-1.2.1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">lightning</span> <span class="k">import</span> <span class="n">Lightning</span>
+<span></span><span class="kn">from</span> <span class="nn">lightning</span> <span class="kn">import</span> <span class="n">Lightning</span>
 </pre></div>
 </div>
 </div>
@@ -1125,26 +1127,37 @@ status code: 404
 </div>
 <p>Permite hacer gráficos en Python usando Javascript.</p>
 <p>La documentación se encuentra disponible <a class="reference external" href="https://vincent.readthedocs.io/en/latest/">aquí</a></p>
+</div>
 <hr class="docutils" />
-<p>## Veusz – A scientific plotting package</p>
+<div class="section" id=" Veusz----A-scientific-plotting-package">
+<h2> Veusz – A scientific plotting package<a class="headerlink" href="# Veusz----A-scientific-plotting-package" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="line-block">
 <div class="line"><a class="reference external" href="http://home.gna.org/veusz/">Veusz</a></div>
 </div>
 <p>Es una herramienta escrita en Python para la visualización interactiva de datos.</p>
+</div>
 <hr class="docutils" />
-<p>## PyQtGraph – Scientific Graphics and GUI Library for Python</p>
+<div class="section" id=" PyQtGraph----Scientific-Graphics-and-GUI-Library-for-Python">
+<h2> PyQtGraph – Scientific Graphics and GUI Library for Python<a class="headerlink" href="# PyQtGraph----Scientific-Graphics-and-GUI-Library-for-Python" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sitio web: <a class="reference external" href="http://www.pyqtgraph.org">http://www.pyqtgraph.org</a></p>
+</div>
 <hr class="docutils" />
-<p>## PhosphorJS Sitio web: <a class="reference external" href="https://phosphorjs.github.io">https://phosphorjs.github.io</a></p>
+<div class="section" id=" PhosphorJS">
+<h2> PhosphorJS<a class="headerlink" href="# PhosphorJS" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sitio web: <a class="reference external" href="https://phosphorjs.github.io">https://phosphorjs.github.io</a></p>
+</div>
 <hr class="docutils" />
-<p>## Networkx</p>
+<div class="section" id=" Networkx">
+<h2> Networkx<a class="headerlink" href="# Networkx" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sitio web: <a class="reference external" href="https://networkx.github.io/download.html">https://networkx.github.io/download.html</a></p>
 <p>Instalación:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">networkx</span>
 </pre></div>
 </div>
+</div>
 <hr class="docutils" />
-<p>## MPLD3: Bringing Matplotlib to the Browser</p>
+<div class="section" id=" MPLD3:-Bringing-Matplotlib-to-the-Browser">
+<h2> MPLD3: Bringing Matplotlib to the Browser<a class="headerlink" href="# MPLD3:-Bringing-Matplotlib-to-the-Browser" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sitio web: <a class="reference external" href="http://mpld3.github.io">http://mpld3.github.io</a></p>
 <p>Instalación:</p>
 <div class="nbinput nblast docutils container">
@@ -1175,7 +1188,7 @@ conda install mpld3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mpld3</span> <span class="k">import</span> <span class="n">plugins</span>
+<span></span><span class="kn">from</span> <span class="nn">mpld3</span> <span class="kn">import</span> <span class="n">plugins</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">points</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
                     <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1191,9 +1204,13 @@ conda install mpld3
 <div class="section" id="VisPy">
 <h2>VisPy<a class="headerlink" href="#VisPy" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sitio web: <a class="reference external" href="http://vispy.org/index.html">http://vispy.org/index.html</a></p>
-<p>## PyNGL &amp; PyNIO</p>
+</div>
+<div class="section" id=" PyNGL-&amp;-PyNIO">
+<h2> PyNGL &amp; PyNIO<a class="headerlink" href="# PyNGL-&-PyNIO" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sitio web: <a class="reference external" href="https://www.pyngl.ucar.edu/Examples/index.shtml">https://www.pyngl.ucar.edu/Examples/index.shtml</a></p>
-<p>## PyQwt plots data with Numerical Python and PyQt</p>
+</div>
+<div class="section" id=" PyQwt-plots-data-with-Numerical-Python-and-PyQt">
+<h2> PyQwt plots data with Numerical Python and PyQt<a class="headerlink" href="# PyQwt-plots-data-with-Numerical-Python-and-PyQt" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sitio web: <a class="reference external" href="http://pyqwt.sourceforge.net">http://pyqwt.sourceforge.net</a></p>
 </div>
 </div>

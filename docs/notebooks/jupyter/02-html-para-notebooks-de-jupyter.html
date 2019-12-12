@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,13 +169,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -244,7 +244,7 @@ electrónico usando texto plano.
 </div></blockquote><p style="color:red">Texto en rojo</p><p style="color:red"><p>Texto en rojo</p>
 </p><p title="--> tooltip <--">
 Parrafo con tooltip.
-</p><p title="--&gt; tooltip &lt;--"><p>Parrafo con tooltip.</p>
+</p><p title="--&gt;"><p>tooltip &lt;–»&gt; Parrafo con tooltip.</p>
 </p><pre>
 texto de ancho fijo
 texto de ancho fijo
@@ -381,7 +381,7 @@ O se puede colocar código en linea <code>cat out.1 out.2</code>.
 <samp>Sample output from a computer program</samp><p><p>Se pueden crear bloques de código:</p>
   </p>
 
-# agregar cuatro espacios al principio de linea for (i = 1; i < 5; i++) { printf(‘%d’, i) }<p>O se puede colocar código en linea cat out.1 out.2.</p>
+# agregar cuatro espacios al principio de linea for (i = 1; i < 5; i++) { printf('%d', i) }<p>O se puede colocar código en linea cat out.1 out.2.</p>
 <p>Sample output from a computer program</p>
 </div>
 <div class="section" id="Tablas">
@@ -418,13 +418,21 @@ O se puede colocar código en linea <code>cat out.1 out.2</code>.
     <td>My first HTML</td>
     <td>$53</td>
   </tr>
-</table><table><colgroup><col span="2" style="background-color:red"><col style="background-color:yellow"></colgroup><tr><th><p>ISBN</p>
-</th><th><p>Title</p>
-</th><th><p>Price</p>
-</th></tr><tr><td><p>3476896</p>
-</td><td><p>My first HTML</p>
-</td><td><p>$53</p>
-</td></tr></table><table>
+</table><table><colgroup><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">col</span> <span class="n">span</span><span class="o">=</span><span class="s2">&quot;2&quot;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;background-color:red&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">col</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;background-color:yellow&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</colgroup><tr><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">ISBN</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Title</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Price</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</tr><tr><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;td&gt;3476896&lt;/td&gt;
+&lt;td&gt;My first HTML&lt;/td&gt;
+&lt;td&gt;$53&lt;/td&gt;
+</pre></div>
+</div>
+</tr></table><table>
   <caption>Monthly savings</caption>
   <tr>
     <th>Month</th>
@@ -435,11 +443,15 @@ O se puede colocar código en linea <code>cat out.1 out.2</code>.
     <td>$100</td>
   </tr>
 </table><table><caption><p>Monthly savings</p>
-</caption><tr><th><p>Month</p>
-</th><th><p>Savings</p>
-</th></tr><tr><td><p>January</p>
-</td><td><p>$100</p>
-</td></tr></table></div>
+</caption><tr><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Month</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="n">Savings</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</tr><tr><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;td&gt;January&lt;/td&gt;
+&lt;td&gt;$100&lt;/td&gt;
+</pre></div>
+</div>
+</tr></table></div>
 <div class="section" id="Lineas-horizontales">
 <h2>Lineas horizontales<a class="headerlink" href="#Lineas-horizontales" title="Enlazar permanentemente con este título">¶</a></h2>
 <hr style="height:1px">
@@ -526,11 +538,10 @@ Caja con borde doble
   <summary>Copyright 2016-2018.</summary>
   <p> - by Juan David Velásquez. All Rights Reserved.</p>
   <p>All content and graphics on this web site are the property of the author.</p>
-</details><details><p>Copyright 2016-2018.</p>
-<p><ul>
+</details><p><ul>
 <li><p>by Juan David Velásquez. All Rights Reserved.</p>
 </p><p><p>All content and graphics on this web site are the property of the author.</p>
-</p></details></li>
+</p></li>
 </ul>
 </div>
 <div class="section" id="Símbolos">

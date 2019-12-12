@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -517,10 +517,10 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;directory/file1.csv&#39;, &#39;directory/file2.csv&#39;, &#39;directory/file3.csv&#39;]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;directory/file1.csv&#39;, &#39;directory/file2.csv&#39;, &#39;directory/file3.csv&#39;]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -549,12 +549,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;a,1,12\n&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;a,1,12\n&#39;,
  &#39;b,2,13\n&#39;,
- &quot;c,,&#39;14&#39;\n&quot;,
+ &#34;c,,&#39;14&#39;\n&#34;,
  &#39;0,\\N,15\n&#39;,
- &quot;a,\\N,&#39;0&#39;\n&quot;,
+ &#34;a,\\N,&#39;0&#39;\n&#34;,
  &#39;e,,\n&#39;,
  &#39;0,\n&#39;,
  &#39;\\N,,\n&#39;,
@@ -572,14 +573,13 @@ Writing directory/file3.csv
  &#39;,,,\n&#39;,
  &#39;K,3,\\n\n&#39;,
  &#39;b;1;12\n&#39;,
- &quot;&#39;a&#39;;4;13\n&quot;,
+ &#34;&#39;a&#39;;4;13\n&#34;,
  &#39;a;3;13\n&#39;,
  &#39;\n&#39;,
- &quot;&#39;c&#39;;3;17\n&quot;,
- &quot;&#39;a&#39;;&#39;\\n&#39;;&#39;15&#39;\n&quot;,
+ &#34;&#39;c&#39;;3;17\n&#34;,
+ &#34;&#39;a&#39;;&#39;\\n&#39;;&#39;15&#39;\n&#34;,
  &#39;E;2;0\n&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -599,12 +599,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;a,1,12&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;a,1,12&#39;,
  &#39;b,2,13&#39;,
- &quot;c,,&#39;14&#39;&quot;,
+ &#34;c,,&#39;14&#39;&#34;,
  &#39;0,\\N,15&#39;,
- &quot;a,\\N,&#39;0&#39;&quot;,
+ &#34;a,\\N,&#39;0&#39;&#34;,
  &#39;e,,&#39;,
  &#39;0,&#39;,
  &#39;\\N,,&#39;,
@@ -622,14 +623,13 @@ Writing directory/file3.csv
  &#39;,,,&#39;,
  &#39;K,3,\\n&#39;,
  &#39;b;1;12&#39;,
- &quot;&#39;a&#39;;4;13&quot;,
+ &#34;&#39;a&#39;;4;13&#34;,
  &#39;a;3;13&#39;,
  &#39;&#39;,
- &quot;&#39;c&#39;;3;17&quot;,
- &quot;&#39;a&#39;;&#39;\\n&#39;;&#39;15&#39;&quot;,
+ &#34;&#39;c&#39;;3;17&#34;,
+ &#34;&#39;a&#39;;&#39;\\n&#39;;&#39;15&#39;&#34;,
  &#39;E;2;0&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Regla:-Todos-los-registros-deben-tener-tres-(3)-columnas">
@@ -741,12 +741,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
  [&#39;b&#39;, &#39;2&#39;, &#39;13&#39;],
- [&#39;c&#39;, &#39;&#39;, &quot;&#39;14&#39;&quot;],
+ [&#39;c&#39;, &#39;&#39;, &#34;&#39;14&#39;&#34;],
  [&#39;0&#39;, &#39;\\N&#39;, &#39;15&#39;],
- [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;0&#39;&quot;],
+ [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;0&#39;&#34;],
  [&#39;e&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;\\N&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;&#39;, &#39;&#39;, &#39;&#39;],
@@ -759,13 +760,12 @@ Writing directory/file3.csv
  [&#39;e&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;K&#39;, &#39;3&#39;, &#39;\\n&#39;],
  [&#39;b&#39;, &#39;1&#39;, &#39;12&#39;],
- [&quot;&#39;a&#39;&quot;, &#39;4&#39;, &#39;13&#39;],
+ [&#34;&#39;a&#39;&#34;, &#39;4&#39;, &#39;13&#39;],
  [&#39;a&#39;, &#39;3&#39;, &#39;13&#39;],
- [&quot;&#39;c&#39;&quot;, &#39;3&#39;, &#39;17&#39;],
- [&quot;&#39;a&#39;&quot;, &quot;&#39;\\n&#39;&quot;, &quot;&#39;15&#39;&quot;],
+ [&#34;&#39;c&#39;&#34;, &#39;3&#39;, &#39;17&#39;],
+ [&#34;&#39;a&#39;&#34;, &#34;&#39;\\n&#39;&#34;, &#34;&#39;15&#39;&#34;],
  [&#39;E&#39;, &#39;2&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Los-valores-válidos-de-la-columna-1-son-{a,-b,-c,-d,-e}-en-minúsculas">
@@ -884,12 +884,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
  [&#39;b&#39;, &#39;2&#39;, &#39;13&#39;],
- [&#39;c&#39;, &#39;&#39;, &quot;&#39;14&#39;&quot;],
+ [&#39;c&#39;, &#39;&#39;, &#34;&#39;14&#39;&#34;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;15&#39;],
- [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;0&#39;&quot;],
+ [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;0&#39;&#34;],
  [&#39;e&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;\\N&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;\\N&#39;, &#39;&#39;, &#39;&#39;],
@@ -905,10 +906,9 @@ Writing directory/file3.csv
  [&#39;a&#39;, &#39;4&#39;, &#39;13&#39;],
  [&#39;a&#39;, &#39;3&#39;, &#39;13&#39;],
  [&#39;c&#39;, &#39;3&#39;, &#39;17&#39;],
- [&#39;a&#39;, &quot;&#39;\\n&#39;&quot;, &quot;&#39;15&#39;&quot;],
+ [&#39;a&#39;, &#34;&#39;\\n&#39;&#34;, &#34;&#39;15&#39;&#34;],
  [&#39;e&#39;, &#39;2&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -930,12 +930,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
  [&#39;b&#39;, &#39;2&#39;, &#39;13&#39;],
- [&#39;c&#39;, &#39;&#39;, &quot;&#39;14&#39;&quot;],
+ [&#39;c&#39;, &#39;&#39;, &#34;&#39;14&#39;&#34;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;15&#39;],
- [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;0&#39;&quot;],
+ [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;0&#39;&#34;],
  [&#39;e&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;\\N&#39;, &#39;&#39;, &#39;&#39;],
  [&#39;\\N&#39;, &#39;&#39;, &#39;&#39;],
@@ -951,10 +952,9 @@ Writing directory/file3.csv
  [&#39;a&#39;, &#39;4&#39;, &#39;13&#39;],
  [&#39;a&#39;, &#39;3&#39;, &#39;13&#39;],
  [&#39;c&#39;, &#39;3&#39;, &#39;17&#39;],
- [&#39;a&#39;, &quot;&#39;\\N&#39;&quot;, &quot;&#39;15&#39;&quot;],
+ [&#39;a&#39;, &#34;&#39;\\N&#39;&#34;, &#34;&#39;15&#39;&#34;],
  [&#39;e&#39;, &#39;2&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -971,12 +971,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
  [&#39;b&#39;, &#39;2&#39;, &#39;13&#39;],
- [&#39;c&#39;, &#39;\\N&#39;, &quot;&#39;14&#39;&quot;],
+ [&#39;c&#39;, &#39;\\N&#39;, &#34;&#39;14&#39;&#34;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;15&#39;],
- [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;0&#39;&quot;],
+ [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;0&#39;&#34;],
  [&#39;e&#39;, &#39;\\N&#39;, &#39;\\N&#39;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;\\N&#39;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;\\N&#39;],
@@ -992,10 +993,9 @@ Writing directory/file3.csv
  [&#39;a&#39;, &#39;4&#39;, &#39;13&#39;],
  [&#39;a&#39;, &#39;3&#39;, &#39;13&#39;],
  [&#39;c&#39;, &#39;3&#39;, &#39;17&#39;],
- [&#39;a&#39;, &quot;&#39;\\N&#39;&quot;, &quot;&#39;15&#39;&quot;],
+ [&#39;a&#39;, &#34;&#39;\\N&#39;&#34;, &#34;&#39;15&#39;&#34;],
  [&#39;e&#39;, &#39;2&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Los-valores-de-la-columna-2-son-enteros-o-nulos">
@@ -1014,10 +1014,10 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;a&#39;, &quot;&#39;\\N&#39;&quot;, &quot;&#39;15&#39;&quot;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;a&#39;, &#34;&#39;\\N&#39;&#34;, &#34;&#39;15&#39;&#34;]]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -1037,12 +1037,13 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;a&#39;, &#39;1&#39;, &#39;12&#39;],
  [&#39;b&#39;, &#39;2&#39;, &#39;13&#39;],
- [&#39;c&#39;, &#39;\\N&#39;, &quot;&#39;14&#39;&quot;],
+ [&#39;c&#39;, &#39;\\N&#39;, &#34;&#39;14&#39;&#34;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;15&#39;],
- [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;0&#39;&quot;],
+ [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;0&#39;&#34;],
  [&#39;e&#39;, &#39;\\N&#39;, &#39;\\N&#39;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;\\N&#39;],
  [&#39;\\N&#39;, &#39;\\N&#39;, &#39;\\N&#39;],
@@ -1058,10 +1059,9 @@ Writing directory/file3.csv
  [&#39;a&#39;, &#39;4&#39;, &#39;13&#39;],
  [&#39;a&#39;, &#39;3&#39;, &#39;13&#39;],
  [&#39;c&#39;, &#39;3&#39;, &#39;17&#39;],
- [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;15&#39;&quot;],
+ [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;15&#39;&#34;],
  [&#39;e&#39;, &#39;2&#39;, &#39;0&#39;]]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Los-valores-de-la-columna-3-son-enteros-o-nulos">
@@ -1080,10 +1080,10 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[[&#39;c&#39;, &#39;\\N&#39;, &quot;&#39;14&#39;&quot;], [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;0&#39;&quot;], [&#39;a&#39;, &#39;\\N&#39;, &quot;&#39;15&#39;&quot;]]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[&#39;c&#39;, &#39;\\N&#39;, &#34;&#39;14&#39;&#34;], [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;0&#39;&#34;], [&#39;a&#39;, &#39;\\N&#39;, &#34;&#39;15&#39;&#34;]]
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
@@ -1112,8 +1112,9 @@ Writing directory/file3.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[&#39;a,1,12&#39;,
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;a,1,12&#39;,
  &#39;b,2,13&#39;,
  &#39;c,\\N,14&#39;,
  &#39;\\N,\\N,15&#39;,
@@ -1135,8 +1136,7 @@ Writing directory/file3.csv
  &#39;c,3,17&#39;,
  &#39;a,\\N,15&#39;,
  &#39;e,2,0&#39;]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:

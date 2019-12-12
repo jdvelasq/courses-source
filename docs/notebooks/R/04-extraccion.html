@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -172,16 +172,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -190,13 +190,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -204,35 +204,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -240,56 +240,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -370,13 +370,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -474,7 +474,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <hr class="docutils" />
-<p>## Lectura y escritura de archivos de texto</p>
+<div class="section" id=" Lectura-y-escritura-de-archivos-de-texto">
+<h2> Lectura y escritura de archivos de texto<a class="headerlink" href="# Lectura-y-escritura-de-archivos-de-texto" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`readLines</span> <span class="pre">{base}</span></code> &lt;<a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/readLines.html">https://stat.ethz.ch/R-manual/R-devel/library/base/html/readLines.html</a>&gt;`__</div>
@@ -853,7 +854,9 @@ linea 9
     <li>10</li>
 </ol></div>
 </div>
-<p>## Formato nativo de R</p>
+</div>
+<div class="section" id=" Formato-nativo-de-R">
+<h2> Formato nativo de R<a class="headerlink" href="# Formato-nativo-de-R" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`save</span> <span class="pre">{base}</span></code> &lt;<a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/save.html">https://stat.ethz.ch/R-manual/R-devel/library/base/html/save.html</a>&gt;`__</div>
@@ -967,15 +970,15 @@ linea 9
 5     5    E  5.74
 </pre></div></div>
 </div>
-<p>## Feather R/Python interchange format</p>
+</div>
+<div class="section" id=" Feather-R/Python-interchange-format">
+<h2> Feather R/Python interchange format<a class="headerlink" href="# Feather-R/Python-interchange-format" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`read_feather</span> <span class="pre">{feather}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/feather/index.html">https://cran.r-project.org/web/packages/feather/index.html</a>&gt;`__</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`write_feather</span> <span class="pre">{feather}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/feather/index.html">https://cran.r-project.org/web/packages/feather/index.html</a>&gt;`__</div>
 </div>
-</div></blockquote>
-<blockquote>
-<div><p>Instalación:</p>
+<p>Instalación:</p>
 </div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">devtools</span><span class="p">::</span><span class="n">install_github</span><span class="p">(</span><span class="s2">&quot;wesm/feather/R&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1014,6 +1017,7 @@ linea 9
 4     4 D     9.86
 5     5 E     5.74
 </pre></div></div>
+</div>
 </div>
 <div class="section" id="CSV">
 <h2>CSV<a class="headerlink" href="#CSV" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -1223,7 +1227,9 @@ linea 9
 [8] &#34;[6]&#34;
 </pre></div></div>
 </div>
-<p>## TXT como tablas de texto</p>
+</div>
+<div class="section" id=" TXT-como-tablas-de-texto">
+<h2> TXT como tablas de texto<a class="headerlink" href="# TXT-como-tablas-de-texto" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`write.table</span> <span class="pre">{utils}</span></code> &lt;<a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html">https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html</a>&gt;`__</div>
@@ -1348,9 +1354,7 @@ index name value
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`toJSON</span> <span class="pre">{jsonlite}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/jsonlite/index.html">https://cran.r-project.org/web/packages/jsonlite/index.html</a>&gt;`__</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`fromJSON</span> <span class="pre">{jsonlite}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/jsonlite/index.html">https://cran.r-project.org/web/packages/jsonlite/index.html</a>&gt;`__</div>
 </div>
-</div></blockquote>
-<blockquote>
-<div><div class="line-block">
+<div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`toJSON</span> <span class="pre">{rjson}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/rjson/index.html">https://cran.r-project.org/web/packages/rjson/index.html</a>&gt;`__</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`fromJSON</span> <span class="pre">{rjson}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/rjson/index.html">https://cran.r-project.org/web/packages/rjson/index.html</a>&gt;`__</div>
 </div>
@@ -1380,36 +1384,36 @@ index name value
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[
   {
-    &quot;index&quot;: 1,
-    &quot;name&quot;: &quot;A&quot;,
-    &quot;value&quot;: 0.37
+    &#34;index&#34;: 1,
+    &#34;name&#34;: &#34;A&#34;,
+    &#34;value&#34;: 0.37
   },
   {
-    &quot;index&quot;: 2,
-    &quot;name&quot;: &quot;B&quot;,
-    &quot;value&quot;: 8.98
+    &#34;index&#34;: 2,
+    &#34;name&#34;: &#34;B&#34;,
+    &#34;value&#34;: 8.98
   },
   {
-    &quot;index&quot;: 3,
-    &quot;name&quot;: &quot;C&quot;,
-    &quot;value&quot;: 7.34
+    &#34;index&#34;: 3,
+    &#34;name&#34;: &#34;C&#34;,
+    &#34;value&#34;: 7.34
   },
   {
-    &quot;index&quot;: 4,
-    &quot;name&quot;: &quot;D&quot;,
-    &quot;value&quot;: 9.86
+    &#34;index&#34;: 4,
+    &#34;name&#34;: &#34;D&#34;,
+    &#34;value&#34;: 9.86
   },
   {
-    &quot;index&quot;: 5,
-    &quot;name&quot;: &quot;E&quot;,
-    &quot;value&quot;: 5.74
+    &#34;index&#34;: 5,
+    &#34;name&#34;: &#34;E&#34;,
+    &#34;value&#34;: 5.74
   }
 ]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
@@ -1508,7 +1512,9 @@ index name value
 </dd>
 </dl></div>
 </div>
-<p>## HTML</p>
+</div>
+<div class="section" id=" HTML">
+<h2> HTML<a class="headerlink" href="# HTML" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">`rio</span></code> Package &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/rio/index.html">https://cran.r-project.org/web/packages/rio/index.html</a>&gt;`__: : A Swiss-Army Knife for Data I/O</p>
 </div></blockquote>
@@ -1586,9 +1592,7 @@ Loading required namespace: xml2
 <h2>Excel<a class="headerlink" href="#Excel" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">`WriteXLS</span> <span class="pre">{WriteXLS}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/WriteXLS/">https://cran.r-project.org/web/packages/WriteXLS/</a>&gt;`__</p>
-</div></blockquote>
-<blockquote>
-<div><div class="line-block">
+<div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`read.xls</span> <span class="pre">{gdata}</span></code> &lt;<a class="reference external" href="http://svitsrv25.epfl.ch/R-doc/library/gdata/html/read.xls.html">http://svitsrv25.epfl.ch/R-doc/library/gdata/html/read.xls.html</a>&gt;`__</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`read_excel</span> <span class="pre">{readxl}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/readxl/">https://cran.r-project.org/web/packages/readxl/</a>&gt;`__</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`read.xlsx</span> <span class="pre">{xlsx}</span></code> &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/xlsx/">https://cran.r-project.org/web/packages/xlsx/</a>&gt;`__</div>
@@ -1848,8 +1852,9 @@ TRUE</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>HDF5 FILE
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+HDF5 FILE
         name /
     filename
 
@@ -1857,8 +1862,7 @@ TRUE</div>
 0 myGroup1 H5I_GROUP
 1 myGroup2 H5I_GROUP
 2 myGroup3 H5I_GROUP
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
@@ -1919,7 +1923,9 @@ TRUE</div>
 </pre></div>
 </div>
 </div>
-<p>## STATA</p>
+</div>
+<div class="section" id=" STATA">
+<h2> STATA<a class="headerlink" href="# STATA" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`read.dta</span> <span class="pre">{foreign}</span></code> &lt;<a class="reference external" href="http://www.inside-r.org/r-doc/foreign/read.dta">http://www.inside-r.org/r-doc/foreign/read.dta</a>&gt;`__</div>
@@ -2019,12 +2025,12 @@ TRUE</div>
 </tbody>
 </table></div>
 </div>
-<p>## MySQL y MariaDB</p>
+</div>
+<div class="section" id=" MySQL-y-MariaDB">
+<h2> MySQL y MariaDB<a class="headerlink" href="# MySQL-y-MariaDB" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p>Para estos ejemplos, la máquina local debe tener instalada la herramienta. Visite <a class="reference external" href="http://dev.mysql.com/downloads/">http://dev.mysql.com/downloads/</a> para más información.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>Nota.</strong> A continuación se describe el proceso de instalación de MySQL.</p>
+<p><strong>Nota.</strong> A continuación se describe el proceso de instalación de MySQL.</p>
 <ol class="arabic simple">
 <li><p>Descague el instalador y ejecutelo. Durante la instalación el sistema le suministrará un username y un password inicial. En mi caso: <a class="reference external" href="mailto:root&#37;&#52;&#48;localhost">root<span>&#64;</span>localhost</a> y gxnM*y;_x7Vi</p></li>
 <li><p>Cuando finalice la instalación, vaya el prompt de comandos y ejecute MySQL. En OS X la ruta es <code class="docutils literal notranslate"><span class="pre">/usr/local/mysql/bin</span></code>.</p></li>
@@ -2080,26 +2086,26 @@ Loading required package: DBI
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;MySQLResult:2,0,0&gt;
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;MySQLResult:62102912,0,1&gt;
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MySQLResult:2,0,0&gt;
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&lt;MySQLResult:84052976,1,0&gt;
-</pre></div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MySQLResult:62102912,0,1&gt;
+</pre></div></div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;MySQLResult:84052976,1,0&gt;
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -2172,9 +2178,7 @@ TRUE</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`XML</span></code> Package &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/XML/index.html">https://cran.r-project.org/web/packages/XML/index.html</a>&gt;`__</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">`rio</span></code> Package &lt;<a class="reference external" href="https://cran.r-project.org/web/packages/rio/index.html">https://cran.r-project.org/web/packages/rio/index.html</a>&gt;`__: : A Swiss-Army Knife for Data I/O</div>
 </div>
-</div></blockquote>
-<blockquote>
-<div><p>XML en <a class="reference external" href="https://en.wikipedia.org/wiki/XML">Wikipedia</a></p>
+<p>XML en <a class="reference external" href="https://en.wikipedia.org/wiki/XML">Wikipedia</a></p>
 </div></blockquote>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
@@ -2313,7 +2317,9 @@ carb      &#34;1&#34;         &#34;2&#34;           &#34;1&#34;              &#3
 4   Lotus Europa 30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2
 </pre></div></div>
 </div>
-<p>## MPT minitab portable worksheet</p>
+</div>
+<div class="section" id=" MPT-minitab-portable-worksheet">
+<h2> MPT minitab portable worksheet<a class="headerlink" href="# MPT-minitab-portable-worksheet" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><a class="reference external" href="#Contenido">Contenido</a></p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">`read.mtp</span> <span class="pre">{foreign}</span></code> &lt;<a class="reference external" href="http://www.inside-r.org/r-doc/foreign/read.mtp">http://www.inside-r.org/r-doc/foreign/read.mtp</a>&gt;`__</p>
@@ -2374,16 +2380,16 @@ carb      &#34;1&#34;         &#34;2&#34;           &#34;1&#34;              &#3
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>author       : character(0)
-datetimestamp: 2016-06-04 18:28:43
-description  : character(0)
-heading      : demo
-id           : data.pdf
-language     : en
-origin       : TextEdit
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  author       : character(0)
+  datetimestamp: 2016-06-04 18:28:43
+  description  : character(0)
+  heading      : demo
+  id           : data.pdf
+  language     : en
+  origin       : TextEdit
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
@@ -2434,7 +2440,9 @@ origin       : TextEdit
 </pre></div>
 </div>
 </div>
-<p>## Systat</p>
+</div>
+<div class="section" id=" Systat">
+<h2> Systat<a class="headerlink" href="# Systat" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">`read.systat</span> <span class="pre">{foreign}</span></code> &lt;<a class="reference external" href="http://www.inside-r.org/r-doc/foreign/read.systat">http://www.inside-r.org/r-doc/foreign/read.systat</a>&gt;`__</p>
 </div></blockquote>

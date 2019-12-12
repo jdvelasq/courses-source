@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -170,16 +170,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -188,13 +188,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -202,35 +202,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -238,56 +238,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -368,13 +368,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -465,12 +465,12 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Empty DataFrame
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Empty DataFrame
 Columns: []
 Index: []
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <hr class="docutils" />
 <blockquote>
@@ -508,8 +508,9 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   CONCAT(firstname,&#39;@&#39;,surname)  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   CONCAT(firstname,&#39;@&#39;,surname)  quantity
 0                Vivian@Hamilton         1
 1                  Karen@Holcomb         4
 2                   Cody@Garrett         1
@@ -528,8 +529,7 @@ FROM
 15                 Ayanna@Jarvis         5
 16                  Chanda@Boyer         4
 17               Chadwick@Knight         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="LENGTH()">
@@ -557,15 +557,15 @@ SELECT surname, LENGTH(surname), CHAR_LENGTH(surname) FROM persons LIMIT 5;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    surname  LENGTH(surname)  CHAR_LENGTH(surname)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    surname  LENGTH(surname)  CHAR_LENGTH(surname)
 0  Hamilton                8                     8
 1   Holcomb                7                     7
 2   Garrett                7                     7
 3       Fry                3                     3
 4    Conway                6                     6
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="UPPER(),-LOWER()">
@@ -593,15 +593,15 @@ SELECT surname, UPPER(surname), LOWER(surname) FROM persons LIMIT 5;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    surname UPPER(surname) LOWER(surname)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    surname UPPER(surname) LOWER(surname)
 0  Hamilton       HAMILTON       hamilton
 1   Holcomb        HOLCOMB        holcomb
 2   Garrett        GARRETT        garrett
 3       Fry            FRY            fry
 4    Conway         CONWAY         conway
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -629,15 +629,15 @@ SELECT surname, surname BETWEEN &#39;c&#39; AND &#39;k&#39; FROM persons LIMIT 5
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    surname  surname BETWEEN &#39;c&#39; AND &#39;k&#39;
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    surname  surname BETWEEN &#39;c&#39; AND &#39;k&#39;
 0  Hamilton                            1
 1   Holcomb                            1
 2   Garrett                            1
 3       Fry                            1
 4    Conway                            1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="LIKE">
@@ -674,15 +674,15 @@ SELECT * FROM persons WHERE color LIKE &#39;b%&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname surname    birthday  color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname surname    birthday  color  quantity
 0   4      Roth     Fry  1975-01-29  black         1
 1   5       Zoe  Conway  1974-07-03   blue         2
 2   7  Driscoll   Klein  1970-10-05   blue         5
 3  10     Kylan  Sexton  1975-02-28  black         4
 4  15      Hope   Silva  1970-07-01   blue         5
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -707,8 +707,9 @@ SELECT * FROM persons WHERE color NOT LIKE &#39;b%&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    id firstname   surname    birthday   color  quantity
 0    1    Vivian  Hamilton  1971-07-08   green         1
 1    2     Karen   Holcomb  1974-05-23   green         4
 2    3      Cody   Garrett  1973-04-22  orange         1
@@ -722,8 +723,7 @@ SELECT * FROM persons WHERE color NOT LIKE &#39;b%&#39;;
 10  16    Ayanna    Jarvis  1974-02-11  orange         5
 11  17    Chanda     Boyer  1973-04-01   green         4
 12  18  Chadwick    Knight  1973-04-29  yellow         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -751,11 +751,11 @@ SELECT * FROM persons WHERE color = &#39;blue&#39; AND firstname LIKE &#39;Z%&#3
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname surname    birthday color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname surname    birthday color  quantity
 0   5       Zoe  Conway  1974-07-03  blue         2
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -783,16 +783,16 @@ SELECT * FROM persons WHERE color = &#39;blue&#39; OR firstname LIKE &#39;K%&#39
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname  surname    birthday  color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname  surname    birthday  color  quantity
 0   2     Karen  Holcomb  1974-05-23  green         4
 1   5       Zoe   Conway  1974-07-03   blue         2
 2   7  Driscoll    Klein  1970-10-05   blue         5
 3   8     Karyn     Diaz  1969-02-24    red         1
 4  10     Kylan   Sexton  1975-02-28  black         4
 5  15      Hope    Silva  1970-07-01   blue         5
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -820,15 +820,15 @@ SELECT * FROM persons WHERE color IN (&#39;blue&#39;,&#39;black&#39;);
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname surname    birthday  color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname surname    birthday  color  quantity
 0   4      Roth     Fry  1975-01-29  black         1
 1   5       Zoe  Conway  1974-07-03   blue         2
 2   7  Driscoll   Klein  1970-10-05   blue         5
 3  10     Kylan  Sexton  1975-02-28  black         4
 4  15      Hope   Silva  1970-07-01   blue         5
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -856,8 +856,9 @@ SELECT * FROM persons WHERE color NOT IN (&#39;blue&#39;,&#39;black&#39;);
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    id firstname   surname    birthday   color  quantity
 0    1    Vivian  Hamilton  1971-07-08   green         1
 1    2     Karen   Holcomb  1974-05-23   green         4
 2    3      Cody   Garrett  1973-04-22  orange         1
@@ -871,8 +872,7 @@ SELECT * FROM persons WHERE color NOT IN (&#39;blue&#39;,&#39;black&#39;);
 10  16    Ayanna    Jarvis  1974-02-11  orange         5
 11  17    Chanda     Boyer  1973-04-01   green         4
 12  18  Chadwick    Knight  1973-04-29  yellow         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="REGEXP">
@@ -903,15 +903,15 @@ SELECT * FROM persons WHERE color REGEXP &#39;^b&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname surname    birthday  color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname surname    birthday  color  quantity
 0   4      Roth     Fry  1975-01-29  black         1
 1   5       Zoe  Conway  1974-07-03   blue         2
 2   7  Driscoll   Klein  1970-10-05   blue         5
 3  10     Kylan  Sexton  1975-02-28  black         4
 4  15      Hope   Silva  1970-07-01   blue         5
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -939,8 +939,9 @@ SELECT * FROM persons WHERE color REGEXP &#39;^[^b]&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    id firstname   surname    birthday   color  quantity
 0    1    Vivian  Hamilton  1971-07-08   green         1
 1    2     Karen   Holcomb  1974-05-23   green         4
 2    3      Cody   Garrett  1973-04-22  orange         1
@@ -954,8 +955,7 @@ SELECT * FROM persons WHERE color REGEXP &#39;^[^b]&#39;;
 10  16    Ayanna    Jarvis  1974-02-11  orange         5
 11  17    Chanda     Boyer  1973-04-01   green         4
 12  18  Chadwick    Knight  1973-04-29  yellow         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -983,8 +983,9 @@ SELECT * FROM persons WHERE color REGEXP &#39;blue|green&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname   surname    birthday  color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname   surname    birthday  color  quantity
 0   1    Vivian  Hamilton  1971-07-08  green         1
 1   2     Karen   Holcomb  1974-05-23  green         4
 2   5       Zoe    Conway  1974-07-03   blue         2
@@ -992,8 +993,7 @@ SELECT * FROM persons WHERE color REGEXP &#39;blue|green&#39;;
 4  12      Hope    Coffey  1973-12-24  green         5
 5  15      Hope     Silva  1970-07-01   blue         5
 6  17    Chanda     Boyer  1973-04-01  green         4
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1021,8 +1021,9 @@ SELECT * FROM persons WHERE color REGEXP &#39;.r&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname   surname    birthday   color  quantity
 0   1    Vivian  Hamilton  1971-07-08   green         1
 1   2     Karen   Holcomb  1974-05-23   green         4
 2   3      Cody   Garrett  1973-04-22  orange         1
@@ -1030,8 +1031,7 @@ SELECT * FROM persons WHERE color REGEXP &#39;.r&#39;;
 4  13    Vivian     Crane  1970-08-27    gray         5
 5  16    Ayanna    Jarvis  1974-02-11  orange         5
 6  17    Chanda     Boyer  1973-04-01   green         4
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -1059,8 +1059,9 @@ SELECT * FROM persons WHERE color REGEXP &#39;[aeiou]$&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   id firstname  surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   id firstname  surname    birthday   color  quantity
 0   3      Cody  Garrett  1973-04-22  orange         1
 1   5       Zoe   Conway  1974-07-03    blue         2
 2   6  Gretchen   Kinney  1974-10-18   viole         1
@@ -1069,8 +1070,7 @@ SELECT * FROM persons WHERE color REGEXP &#39;[aeiou]$&#39;;
 5  11    Jordan    Estes  1969-12-07  indigo         4
 6  15      Hope    Silva  1970-07-01    blue         5
 7  16    Ayanna   Jarvis  1974-02-11  orange         5
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -1098,8 +1098,9 @@ SELECT * FROM persons WHERE color REGEXP &#39;^[[:upper:]]&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    id firstname   surname    birthday   color  quantity
 0    1    Vivian  Hamilton  1971-07-08   green         1
 1    2     Karen   Holcomb  1974-05-23   green         4
 2    3      Cody   Garrett  1973-04-22  orange         1
@@ -1118,8 +1119,7 @@ SELECT * FROM persons WHERE color REGEXP &#39;^[[:upper:]]&#39;;
 15  16    Ayanna    Jarvis  1974-02-11  orange         5
 16  17    Chanda     Boyer  1973-04-01   green         4
 17  18  Chadwick    Knight  1973-04-29  yellow         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="LEFT(),-MID(),-SUBSTRING(),-RIGHT()">
@@ -1157,8 +1157,9 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   firstname LEFT(firstname, 2) MID(firstname, 3, 2)  \
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   firstname LEFT(firstname, 2) MID(firstname, 3, 2)  \
 0     Vivian                 Vi                   vi
 1      Karen                 Ka                   re
 2       Cody                 Co                   dy
@@ -1197,8 +1198,7 @@ FROM
 15                         an                  na
 16                         an                  da
 17                         ad                  ck
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -1231,8 +1231,9 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   firstname SUBSTRING_INDEX(firstname, &#39;a&#39;, 1)  \
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   firstname SUBSTRING_INDEX(firstname, &#39;a&#39;, 1)  \
 0     Vivian                               Vivi
 1      Karen                                  K
 2       Cody                               Cody
@@ -1271,8 +1272,7 @@ FROM
 15
 16
 17                               dwick
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -1300,15 +1300,15 @@ SELECT firstname FROM persons WHERE LEFT(firstname, 1) &gt;= &#39;m&#39;;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  firstname
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  firstname
 0    Vivian
 1      Roth
 2       Zoe
 3   Merritt
 4    Vivian
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="LOCATE()">
@@ -1339,8 +1339,9 @@ SELECT firstname, LOCATE(&#39;ia&#39;, firstname) FROM persons;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   firstname  LOCATE(&#39;ia&#39;, firstname)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   firstname  LOCATE(&#39;ia&#39;, firstname)
 0     Vivian                        4
 1      Karen                        0
 2       Cody                        0
@@ -1359,8 +1360,7 @@ SELECT firstname, LOCATE(&#39;ia&#39;, firstname) FROM persons;
 15    Ayanna                        0
 16    Chanda                        0
 17  Chadwick                        0
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -1400,15 +1400,15 @@ LIMIT
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>     birthday DATE_FORMAT(birthday, &quot;%Y   %y&quot;)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+     birthday DATE_FORMAT(birthday, &#34;%Y   %y&#34;)
 0  1971-07-08                        1971   71
 1  1974-05-23                        1974   74
 2  1973-04-22                        1973   73
 3  1975-01-29                        1975   75
 4  1974-07-03                        1974   74
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1442,15 +1442,15 @@ LIMIT
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>     birthday DATE_FORMAT(birthday, &quot;%M  %m %c&quot;)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+     birthday DATE_FORMAT(birthday, &#34;%M  %m %c&#34;)
 0  1971-07-08                         July  07 7
 1  1974-05-23                          May  05 5
 2  1973-04-22                        April  04 4
 3  1975-01-29                      January  01 1
 4  1974-07-03                         July  07 7
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -1484,15 +1484,15 @@ LIMIT
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>     birthday DATE_FORMAT(birthday, &quot;%e  %W&quot;)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+     birthday DATE_FORMAT(birthday, &#34;%e  %W&#34;)
 0  1971-07-08                     8  Thursday
 1  1974-05-23                    23  Thursday
 2  1973-04-22                      22  Sunday
 3  1975-01-29                   29  Wednesday
 4  1974-07-03                    3  Wednesday
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="CURDATE(),-CURTIME(),-NOW()">
@@ -1520,15 +1520,15 @@ SELECT CURDATE(), CURTIME(), NOW();
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    CURDATE() CURTIME()               NOW()
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    CURDATE() CURTIME()               NOW()
 0  2018-12-20  02:26:39 2018-12-20 02:26:39
-</pre></div>
+</pre></div></div>
 </div>
 </div>
-</div>
-<div class="section" id="YEAR(),-MONTH(),-DAYNAME(),-…">
-<h3>YEAR(), MONTH(), DAYNAME(), …<a class="headerlink" href="#YEAR(),-MONTH(),-DAYNAME(),-…" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="YEAR(),-MONTH(),-DAYNAME(),-...">
+<h3>YEAR(), MONTH(), DAYNAME(), …<a class="headerlink" href="#YEAR(),-MONTH(),-DAYNAME(),-..." title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
@@ -1570,13 +1570,13 @@ SELECT * FROM tbltime;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t                  ts           d
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t                  ts           d
 0 14:23:18 2018-08-23 14:23:18  2018-08-23
 1 05:45:23 2016-05-14 05:45:23  2016-05-14
 2 11:10:45 2017-07-01 11:10:45  2017-07-01
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -1607,13 +1607,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  YEAR(ts)  MONTH(ts) MONTHNAME(ts)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  YEAR(ts)  MONTH(ts) MONTHNAME(ts)
 0 2018-08-23 14:23:18      2018          8        August
 1 2016-05-14 05:45:23      2016          5           May
 2 2017-07-01 11:10:45      2017          7          July
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -1646,8 +1646,9 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  DAYOFMONTH(ts) DAYNAME(ts)  DAYOFWEEK(ts)  WEEKDAY(ts)  \
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  DAYOFMONTH(ts) DAYNAME(ts)  DAYOFWEEK(ts)  WEEKDAY(ts)  \
 0 2018-08-23 14:23:18              23    Thursday              5            3
 1 2016-05-14 05:45:23              14    Saturday              7            5
 2 2017-07-01 11:10:45               1    Saturday              7            5
@@ -1656,8 +1657,7 @@ FROM
 0            235
 1            135
 2            182
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
@@ -1688,13 +1688,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  HOUR(ts)  MINUTE(ts)  SECOND(ts)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  HOUR(ts)  MINUTE(ts)  SECOND(ts)
 0 2018-08-23 14:23:18        14          23          18
 1 2016-05-14 05:45:23         5          45          23
 2 2017-07-01 11:10:45        11          10          45
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
@@ -1728,8 +1728,9 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  EXTRACT(YEAR FROM ts)  EXTRACT(MONTH FROM ts)  \
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  EXTRACT(YEAR FROM ts)  EXTRACT(MONTH FROM ts)  \
 0 2018-08-23 14:23:18                   2018                       8
 1 2016-05-14 05:45:23                   2016                       5
 2 2017-07-01 11:10:45                   2017                       7
@@ -1743,8 +1744,7 @@ FROM
 0                       18
 1                       23
 2                       45
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="TIME_TO_SEC(),-SEC_TO_TIME()">
@@ -1777,13 +1777,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t  TIME_TO_SEC(t) SEC_TO_TIME(TIME_TO_SEC(t))
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t  TIME_TO_SEC(t) SEC_TO_TIME(TIME_TO_SEC(t))
 0 14:23:18           51798                    14:23:18
 1 05:45:23           20723                    05:45:23
 2 11:10:45           40245                    11:10:45
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="FROM_DAYS(),-TO_DAYS()">
@@ -1816,13 +1816,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  TO_DAYS(ts) FROM_DAYS(TO_DAYS(ts))
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  TO_DAYS(ts) FROM_DAYS(TO_DAYS(ts))
 0 2018-08-23 14:23:18       737294             2018-08-23
 1 2016-05-14 05:45:23       736463             2016-05-14
 2 2017-07-01 11:10:45       736876             2017-07-01
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="UNIX_TIMESTAMP,-FROM_UNIXTIME()">
@@ -1855,13 +1855,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  UNIX_TIMESTAMP(ts) FROM_UNIXTIME(UNIX_TIMESTAMP(ts))
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  UNIX_TIMESTAMP(ts) FROM_UNIXTIME(UNIX_TIMESTAMP(ts))
 0 2018-08-23 14:23:18          1535034198               2018-08-23 14:23:18
 1 2016-05-14 05:45:23          1463204723               2016-05-14 05:45:23
 2 2017-07-01 11:10:45          1498907445               2017-07-01 11:10:45
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="TIMEDIFF(),-DATEDIFF(),-TIMESTAMPDIFF()">
@@ -1893,13 +1893,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>            d  DATEDIFF(&quot;2018-12-30&quot;, d)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            d  DATEDIFF(&#34;2018-12-30&#34;, d)
 0  2018-08-23                        129
 1  2016-05-14                        960
 2  2017-07-01                        547
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
@@ -1928,13 +1928,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t TIMEDIFF(&quot;23:05:18&quot;, t)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t TIMEDIFF(&#34;23:05:18&#34;, t)
 0 14:23:18                08:42:00
 1 05:45:23                17:19:55
 2 11:10:45                11:54:33
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
@@ -1965,23 +1965,23 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>                   ts  TIMESTAMPDIFF(YEAR, ts, &quot;2018-12-31 23:05:18&quot;)  \
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   ts  TIMESTAMPDIFF(YEAR, ts, &#34;2018-12-31 23:05:18&#34;)  \
 0 2018-08-23 14:23:18                                               0
 1 2016-05-14 05:45:23                                               2
 2 2017-07-01 11:10:45                                               1
 
-   TIMESTAMPDIFF(MONTH, ts, &quot;2018-12-31 23:05:18&quot;)  \
+   TIMESTAMPDIFF(MONTH, ts, &#34;2018-12-31 23:05:18&#34;)  \
 0                                                4
 1                                               31
 2                                               17
 
-   TIMESTAMPDIFF(WEEK, ts, &quot;2018-12-31 23:05:18&quot;)
+   TIMESTAMPDIFF(WEEK, ts, &#34;2018-12-31 23:05:18&#34;)
 0                                              18
 1                                             137
 2                                              78
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="ADDTIME()">
@@ -2013,13 +2013,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t ADDTIME(&quot;23:05:18&quot;, t)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t ADDTIME(&#34;23:05:18&#34;, t)
 0 14:23:18               37:28:36
 1 05:45:23               28:50:41
 2 11:10:45               34:16:03
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
@@ -2049,13 +2049,13 @@ FROM
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>            d DATE_ADD(d, INTERVAL 3 DAY) DATE_SUB(d, INTERVAL 3 DAY)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            d DATE_ADD(d, INTERVAL 3 DAY) DATE_SUB(d, INTERVAL 3 DAY)
 0  2018-08-23                  2018-08-26                  2018-08-20
 1  2016-05-14                  2016-05-17                  2016-05-11
 2  2017-07-01                  2017-07-04                  2017-06-28
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
@@ -2085,11 +2085,11 @@ WHERE
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>            d
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            d
 0  2017-07-01
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -2118,8 +2118,9 @@ SELECT * FROM persons ORDER BY color;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    id firstname   surname    birthday   color  quantity
 0    4      Roth       Fry  1975-01-29   black         1
 1   10     Kylan    Sexton  1975-02-28   black         4
 2   15      Hope     Silva  1970-07-01    blue         5
@@ -2138,8 +2139,7 @@ SELECT * FROM persons ORDER BY color;
 15  14      Clio      Noel  1972-12-12     red         5
 16   6  Gretchen    Kinney  1974-10-18   viole         1
 17  18  Chadwick    Knight  1973-04-29  yellow         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
@@ -2164,13 +2164,13 @@ SELECT * FROM tbltime ORDER BY t;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t                  ts           d
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t                  ts           d
 0 05:45:23 2016-05-14 05:45:23  2016-05-14
 1 11:10:45 2017-07-01 11:10:45  2017-07-01
 2 14:23:18 2018-08-23 14:23:18  2018-08-23
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
@@ -2195,13 +2195,13 @@ SELECT * FROM tbltime ORDER BY ts;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t                  ts           d
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t                  ts           d
 0 05:45:23 2016-05-14 05:45:23  2016-05-14
 1 11:10:45 2017-07-01 11:10:45  2017-07-01
 2 14:23:18 2018-08-23 14:23:18  2018-08-23
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
@@ -2226,13 +2226,13 @@ SELECT * FROM tbltime ORDER BY DAY(ts);
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>         t                  ts           d
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         t                  ts           d
 0 11:10:45 2017-07-01 11:10:45  2017-07-01
 1 05:45:23 2016-05-14 05:45:23  2016-05-14
 2 14:23:18 2018-08-23 14:23:18  2018-08-23
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
@@ -2260,8 +2260,9 @@ SELECT * FROM persons ORDER BY FIELD(color, &#39;blue&#39;);
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    id firstname   surname    birthday   color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    id firstname   surname    birthday   color  quantity
 0   10     Kylan    Sexton  1975-02-28   black         4
 1   18  Chadwick    Knight  1973-04-29  yellow         1
 2   17    Chanda     Boyer  1973-04-01   green         4
@@ -2280,8 +2281,7 @@ SELECT * FROM persons ORDER BY FIELD(color, &#39;blue&#39;);
 15   7  Driscoll     Klein  1970-10-05    blue         5
 16   5       Zoe    Conway  1974-07-03    blue         2
 17  15      Hope     Silva  1970-07-01    blue         5
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="GROUP-BY">
@@ -2314,11 +2314,11 @@ SELECT COUNT(*) FROM persons;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   COUNT(*)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   COUNT(*)
 0        18
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
@@ -2346,11 +2346,11 @@ SELECT SUM(TIMESTAMPDIFF(YEAR,birthday,CURDATE())) AS SUMA FROM persons;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>  SUMA
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+  SUMA
 0  820
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
@@ -2379,8 +2379,9 @@ SELECT YEAR(birthday), COUNT(*) FROM persons GROUP BY YEAR(birthday);
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   YEAR(birthday)  COUNT(*)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   YEAR(birthday)  COUNT(*)
 0            1969         2
 1            1970         3
 2            1971         1
@@ -2388,8 +2389,7 @@ SELECT YEAR(birthday), COUNT(*) FROM persons GROUP BY YEAR(birthday);
 4            1973         4
 5            1974         5
 6            1975         2
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
@@ -2418,8 +2418,9 @@ SELECT YEAR(birthday), COUNT(*) FROM persons GROUP BY YEAR(birthday);
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>   YEAR(birthday)  COUNT(*)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   YEAR(birthday)  COUNT(*)
 0            1969         2
 1            1970         3
 2            1971         1
@@ -2427,8 +2428,7 @@ SELECT YEAR(birthday), COUNT(*) FROM persons GROUP BY YEAR(birthday);
 4            1973         4
 5            1974         5
 6            1975         2
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="MAX(),-MIN(),-SUM(),-AVG()">
@@ -2465,8 +2465,9 @@ GROUP BY
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    color  MAX(quantity)  MIN(quantity) SUM(quantity) AVG(quantity)
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    color  MAX(quantity)  MIN(quantity) SUM(quantity) AVG(quantity)
 0   black              4              1             5        2.5000
 1    blue              5              2            12        4.0000
 2    gray              5              5             5        5.0000
@@ -2476,8 +2477,7 @@ GROUP BY
 6     red              5              1             6        3.0000
 7   viole              1              1             1        1.0000
 8  yellow              1              1             1        1.0000
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
@@ -2512,16 +2512,16 @@ WHERE
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>    color  quantity
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+    color  quantity
 0   green         1
 1  orange         1
 2   black         1
 3   viole         1
 4     red         1
 5  yellow         1
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 </div>

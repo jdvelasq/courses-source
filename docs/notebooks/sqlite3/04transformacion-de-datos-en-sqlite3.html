@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -169,16 +169,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -187,13 +187,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -201,35 +201,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -237,56 +237,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -367,13 +367,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -410,7 +410,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">IPython.core.magic</span> <span class="k">import</span> <span class="n">register_cell_magic</span><span class="p">,</span> <span class="n">register_line_magic</span>
+<span></span><span class="kn">from</span> <span class="nn">IPython.core.magic</span> <span class="kn">import</span> <span class="n">register_cell_magic</span><span class="p">,</span> <span class="n">register_line_magic</span>
 
 <span class="nd">@register_cell_magic</span>
 <span class="k">def</span> <span class="nf">sqlite3</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">cell</span><span class="p">):</span>
@@ -489,10 +489,10 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;Hamilton&#39;, 8), (&#39;Holcomb&#39;, 7), (&#39;Garrett&#39;, 7), (&#39;Fry&#39;, 3), (&#39;Conway&#39;, 6)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;Hamilton&#39;, 8), (&#39;Holcomb&#39;, 7), (&#39;Garrett&#39;, 7), (&#39;Fry&#39;, 3), (&#39;Conway&#39;, 6)]
+</pre></div></div>
 </div>
 <p><strong>UPPER(), LOWER()</strong></p>
 <div class="nbinput docutils container">
@@ -508,14 +508,14 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;Hamilton&#39;, &#39;HAMILTON&#39;, &#39;hamilton&#39;),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;Hamilton&#39;, &#39;HAMILTON&#39;, &#39;hamilton&#39;),
  (&#39;Holcomb&#39;, &#39;HOLCOMB&#39;, &#39;holcomb&#39;),
  (&#39;Garrett&#39;, &#39;GARRETT&#39;, &#39;garrett&#39;),
  (&#39;Fry&#39;, &#39;FRY&#39;, &#39;fry&#39;),
  (&#39;Conway&#39;, &#39;CONWAY&#39;, &#39;conway&#39;)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -533,10 +533,10 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;Hamilton&#39;, 0), (&#39;Holcomb&#39;, 0), (&#39;Garrett&#39;, 0), (&#39;Fry&#39;, 0), (&#39;Conway&#39;, 0)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;Hamilton&#39;, 0), (&#39;Holcomb&#39;, 0), (&#39;Garrett&#39;, 0), (&#39;Fry&#39;, 0), (&#39;Conway&#39;, 0)]
+</pre></div></div>
 </div>
 <p><strong>LIKE</strong></p>
 <p>La función LIKE permite buscar patrones específicos dentro de cadenas de caracteres.</p>
@@ -561,14 +561,14 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(4, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, 1),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(4, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, 1),
  (5, &#39;Zoe&#39;, &#39;Conway&#39;, &#39;1974-07-03&#39;, &#39;blue&#39;, 2),
  (7, &#39;Driscoll&#39;, &#39;Klein&#39;, &#39;1970-10-05&#39;, &#39;blue&#39;, 5),
  (10, &#39;Kylan&#39;, &#39;Sexton&#39;, &#39;1975-02-28&#39;, &#39;black&#39;, 4),
  (15, &#39;Hope&#39;, &#39;Silva&#39;, &#39;1970-07-01&#39;, &#39;blue&#39;, 5)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -583,8 +583,9 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(1, &#39;Vivian&#39;, &#39;Hamilton&#39;, &#39;1971-07-08&#39;, &#39;green&#39;, 1),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(1, &#39;Vivian&#39;, &#39;Hamilton&#39;, &#39;1971-07-08&#39;, &#39;green&#39;, 1),
  (2, &#39;Karen&#39;, &#39;Holcomb&#39;, &#39;1974-05-23&#39;, &#39;green&#39;, 4),
  (3, &#39;Cody&#39;, &#39;Garrett&#39;, &#39;1973-04-22&#39;, &#39;orange&#39;, 1),
  (6, &#39;Gretchen&#39;, &#39;Kinney&#39;, &#39;1974-10-18&#39;, &#39;viole&#39;, 1),
@@ -597,8 +598,7 @@ INSERT INTO persons VALUES
  (16, &#39;Ayanna&#39;, &#39;Jarvis&#39;, &#39;1974-02-11&#39;, &#39;orange&#39;, 5),
  (17, &#39;Chanda&#39;, &#39;Boyer&#39;, &#39;1973-04-01&#39;, &#39;green&#39;, 4),
  (18, &#39;Chadwick&#39;, &#39;Knight&#39;, &#39;1973-04-29&#39;, &#39;yellow&#39;, 1)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -616,10 +616,10 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(5, &#39;Zoe&#39;, &#39;Conway&#39;, &#39;1974-07-03&#39;, &#39;blue&#39;, 2)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(5, &#39;Zoe&#39;, &#39;Conway&#39;, &#39;1974-07-03&#39;, &#39;blue&#39;, 2)]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -637,15 +637,15 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(2, &#39;Karen&#39;, &#39;Holcomb&#39;, &#39;1974-05-23&#39;, &#39;green&#39;, 4),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(2, &#39;Karen&#39;, &#39;Holcomb&#39;, &#39;1974-05-23&#39;, &#39;green&#39;, 4),
  (5, &#39;Zoe&#39;, &#39;Conway&#39;, &#39;1974-07-03&#39;, &#39;blue&#39;, 2),
  (7, &#39;Driscoll&#39;, &#39;Klein&#39;, &#39;1970-10-05&#39;, &#39;blue&#39;, 5),
  (8, &#39;Karyn&#39;, &#39;Diaz&#39;, &#39;1969-02-24&#39;, &#39;red&#39;, 1),
  (10, &#39;Kylan&#39;, &#39;Sexton&#39;, &#39;1975-02-28&#39;, &#39;black&#39;, 4),
  (15, &#39;Hope&#39;, &#39;Silva&#39;, &#39;1970-07-01&#39;, &#39;blue&#39;, 5)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -663,14 +663,14 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(4, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, 1),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(4, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, 1),
  (5, &#39;Zoe&#39;, &#39;Conway&#39;, &#39;1974-07-03&#39;, &#39;blue&#39;, 2),
  (7, &#39;Driscoll&#39;, &#39;Klein&#39;, &#39;1970-10-05&#39;, &#39;blue&#39;, 5),
  (10, &#39;Kylan&#39;, &#39;Sexton&#39;, &#39;1975-02-28&#39;, &#39;black&#39;, 4),
  (15, &#39;Hope&#39;, &#39;Silva&#39;, &#39;1970-07-01&#39;, &#39;blue&#39;, 5)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -688,8 +688,9 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(1, &#39;Vivian&#39;, &#39;Hamilton&#39;, &#39;1971-07-08&#39;, &#39;green&#39;, 1),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(1, &#39;Vivian&#39;, &#39;Hamilton&#39;, &#39;1971-07-08&#39;, &#39;green&#39;, 1),
  (2, &#39;Karen&#39;, &#39;Holcomb&#39;, &#39;1974-05-23&#39;, &#39;green&#39;, 4),
  (3, &#39;Cody&#39;, &#39;Garrett&#39;, &#39;1973-04-22&#39;, &#39;orange&#39;, 1),
  (6, &#39;Gretchen&#39;, &#39;Kinney&#39;, &#39;1974-10-18&#39;, &#39;viole&#39;, 1),
@@ -702,8 +703,7 @@ INSERT INTO persons VALUES
  (16, &#39;Ayanna&#39;, &#39;Jarvis&#39;, &#39;1974-02-11&#39;, &#39;orange&#39;, 5),
  (17, &#39;Chanda&#39;, &#39;Boyer&#39;, &#39;1973-04-01&#39;, &#39;green&#39;, 4),
  (18, &#39;Chadwick&#39;, &#39;Knight&#39;, &#39;1973-04-29&#39;, &#39;yellow&#39;, 1)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="ORDER-BY">
@@ -721,8 +721,9 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(4, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, 1),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(4, &#39;Roth&#39;, &#39;Fry&#39;, &#39;1975-01-29&#39;, &#39;black&#39;, 1),
  (10, &#39;Kylan&#39;, &#39;Sexton&#39;, &#39;1975-02-28&#39;, &#39;black&#39;, 4),
  (5, &#39;Zoe&#39;, &#39;Conway&#39;, &#39;1974-07-03&#39;, &#39;blue&#39;, 2),
  (7, &#39;Driscoll&#39;, &#39;Klein&#39;, &#39;1970-10-05&#39;, &#39;blue&#39;, 5),
@@ -740,8 +741,7 @@ INSERT INTO persons VALUES
  (14, &#39;Clio&#39;, &#39;Noel&#39;, &#39;1972-12-12&#39;, &#39;red&#39;, 5),
  (6, &#39;Gretchen&#39;, &#39;Kinney&#39;, &#39;1974-10-18&#39;, &#39;viole&#39;, 1),
  (18, &#39;Chadwick&#39;, &#39;Knight&#39;, &#39;1973-04-29&#39;, &#39;yellow&#39;, 1)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="GROUP-BY">
@@ -763,10 +763,10 @@ INSERT INTO persons VALUES
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(18,)]
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(18,)]
+</pre></div></div>
 </div>
 <p><strong>MAX(), MIN(), SUM(), AVG()</strong></p>
 <div class="nbinput docutils container">
@@ -792,8 +792,9 @@ GROUP BY
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;black&#39;, 4, 1, 5, 2.5),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;black&#39;, 4, 1, 5, 2.5),
  (&#39;blue&#39;, 5, 2, 12, 4.0),
  (&#39;gray&#39;, 5, 5, 5, 5.0),
  (&#39;green&#39;, 5, 1, 14, 3.5),
@@ -802,8 +803,7 @@ GROUP BY
  (&#39;red&#39;, 5, 1, 6, 3.0),
  (&#39;viole&#39;, 1, 1, 1, 1.0),
  (&#39;yellow&#39;, 1, 1, 1, 1.0)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -825,15 +825,15 @@ WHERE
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>[(&#39;green&#39;, 1),
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;green&#39;, 1),
  (&#39;orange&#39;, 1),
  (&#39;black&#39;, 1),
  (&#39;viole&#39;, 1),
  (&#39;red&#39;, 1),
  (&#39;yellow&#39;, 1)]
-</pre></div>
-</div>
+</pre></div></div>
 </div>
 <hr class="docutils" />
 <div class="nbinput nblast docutils container">

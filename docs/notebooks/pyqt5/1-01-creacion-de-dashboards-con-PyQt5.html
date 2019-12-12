@@ -25,8 +25,8 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -170,16 +170,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -188,13 +188,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -202,35 +202,35 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
     min-width: 5ex;
     padding-top: 0.4em;
     padding-right: 0.4em;
@@ -238,56 +238,56 @@ div.nboutput div.prompt {
     flex: 0;
 }
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -368,13 +368,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -399,12 +399,12 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 Ventana Simple&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -436,12 +436,12 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 status bar example - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -477,13 +477,13 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 button - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -535,7 +535,7 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
         <span class="n">QDialogButtonBox</span><span class="p">,</span> <span class="n">QFormLayout</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
         <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QMenuBar</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QSpinBox</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span>
         <span class="n">QVBoxLayout</span><span class="p">)</span>
@@ -547,7 +547,7 @@ PyQt5 button click
     <span class="k">def</span> <span class="nf">slot_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;slot method called.&#39;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Dialog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="n">button</span><span class="o">=</span><span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Click&quot;</span><span class="p">)</span>
@@ -589,13 +589,13 @@ slot method called.
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QMessageBox</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QMessageBox</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 messagebox - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -666,13 +666,13 @@ Yes clicked.
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMessageBox</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMessageBox</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 textbox&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -726,12 +726,12 @@ Yes clicked.
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt absolute positioning - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -780,13 +780,13 @@ Yes clicked.
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QAction</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QAction</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 menu&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -836,13 +836,13 @@ Yes clicked.
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QTableWidget</span><span class="p">,</span><span class="n">QTableWidgetItem</span><span class="p">,</span><span class="n">QVBoxLayout</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QTableWidget</span><span class="p">,</span><span class="n">QTableWidgetItem</span><span class="p">,</span><span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 table - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
@@ -911,13 +911,13 @@ Yes clicked.
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QTabWidget</span><span class="p">,</span><span class="n">QVBoxLayout</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QTabWidget</span><span class="p">,</span><span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 tabs - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
@@ -934,7 +934,7 @@ Yes clicked.
 
 <span class="k">class</span> <span class="nc">MyTableWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
@@ -993,13 +993,13 @@ QLayout: Attempting to add QLayout &#34;&#34; to MyTableWidget &#34;&#34;, which
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span> <span class="n">QVBoxLayout</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span> <span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 layout - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1077,13 +1077,13 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QGridLayout</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QGridLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 layout - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1145,12 +1145,12 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QInputDialog</span><span class="p">,</span> <span class="n">QLineEdit</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QInputDialog</span><span class="p">,</span> <span class="n">QLineEdit</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 input dialogs&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1217,12 +1217,12 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QInputDialog</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QFileDialog</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QInputDialog</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QFileDialog</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 file dialogs - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1291,12 +1291,12 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QLabel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QPixmap</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QLabel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span><span class="p">,</span> <span class="n">QPixmap</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 image - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1338,15 +1338,15 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QPen</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QPen</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt paint - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1407,14 +1407,14 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QColorDialog</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QColor</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QColorDialog</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QColor</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 color dialog - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1466,15 +1466,15 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QPen</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QColor</span><span class="p">,</span> <span class="n">QPen</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt rectangle colors - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1550,13 +1550,13 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QLabel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QLabel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 drag and drop - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1585,7 +1585,7 @@ PyQt5 button click
 
 <span class="k">class</span> <span class="nc">CustomLabel</span><span class="p">(</span><span class="n">QLabel</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setAcceptDrops</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
@@ -1619,13 +1619,13 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QFontDialog</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtSlot</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QFontDialog</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 font dialog - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1686,13 +1686,13 @@ PyQt5 button click
 
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QSizePolicy</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QSizePolicy</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;Qt5Agg&quot;</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="k">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
-<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="k">import</span> <span class="n">Figure</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
@@ -1700,7 +1700,7 @@ PyQt5 button click
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1720,7 +1720,7 @@ PyQt5 button click
 
 <span class="k">class</span> <span class="nc">PlotCanvas</span><span class="p">(</span><span class="n">FigureCanvas</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 
         <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
@@ -1771,12 +1771,12 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="p">(</span><span class="n">QDate</span><span class="p">,</span> <span class="n">QDateTime</span><span class="p">,</span> <span class="n">QRegExp</span><span class="p">,</span> <span class="n">QSortFilterProxyModel</span><span class="p">,</span> <span class="n">Qt</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QDate</span><span class="p">,</span> <span class="n">QDateTime</span><span class="p">,</span> <span class="n">QRegExp</span><span class="p">,</span> <span class="n">QSortFilterProxyModel</span><span class="p">,</span> <span class="n">Qt</span><span class="p">,</span>
         <span class="n">QTime</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QStandardItemModel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QCheckBox</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QStandardItemModel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QCheckBox</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span>
         <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QTreeView</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span>
         <span class="n">QWidget</span><span class="p">)</span>
 
@@ -1785,7 +1785,7 @@ PyQt5 button click
 
     <span class="n">FROM</span><span class="p">,</span> <span class="n">SUBJECT</span><span class="p">,</span> <span class="n">DATE</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 Treeview Example - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1853,12 +1853,12 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QFileSystemModel</span><span class="p">,</span> <span class="n">QTreeView</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QFileSystemModel</span><span class="p">,</span> <span class="n">QTreeView</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 file system view - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1910,7 +1910,7 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
         <span class="n">QDialogButtonBox</span><span class="p">,</span> <span class="n">QFormLayout</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
         <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QMenuBar</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QSpinBox</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span>
         <span class="n">QVBoxLayout</span><span class="p">)</span>
@@ -1921,7 +1921,7 @@ PyQt5 button click
     <span class="n">NumGridRows</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">NumButtons</span> <span class="o">=</span> <span class="mi">4</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Dialog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">createFormGroupBox</span><span class="p">()</span>
 
@@ -1966,7 +1966,7 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
         <span class="n">QDialogButtonBox</span><span class="p">,</span> <span class="n">QFormLayout</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
         <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QMenuBar</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QSpinBox</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span>
         <span class="n">QVBoxLayout</span><span class="p">)</span>
@@ -1977,7 +1977,7 @@ PyQt5 button click
     <span class="n">NumGridRows</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">NumButtons</span> <span class="o">=</span> <span class="mi">4</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Dialog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="n">b1</span><span class="o">=</span><span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button1&quot;</span><span class="p">)</span>
@@ -2017,18 +2017,18 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="k">import</span> <span class="n">QtCore</span>
-<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="k">import</span> <span class="n">QtGui</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">pyqtProperty</span>
-<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="k">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtGui</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtProperty</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtWidgets</span>
 
 <span class="k">class</span> <span class="nc">QIComboBox</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">QIComboBox</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">MagicWizard</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWizard</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MagicWizard</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">Page1</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addPage</span><span class="p">(</span><span class="n">Page2</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
@@ -2036,7 +2036,7 @@ PyQt5 button click
         <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Page1</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWizardPage</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Page1</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comboBox</span> <span class="o">=</span> <span class="n">QIComboBox</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comboBox</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span><span class="s2">&quot;/path/to/filename1&quot;</span><span class="p">)</span>
@@ -2047,7 +2047,7 @@ PyQt5 button click
 
 
 <span class="k">class</span> <span class="nc">Page2</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWizardPage</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Page2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label1</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label2</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLabel</span><span class="p">()</span>
@@ -2082,13 +2082,13 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QCheckBox</span><span class="p">,</span> <span class="n">QApplication</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QCheckBox</span><span class="p">,</span> <span class="n">QApplication</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
@@ -2136,14 +2136,14 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span>
     <span class="n">QFrame</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QColor</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QColor</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
@@ -2222,15 +2222,15 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QSlider</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QSlider</span><span class="p">,</span>
     <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">Qt</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QPixmap</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPixmap</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
@@ -2285,14 +2285,14 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QProgressBar</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QProgressBar</span><span class="p">,</span>
     <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">QBasicTimer</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QBasicTimer</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
@@ -2358,14 +2358,14 @@ PyQt5 button click
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%python</span>
 
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QCalendarWidget</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QCalendarWidget</span><span class="p">,</span>
     <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="k">import</span> <span class="n">QDate</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QDate</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
@@ -2421,13 +2421,13 @@ PyQt5 button click
 <span></span><span class="o">%%python</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="k">import</span> <span class="n">QtCore</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="k">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
-<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="k">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QLabel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt Caption&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>

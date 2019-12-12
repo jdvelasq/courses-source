@@ -2,6 +2,12 @@
 Material de apoyo para cursos
 =======================================
 
+.. toctree::
+    :caption: Configuración
+    :hidden:
+    :titlesonly:
+
+    setup
 
 .. toctree::
     :caption: Cursos
