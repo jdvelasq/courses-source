@@ -1,4 +1,4 @@
-Taller: Gestión de archivos y directorios en Bash
+Actividad: Gestión de archivos y directorios en Bash
 ========================================================
 
 * *30 min*.
