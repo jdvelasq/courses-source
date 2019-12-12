@@ -16,7 +16,7 @@ Sesión 1---01
 
     * Ver la sección de *Información del curso* en el menú de la izquierda.
 
-    * Charla Magistral: *Una introducción a la Analítica*. Descargue aquí :download:`presentación <https://github.com/jdvelasq/datalabs/blob/master/pdf/intro-analitica.pdf>` la presentación.
+    * Charla Magistral: *Una introducción a la Analítica*. Descargue :download:`aquí <https://github.com/jdvelasq/datalabs/blob/master/pdf/intro-analitica.pdf>` la presentación.
 
     * Revisión de la instalación de Vagrant.
 
@@ -33,6 +33,12 @@ Sesión 1---02
         :glob:
 
         /notebooks/bash/1-*
+
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
         /notebooks/git/*
 
 
