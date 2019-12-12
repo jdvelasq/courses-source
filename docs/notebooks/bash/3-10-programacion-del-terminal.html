@@ -403,9 +403,9 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">var1</span><span class="o">=</span><span class="s1">&#39;hola mundo&#39;</span>
-<span class="nb">echo</span> <span class="nv">$var1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>var1=&#39;hola mundo&#39;
+echo $var1
 </pre></div>
 </div>
 </div>
@@ -421,8 +421,8 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">echo</span> var1
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">echo</span> <span class="n">var1</span>
 </pre></div>
 </div>
 </div>
@@ -439,9 +439,9 @@ var1
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">x</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> hola mundo<span class="k">)</span>
-<span class="nb">echo</span> <span class="nv">$x</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x=$(echo hola mundo)
+echo $x
 </pre></div>
 </div>
 </div>
@@ -458,10 +458,10 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">y</span><span class="o">=</span><span class="nv">$x</span>+1
-<span class="nb">echo</span> <span class="nv">$y</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x=1
+y=$x+1
+echo $y
 </pre></div>
 </div>
 </div>
@@ -478,10 +478,10 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">y</span><span class="o">=</span><span class="k">$((</span>x+1<span class="k">))</span>
-<span class="nb">echo</span> <span class="nv">$y</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x=1
+y=$((x+1))
+echo $y
 </pre></div>
 </div>
 </div>
@@ -497,10 +497,10 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">let</span> <span class="nv">x</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">let</span> <span class="nv">y</span><span class="o">=</span>x+1
-<span class="nb">echo</span> <span class="nv">$y</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>let x=1
+let y=x+1
+echo $y
 </pre></div>
 </div>
 </div>
@@ -517,10 +517,10 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">let</span> <span class="nv">x</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">let</span> <span class="nv">x</span><span class="o">+=</span><span class="m">1</span>
-<span class="nb">echo</span> <span class="nv">$x</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>let x=1
+let x+=1
+echo $x
 </pre></div>
 </div>
 </div>
@@ -537,9 +537,9 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">x</span><span class="o">=(</span>a b c d e<span class="o">)</span>
-<span class="nb">echo</span> <span class="nv">$x</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x=(a b c d e)
+echo $x
 </pre></div>
 </div>
 </div>
@@ -556,8 +556,8 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">echo</span> <span class="si">${</span><span class="nv">x</span><span class="p">[1]</span><span class="si">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>echo ${x[1]}
 </pre></div>
 </div>
 </div>
@@ -574,8 +574,8 @@ b
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">echo</span> <span class="si">${</span><span class="nv">x</span><span class="p">[*]</span><span class="si">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>echo ${x[*]}
 </pre></div>
 </div>
 </div>
@@ -592,11 +592,11 @@ a b c d e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> n in <span class="si">${</span><span class="nv">x</span><span class="p">[*]</span><span class="si">}</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> <span class="nv">$n</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>for n in ${x[*]}
+do
+    echo $n
+done
 </pre></div>
 </div>
 </div>
@@ -617,12 +617,12 @@ e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>x<span class="o">[</span><span class="m">2</span><span class="o">]=</span><span class="s1">&#39;hola&#39;</span>
-<span class="k">for</span> n in <span class="si">${</span><span class="nv">x</span><span class="p">[*]</span><span class="si">}</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> <span class="nv">$n</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x[2]=&#39;hola&#39;
+for n in ${x[*]}
+do
+    echo $n
+done
 </pre></div>
 </div>
 </div>
@@ -647,8 +647,8 @@ e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">echo</span> <span class="s1">&#39;echo hola mundo&#39;</span> &gt; demo.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">echo</span> <span class="s1">&#39;echo hola mundo&#39;</span> <span class="o">&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
@@ -657,8 +657,8 @@ e
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat demo.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="n">demo</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
@@ -675,8 +675,8 @@ echo hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>ls *.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ls</span> <span class="o">*.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
@@ -693,8 +693,8 @@ echo hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>bash ./demo.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bash</span> <span class="o">./</span><span class="n">demo</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
@@ -716,11 +716,11 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat &gt; demo <span class="s">&lt;&lt;EOF</span>
-<span class="s">#! /usr/bin/env bash</span>
-<span class="s">echo hola mundo</span>
-<span class="s">EOF</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="o">&gt;</span> <span class="n">demo</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+<span class="c1">#! /usr/bin/env bash</span>
+<span class="n">echo</span> <span class="n">hola</span> <span class="n">mundo</span>
+<span class="n">EOF</span>
 </pre></div>
 </div>
 </div>
@@ -729,8 +729,8 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat demo
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="n">demo</span>
 </pre></div>
 </div>
 </div>
@@ -748,8 +748,8 @@ echo hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>chmod +x demo
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">demo</span>
 </pre></div>
 </div>
 </div>
@@ -758,8 +758,8 @@ echo hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>./demo
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">./</span><span class="n">demo</span>
 </pre></div>
 </div>
 </div>
@@ -777,11 +777,11 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat &gt; demo.sh <span class="s">&lt;&lt;EOF</span>
-<span class="s">#! /usr/bin/env bash</span>
-<span class="s">echo hola \$1 \$2</span>
-<span class="s">EOF</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>cat &gt; demo.sh &lt;&lt;EOF
+#! /usr/bin/env bash
+echo hola \$1 \$2
+EOF
 </pre></div>
 </div>
 </div>
@@ -789,8 +789,8 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat demo.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="n">demo</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
@@ -807,8 +807,8 @@ echo hola $1 $2
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>chmod +x demo.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">demo</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
@@ -816,8 +816,8 @@ echo hola $1 $2
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>./demo.sh juan david
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">./</span><span class="n">demo</span><span class="o">.</span><span class="n">sh</span> <span class="n">juan</span> <span class="n">david</span>
 </pre></div>
 </div>
 </div>
@@ -834,12 +834,12 @@ hola juan david
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">echo</span> <span class="s2">&quot;echo \$@</span>
-<span class="s2">echo \$*</span>
-<span class="s2">echo \$0</span>
-<span class="s2">echo \$1</span>
-<span class="s2">echo \$#&quot;</span> &gt; demo.sh
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>echo &quot;echo \$@
+echo \$*
+echo \$0
+echo \$1
+echo \$#&quot; &gt; demo.sh
 cat demo.sh
 </pre></div>
 </div>
@@ -860,8 +860,8 @@ echo $#
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>bash demo.sh a b c d
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bash</span> <span class="n">demo</span><span class="o">.</span><span class="n">sh</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span>
 </pre></div>
 </div>
 </div>
@@ -885,10 +885,10 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>demo<span class="o">(){</span>
-  <span class="nb">echo</span> hola mundo
-<span class="o">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">demo</span><span class="p">(){</span>
+  <span class="n">echo</span> <span class="n">hola</span> <span class="n">mundo</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -897,8 +897,8 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>demo
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">demo</span>
 </pre></div>
 </div>
 </div>
@@ -915,14 +915,14 @@ hola mundo
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>demo<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="nv">$@</span>
-  <span class="nb">echo</span> <span class="nv">$*</span>
-  <span class="nb">echo</span> <span class="nv">$0</span>
-  <span class="nb">echo</span> <span class="nv">$1</span>
-  <span class="nb">echo</span> <span class="nv">$#</span>
-<span class="o">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>demo() {
+  echo $@
+  echo $*
+  echo $0
+  echo $1
+  echo $#
+}
 demo a b c d
 </pre></div>
 </div>
@@ -944,33 +944,33 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat &gt; maxmin.sh <span class="s">&lt;&lt;EOF</span>
-<span class="s">min2(){</span>
-<span class="s">    echo &#39;arg1 (min2): &#39; \$1</span>
-<span class="s">    echo &#39;arg2 (min2): &#39; \$2</span>
-<span class="s">    if ((\$1 &lt; \$2))</span>
-<span class="s">    then</span>
-<span class="s">        echo \$1</span>
-<span class="s">    else</span>
-<span class="s">        echo \$2</span>
-<span class="s">    fi</span>
-<span class="s">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>cat &gt; maxmin.sh &lt;&lt;EOF
+min2(){
+    echo &#39;arg1 (min2): &#39; \$1
+    echo &#39;arg2 (min2): &#39; \$2
+    if ((\$1 &lt; \$2))
+    then
+        echo \$1
+    else
+        echo \$2
+    fi
+}
 
-<span class="s">max2(){</span>
-<span class="s">    echo &#39;arg1 (max2): &#39; \$1</span>
-<span class="s">    echo &#39;arg2 (max2): &#39; \$2</span>
-<span class="s">    if ((\$1 &gt; \$2))</span>
-<span class="s">    then</span>
-<span class="s">        echo \$1</span>
-<span class="s">    else</span>
-<span class="s">        echo \$2</span>
-<span class="s">    fi</span>
-<span class="s">}</span>
+max2(){
+    echo &#39;arg1 (max2): &#39; \$1
+    echo &#39;arg2 (max2): &#39; \$2
+    if ((\$1 &gt; \$2))
+    then
+        echo \$1
+    else
+        echo \$2
+    fi
+}
 
-<span class="s">max2 \$3 \$4</span>
-<span class="s">min2 \$1 \$2</span>
-<span class="s">EOF</span>
+max2 \$3 \$4
+min2 \$1 \$2
+EOF
 </pre></div>
 </div>
 </div>
@@ -978,8 +978,8 @@ a
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>bash maxmin.sh <span class="m">10</span> <span class="m">20</span> <span class="m">30</span> <span class="m">40</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bash</span> <span class="n">maxmin</span><span class="o">.</span><span class="n">sh</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">40</span>
 </pre></div>
 </div>
 </div>
@@ -1004,19 +1004,19 @@ arg2 (min2):  20
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>min2<span class="o">(){</span>
-    <span class="k">if</span> <span class="o">((</span><span class="nv">$1</span> &lt; <span class="nv">$2</span><span class="o">))</span>
-    <span class="k">then</span>
-        <span class="nb">echo</span> <span class="nv">$1</span>
-    <span class="k">elif</span> <span class="o">((</span><span class="nv">$1</span> <span class="o">==</span> <span class="nv">$2</span><span class="o">))</span>
-    <span class="k">then</span>
-        <span class="nb">echo</span> <span class="nv">$1</span> <span class="nv">$2</span>
-    <span class="k">else</span>
-        <span class="nb">echo</span> <span class="nv">$2</span>
-    <span class="k">fi</span>
-<span class="o">}</span>
-min2 <span class="m">1</span> <span class="m">2</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>min2(){
+    if (($1 &lt; $2))
+    then
+        echo $1
+    elif (($1 == $2))
+    then
+        echo $1 $2
+    else
+        echo $2
+    fi
+}
+min2 1 2
 </pre></div>
 </div>
 </div>
@@ -1032,8 +1032,8 @@ min2 <span class="m">1</span> <span class="m">2</span>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>min2 <span class="m">2</span> <span class="m">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">min2</span> <span class="mi">2</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -1049,8 +1049,8 @@ min2 <span class="m">1</span> <span class="m">2</span>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>min2 <span class="m">2</span> <span class="m">2</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">min2</span> <span class="mi">2</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -1068,14 +1068,14 @@ instrucciones especificadas por las sentencias <code class="docutils literal not
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> x in *
-<span class="k">do</span>
-    <span class="k">case</span> <span class="nv">$x</span> in
-        *.ipynb<span class="o">)</span> <span class="nb">echo</span> -n -e <span class="nv">$x</span> <span class="s1">&#39; es un Jupyter notebook\n&#39;</span><span class="p">;;</span>
-        *<span class="o">)</span>
-    <span class="k">esac</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>for x in *
+do
+    case $x in
+        *.ipynb) echo -n -e $x &#39; es un Jupyter notebook\n&#39;;;
+        *)
+    esac
+done
 </pre></div>
 </div>
 </div>
@@ -1097,12 +1097,12 @@ instrucciones especificadas por las sentencias <code class="docutils literal not
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># imprime los números del 1 al 5.</span>
-<span class="k">for</span> x in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> -n <span class="nv">$x</span> <span class="s1">&#39;&#39;</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># imprime los números del 1 al 5.
+for x in 1 2 3 4 5
+do
+    echo -n $x &#39;&#39;
+done
 </pre></div>
 </div>
 </div>
@@ -1118,12 +1118,12 @@ instrucciones especificadas por las sentencias <code class="docutils literal not
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># el mismo ejemplo anterior.</span>
-<span class="k">for</span> x in <span class="k">$(</span>seq <span class="m">1</span> <span class="m">5</span><span class="k">)</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> -n <span class="nv">$x</span> <span class="s1">&#39;&#39;</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># el mismo ejemplo anterior.
+for x in $(seq 1 5)
+do
+    echo -n $x &#39;&#39;
+done
 </pre></div>
 </div>
 </div>
@@ -1139,12 +1139,12 @@ instrucciones especificadas por las sentencias <code class="docutils literal not
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># de nuevo, el mismo ejemplo anterior</span>
-<span class="k">for</span> x in <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> -n <span class="nv">$x</span> <span class="s1">&#39;&#39;</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># de nuevo, el mismo ejemplo anterior
+for x in {1..5}
+do
+    echo -n $x &#39;&#39;
+done
 </pre></div>
 </div>
 </div>
@@ -1160,12 +1160,12 @@ instrucciones especificadas por las sentencias <code class="docutils literal not
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># note que la expresión va entre &#39;((&#39;  y &#39;))&#39;</span>
-<span class="k">for</span> <span class="o">((</span><span class="nv">x</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> x &lt;<span class="o">=</span> <span class="m">5</span><span class="p">;</span> x++<span class="o">))</span>
-<span class="k">do</span>
-  <span class="nb">echo</span> -n <span class="nv">$x</span> <span class="s1">&#39;&#39;</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># note que la expresión va entre &#39;((&#39;  y &#39;))&#39;
+for ((x=1; x &lt;= 5; x++))
+do
+  echo -n $x &#39;&#39;
+done
 </pre></div>
 </div>
 </div>
@@ -1182,11 +1182,11 @@ instrucciones especificadas por las sentencias <code class="docutils literal not
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> x in <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> file<span class="si">${</span><span class="nv">x</span><span class="si">}</span>.txt
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>for x in {1..5}
+do
+    echo file${x}.txt
+done
 </pre></div>
 </div>
 </div>
@@ -1207,12 +1207,12 @@ file5.txt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># el for recibe el resultado de ejecutar la expresión entre &#39;$(&#39;  y  &#39;)&#39;.</span>
-<span class="k">for</span> x in <span class="k">$(</span>seq -f<span class="s1">&#39;file%g.txt&#39;</span> <span class="m">5</span><span class="k">)</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> <span class="s1">&#39;---&gt;&#39;</span> <span class="nv">$x</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span># el for recibe el resultado de ejecutar la expresión entre &#39;$(&#39;  y  &#39;)&#39;.
+for x in $(seq -f&#39;file%g.txt&#39; 5)
+do
+    echo &#39;---&gt;&#39; $x
+done
 </pre></div>
 </div>
 </div>
@@ -1233,11 +1233,11 @@ file5.txt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> x in <span class="o">{</span><span class="m">1</span>..5<span class="o">}</span>
-<span class="k">do</span>
-    seq -f<span class="s1">&#39;linea %g&#39;</span> <span class="m">5</span> &gt; out.<span class="si">${</span><span class="nv">x</span><span class="si">}</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>for x in {1..5}
+do
+    seq -f&#39;linea %g&#39; 5 &gt; out.${x}
+done
 ls out.*
 </pre></div>
 </div>
@@ -1255,13 +1255,13 @@ out.1  out.2  out.3  out.4  out.5
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>head1<span class="o">(){</span>
-    <span class="k">for</span> x in out.*
-    <span class="k">do</span>
-        head -n <span class="m">1</span> <span class="nv">$x</span>
-    <span class="k">done</span>
-<span class="o">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>head1(){
+    for x in out.*
+    do
+        head -n 1 $x
+    done
+}
 head1
 </pre></div>
 </div>
@@ -1286,13 +1286,13 @@ linea 1
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">n</span><span class="o">=</span><span class="m">1</span>
-<span class="k">while</span> <span class="nb">test</span> <span class="nv">$n</span> -le <span class="m">5</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> file<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt
-    <span class="nv">n</span><span class="o">=</span><span class="k">$((</span>n+1<span class="k">))</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>n=1
+while test $n -le 5
+do
+    echo file${n}.txt
+    n=$((n+1))
+done
 </pre></div>
 </div>
 </div>
@@ -1312,13 +1312,13 @@ file5.txt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">n</span><span class="o">=</span><span class="m">1</span>
-<span class="k">while</span> <span class="o">((</span><span class="nv">$n</span> &lt;<span class="o">=</span> <span class="m">5</span><span class="o">))</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> file<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt
-    <span class="nv">n</span><span class="o">=</span><span class="k">$((</span>n+1<span class="k">))</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>n=1
+while (($n &lt;= 5))
+do
+    echo file${n}.txt
+    n=$((n+1))
+done
 </pre></div>
 </div>
 </div>
@@ -1342,13 +1342,13 @@ file5.txt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span><span class="nv">n</span><span class="o">=</span><span class="m">1</span>
-<span class="k">until</span> <span class="o">((</span><span class="nv">$n</span> &gt; <span class="m">5</span><span class="o">))</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> file<span class="si">${</span><span class="nv">n</span><span class="si">}</span>.txt
-    <span class="nv">n</span><span class="o">=</span><span class="k">$((</span>n+1<span class="k">))</span>
-<span class="k">done</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>n=1
+until (($n &gt; 5))
+do
+    echo file${n}.txt
+    n=$((n+1))
+done
 </pre></div>
 </div>
 </div>
@@ -1369,19 +1369,19 @@ file5.txt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>minimum<span class="o">(){</span>
-    <span class="nv">n</span><span class="o">=</span><span class="nv">$1</span>
-    <span class="k">for</span> x in <span class="nv">$*</span>
-    <span class="k">do</span>
-        <span class="k">if</span> <span class="nb">test</span> <span class="nv">$x</span> -lt <span class="nv">$n</span>
-        <span class="k">then</span>
-            <span class="nv">n</span><span class="o">=</span><span class="nv">$x</span>
-        <span class="k">fi</span>
-    <span class="k">done</span>
-    <span class="nb">echo</span> <span class="nv">$n</span>
-<span class="o">}</span>
-minimum <span class="m">6</span> <span class="m">1</span> <span class="m">7</span> <span class="m">5</span> <span class="m">1</span> <span class="m">2</span>  <span class="m">5</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>minimum(){
+    n=$1
+    for x in $*
+    do
+        if test $x -lt $n
+        then
+            n=$x
+        fi
+    done
+    echo $n
+}
+minimum 6 1 7 5 1 2  5
 </pre></div>
 </div>
 </div>
@@ -1406,8 +1406,8 @@ posibilidad de crear nuevas herramientas con el lenguaje de programación que se
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>which -a python
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">which</span> <span class="o">-</span><span class="n">a</span> <span class="n">python</span>
 </pre></div>
 </div>
 </div>
@@ -1424,8 +1424,8 @@ posibilidad de crear nuevas herramientas con el lenguaje de programación que se
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>/usr/bin/python --version
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 </div>
@@ -1442,8 +1442,8 @@ Python 2.7.15rc1
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>which -a python3
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">which</span> <span class="o">-</span><span class="n">a</span> <span class="n">python3</span>
 </pre></div>
 </div>
 </div>
@@ -1459,8 +1459,8 @@ Python 2.7.15rc1
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>python3 --version
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 </div>
@@ -1477,13 +1477,13 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat &gt; seq.py <span class="s">&lt;&lt;EOF</span>
-<span class="s">import sys</span>
-<span class="s">x = int(sys.argv[1])</span>
-<span class="s">for i in range(x):</span>
-<span class="s">    print i+1,</span>
-<span class="s">EOF</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="o">&gt;</span> <span class="n">seq</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+<span class="n">EOF</span>
 </pre></div>
 </div>
 </div>
@@ -1493,8 +1493,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>/usr/bin/python seq.py <span class="m">5</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="n">seq</span><span class="o">.</span><span class="n">py</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -1511,15 +1511,15 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat &gt; seq.py <span class="s">&lt;&lt;EOF</span>
-<span class="s">#! /usr/bin/python</span>
-<span class="s">import sys</span>
-<span class="s">x = int(sys.argv[1])</span>
-<span class="s">for i in range(x):</span>
-<span class="s">    print i+1,</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="o">&gt;</span> <span class="n">seq</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+<span class="c1">#! /usr/bin/python</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
 
-<span class="s">EOF</span>
+<span class="n">EOF</span>
 </pre></div>
 </div>
 </div>
@@ -1527,8 +1527,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>chmod +x seq.py
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">seq</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div>
@@ -1537,8 +1537,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>./seq.py <span class="m">4</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">./</span><span class="n">seq</span><span class="o">.</span><span class="n">py</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
@@ -1558,8 +1558,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>which -a Rscript
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">which</span> <span class="o">-</span><span class="n">a</span> <span class="n">Rscript</span>
 </pre></div>
 </div>
 </div>
@@ -1576,12 +1576,12 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat &gt; unif.R <span class="s">&lt;&lt;-FILE</span>
-<span class="s">#! /usr/bin/env Rscript</span>
-<span class="s">args &lt;- commandArgs(trailingOnly=TRUE)</span>
-<span class="s">cat(runif(as.numeric(args)), sep=&#39;\n&#39;)</span>
-<span class="s">FILE</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="o">&gt;</span> <span class="n">unif</span><span class="o">.</span><span class="n">R</span> <span class="o">&lt;&lt;-</span><span class="n">FILE</span>
+<span class="c1">#! /usr/bin/env Rscript</span>
+<span class="n">args</span> <span class="o">&lt;-</span> <span class="n">commandArgs</span><span class="p">(</span><span class="n">trailingOnly</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">cat</span><span class="p">(</span><span class="n">runif</span><span class="p">(</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">args</span><span class="p">)),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">FILE</span>
 </pre></div>
 </div>
 </div>
@@ -1589,8 +1589,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>chmod +x unif.R
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">unif</span><span class="o">.</span><span class="n">R</span>
 </pre></div>
 </div>
 </div>
@@ -1600,8 +1600,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>./unif.R <span class="m">5</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">./</span><span class="n">unif</span><span class="o">.</span><span class="n">R</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -1622,15 +1622,15 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>randunif<span class="o">(){</span>
-    <span class="k">for</span> n in <span class="k">$(</span>seq <span class="nv">$1</span><span class="k">)</span>
-    <span class="k">do</span>
-        <span class="nb">echo</span> <span class="k">$(</span>./unif.R <span class="nv">$2</span><span class="k">)</span> &gt; aux.<span class="si">${</span><span class="nv">n</span><span class="si">}</span>
-        tr <span class="s1">&#39; &#39;</span>  <span class="s1">&#39;\n&#39;</span> &lt; aux.<span class="si">${</span><span class="nv">n</span><span class="si">}</span> &gt; out.<span class="si">${</span><span class="nv">n</span><span class="si">}</span>
-        rm aux.<span class="si">${</span><span class="nv">n</span><span class="si">}</span>
-    <span class="k">done</span>
-<span class="o">}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>randunif(){
+    for n in $(seq $1)
+    do
+        echo $(./unif.R $2) &gt; aux.${n}
+        tr &#39; &#39;  &#39;\n&#39; &lt; aux.${n} &gt; out.${n}
+        rm aux.${n}
+    done
+}
 </pre></div>
 </div>
 </div>
@@ -1639,8 +1639,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>randunif <span class="m">3</span> <span class="m">5</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">randunif</span> <span class="mi">3</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -1648,8 +1648,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat out.1
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="n">out</span><span class="o">.</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -1669,8 +1669,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat out.2
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="n">out</span><span class="o">.</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -1690,8 +1690,8 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>cat out.3
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cat</span> <span class="n">out</span><span class="o">.</span><span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -1712,12 +1712,12 @@ Python 3.6.7
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>rm *.sh
-rm out*
-rm *.py
-rm *.R
-rm demo*
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rm</span> <span class="o">*.</span><span class="n">sh</span>
+<span class="n">rm</span> <span class="n">out</span><span class="o">*</span>
+<span class="n">rm</span> <span class="o">*.</span><span class="n">py</span>
+<span class="n">rm</span> <span class="o">*.</span><span class="n">R</span>
+<span class="n">rm</span> <span class="n">demo</span><span class="o">*</span>
 </pre></div>
 </div>
 </div>
