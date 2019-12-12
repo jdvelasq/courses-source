@@ -6,6 +6,5 @@ Analítica de grandes datos
     :titlesonly:
 
     content
-    setup
     grades
     course-info

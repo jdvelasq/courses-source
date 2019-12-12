@@ -6,6 +6,5 @@ Analítica Predictiva
     :maxdepth: 1
 
     content
-    setup
     grades
     course-info
