@@ -20,7 +20,7 @@ Material de apoyo para cursos
     ciencia-de-los-datos/index
     fundamentos-de-analitica/index
     productos-de-datos/index.rst
-    redes-neuronales-con-tensorflow/index.rst
+    redes-neuronales-con-tensorflow/index
 
 
 **Docente responsable:** 
