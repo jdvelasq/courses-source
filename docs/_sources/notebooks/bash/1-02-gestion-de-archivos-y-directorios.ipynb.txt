@@ -6,7 +6,7 @@
    "source": [
     "# Gestión de archivos y directorios en Bash\n",
     "\n",
-    "* *50 min*."
+    "* *50 min* | Última modificación: Diciembre 16, 2019."
    ]
   },
   {

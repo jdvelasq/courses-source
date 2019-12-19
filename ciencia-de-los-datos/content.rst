@@ -1,9 +1,9 @@
 Sesiones
-=========
+=========================================================================================
 
 
 Sesión 1---01 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Introducción**
 
@@ -16,12 +16,14 @@ Sesión 1---01
 
     * Ver la sección de *Información del curso* en el menú de la izquierda.
 
-    * Charla Magistral: *Una introducción a la Analítica*. Descargue :download:`aquí <https://github.com/jdvelasq/datalabs/blob/master/pdf/intro-analitica.pdf>` la presentación.
+    * Charla Magistral: *Una introducción a la Analítica*. Descargue 
+      :download:`aquí <https://github.com/jdvelasq/datalabs/blob/master/pdf/intro-analitica.pdf>` 
+      la presentación.
 
     * Revisión de la instalación de Vagrant.
 
 Sesión 1---02
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Bash, Git y GitHub para Ciencia de los Datos (1)**
 
@@ -41,9 +43,11 @@ Sesión 1---02
 
         /notebooks/git/*
 
+    **Realice las actividades descritas en el menú Laboratorios de Programación**.
+
 
 Sesión 1---03
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Bash, Git y GitHub para Ciencia de los Datos (2)**
 
@@ -59,11 +63,15 @@ Sesión 1---03
         /notebooks/bash/2-*
 
 
-    * Realice el `LAB 01: Transformación de datos con sed <https://classroom.github.com/a/G4Pg6jgi/>`_
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/bash/3-*
 
 
 Sesión 1---04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Bash, Git y GitHub para Ciencia de los Datos (3)**
 
@@ -71,14 +79,18 @@ Sesión 1---04
         :maxdepth: 1
         :glob:
 
-        /notebooks/bash/3-*
+        /notebooks/bash/4-*
 
-    * Realice el `LAB 02: Transformación de datos usando Bash <https://classroom.github.com/a/nS_voOzU>`_ 
 
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/bash/5-*
 
 
 Sesión 2---05
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Programación básica en Python (1)**
 
@@ -90,7 +102,7 @@ Sesión 2---05
 
 
 Sesión 2---06
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Programación básica en Python (2)**
 
@@ -100,11 +112,11 @@ Sesión 2---06
 
         /notebooks/python/2-*
 
-    **Taller** --- `Wordcount en Python
+    **Actividad** --- `Wordcount en Python
     <https://github.com/jdvelasq/datalabs/blob/master/notebooks/wordcount-en-python.ipynb>`_.
 
 Sesión 2---07
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Programación básica en Python (3)**
 
@@ -113,12 +125,9 @@ Sesión 2---07
         :glob:
 
         /notebooks/python/3-*        
-    
-
-    * Realice el `LAB 03: Programación en Python <https://classroom.github.com/a/4D87dOAO>`_ 
 
 Sesión 2---08
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Transformación de Datos en Python**
 
@@ -128,11 +137,8 @@ Sesión 2---08
 
         /notebooks/pandas/*
 
-    * Realice el `LAB 04: Programación usando Pandas <https://classroom.github.com/a/dW3VY6dW>`_ 
-
-
 Sesión 3---09
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Programación en SQL (1)**
 
@@ -144,7 +150,7 @@ Sesión 3---09
 
 
 Sesión 3---10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Programación en SQL (2)**
 
@@ -154,13 +160,8 @@ Sesión 3---10
 
         /notebooks/mysql/2-*
 
-
-    * Realice el `LAB 05: Consultas en SQL <https://classroom.github.com/a/RpOt_exR>`_ 
-
-
-
 Sesión 3---11
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Temas complementarios**
 
@@ -184,11 +185,9 @@ Sesión 3---11
         /notebooks/scrapping/*
 
 Sesión 3---12
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Análisis Exploratorio y Visualización**
-
-    * Realice el `LAB 06: Análisis exploratorio en Python <https://classroom.github.com/a/-b4aU_oP>`_ 
 
     .. toctree::
         :maxdepth: 1
@@ -205,18 +204,15 @@ Sesión 3---12
         /notebooks/bokeh/*
         /notebooks/visualizacion/*
         
-        
-    * Realice el `LAB 07: Gráficas en Matplotlib <https://classroom.github.com/a/om2yttYp>`_ 
-       
-
+    
 Sesión 4---13
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Sesión de presentaciones orales con expositores invitados.
 
 
 Sesión 4---14
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Productos de Datos en Python**
 
@@ -235,7 +231,7 @@ Sesión 4---14
         /notebooks/pyqt5/*
 
 Sesión 4---15
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Productos de Datos**
 
@@ -253,7 +249,7 @@ Sesión 4---15
 
 
 Sesión 4---16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     Cierre
 
