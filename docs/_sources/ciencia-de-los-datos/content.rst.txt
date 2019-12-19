@@ -129,7 +129,7 @@ Sesión 2---07
 Sesión 2---08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Transformación de Datos en Python**
+    **Transformación de Datos en Python usando Pandas**
 
     .. toctree::
         :maxdepth: 1

@@ -1,7 +1,7 @@
 Actividad: Gestión de archivos y directorios en Bash
 ========================================================
 
-* *30 min*.
+* *30 min*  | Última modificación: Diciembre 19, 2019.
 
 Introducción
 --------------

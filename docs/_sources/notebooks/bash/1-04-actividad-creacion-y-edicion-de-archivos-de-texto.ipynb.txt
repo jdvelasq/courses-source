@@ -51,7 +51,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Actividad 2 --- Edición de archivos de texto\n",
+    "## Actividad 2 --- Editar un archivo de texto\n",
     "\n",
     "La edición en el Terminal se realiza usualmente con uno de los siguiente editores editores:\n",
     "\n",
@@ -71,7 +71,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Actividad 3 --- Cree un archivo y agregue contenido usando echo\n",
+    "## Actividad 3 --- Crear un archivo y agregar contenido usando echo\n",
     "\n",
     "El comando `echo` permite la impresión de textos en el Terminal. La salida de `echo` puede redireccionarse hacia un archivo. Cree el archivo `demo1.txt` y agregue contenido con:\n",
     "\n",
@@ -105,7 +105,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Actividad 4 --- Cree un archivo y agregue contenido con cat\n",
+    "## Actividad 4 --- Crear un archivo y agregar contenido con cat\n",
     "\n",
     "El comando `cat` permite visualizar el contenido de un archivo. Sin embargo, es posible usar `cat` para crear un archivo, editando directamente su contenido en el Terminal con:\n",
     "\n",

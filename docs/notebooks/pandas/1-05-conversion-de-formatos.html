@@ -414,13 +414,105 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="section" id="Conversión-de-un-formato-a-otro">
+<h2>Conversión de un formato a otro<a class="headerlink" href="#Conversión-de-un-formato-a-otro" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Creación-de-un-archivo-en-disco-duro-con-una-tabla-para-el-ejemplo">
+<h3>Creación de un archivo en disco duro con una tabla para el ejemplo<a class="headerlink" href="#Creación-de-un-archivo-en-disco-duro-con-una-tabla-para-el-ejemplo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## crea el DataFrame</span>
+<span class="c1">## los DataFrame en Pandas son diccionarios</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)),</span>
+                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span>
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.03</span><span class="p">,</span> <span class="mf">5.14</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">1.13</span><span class="p">,</span> <span class="mf">8.25</span><span class="p">]})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   index name  value
+0      1    A   3.03
+1      2    B   5.14
+2      3    C   0.40
+3      4    D   1.13
+4      5    E   8.25
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Almacenamiento-del-archivo-en-disco">
+<h3>Almacenamiento del archivo en disco<a class="headerlink" href="#Almacenamiento-del-archivo-en-disco" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s1">&#39;data.csv&#39;</span><span class="p">,</span>     <span class="c1"># el nombre del archivo</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># imprime los nombres de las filas?</span>
+<span class="o">!</span>cat data.csv
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+index,name,value
+1,A,3.03
+2,B,5.14
+3,C,0.4
+4,D,1.13
+5,E,8.25
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Ejemplo-de-conversión-de-csv-a-json">
+<h3>Ejemplo de conversión de csv a json<a class="headerlink" href="#Ejemplo-de-conversión-de-csv-a-json" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span>
+<span class="o">!</span>cat data.json
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#34;index&#34;:{&#34;0&#34;:1,&#34;1&#34;:2,&#34;2&#34;:3,&#34;3&#34;:4,&#34;4&#34;:5},&#34;name&#34;:{&#34;0&#34;:&#34;A&#34;,&#34;1&#34;:&#34;B&#34;,&#34;2&#34;:&#34;C&#34;,&#34;3&#34;:&#34;D&#34;,&#34;4&#34;:&#34;E&#34;},&#34;value&#34;:{&#34;0&#34;:3.03,&#34;1&#34;:5.14,&#34;2&#34;:0.4,&#34;3&#34;:1.13,&#34;4&#34;:8.25}}
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm data.csv data.json
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="Lectura-y-escritura-de-archivos-usando-Pandas">
 <h2>Lectura y escritura de archivos usando Pandas<a class="headerlink" href="#Lectura-y-escritura-de-archivos-usando-Pandas" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="line-block">
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">pandas.DataFrame</a></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -441,7 +533,7 @@ div.rendered_html tbody tr:hover {
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-pickle">pandas.read_pickle</a></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -451,7 +543,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -460,7 +552,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -483,7 +575,7 @@ div.rendered_html tbody tr:hover {
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-read-csv-table">pandas.read_csv</a></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -511,7 +603,7 @@ index,name,value
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -520,7 +612,7 @@ index,name,value
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -534,7 +626,7 @@ index,name,value
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -548,7 +640,7 @@ index,name,value
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -563,7 +655,7 @@ index,name,value
 </div>
 <p>En español: “;” como separador de campos y “,” como separador decimal.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -593,7 +685,7 @@ index;name;value
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -606,7 +698,7 @@ index;name;value
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -626,7 +718,7 @@ index;name;value
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_fwf.html">pandas.read_fwf</a></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -661,7 +753,7 @@ indexnames      valuescodes
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -672,7 +764,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -695,7 +787,7 @@ indexnames      valuescodes
 <div class="line"><code class="docutils literal notranslate"><span class="pre">JSON</span></code> en <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">wikipedia</a></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -716,7 +808,7 @@ indexnames      valuescodes
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -726,7 +818,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -748,7 +840,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-read-html">pandas.read_html</a></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -805,7 +897,7 @@ indexnames      valuescodes
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -814,7 +906,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -836,7 +928,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-excel-reader">pandas.read_excel</a></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -846,7 +938,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -855,7 +947,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -877,7 +969,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-hdf5">pandas.read_hdf</a></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -888,7 +980,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -899,7 +991,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -913,7 +1005,7 @@ indexnames      valuescodes
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -922,7 +1014,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -944,7 +1036,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-stata-reader">pandas.read_stata</a></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -957,7 +1049,7 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -977,7 +1069,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-sas-reader">pandas.read_sas</a></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -994,7 +1086,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-sql">pandas.read_sql</a></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1012,27 +1104,18 @@ indexnames      valuescodes
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">PyPDF2</span>
 </pre></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">PyPDF2</span>
-<span class="n">pdfFileObj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
-<span class="n">pdfReader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileObj</span><span class="p">)</span>
-<span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span>
+<span class="c1">#pdfFileObj = open(&#39;files/data.pdf&#39;, &#39;rb&#39;)</span>
+<span class="c1">#pdfReader = PyPDF2.PdfFileReader(pdfFileObj)</span>
+<span class="c1">#pageObj = pdfReader.getPage(0)</span>
+<span class="c1">#pageObj.extractText()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#34;R is a programming language and software environment for  statistical computing and graphics supported by the R Foundation for Statistical Computing.[3] The R language is widely used among statisticians and data miners for developing statistical software[4] and data analysis.[5] Polls, surveys of data miners, and studies of scholarly literature databases show that R&#39;s popularity has increased substantially in recent years.[6]&#34;
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="Lectura-de-Matlab-y-Octave">
@@ -1042,7 +1125,7 @@ indexnames      valuescodes
 <div class="line"><a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/tutorial/io.html">sio.savemat</a></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1053,12 +1136,12 @@ indexnames      valuescodes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;__header__&#39;: b&#39;MATLAB 5.0 MAT-file Platform: posix, Created on: Mon May  6 20:53:45 2019&#39;,
+{&#39;__header__&#39;: b&#39;MATLAB 5.0 MAT-file Platform: posix, Created on: Thu Dec 19 22:10:21 2019&#39;,
  &#39;__version__&#39;: &#39;1.0&#39;,
  &#39;__globals__&#39;: [],
  &#39;df&#39;: array([[(array([[None]], dtype=object), array([[None]], dtype=object), array([[None]], dtype=object))]],
@@ -1069,7 +1152,7 @@ indexnames      valuescodes
 <div class="section" id="Lectura-de-XBASE">
 <h3>Lectura de XBASE<a class="headerlink" href="#Lectura-de-XBASE" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

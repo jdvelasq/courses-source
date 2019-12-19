@@ -43,6 +43,116 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Conversión de un formato a otro"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Creación de un archivo en disco duro con una tabla para el ejemplo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "   index name  value\n",
+       "0      1    A   3.03\n",
+       "1      2    B   5.14\n",
+       "2      3    C   0.40\n",
+       "3      4    D   1.13\n",
+       "4      5    E   8.25"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "## crea el DataFrame\n",
+    "## los DataFrame en Pandas son diccionarios\n",
+    "df = pandas.DataFrame( {'index': list(range(1,6)),\n",
+    "                        'name': ['A', 'B', 'C', 'D', 'E'],\n",
+    "                        'value': [3.03, 5.14, 0.40, 1.13, 8.25]})\n",
+    "df"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Almacenamiento del archivo en disco"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "index,name,value\n",
+      "1,A,3.03\n",
+      "2,B,5.14\n",
+      "3,C,0.4\n",
+      "4,D,1.13\n",
+      "5,E,8.25\n"
+     ]
+    }
+   ],
+   "source": [
+    "df.to_csv(\n",
+    "    'data.csv',     # el nombre del archivo\n",
+    "    index = False)  # imprime los nombres de las filas?\n",
+    "!cat data.csv"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Ejemplo de conversión de csv a json"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\"index\":{\"0\":1,\"1\":2,\"2\":3,\"3\":4,\"4\":5},\"name\":{\"0\":\"A\",\"1\":\"B\",\"2\":\"C\",\"3\":\"D\",\"4\":\"E\"},\"value\":{\"0\":3.03,\"1\":5.14,\"2\":0.4,\"3\":1.13,\"4\":8.25}}"
+     ]
+    }
+   ],
+   "source": [
+    "pandas.read_csv('data.csv').to_json('data.json')\n",
+    "!cat data.json"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!rm data.csv data.json"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Lectura y escritura de archivos usando Pandas"
    ]
   },
@@ -55,7 +165,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -85,7 +195,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -95,7 +205,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -109,7 +219,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -137,7 +247,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -165,7 +275,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -179,7 +289,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -190,7 +300,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -204,7 +314,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -226,7 +336,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [
     {
@@ -256,7 +366,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -270,7 +380,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -299,7 +409,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -334,7 +444,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -348,7 +458,7 @@
        "4      5  ann marie    4.98     14"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -378,7 +488,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
@@ -399,7 +509,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [
     {
@@ -413,7 +523,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -441,7 +551,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 18,
    "metadata": {},
    "outputs": [
     {
@@ -498,7 +608,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
@@ -512,7 +622,7 @@
        " 4      5    E   8.25]"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -539,7 +649,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 20,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -549,7 +659,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [
     {
@@ -563,7 +673,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -590,7 +700,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -601,7 +711,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [
     {
@@ -615,7 +725,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -628,7 +738,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
@@ -642,7 +752,7 @@
        "4      5    E   8.25"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -669,7 +779,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [
     {
@@ -683,7 +793,7 @@
        "4        4      5    E   8.25"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -712,7 +822,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -737,7 +847,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 27,
    "metadata": {
     "scrolled": true
    },
@@ -765,28 +875,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 28,
    "metadata": {
     "scrolled": true
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "\"R is a programming language and software environment for  statistical computing and graphics supported by the R Foundation for Statistical Computing.[3] The R language is widely used among statisticians and data miners for developing statistical software[4] and data analysis.[5] Polls, surveys of data miners, and studies of scholarly literature databases show that R's popularity has increased substantially in recent years.[6]\""
-      ]
-     },
-     "execution_count": 24,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "import PyPDF2\n",
-    "pdfFileObj = open('files/data.pdf', 'rb')\n",
-    "pdfReader = PyPDF2.PdfFileReader(pdfFileObj)\n",
-    "pageObj = pdfReader.getPage(0)\n",
-    "pageObj.extractText()"
+    "#pdfFileObj = open('files/data.pdf', 'rb')\n",
+    "#pdfReader = PyPDF2.PdfFileReader(pdfFileObj)\n",
+    "#pageObj = pdfReader.getPage(0)\n",
+    "#pageObj.extractText()"
    ]
   },
   {
@@ -806,7 +905,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 29,
    "metadata": {
     "scrolled": true
    },
@@ -814,14 +913,14 @@
     {
      "data": {
       "text/plain": [
-       "{'__header__': b'MATLAB 5.0 MAT-file Platform: posix, Created on: Mon May  6 20:53:45 2019',\n",
+       "{'__header__': b'MATLAB 5.0 MAT-file Platform: posix, Created on: Thu Dec 19 22:10:21 2019',\n",
        " '__version__': '1.0',\n",
        " '__globals__': [],\n",
        " 'df': array([[(array([[None]], dtype=object), array([[None]], dtype=object), array([[None]], dtype=object))]],\n",
        "       dtype=[('index', 'O'), ('name', 'O'), ('value', 'O')])}"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -841,7 +940,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -872,12 +971,12 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.8"
+   "version": "3.6.9"
   },
   "nteract": {
    "version": "0.7.1"
   }
  },
  "nbformat": 4,
- "nbformat_minor": 2
+ "nbformat_minor": 4
 }

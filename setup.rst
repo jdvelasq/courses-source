@@ -3,7 +3,7 @@ Instalación de Vagrant y Docker
 
 Como actividades previas al inicio del curso, se debe instalar y configurar el software utilizado. 
 
-**Actividad 1.--** Creación de una cuenta en Github. 
+**Actividad 1.---** Creación de una cuenta en Github. 
 
   Realice los siguientes pasos:
 
@@ -24,12 +24,12 @@ Como actividades previas al inicio del curso, se debe instalar y configurar el s
       Instale y configure GitHub Desktop (windows y Mac OS) https://desktop.github.com/
 
 
-**Actividad 2.--** Creación de una máquina virtual usando Vagrant.
+**Actividad 2.---** Creación de una máquina virtual usando Vagrant.
 
   Siga las instrucciones dadas en el repo https://github.com/jdvelasq/vagrant4docker.
 
 
-**Actividad 3.--** Apertura de un contenedor con una configuración mínima de Python.
+**Actividad 3.---** Apertura de un contenedor con una configuración mínima de Python.
 
   **Paso 1**
 

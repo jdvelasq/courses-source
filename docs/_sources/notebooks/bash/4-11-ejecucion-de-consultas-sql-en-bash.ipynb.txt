@@ -4,8 +4,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Ejecución de consultas SQL en Bash\n",
-    "===================================\n",
+    "Ejecución de consultas SQL en Bash usando csvkit\n",
+    "===========================================================\n",
     "\n",
     "* *30 min* | Última modificación: Diciembre 17, 2019."
    ]
