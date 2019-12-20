@@ -5,7 +5,7 @@ Sesiones
 Sesión 1---01 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Introducción**
+    **Introducción a la Analítica y la Ciencia de los Datos**
 
     En esta sesión se realiza la presentación inicial del curso y se introducen 
     los principales conceptos de analítica; adicionalmente, se realiza el primer 
@@ -25,9 +25,9 @@ Sesión 1---01
 Sesión 1---02
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Bash, Git y GitHub para Ciencia de los Datos (1)**
+    **Uso básico del Terminal**
 
-    En este módulo se aborda el uso del Terminal en el sistema operativo Linux 
+    En este módulo se aborda el uso básico del Terminal en el sistema operativo Linux 
     para la manipulación de archivos de datos.
 
     .. toctree::
@@ -49,7 +49,7 @@ Sesión 1---02
 Sesión 1---03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Bash, Git y GitHub para Ciencia de los Datos (2)**
+    **Comandos básicos para el manejo de datos en el Terminal**
 
     En esta sesión se discute como utilizar el `Termnal` de forma interactiva y
     como realizar la edición de archivos de mediante herramientas de flujo de texto. 
@@ -73,7 +73,7 @@ Sesión 1---03
 Sesión 1---04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Bash, Git y GitHub para Ciencia de los Datos (3)**
+    **Consultas SQL desde el Terminal**
 
     .. toctree::
         :maxdepth: 1
@@ -92,7 +92,7 @@ Sesión 1---04
 Sesión 2---05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Programación básica en Python (1)**
+    **Programación básica en Python**
 
     .. toctree::
         :maxdepth: 1
@@ -104,7 +104,7 @@ Sesión 2---05
 Sesión 2---06
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Programación básica en Python (2)**
+    **Manejo de archivos y estructuras de datos en Python**
 
     .. toctree::
         :maxdepth: 1
@@ -118,7 +118,7 @@ Sesión 2---06
 Sesión 2---07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Programación básica en Python (3)**
+    **Programación para manejo básico de datos en Python**
 
     .. toctree::
         :maxdepth: 1
@@ -140,7 +140,7 @@ Sesión 2---08
 Sesión 3---09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Programación en SQL (1)**
+    **Programación en SQL**
 
     .. toctree::
         :maxdepth: 1
@@ -152,7 +152,7 @@ Sesión 3---09
 Sesión 3---10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Programación en SQL (2)**
+    **Transformación de datos en SQL**
 
     .. toctree::
         :maxdepth: 1
@@ -163,7 +163,7 @@ Sesión 3---10
 Sesión 3---11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Temas complementarios**
+    **Programación en SQLite3**
 
     .. toctree::
         :maxdepth: 1
@@ -214,15 +214,19 @@ Sesión 4---13
 Sesión 4---14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Productos de Datos en Python**
+    **Publicación de informes usando GitHub Pages**
 
-    https://github.com/jdvelasq/dyna-demo
+        https://github.com/jdvelasq/dyna-demo
+
+    **Documentación usando Jupyter Notebooks y Google Colaboratory**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
         /notebooks/jupyter/*
+
+    **Interfases de usuario usando PyQt5**
 
     .. toctree::
         :maxdepth: 1
@@ -233,13 +237,15 @@ Sesión 4---14
 Sesión 4---15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Productos de Datos**
+    **Generación de HTML estático usando Python**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
         /notebooks/github/*
+
+    **Desarrollo de aplicaciones web usando Flask**
 
     .. toctree::    
         :maxdepth: 1
