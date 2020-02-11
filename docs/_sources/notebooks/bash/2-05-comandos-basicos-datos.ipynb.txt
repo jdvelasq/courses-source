@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Comandos básicos para manejo de datos\n",
+    "Comandos básicos para manejo de archivos de datos\n",
     "====================================================\n",
     "\n",
     "* *60 min* | Última modificación: Diciembre 17, 2019."

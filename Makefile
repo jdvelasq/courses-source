@@ -25,8 +25,8 @@ help:
 	#
 
 
-	# rm -Rf build/html/*
-	# rm -Rf build/doctrees/*
+	rm -Rf build/html/*
+	rm -Rf build/doctrees/*
 
 
 	rm -Rf docs/*

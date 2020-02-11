@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Comandos básicos para manejo de datos &mdash; documentación de --- Cursos --- - </title>
+  <title>Comandos básicos para manejo de archivos de datos &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -149,7 +149,7 @@
         
           <li><a href="../../ciencia-de-los-datos/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Comandos básicos para manejo de datos</li>
+      <li>Comandos básicos para manejo de archivos de datos</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -235,8 +235,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -260,7 +260,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -334,6 +333,27 @@ div.nboutput.container div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
   border: none;
@@ -390,8 +410,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Comandos-básicos-para-manejo-de-datos">
-<h1>Comandos básicos para manejo de datos<a class="headerlink" href="#Comandos-básicos-para-manejo-de-datos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Comandos-básicos-para-manejo-de-archivos-de-datos">
+<h1>Comandos básicos para manejo de archivos de datos<a class="headerlink" href="#Comandos-básicos-para-manejo-de-archivos-de-datos" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>60 min</em> | Última modificación: Diciembre 17, 2019.</p></li>
 </ul>

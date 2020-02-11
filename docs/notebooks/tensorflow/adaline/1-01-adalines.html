@@ -235,8 +235,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -260,7 +260,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -333,6 +332,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -832,8 +852,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Caso-de-aplicación-----Identificación-de-sistemas">
 <h2>Caso de aplicación — Identificación de sistemas<a class="headerlink" href="#Caso-de-aplicación-----Identificación-de-sistemas" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="Definición-del-problema">
-<h3>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id5">
+<h3>Definición del problema<a class="headerlink" href="#id5" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Cuando un sistema desconocido es excitado mediante una señal de entrada <span class="math notranslate nohighlight">\(z(k)\)</span> se produce una señal de salida <span class="math notranslate nohighlight">\(d(k)\)</span>. El diagrama del sistema aparece en la figura de abajo. Para efectos de control se requiere un modelo que permita pronosticar el valor de <span class="math notranslate nohighlight">\(d(k)\)</span> a partir del valor actual y los valores pasados de la señal de entrada <span class="math notranslate nohighlight">\(z(k)\)</span>, <span class="math notranslate nohighlight">\(z(k-1)\)</span>, <span class="math notranslate nohighlight">\(z(k-2)\)</span>, … El diagrama ilustrativo es presentado a continuación.</p>
 <p><img alt="assets/AdalineIdentificacion-01.png" src="../../../_images/AdalineIdentificacion-01.png" /></p>
 <p>En este tipo de problemas no es posible modelar el sistema que genera la señal de salida <span class="math notranslate nohighlight">\(d(t)\)</span>. Adicionalmente, la señal está contaminada con ruído por lo que resulta imposible pronosticarla de forma perfecta. Por facilidad se supondra que la dinámica del sistema desconocido es descrita por siguiente ecuación no lineal:</p>
@@ -843,8 +863,8 @@ div.rendered_html tbody tr:hover {
 <p>El problema propuesto es conocido como un problema de identificación de sistemas, donde un modelo adaptativo (una red neuronal en este caso) debe aproximar el comportamiento real (la salida, <span class="math notranslate nohighlight">\(d_t\)</span>) de un sistema desconocido a partir de un conjunto de entradas (el vector <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>) conocidas. El diagrama esquemático del sistema es el siguiente:</p>
 <p><img alt="assets/AdalineIdentificacion-02.png" src="../../../_images/AdalineIdentificacion-02.png" /></p>
 </div>
-<div class="section" id="Dataset">
-<h3>Dataset<a class="headerlink" href="#Dataset" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id6">
+<h3>Dataset<a class="headerlink" href="#id6" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -881,8 +901,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>En términos de los datos se requiere construir un modelo de regresión que permita pronosticar <span class="math notranslate nohighlight">\(d_t\)</span> a partir de los valores <span class="math notranslate nohighlight">\(z_t\)</span>, <span class="math notranslate nohighlight">\(z_{t-1}\)</span>, …</p>
 </div>
-<div class="section" id="Preparación-de-datos">
-<h3>Preparación de datos<a class="headerlink" href="#Preparación-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id7">
+<h3>Preparación de datos<a class="headerlink" href="#id7" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -932,8 +952,8 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Especificación-del-modelo">
-<h3>Especificación del modelo<a class="headerlink" href="#Especificación-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id8">
+<h3>Especificación del modelo<a class="headerlink" href="#id8" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -949,8 +969,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="Entrenamiento-del-modelo">
-<h3>Entrenamiento del modelo<a class="headerlink" href="#Entrenamiento-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id9">
+<h3>Entrenamiento del modelo<a class="headerlink" href="#id9" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -963,8 +983,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="Resultados">
-<h3>Resultados<a class="headerlink" href="#Resultados" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id10">
+<h3>Resultados<a class="headerlink" href="#id10" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -1004,8 +1024,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Caso-de-aplicación-----Clasificación">
 <h2>Caso de aplicación — Clasificación<a class="headerlink" href="#Caso-de-aplicación-----Clasificación" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="Definición-del-problema">
-<h3>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id11">
+<h3>Definición del problema<a class="headerlink" href="#id11" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El problema de clasificación binaria (con clases <span class="math notranslate nohighlight">\(C_1\)</span> y <span class="math notranslate nohighlight">\(C_2\)</span> dicotómicas) se define de la siguiente manera:</p>
 <ul class="simple">
 <li><p>Cada patrón de entrada tiene la forma <span class="math notranslate nohighlight">\(\mathbf{x}=[+1,x_1,x_2,…,x_n ]\)</span>.</p></li>
@@ -1026,8 +1046,8 @@ div.rendered_html tbody tr:hover {
 <p>A continuación se presenta la frontera de decisión generada por un ADALINE para la función lógica AND:</p>
 <p><img alt="../assets/AdalineClasificacion-02.png" src="../../../_images/AdalineClasificacion-02.png" /></p>
 </div>
-<div class="section" id="Dataset">
-<h3>Dataset<a class="headerlink" href="#Dataset" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id12">
+<h3>Dataset<a class="headerlink" href="#id12" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>

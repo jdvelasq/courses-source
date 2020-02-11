@@ -234,8 +234,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -259,7 +259,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -332,6 +331,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -653,8 +673,8 @@ cat: &#39;/tmp/input/text*.txt&#39;: No such file or directory
 Writing reducer.py
 </pre></div></div>
 </div>
-<div class="section" id="Paso-3">
-<h4>Paso 3<a class="headerlink" href="#Paso-3" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="section" id="id1">
+<h4>Paso 3<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -717,8 +737,8 @@ Specifically,   1
 </div>
 <p>Todos los comandos de la opción fs de Hadoop siguen siendo válidos.</p>
 </div>
-<div class="section" id="Paso-2">
-<h4>Paso 2<a class="headerlink" href="#Paso-2" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="section" id="id2">
+<h4>Paso 2<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>

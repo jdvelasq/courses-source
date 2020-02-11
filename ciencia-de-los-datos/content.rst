@@ -176,13 +176,7 @@ Sesión 3---11
         Descargue la presentación :download:`Narrativa de datos</notebooks/storytelling/data-storytelling.pdf>`
 
 
-    **Scrapping**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/scrapping/*
+    
 
 Sesión 3---12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -213,6 +207,27 @@ Sesión 4---13
 
 Sesión 4---14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/jupyter/*
+
+
+
+
+
+Revision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Scrapping**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/scrapping/*
 
     **Publicación de informes usando GitHub Pages**
 

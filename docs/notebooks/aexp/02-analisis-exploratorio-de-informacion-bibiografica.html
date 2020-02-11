@@ -234,8 +234,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -259,7 +259,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -332,6 +331,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -772,7 +792,7 @@ memory usage: 44.7+ KB
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-9d86798443f709c0e8311b054289d3da"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "Cited by"}, "x": {"type": "quantitative", "field": "Cited by"}, "y": {"type": "nominal", "field": "Source title", "sort": {"field": "Cited by:Q"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-9d86798443f709c0e8311b054289d3da": [{"Cited by": 2312.0, "Source title": "Journal of Big Data"}, {"Cited by": 1902.0, "Source title": "EPJ Data Science"}, {"Cited by": 1468.0, "Source title": "Data Science Journal"}, {"Cited by": 1420.0, "Source title": "International Journal of Business Intelligence and Data Mining"}, {"Cited by": 1164.0, "Source title": "Big Data"}, {"Cited by": 926.0, "Source title": "Big Data Research"}, {"Cited by": 440.0, "Source title": "Journal of Management Analytics"}, {"Cited by": 370.0, "Source title": "Environment and Planning B: Urban Analytics and City Science"}, {"Cited by": 253.0, "Source title": "Journal of Marketing Analytics"}, {"Cited by": 222.0, "Source title": "Data Science and Engineering"}, {"Cited by": 131.0, "Source title": "International Journal of Business Analytics"}, {"Cited by": 2.0, "Source title": "Applied Marketing Analytics"}, {"Cited by": 1.0, "Source title": "International Journal of Business Intelligence Research"}, {"Cited by": 0.0, "Source title": "Big data"}, {"Cited by": 0.0, "Source title": "Easy Care in Wool; Woolmark Business Intelligence July 1999"}, {"Cited by": 0.0, "Source title": "World Wool Supply to 2005; Woolmark Business Intelligence July1999"}]}};
@@ -965,7 +985,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-4e4a552f569cdb78ee5b33cb7ce87dd7"}, "mark": "circle", "encoding": {"color": {"type": "quantitative", "field": "Cited by"}, "size": {"type": "quantitative", "field": "Cited by"}, "x": {"type": "quantitative", "axis": {"labelAngle": 270}, "field": "Year", "scale": {"domain": [2002, 2019]}}, "y": {"type": "nominal", "field": "Source title"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-4e4a552f569cdb78ee5b33cb7ce87dd7": [{"Cited by": 2.0, "Source title": "Applied Marketing Analytics", "Year": 2018}, {"Cited by": 0.0, "Source title": "Applied Marketing Analytics", "Year": 2019}, {"Cited by": 543.0, "Source title": "Big Data", "Year": 2013}, {"Cited by": 170.0, "Source title": "Big Data", "Year": 2014}, {"Cited by": 203.0, "Source title": "Big Data", "Year": 2015}, {"Cited by": 109.0, "Source title": "Big Data", "Year": 2016}, {"Cited by": 129.0, "Source title": "Big Data", "Year": 2017}, {"Cited by": 10.0, "Source title": "Big Data", "Year": 2018}, {"Cited by": 0.0, "Source title": "Big Data", "Year": 2019}, {"Cited by": 79.0, "Source title": "Big Data Research", "Year": 2014}, {"Cited by": 499.0, "Source title": "Big Data Research", "Year": 2015}, {"Cited by": 173.0, "Source title": "Big Data Research", "Year": 2016}, {"Cited by": 120.0, "Source title": "Big Data Research", "Year": 2017}, {"Cited by": 55.0, "Source title": "Big Data Research", "Year": 2018}, {"Cited by": 0.0, "Source title": "Big Data Research", "Year": 2019}, {"Cited by": 0.0, "Source title": "Big data", "Year": 2017}, {"Cited by": 50.0, "Source title": "Data Science Journal", "Year": 2003}, {"Cited by": 144.0, "Source title": "Data Science Journal", "Year": 2006}, {"Cited by": 307.0, "Source title": "Data Science Journal", "Year": 2007}, {"Cited by": 81.0, "Source title": "Data Science Journal", "Year": 2008}, {"Cited by": 233.0, "Source title": "Data Science Journal", "Year": 2009}, {"Cited by": 44.0, "Source title": "Data Science Journal", "Year": 2010}, {"Cited by": 38.0, "Source title": "Data Science Journal", "Year": 2011}, {"Cited by": 31.0, "Source title": "Data Science Journal", "Year": 2012}, {"Cited by": 327.0, "Source title": "Data Science Journal", "Year": 2013}, {"Cited by": 70.0, "Source title": "Data Science Journal", "Year": 2014}, {"Cited by": 20.0, "Source title": "Data Science Journal", "Year": 2015}, {"Cited by": 46.0, "Source title": "Data Science Journal", "Year": 2016}, {"Cited by": 66.0, "Source title": "Data Science Journal", "Year": 2017}, {"Cited by": 11.0, "Source title": "Data Science Journal", "Year": 2018}, {"Cited by": 0.0, "Source title": "Data Science Journal", "Year": 2019}, {"Cited by": 129.0, "Source title": "Data Science and Engineering", "Year": 2016}, {"Cited by": 70.0, "Source title": "Data Science and Engineering", "Year": 2017}, {"Cited by": 23.0, "Source title": "Data Science and Engineering", "Year": 2018}, {"Cited by": 0.0, "Source title": "Data Science and Engineering", "Year": 2019}, {"Cited by": 514.0, "Source title": "EPJ Data Science", "Year": 2012}, {"Cited by": 166.0, "Source title": "EPJ Data Science", "Year": 2013}, {"Cited by": 391.0, "Source title": "EPJ Data Science", "Year": 2014}, {"Cited by": 247.0, "Source title": "EPJ Data Science", "Year": 2015}, {"Cited by": 363.0, "Source title": "EPJ Data Science", "Year": 2016}, {"Cited by": 162.0, "Source title": "EPJ Data Science", "Year": 2017}, {"Cited by": 59.0, "Source title": "EPJ Data Science", "Year": 2018}, {"Cited by": 0.0, "Source title": "EPJ Data Science", "Year": 2019}, {"Cited by": 0.0, "Source title": "Easy Care in Wool; Woolmark Business Intelligence July 1999", "Year": 1999}, {"Cited by": 210.0, "Source title": "Environment and Planning B: Urban Analytics and City Science", "Year": 2017}, {"Cited by": 122.0, "Source title": "Environment and Planning B: Urban Analytics and City Science", "Year": 2018}, {"Cited by": 38.0, "Source title": "Environment and Planning B: Urban Analytics and City Science", "Year": 2019}, {"Cited by": 40.0, "Source title": "International Journal of Business Analytics", "Year": 2014}, {"Cited by": 26.0, "Source title": "International Journal of Business Analytics", "Year": 2015}, {"Cited by": 49.0, "Source title": "International Journal of Business Analytics", "Year": 2016}, {"Cited by": 7.0, "Source title": "International Journal of Business Analytics", "Year": 2017}, {"Cited by": 8.0, "Source title": "International Journal of Business Analytics", "Year": 2018}, {"Cited by": 1.0, "Source title": "International Journal of Business Analytics", "Year": 2019}, {"Cited by": 1.0, "Source title": "International Journal of Business Intelligence Research", "Year": 2018}, {"Cited by": 213.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2005}, {"Cited by": 140.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2006}, {"Cited by": 225.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2007}, {"Cited by": 151.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2008}, {"Cited by": 95.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2009}, {"Cited by": 197.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2010}, {"Cited by": 56.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2011}, {"Cited by": 40.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2012}, {"Cited by": 57.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2013}, {"Cited by": 91.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2014}, {"Cited by": 99.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2015}, {"Cited by": 41.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2016}, {"Cited by": 7.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2017}, {"Cited by": 8.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2018}, {"Cited by": 0.0, "Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2019}, {"Cited by": 147.0, "Source title": "Journal of Big Data", "Year": 2014}, {"Cited by": 1395.0, "Source title": "Journal of Big Data", "Year": 2015}, {"Cited by": 465.0, "Source title": "Journal of Big Data", "Year": 2016}, {"Cited by": 220.0, "Source title": "Journal of Big Data", "Year": 2017}, {"Cited by": 83.0, "Source title": "Journal of Big Data", "Year": 2018}, {"Cited by": 2.0, "Source title": "Journal of Big Data", "Year": 2019}, {"Cited by": 114.0, "Source title": "Journal of Management Analytics", "Year": 2014}, {"Cited by": 172.0, "Source title": "Journal of Management Analytics", "Year": 2015}, {"Cited by": 78.0, "Source title": "Journal of Management Analytics", "Year": 2016}, {"Cited by": 57.0, "Source title": "Journal of Management Analytics", "Year": 2017}, {"Cited by": 19.0, "Source title": "Journal of Management Analytics", "Year": 2018}, {"Cited by": 0.0, "Source title": "Journal of Management Analytics", "Year": 2019}, {"Cited by": 131.0, "Source title": "Journal of Marketing Analytics", "Year": 2013}, {"Cited by": 71.0, "Source title": "Journal of Marketing Analytics", "Year": 2014}, {"Cited by": 27.0, "Source title": "Journal of Marketing Analytics", "Year": 2015}, {"Cited by": 12.0, "Source title": "Journal of Marketing Analytics", "Year": 2016}, {"Cited by": 5.0, "Source title": "Journal of Marketing Analytics", "Year": 2017}, {"Cited by": 7.0, "Source title": "Journal of Marketing Analytics", "Year": 2018}, {"Cited by": 0.0, "Source title": "Journal of Marketing Analytics", "Year": 2019}, {"Cited by": 0.0, "Source title": "World Wool Supply to 2005; Woolmark Business Intelligence July1999", "Year": 1999}]}};
@@ -1169,7 +1189,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-0a1447a70e241644eaa368809fbefc87"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "N"}, "x": {"type": "quantitative", "field": "N"}, "y": {"type": "nominal", "field": "word", "sort": {"field": "N:Q"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-0a1447a70e241644eaa368809fbefc87": [{"N": 167, "word": "big data"}, {"N": 134, "word": "data mining"}, {"N": 57, "word": "machine learning"}, {"N": 41, "word": "clustering"}, {"N": 37, "word": "big data analytics"}, {"N": 33, "word": "classification"}, {"N": 31, "word": "business intelligence"}, {"N": 30, "word": "metadata"}, {"N": 29, "word": "social media"}, {"N": 26, "word": "mapreduce"}, {"N": 25, "word": "hadoop"}, {"N": 22, "word": "data management"}, {"N": 22, "word": "data sharing"}, {"N": 22, "word": "database"}, {"N": 21, "word": "social networks"}, {"N": 19, "word": "ontology"}, {"N": 19, "word": "interoperability"}, {"N": 18, "word": "human mobility"}, {"N": 18, "word": "time series"}, {"N": 18, "word": "analytics"}]}};
@@ -1660,7 +1680,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"url": "https://vega.github.io/vega-datasets/data/world-110m.json", "format": {"feature": "countries", "type": "topojson"}}, "mark": {"type": "geoshape", "color": "value:N", "fill": "lightgray", "stroke": "white"}, "height": 300, "projection": {"type": "equirectangular"}, "transform": [{"lookup": "id", "from": {"data": {"name": "data-9127636eb8e9ee3398a8a60307774368"}, "key": "id", "fields": ["value"]}}], "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-9127636eb8e9ee3398a8a60307774368": [{"id": "Canada", "value": "yellow"}, {"id": "Colombia", "value": "red"}]}};

@@ -233,8 +233,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -258,7 +258,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -331,6 +330,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -1779,8 +1799,8 @@ y_test_true
 0.8697842 0.1302158
 </pre></div></div>
 </div>
-<div class="section" id="Entrenamiento-del-modelo">
-<h3>Entrenamiento del modelo<a class="headerlink" href="#Entrenamiento-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id1">
+<h3>Entrenamiento del modelo<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
@@ -1795,8 +1815,8 @@ y_test_true
 </div>
 </div>
 </div>
-<div class="section" id="Evaluación-del-modelo">
-<h3>Evaluación del modelo<a class="headerlink" href="#Evaluación-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id2">
+<h3>Evaluación del modelo<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>

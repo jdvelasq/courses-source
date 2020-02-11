@@ -233,8 +233,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -258,7 +258,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -331,6 +330,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -441,8 +461,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="Regresión-Logística">
-<h2>Regresión Logística<a class="headerlink" href="#Regresión-Logística" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="id1">
+<h2>Regresión Logística<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La solución anterior muestra los inconvenientes de abordar problemas de clasificación como problemas de regresión. Un problema similar ocurrio con la clasificación usando perceptrones bipolares. Este impase puede ser resuelto si se tiene en cuenta que un perceptrón continuo con función sigmoidea es equivalente a un modelo de regresión logística.</p>
 <p>En este caso, la ecuación del perceptrón</p>
 <div class="math notranslate nohighlight">

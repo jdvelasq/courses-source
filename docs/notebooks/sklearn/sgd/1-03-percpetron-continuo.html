@@ -235,8 +235,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -260,7 +260,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -333,6 +332,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -668,8 +688,8 @@ d_k- \sigma \left( \sum_{i=0}^n w_{i,k} x_{i,k} \right)\]</div>
 </div>
 <div class="section" id=" Clasificación-usando-perceptrones-continuos">
 <h2> Clasificación usando perceptrones continuos<a class="headerlink" href="# Clasificación-usando-perceptrones-continuos" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="Dataset">
-<h3>Dataset<a class="headerlink" href="#Dataset" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id1">
+<h3>Dataset<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -702,8 +722,8 @@ d_k- \sigma \left( \sum_{i=0}^n w_{i,k} x_{i,k} \right)\]</div>
 </div>
 </div>
 </div>
-<div class="section" id="Entrenamiento">
-<h3>Entrenamiento<a class="headerlink" href="#Entrenamiento" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id2">
+<h3>Entrenamiento<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -986,8 +1006,8 @@ d_k- \sigma \left( \sum_{i=0}^n w_{i,k} x_{i,k} \right)\]</div>
 </div>
 <div class="section" id="Clasificacioón">
 <h3>Clasificacioón<a class="headerlink" href="#Clasificacioón" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="section" id="Implementación">
-<h4>Implementación<a class="headerlink" href="#Implementación" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="section" id="id3">
+<h4>Implementación<a class="headerlink" href="#id3" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -1073,8 +1093,8 @@ d_k- \sigma \left( \sum_{i=0}^n w_{i,k} x_{i,k} \right)\]</div>
 </div>
 </div>
 </div>
-<div class="section" id="Pronóstico-para-nuevos-puntos">
-<h3>Pronóstico para nuevos puntos<a class="headerlink" href="#Pronóstico-para-nuevos-puntos" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id4">
+<h3>Pronóstico para nuevos puntos<a class="headerlink" href="#id4" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -1105,8 +1125,8 @@ d_k- \sigma \left( \sum_{i=0}^n w_{i,k} x_{i,k} \right)\]</div>
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Fronteras-de-decisión">
-<h3>Fronteras de decisión<a class="headerlink" href="#Fronteras-de-decisión" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="id5">
+<h3>Fronteras de decisión<a class="headerlink" href="#id5" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>

@@ -234,8 +234,8 @@ div.nboutput.container div.prompt pre {
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
     min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
     text-align: right;
     flex: 0;
 }
@@ -259,7 +259,6 @@ div.nboutput.container div.prompt pre {
 /* input/output area */
 div.nbinput.container div.input_area,
 div.nboutput.container div.output_area {
-    padding: 0.4em;
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
@@ -332,6 +331,27 @@ div.nboutput.container div.output_area.stderr {
 
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
 
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
@@ -883,7 +903,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-79353f9e73966b76ee648c81c5e15d05"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "Region"}, "y": {"type": "quantitative", "field": "Poblacion"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-79353f9e73966b76ee648c81c5e15d05": [{"Poblacion": 5318.5999999999985, "Region": "Asia", "Age": "Poblacion 0-14"}, {"Poblacion": 10668.699999999999, "Region": "Asia", "Age": "Poblacion 15-64"}, {"Poblacion": 1013.0000000000001, "Region": "Asia", "Age": "Poblacion 65+"}, {"Poblacion": 3780.200000000001, "Region": "Europa", "Age": "Poblacion 0-14"}, {"Poblacion": 13830.599999999999, "Region": "Europa", "Age": "Poblacion 15-64"}, {"Poblacion": 2890.500000000002, "Region": "Europa", "Age": "Poblacion 65+"}, {"Poblacion": 5375.500000000002, "Region": "Las Americas", "Age": "Poblacion 0-14"}, {"Poblacion": 10901.799999999996, "Region": "Las Americas", "Age": "Poblacion 15-64"}, {"Poblacion": 1223.1, "Region": "Las Americas", "Age": "Poblacion 65+"}, {"Poblacion": 1784.8, "Region": "Oceania", "Age": "Poblacion 0-14"}, {"Poblacion": 3133.1000000000004, "Region": "Oceania", "Age": "Poblacion 15-64"}, {"Poblacion": 282.50000000000006, "Region": "Oceania", "Age": "Poblacion 65+"}, {"Poblacion": 1754.7000000000003, "Region": "Oriente Medio", "Age": "Poblacion 0-14"}, {"Poblacion": 3251.1000000000004, "Region": "Oriente Medio", "Age": "Poblacion 15-64"}, {"Poblacion": 194.20000000000005, "Region": "Oriente Medio", "Age": "Poblacion 65+"}, {"Poblacion": 11136.2, "Region": "africa", "Age": "Poblacion 0-14"}, {"Poblacion": 14452.699999999992, "Region": "africa", "Age": "Poblacion 15-64"}, {"Poblacion": 911.7000000000003, "Region": "africa", "Age": "Poblacion 65+"}]}};
@@ -957,7 +977,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-79353f9e73966b76ee648c81c5e15d05"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Age"}, "x": {"type": "nominal", "field": "Region"}, "y": {"type": "quantitative", "field": "Poblacion"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-79353f9e73966b76ee648c81c5e15d05": [{"Poblacion": 5318.5999999999985, "Region": "Asia", "Age": "Poblacion 0-14"}, {"Poblacion": 10668.699999999999, "Region": "Asia", "Age": "Poblacion 15-64"}, {"Poblacion": 1013.0000000000001, "Region": "Asia", "Age": "Poblacion 65+"}, {"Poblacion": 3780.200000000001, "Region": "Europa", "Age": "Poblacion 0-14"}, {"Poblacion": 13830.599999999999, "Region": "Europa", "Age": "Poblacion 15-64"}, {"Poblacion": 2890.500000000002, "Region": "Europa", "Age": "Poblacion 65+"}, {"Poblacion": 5375.500000000002, "Region": "Las Americas", "Age": "Poblacion 0-14"}, {"Poblacion": 10901.799999999996, "Region": "Las Americas", "Age": "Poblacion 15-64"}, {"Poblacion": 1223.1, "Region": "Las Americas", "Age": "Poblacion 65+"}, {"Poblacion": 1784.8, "Region": "Oceania", "Age": "Poblacion 0-14"}, {"Poblacion": 3133.1000000000004, "Region": "Oceania", "Age": "Poblacion 15-64"}, {"Poblacion": 282.50000000000006, "Region": "Oceania", "Age": "Poblacion 65+"}, {"Poblacion": 1754.7000000000003, "Region": "Oriente Medio", "Age": "Poblacion 0-14"}, {"Poblacion": 3251.1000000000004, "Region": "Oriente Medio", "Age": "Poblacion 15-64"}, {"Poblacion": 194.20000000000005, "Region": "Oriente Medio", "Age": "Poblacion 65+"}, {"Poblacion": 11136.2, "Region": "africa", "Age": "Poblacion 0-14"}, {"Poblacion": 14452.699999999992, "Region": "africa", "Age": "Poblacion 15-64"}, {"Poblacion": 911.7000000000003, "Region": "africa", "Age": "Poblacion 65+"}]}};
@@ -1034,7 +1054,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-79353f9e73966b76ee648c81c5e15d05"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Age"}, "row": {"type": "nominal", "field": "Age"}, "x": {"type": "nominal", "field": "Region"}, "y": {"type": "quantitative", "field": "Poblacion"}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-79353f9e73966b76ee648c81c5e15d05": [{"Poblacion": 5318.5999999999985, "Region": "Asia", "Age": "Poblacion 0-14"}, {"Poblacion": 10668.699999999999, "Region": "Asia", "Age": "Poblacion 15-64"}, {"Poblacion": 1013.0000000000001, "Region": "Asia", "Age": "Poblacion 65+"}, {"Poblacion": 3780.200000000001, "Region": "Europa", "Age": "Poblacion 0-14"}, {"Poblacion": 13830.599999999999, "Region": "Europa", "Age": "Poblacion 15-64"}, {"Poblacion": 2890.500000000002, "Region": "Europa", "Age": "Poblacion 65+"}, {"Poblacion": 5375.500000000002, "Region": "Las Americas", "Age": "Poblacion 0-14"}, {"Poblacion": 10901.799999999996, "Region": "Las Americas", "Age": "Poblacion 15-64"}, {"Poblacion": 1223.1, "Region": "Las Americas", "Age": "Poblacion 65+"}, {"Poblacion": 1784.8, "Region": "Oceania", "Age": "Poblacion 0-14"}, {"Poblacion": 3133.1000000000004, "Region": "Oceania", "Age": "Poblacion 15-64"}, {"Poblacion": 282.50000000000006, "Region": "Oceania", "Age": "Poblacion 65+"}, {"Poblacion": 1754.7000000000003, "Region": "Oriente Medio", "Age": "Poblacion 0-14"}, {"Poblacion": 3251.1000000000004, "Region": "Oriente Medio", "Age": "Poblacion 15-64"}, {"Poblacion": 194.20000000000005, "Region": "Oriente Medio", "Age": "Poblacion 65+"}, {"Poblacion": 11136.2, "Region": "africa", "Age": "Poblacion 0-14"}, {"Poblacion": 14452.699999999992, "Region": "africa", "Age": "Poblacion 15-64"}, {"Poblacion": 911.7000000000003, "Region": "africa", "Age": "Poblacion 65+"}]}};
@@ -1110,7 +1130,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-79353f9e73966b76ee648c81c5e15d05"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Age"}, "row": {"type": "nominal", "field": "Age"}, "x": {"type": "nominal", "field": "Region"}, "y": {"type": "quantitative", "field": "Poblacion"}}, "height": 200, "width": 350, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-79353f9e73966b76ee648c81c5e15d05": [{"Poblacion": 5318.5999999999985, "Region": "Asia", "Age": "Poblacion 0-14"}, {"Poblacion": 10668.699999999999, "Region": "Asia", "Age": "Poblacion 15-64"}, {"Poblacion": 1013.0000000000001, "Region": "Asia", "Age": "Poblacion 65+"}, {"Poblacion": 3780.200000000001, "Region": "Europa", "Age": "Poblacion 0-14"}, {"Poblacion": 13830.599999999999, "Region": "Europa", "Age": "Poblacion 15-64"}, {"Poblacion": 2890.500000000002, "Region": "Europa", "Age": "Poblacion 65+"}, {"Poblacion": 5375.500000000002, "Region": "Las Americas", "Age": "Poblacion 0-14"}, {"Poblacion": 10901.799999999996, "Region": "Las Americas", "Age": "Poblacion 15-64"}, {"Poblacion": 1223.1, "Region": "Las Americas", "Age": "Poblacion 65+"}, {"Poblacion": 1784.8, "Region": "Oceania", "Age": "Poblacion 0-14"}, {"Poblacion": 3133.1000000000004, "Region": "Oceania", "Age": "Poblacion 15-64"}, {"Poblacion": 282.50000000000006, "Region": "Oceania", "Age": "Poblacion 65+"}, {"Poblacion": 1754.7000000000003, "Region": "Oriente Medio", "Age": "Poblacion 0-14"}, {"Poblacion": 3251.1000000000004, "Region": "Oriente Medio", "Age": "Poblacion 15-64"}, {"Poblacion": 194.20000000000005, "Region": "Oriente Medio", "Age": "Poblacion 65+"}, {"Poblacion": 11136.2, "Region": "africa", "Age": "Poblacion 0-14"}, {"Poblacion": 14452.699999999992, "Region": "africa", "Age": "Poblacion 15-64"}, {"Poblacion": 911.7000000000003, "Region": "africa", "Age": "Poblacion 65+"}]}};
@@ -1186,7 +1206,7 @@ require(["nbextensions/jupyter-vega/index"], function(vega) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div></div>
+<div class="output_javascript"></div>
 <script type="text/javascript">
 var element = document.currentScript.previousSibling.previousSibling;
 var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-79353f9e73966b76ee648c81c5e15d05"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Age"}, "column": {"type": "nominal", "field": "Age"}, "x": {"type": "quantitative", "field": "Poblacion"}, "y": {"type": "nominal", "field": "Region"}}, "height": 200, "width": 200, "$schema": "https://vega.github.io/schema/vega-lite/v3.2.1.json", "datasets": {"data-79353f9e73966b76ee648c81c5e15d05": [{"Poblacion": 5318.5999999999985, "Region": "Asia", "Age": "Poblacion 0-14"}, {"Poblacion": 10668.699999999999, "Region": "Asia", "Age": "Poblacion 15-64"}, {"Poblacion": 1013.0000000000001, "Region": "Asia", "Age": "Poblacion 65+"}, {"Poblacion": 3780.200000000001, "Region": "Europa", "Age": "Poblacion 0-14"}, {"Poblacion": 13830.599999999999, "Region": "Europa", "Age": "Poblacion 15-64"}, {"Poblacion": 2890.500000000002, "Region": "Europa", "Age": "Poblacion 65+"}, {"Poblacion": 5375.500000000002, "Region": "Las Americas", "Age": "Poblacion 0-14"}, {"Poblacion": 10901.799999999996, "Region": "Las Americas", "Age": "Poblacion 15-64"}, {"Poblacion": 1223.1, "Region": "Las Americas", "Age": "Poblacion 65+"}, {"Poblacion": 1784.8, "Region": "Oceania", "Age": "Poblacion 0-14"}, {"Poblacion": 3133.1000000000004, "Region": "Oceania", "Age": "Poblacion 15-64"}, {"Poblacion": 282.50000000000006, "Region": "Oceania", "Age": "Poblacion 65+"}, {"Poblacion": 1754.7000000000003, "Region": "Oriente Medio", "Age": "Poblacion 0-14"}, {"Poblacion": 3251.1000000000004, "Region": "Oriente Medio", "Age": "Poblacion 15-64"}, {"Poblacion": 194.20000000000005, "Region": "Oriente Medio", "Age": "Poblacion 65+"}, {"Poblacion": 11136.2, "Region": "africa", "Age": "Poblacion 0-14"}, {"Poblacion": 14452.699999999992, "Region": "africa", "Age": "Poblacion 15-64"}, {"Poblacion": 911.7000000000003, "Region": "africa", "Age": "Poblacion 65+"}]}};
