@@ -58,21 +58,9 @@
         
         <!--- Genera las opciones del menu usando Jinja2 --->
         
-        
-            <option value="N.Amer">N.Amer</option>
-        
-            <option value="Europe">Europe</option>
-        
-            <option value="Asia">Asia</option>
-        
-            <option value="S.Amer">S.Amer</option>
-        
-            <option value="Oceania">Oceania</option>
-        
-            <option value="Africa">Africa</option>
-        
-            <option value="Mid.Amer">Mid.Amer</option>
-        
+        {% for i in regions %}
+            <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
       
         <!--- Fin de la modificacion ---> 
     
@@ -98,35 +86,13 @@
       <!--- Genera la division de cada imagen usando Jinja2 --->  
     
     
-      
-        
-          <div class="myImage" id="N.Amer" style="display:block"> <img src="figs/N.Amer.png" alt="N.Amer"> </div>  
-        
-      
-        
-          <div class="myImage" id="Europe" style="display:none"> <img src="figs/Europe.png" alt="Europe"> </div>  
-        
-      
-        
-          <div class="myImage" id="Asia" style="display:none"> <img src="figs/Asia.png" alt="Asia"> </div>  
-        
-      
-        
-          <div class="myImage" id="S.Amer" style="display:none"> <img src="figs/S.Amer.png" alt="S.Amer"> </div>  
-        
-      
-        
-          <div class="myImage" id="Oceania" style="display:none"> <img src="figs/Oceania.png" alt="Oceania"> </div>  
-        
-      
-        
-          <div class="myImage" id="Africa" style="display:none"> <img src="figs/Africa.png" alt="Africa"> </div>  
-        
-      
-        
-          <div class="myImage" id="Mid.Amer" style="display:none"> <img src="figs/Mid.Amer.png" alt="Mid.Amer"> </div>  
-        
-      
+      {% for i in regions %}
+        {% if i == regions[0] %}
+          <div class="myImage" id="{{ i }}" style="display:block"> <img src="figs/{{ i }}.png" alt="{{ i }}"> </div>  
+        {% else %}
+          <div class="myImage" id="{{ i }}" style="display:none"> <img src="figs/{{ i }}.png" alt="{{ i }}"> </div>  
+        {% endif %}
+      {% endfor %}
     
       <!--- Fin de la modificacion --->
 
