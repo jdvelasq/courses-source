@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Creación de dashboards usando Flask &mdash; documentación de --- Cursos --- - </title>
+  <title>Creación de un dashboard interactivo usando Flask &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Creacion de interfases de usuario con WTforms" href="1-02-creacion-de-interfases-de-usuario-con-WTforms.html" />
-    <link rel="prev" title="Generación de Dashboards usando Python y HTML" href="../github/1-01-creacion-de-dashboards-con-python-y-html.html" /> 
+    <link rel="next" title="Uso de markdown en Jupyter" href="../jupyter/01-uso-de-markdown-en-jupyter.html" />
+    <link rel="prev" title="Scrapping y captura de información" href="../scrapping/scrapping.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,7 +149,7 @@
         
           <li><a href="../../ciencia-de-los-datos/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Creación de dashboards usando Flask</li>
+      <li>Creación de un dashboard interactivo usando Flask</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -410,49 +410,39 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Creación-de-dashboards-usando-Flask">
-<h1>Creación de dashboards usando Flask<a class="headerlink" href="#Creación-de-dashboards-usando-Flask" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="myApp-01">
-<h2>myApp-01<a class="headerlink" href="#myApp-01" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><strong>Paso 1.–</strong> Se crea la estructura de directorios.</p>
-<div class="nbinput docutils container">
+<div class="section" id="Creación-de-un-dashboard-interactivo-usando-Flask">
+<h1>Creación de un dashboard interactivo usando Flask<a class="headerlink" href="#Creación-de-un-dashboard-interactivo-usando-Flask" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p><em>60 min</em> | Última modificación: Febrero 27, 2020.</p></li>
+</ul>
+<div class="section" id="Version-1-----App-mínima">
+<h2>Version 1 — App mínima<a class="headerlink" href="#Version-1-----App-mínima" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>%%bash
-rm -Rf examples-09-flask/myApp-01
-mkdir examples-09-flask/myApp-01
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>mkdir -p <span class="m">1</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-rm: examples-08-flask/myApp-01: No such file or directory
-</pre></div></div>
-</div>
-<p><strong>Paso 2.–</strong> Crea el archivo principal.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> examples-09-flask/myApp-01/main.py
+<span></span><span class="o">%%writefile</span> 1/app.py
 
-<span class="c1"># coding:utf-8</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>     <span class="c1"># nombre del modulo o paquete</span>
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>           <span class="c1"># indica que dirección dispara la función</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
     <span class="k">return</span> <span class="s2">&quot;Hola Mundo Cruel!&quot;</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -461,118 +451,107 @@ rm: examples-08-flask/myApp-01: No such file or directory
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Overwriting examples-09-flask/myApp-01/main.py
+Writing 01/app.py
 </pre></div></div>
 </div>
-<p><strong>Paso 3.–</strong> Se ejecuta (por fuera de jupyter!).</p>
+<p><img alt="flask-01" src="../../_images/flask-01.png" /></p>
+</div>
+<div class="section" id="Version-2-----Plantilla">
+<h2>Version 2 — Plantilla<a class="headerlink" href="#Version-2-----Plantilla" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># ejecutar por fuera de jupyter</span>
-<span class="c1"># python examples-08-flask/myApp-01/main.py</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="myApp-2">
-<h2>myApp-2<a class="headerlink" href="#myApp-2" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Se retorna texto con formato HTML.</p>
-<p><strong>Paso 1.–</strong> Se crea la estructura de directorios.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>%%bash
-rm -Rf examples-08-flask/myApp-02
-mkdir examples-08-flask/myApp-02
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-rm: examples-08-flask/myApp-02: No such file or directory
-</pre></div></div>
-</div>
-<p><strong>Paso 2.–</strong> Crea el archivo principal.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> examples-08-flask/myApp-02/main.py
-
-<span class="c1"># coding:utf-8</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">&quot;&lt;h1&gt;Hola Mundo Cruel!&lt;/h1&gt;&quot;</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Writing examples-08-flask/myApp-02/main.py
-</pre></div></div>
-</div>
-<p><strong>Paso 3.–</strong> Se ejecuta (por fuera de jupyter!).</p>
-</div>
-<div class="section" id="myApp-03">
-<h2>myApp-03<a class="headerlink" href="#myApp-03" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><strong>Paso 1.–</strong> Se crea la estructura de directorios.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>%%bash
-rm -Rf examples-08-flask/myApp-03
-mkdir examples-08-flask/myApp-03
-mkdir examples-08-flask/myApp-03/templates
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-rm: examples-08-flask/myApp-03: No such file or directory
-</pre></div></div>
-</div>
-<p><strong>Paso 2.–</strong> Crea el archivo principal.</p>
-<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> examples-08-flask/myApp-03/main.py
+<span></span><span class="o">!</span>mkdir -p <span class="m">2</span>
+<span class="o">!</span>mkdir -p <span class="m">2</span>/templates
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%%writefile 2/templates/index.html
 
-<span class="c1"># coding:utf-8</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Telephones&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;!--- Menu de seleccion al lado izquierdo ---&gt;
+        &lt;nav&gt;
+            &lt;form id=&#39;myDialog&#39; method=&quot;POST&quot;&gt;
+                &lt;p&gt;Region:&lt;/p&gt;
+
+                &lt;!--- onchange llama la función cuando el elemento cambia ---&gt;
+                &lt;select id=&quot;region&quot; name=&quot;region&quot;  onchange=&quot;submitData()&quot;&gt;
+
+                    &lt;option value=&quot;N.Amer&quot;&gt;N.Amer&lt;/option&gt;
+                    &lt;option value=&quot;Europe&quot;&gt;Europe&lt;/option&gt;
+                    &lt;option value=&quot;Asia&quot;&gt;Asia&lt;/option&gt;
+                    &lt;option value=&quot;S.Amer&quot;&gt;S.Amer&lt;/option&gt;
+                    &lt;option value=&quot;Oceania&quot;&gt;Oceania&lt;/option&gt;
+                    &lt;option value=&quot;Africa&quot;&gt;Africa&lt;/option&gt;
+                    &lt;option value=&quot;Mid.Amer&quot;&gt;Mid.Amer&lt;/option&gt;
+
+                &lt;/select&gt;
+            &lt;/form&gt;
+        &lt;/nav&gt;
+
+        &lt;!--- imprime la región seleccionada ---&gt;
+        {% for message in get_flashed_messages() %}
+            &lt;p&gt; {{ message }} &lt;/p&gt;
+        {% endfor %}
+
+        &lt;!--- remite la información del dialogo al servidor ---&gt;
+        &lt;script&gt;
+            function submitData() {
+                document.getElementById(&quot;myDialog&quot;).submit()
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting 02/templates/index.html
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> 2/app.py
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">render_template</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;you-will-never-guess&#39;</span>
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">))</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+
+    <span class="n">selected</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">selected</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,101 +560,73 @@ rm: examples-08-flask/myApp-03: No such file or directory
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Writing examples-08-flask/myApp-03/main.py
+Overwriting 02/app.py
 </pre></div></div>
 </div>
-<p><strong>Paso 3.–</strong> Crea la página <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<p><img alt="flask-02" src="../../_images/flask-02.png" /></p>
+</div>
+<div class="section" id="Version-3-----Lógica-del-menú-y-datos.">
+<h2>Version 3 — Lógica del menú y datos.<a class="headerlink" href="#Version-3-----Lógica-del-menú-y-datos." title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile examples-08-flask/myApp-03/templates/index.html
-
-&lt;html&gt;
-   &lt;head&gt;&lt;title&gt;Hola Mundo Cruel!&lt;/title&gt;&lt;/head&gt;
-   &lt;body&gt; === Hola Mundo Cruel! === &lt;/body&gt;
-&lt;/html&gt;
+<span></span><span class="o">!</span>mkdir -p <span class="m">3</span>
+<span class="o">!</span>mkdir -p <span class="m">3</span>/templates
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Writing examples-08-flask/myApp-03/templates/index.html
-</pre></div></div>
-</div>
-<p><strong>Paso 4.–</strong> Se ejecuta (por fuera de jupyter!).</p>
-</div>
-<div class="section" id="myApp-04">
-<h2>myApp-04<a class="headerlink" href="#myApp-04" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><strong>Paso 1.–</strong> Se crea la estructura de directorios.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre>
-<span></span>%%bash
-rm -R examples-08-flask/myApp-04
-mkdir examples-08-flask/myApp-04
-mkdir examples-08-flask/myApp-04/templates
-mkdir examples-08-flask/myApp-04/static
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-rm: examples-08-flask/myApp-04: No such file or directory
-</pre></div></div>
-</div>
-<p><strong>Paso 2.–</strong> Crea el archivo principal.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> examples-08-flask/myApp-04/main.py
+<span></span><span class="o">%%writefile</span> 3/app.py
 
-<span class="c1"># coding:utf-8</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#---------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># Datos</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">45939</span><span class="p">,</span> <span class="mi">21574</span><span class="p">,</span> <span class="mi">2876</span><span class="p">,</span> <span class="mi">1815</span><span class="p">,</span> <span class="mi">1646</span><span class="p">,</span>   <span class="mi">89</span><span class="p">,</span>  <span class="mi">555</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">60423</span><span class="p">,</span> <span class="mi">29990</span><span class="p">,</span> <span class="mi">4708</span><span class="p">,</span> <span class="mi">2568</span><span class="p">,</span> <span class="mi">2366</span><span class="p">,</span> <span class="mi">1411</span><span class="p">,</span>  <span class="mi">733</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">64721</span><span class="p">,</span> <span class="mi">32510</span><span class="p">,</span> <span class="mi">5230</span><span class="p">,</span> <span class="mi">2695</span><span class="p">,</span> <span class="mi">2526</span><span class="p">,</span> <span class="mi">1546</span><span class="p">,</span>  <span class="mi">773</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">68484</span><span class="p">,</span> <span class="mi">35218</span><span class="p">,</span> <span class="mi">6662</span><span class="p">,</span> <span class="mi">2845</span><span class="p">,</span> <span class="mi">2691</span><span class="p">,</span> <span class="mi">1663</span><span class="p">,</span>  <span class="mi">836</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">71799</span><span class="p">,</span> <span class="mi">37598</span><span class="p">,</span> <span class="mi">6856</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">2868</span><span class="p">,</span> <span class="mi">1769</span><span class="p">,</span>  <span class="mi">911</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">76036</span><span class="p">,</span> <span class="mi">40341</span><span class="p">,</span> <span class="mi">8220</span><span class="p">,</span> <span class="mi">3145</span><span class="p">,</span> <span class="mi">3054</span><span class="p">,</span> <span class="mi">1905</span><span class="p">,</span> <span class="mi">1008</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">79831</span><span class="p">,</span> <span class="mi">43173</span><span class="p">,</span> <span class="mi">9053</span><span class="p">,</span> <span class="mi">3338</span><span class="p">,</span> <span class="mi">3224</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">1076</span><span class="p">]]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1951</span><span class="p">,</span> <span class="mi">1956</span><span class="p">,</span> <span class="mi">1957</span><span class="p">,</span> <span class="mi">1958</span><span class="p">,</span> <span class="mi">1959</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1961</span><span class="p">],</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N.Amer&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;S.Amer&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Mid.Amer&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="c1">#---------------------------------------------------------------------------</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">render_template</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;you-will-never-guess&#39;</span>
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">myprog</span><span class="p">():</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">))</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
 
-    <span class="c1">## hace los computos requeridos</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.1416</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">selected</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sin(x)&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;examples-08-flask/myApp-04/static/sin.png&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">selected</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">();</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cos(x)&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;examples-08-flask/myApp-04/static/cos.png&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="n">myvar</span> <span class="o">=</span> <span class="mi">18</span>
-
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">myvar</span> <span class="o">=</span> <span class="n">myvar</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+        <span class="s1">&#39;index.html&#39;</span><span class="p">,</span>
+        <span class="n">regions</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="c1"># nombres de las regiones</span>
+        <span class="n">selected</span><span class="o">=</span><span class="n">selected</span><span class="p">)</span>             <span class="c1"># columna seleccionada)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -684,36 +635,56 @@ rm: examples-08-flask/myApp-04: No such file or directory
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Writing examples-08-flask/myApp-04/main.py
+Overwriting 03/app.py
 </pre></div></div>
 </div>
-<p><strong>Paso 3.–</strong> Crea la página <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile examples-08-flask/myApp-04/templates/index.html
-
+<span></span>%%writefile 3/templates/index.html
 
 &lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;Mi primer dashboard&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Telephones&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
 
-&lt;h1&gt;Este es mi primer dashboard en Flask&lt;/h1&gt;
+        &lt;!--- Menu de seleccion al lado izquierdo ---&gt;
+        &lt;nav&gt;
+            &lt;form id=&#39;myDialog&#39; method=&quot;POST&quot;&gt;
+                &lt;p&gt;Region:&lt;/p&gt;
 
-&lt;p&gt;El valor de la variables es {{ myvar }}.&lt;/p&gt;
+                &lt;!--- onchange llama la función cuando el elemento cambia ---&gt;
+                &lt;select id=&quot;region&quot; name=&quot;region&quot;  onchange=&quot;submitData()&quot;&gt;
 
-&lt;p&gt;Grafica de Sin(x).&lt;/p&gt;
-&lt;img src=&quot;/static/sin.png&quot; alt=&quot;Sin(x)&quot;&gt;
+                    {% for i in regions %}
+                        {% if i == selected %}
+                            &lt;option value=&quot;{{ i }}&quot; selected&gt;{{ i }}&lt;/option&gt;
+                        {% else %}
+                            &lt;option value=&quot;{{ i }}&quot;&gt;{{ i }}&lt;/option&gt;
+                        {% endif %}
+                    {% endfor %}
 
-&lt;p&gt;Grafica de Cos(x).&lt;/p&gt;
-&lt;img src=&quot;/static/cos.png&quot; alt=&quot;Sin(x)&quot;&gt;
+                &lt;/select&gt;
+            &lt;/form&gt;
+        &lt;/nav&gt;
 
-&lt;/body&gt;
+        &lt;!--- imprime la región seleccionada ---&gt;
+        {% for message in get_flashed_messages() %}
+            &lt;p&gt; {{ message }} &lt;/p&gt;
+        {% endfor %}
+
+        &lt;!--- remite la información del dialogo al servidor ---&gt;
+        &lt;script&gt;
+            function submitData() {
+                document.getElementById(&quot;myDialog&quot;).submit()
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
 &lt;/html&gt;
 </pre></div>
 </div>
@@ -723,10 +694,180 @@ Writing examples-08-flask/myApp-04/main.py
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Writing examples-08-flask/myApp-04/templates/index.html
+Writing 03/templates/index.html
 </pre></div></div>
 </div>
-<p><strong>Paso 4.–</strong> Se ejecuta (por fuera de jupyter!).</p>
+<p><img alt="flask-03" src="../../_images/flask-03.png" /></p>
+</div>
+<div class="section" id="Version-4-----Cómputos-y-gráfica">
+<h2>Version 4 — Cómputos y gráfica<a class="headerlink" href="#Version-4-----Cómputos-y-gráfica" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>mkdir -p <span class="m">4</span>
+<span class="o">!</span>mkdir -p <span class="m">4</span>/templates
+<span class="o">!</span>mkdir -p <span class="m">4</span>/static
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> 4/app.py
+
+<span class="c1">#---------------------------------------------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># Datos</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">45939</span><span class="p">,</span> <span class="mi">21574</span><span class="p">,</span> <span class="mi">2876</span><span class="p">,</span> <span class="mi">1815</span><span class="p">,</span> <span class="mi">1646</span><span class="p">,</span>   <span class="mi">89</span><span class="p">,</span>  <span class="mi">555</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">60423</span><span class="p">,</span> <span class="mi">29990</span><span class="p">,</span> <span class="mi">4708</span><span class="p">,</span> <span class="mi">2568</span><span class="p">,</span> <span class="mi">2366</span><span class="p">,</span> <span class="mi">1411</span><span class="p">,</span>  <span class="mi">733</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">64721</span><span class="p">,</span> <span class="mi">32510</span><span class="p">,</span> <span class="mi">5230</span><span class="p">,</span> <span class="mi">2695</span><span class="p">,</span> <span class="mi">2526</span><span class="p">,</span> <span class="mi">1546</span><span class="p">,</span>  <span class="mi">773</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">68484</span><span class="p">,</span> <span class="mi">35218</span><span class="p">,</span> <span class="mi">6662</span><span class="p">,</span> <span class="mi">2845</span><span class="p">,</span> <span class="mi">2691</span><span class="p">,</span> <span class="mi">1663</span><span class="p">,</span>  <span class="mi">836</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">71799</span><span class="p">,</span> <span class="mi">37598</span><span class="p">,</span> <span class="mi">6856</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">2868</span><span class="p">,</span> <span class="mi">1769</span><span class="p">,</span>  <span class="mi">911</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">76036</span><span class="p">,</span> <span class="mi">40341</span><span class="p">,</span> <span class="mi">8220</span><span class="p">,</span> <span class="mi">3145</span><span class="p">,</span> <span class="mi">3054</span><span class="p">,</span> <span class="mi">1905</span><span class="p">,</span> <span class="mi">1008</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">79831</span><span class="p">,</span> <span class="mi">43173</span><span class="p">,</span> <span class="mi">9053</span><span class="p">,</span> <span class="mi">3338</span><span class="p">,</span> <span class="mi">3224</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">1076</span><span class="p">]]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1951</span><span class="p">,</span> <span class="mi">1956</span><span class="p">,</span> <span class="mi">1957</span><span class="p">,</span> <span class="mi">1958</span><span class="p">,</span> <span class="mi">1959</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1961</span><span class="p">],</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N.Amer&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;S.Amer&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Mid.Amer&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="c1">#---------------------------------------------------------------------------</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">send_file</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;you-will-never-guess&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/index&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]</span>
+        <span class="n">flash</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+        <span class="s1">&#39;index.html&#39;</span><span class="p">,</span>
+        <span class="n">regions</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="c1"># nombres de las regiones</span>
+        <span class="n">selected</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">])</span>  <span class="c1"># columna seleccionada)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/plot0&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">plot0</span><span class="p">():</span>
+
+    <span class="n">selected</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">selected</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+
+    <span class="n">plot_obj</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_obj</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">)</span>
+    <span class="n">plot_obj</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">send_file</span><span class="p">(</span>
+        <span class="n">plot_obj</span><span class="p">,</span>
+        <span class="n">attachment_filename</span><span class="o">=</span><span class="s1">&#39;plot.png&#39;</span><span class="p">,</span>
+        <span class="n">mimetype</span><span class="o">=</span><span class="s1">&#39;image/png&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;TEMPLATES_AUTO_RELOAD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">auto_reload</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting 4/app.py
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%%writefile 4/templates/index.html
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Telephones&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;!--- Menu de seleccion al lado izquierdo ---&gt;
+        &lt;nav&gt;
+            &lt;form id=&#39;myDialog&#39; method=&quot;POST&quot;&gt;
+                &lt;p&gt;Region:&lt;/p&gt;
+
+                &lt;!--- onchange llama la función cuando el elemento cambia ---&gt;
+                &lt;select id=&quot;region&quot; name=&quot;region&quot;  onchange=&quot;submitData()&quot;&gt;
+
+                    {% for i in regions %}
+                        {% if i == selected %}
+                            &lt;option value=&quot;{{ i }}&quot; selected&gt;{{ i }}&lt;/option&gt;
+                        {% else %}
+                            &lt;option value=&quot;{{ i }}&quot;&gt;{{ i }}&lt;/option&gt;
+                        {% endif %}
+                    {% endfor %}
+
+                &lt;/select&gt;
+            &lt;/form&gt;
+        &lt;/nav&gt;
+
+        &lt;!--- Grafica ---&gt;
+        &lt;div&gt;
+            &lt;img src=&quot;http://0.0.0.0:5000/plot0&quot; /&gt;
+        &lt;/div&gt;
+
+        &lt;!--- imprime la región seleccionada ---&gt;
+        {% for message in get_flashed_messages() %}
+            &lt;p&gt; {{ message }} &lt;/p&gt;
+        {% endfor %}
+
+        &lt;!--- remite la información del dialogo al servidor ---&gt;
+        &lt;script&gt;
+            function submitData() {
+                document.getElementById(&quot;myDialog&quot;).submit()
+            }
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting 4/templates/index.html
+</pre></div></div>
+</div>
+<p><img alt="flask-04" src="../../_images/flask-04.png" /></p>
+<p><strong>Ejercicio.—</strong> Agregar formato usando CSS.</p>
+<p><strong>Ejercicio.—</strong> Construya un demo similar a <a class="reference external" href="https://shiny.rstudio.com/gallery/widget-gallery.html">https://shiny.rstudio.com/gallery/widget-gallery.html</a></p>
 </div>
 </div>
 

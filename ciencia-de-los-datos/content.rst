@@ -205,21 +205,24 @@ Sesión 4---13
     Sesión de presentaciones orales con expositores invitados.
 
 
+
 Sesión 4---14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Reportes automáticos usando HTML, CSS y Python**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/jupyter/*
+        /notebooks/html/1-*
 
 
+    **Publicación de informes usando GitHub Pages**
+
+        https://github.com/jdvelasq/dyna-demo
 
 
-
-Revision
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Scrapping**
 
@@ -229,36 +232,8 @@ Revision
 
         /notebooks/scrapping/*
 
-    **Publicación de informes usando GitHub Pages**
-
-        https://github.com/jdvelasq/dyna-demo
-
-    **Documentación usando Jupyter Notebooks y Google Colaboratory**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/jupyter/*
-
-    **Interfases de usuario usando PyQt5**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/pyqt5/*
-
 Sesión 4---15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Generación de HTML estático usando Python**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/github/*
 
     **Desarrollo de aplicaciones web usando Flask**
 
@@ -269,8 +244,18 @@ Sesión 4---15
         /notebooks/flask/*
 
 
+    **Documentación usando Jupyter Notebooks y Google Colaboratory**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/jupyter/*
+
+
+
 Sesión 4---16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    Cierre
+    Revisión, cierre y retroalimentación del curso.
 

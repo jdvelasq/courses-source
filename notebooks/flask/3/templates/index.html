@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Telephones</title>    
+    </head>
+    <body>
+        
+        <!--- Menu de seleccion al lado izquierdo --->
+        <nav>
+            <form id='myDialog' method="POST">
+                <p>Region:</p>
+
+                <!--- onchange llama la función cuando el elemento cambia --->
+                <select id="region" name="region"  onchange="submitData()">
+
+                    {% for i in regions %}
+                        {% if i == selected %}
+                            <option value="{{ i }}" selected>{{ i }}</option>
+                        {% else %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+            </form>
+        </nav>
+        
+        <!--- imprime la región seleccionada --->
+        {% for message in get_flashed_messages() %}
+            <p> {{ message }} </p>
+        {% endfor %}
+        
+        <!--- remite la información del dialogo al servidor --->
+        <script>
+            function submitData() {
+                document.getElementById("myDialog").submit()
+            }
+        </script>
+    </body>
+</html>
