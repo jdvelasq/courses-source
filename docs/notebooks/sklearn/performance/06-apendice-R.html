@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Vecinos próximos para clasificación" href="../knn/01-knn-classification.html" />
+    <link rel="next" title="Afinación de los parámetros de modelos" href="1-23-afinacion-de-los-parametros-de-los-modelos.html" />
     <link rel="prev" title="Afinación de los parámetros de modelos" href="05-afinacion-de-los-parametros-de-los-modelos.html" /> 
 </head>
 
@@ -424,7 +424,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Conjunto de prueba, usado comunmente para determinar la complejidad del modelo o el valor óptimo de alguno de sus parámetros.</p></li>
 <li><p>Conjunto de pronóstico, en el que se intenta reproducir el comportamiento del modelo en productivo.</p></li>
 </ul>
-<p><img alt="assets/data-partition.jpg" src="../../../_images/data-partition.jpg" /></p>
+<p><img alt="assets/data-partition.jpg" src="../../../_images/data-partition1.jpg" /></p>
 <p>En la figura anterior, los datos se dividen secuencialmente, pero podría construirse cada conjunto aletaoriamente.</p>
 <p>Si se tiene en cuenta que hay muchas particiones aleatorias posibles, una mejor estimación de la matriz de confusión (o cualquier otro estadístico que se calcule para un conjunto de datos) podría ser tomando los valores esperados de cada métrica. Es decir, si se repite el experimento <span class="math notranslate nohighlight">\(N\)</span> veces, se tendrían <span class="math notranslate nohighlight">\(N\)</span> valores posibles para cada uno de los elementos de la matriz de confusión y por lo tanto se podría tener su valor medio. Esta sería una métrica mucho más apropiada.</p>
 <p>A continuación se describen varios mecanismos para gestionar la forma en que los datos son particionados.</p>
@@ -501,7 +501,7 @@ List of 7
 <li><p>Se toma el grupo 2 como conjunto de datos de prueba (grupo rojo) y se entrena el modelo con los grupos restantes {1, 3, …, K} (grupo negro).</p></li>
 <li><p>Se continua de esta forma hasta que se usa el grupo K para prueba, mientras que se usan los grupos 1 hasta K-1 para entrenamiento.</p></li>
 </ul>
-<p><img alt="assets/k-fold-crossval.jpg" src="../../../_images/k-fold-crossval.jpg" /></p>
+<p><img alt="assets/k-fold-crossval.jpg" src="../../../_images/k-fold-crossval1.jpg" /></p>
 <p>De esta forma, se tienen K valores posibles para el estadístico de interés. Usualmente se reporta su valor promedio.</p>
 <p>Note que una mejor opción sería distribuir los datos en cada grupo de forma aleatoria.</p>
 <div class="nbinput docutils container">
@@ -579,7 +579,7 @@ List of 7
 <div class="section" id=" Leave-one-out">
 <h2> Leave-one-out<a class="headerlink" href="# Leave-one-out" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Este es el K-fold con K=1.</p>
-<p><img alt="assets/leave-one-out.jpg" src="../../../_images/leave-one-out.jpg" /></p>
+<p><img alt="assets/leave-one-out.jpg" src="../../../_images/leave-one-out1.jpg" /></p>
 </div>
 <div class="section" id="Uso-en-el-entrenamiento-de-un-modelo">
 <h2>Uso en el entrenamiento de un modelo<a class="headerlink" href="#Uso-en-el-entrenamiento-de-un-modelo" title="Enlazar permanentemente con este título">¶</a></h2>

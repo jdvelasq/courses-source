@@ -1,14 +1,128 @@
 Sesiones
-===================
+-------------------------------------------------------------------------------
 
 
 
 Sesión 01
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Presentación del curso**
 
     * Ver la sección de *Información del curso* en el menú de la izquierda.
+
+
+    **Fundamentos de aprendizaje automático I**
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+        
+        /notebooks/sklearn/fundamentals/1-*
+
+Sesión 02
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Fundamentos de aprendizaje automático II**
+    
+    .. toctree::
+        :titlesonly:
+        :glob:
+        
+        /notebooks/sklearn/fundamentals/2-*
+
+
+Sesión 03
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Fundamentos de aprendizaje automático III**
+    
+    .. toctree::
+        :titlesonly:
+        :glob:
+        
+        /notebooks/sklearn/fundamentals/3-*
+
+
+Sesión 04
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Gradiente descendente estocástico en sklearn**.
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/sgd/*
+
+
+    **McCullochPitts**
+    
+
+    **Regla de aprendizaje del perceptrón**.
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/bipolar-perceptron/*
+
+Sesión 05
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Combinadores lineales adaptativos**
+    
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/adaline/*
+
+
+Sesión 06
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Perceptrón continuo**
+    
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/continuous-perceptron/*
+
+
+    **Multilayer perceptrons en sklearn**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/mlp/*
+
+
+Sesión 07
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Support Vector Machines**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/svm/*
+
+
+Sesión 08
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/optimization/*        
+    
+
+Sesión 09
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **API de bajo nivel de TensorFlow**.
 
@@ -26,8 +140,8 @@ Sesión 01
         /notebooks/tensorflow/mccullochpitts/*
 
 
-Sesión 02
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sesión 10
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
         :maxdepth: 1
@@ -36,29 +150,10 @@ Sesión 02
         /notebooks/tensorflow/associative/*
 
 
-Sesión 03
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Regla de aprendizaje del perceptrón**.
+Sesión 11
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/sklearn/bipolar-perceptron/*
-
-
-    **Gradiente descendente estocástico en sklearn**.
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/sklearn/sgd/*
-
-
-Sesión 04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Gradiente descendente estocástico en TensorFlow**.
 
@@ -66,47 +161,13 @@ Sesión 04
         :maxdepth: 1
         :glob:
 
-
         /notebooks/tensorflow/sgd/*
 
         /notebooks/tensorflow/perceptron/*
 
 
-Sesión 05
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Combinadores lineales adaptativos**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/adaline/*
-
-
-
-Sesión 06
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/optimization/*        
-
-
-
-Sesión 07
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Multilayer perceptrons en sklearn**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/sklearn/mlp/*
-
+Sesión 12
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Multilayer perceptrons en TensorFlow**
 
@@ -115,22 +176,6 @@ Sesión 07
         :glob:
 
         /notebooks/tensorflow/dense/*
-
-
-Sesión 08
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Support Vector Machines**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/sklearn/svm/*
-
-
-Sesión 09
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Learn and use ML**
 
@@ -141,8 +186,9 @@ Sesión 09
         /notebooks/tensorflow/learn-and-use-ml/*
 
 
-Sesión 10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sesión 13
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Research and experimentation**
 
@@ -151,10 +197,6 @@ Sesión 10
         :glob:
 
         /notebooks/tensorflow/research-and-experimentation/*
-
-
-Sesión 11
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **ML at production scale**
 
@@ -165,8 +207,8 @@ Sesión 11
         /notebooks/tensorflow/ml-at-production-scale/*
 
 
-Sesión 12
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sesión 14
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Sequences**
 
@@ -177,8 +219,6 @@ Sesión 12
   
         /notebooks/tensorflow/sequences/*
 
-Sesión 13
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Data representation**
 
@@ -189,8 +229,8 @@ Sesión 13
         /notebooks/tensorflow/data-representation/*
 
 
-Sesión 14
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sesión 15
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Estimators**
 
@@ -201,9 +241,6 @@ Sesión 14
         /notebooks/tensorflow/estimators/*
 
 
-Sesión 15
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   
    **High level APIs**
 
      .. toctree::
@@ -211,6 +248,11 @@ Sesión 15
         :glob:
 
         /notebooks/tensorflow/high-level-apis/*
+
+Sesión 16
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 
    **Embedings**
 
@@ -221,22 +263,14 @@ Sesión 15
         /notebooks/tensorflow/embedings/*
 
 
-Sesión 16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
     Cierre
 
 
     
 
 Anexos y material complementario
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-
-        
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     
 
     .. toctree::
         :maxdepth: 1
