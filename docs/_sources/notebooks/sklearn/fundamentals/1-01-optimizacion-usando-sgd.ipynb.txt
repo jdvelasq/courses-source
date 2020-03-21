@@ -6,7 +6,7 @@
     "toc-hr-collapsed": false
    },
    "source": [
-    "Optimización usando el gradiente descendente (DG)\n",
+    "Optimización usando el gradiente descendente (GD)\n",
     "===\n",
     "\n",
     "* *30 min* | Ultima modificación: Junio 22, 2019"

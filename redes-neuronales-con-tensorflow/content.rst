@@ -10,7 +10,16 @@ Sesión 01
 
     * Ver la sección de *Información del curso* en el menú de la izquierda.
 
+    
+    **Modelo de McCulloch-Pitts**
+    
+    .. toctree::
+        :titlesonly:
+        :glob:
+        
+        /notebooks/sklearn/mccullochpitts/1-*
 
+    
     **Fundamentos de aprendizaje automático I**
 
     .. toctree::
@@ -53,12 +62,9 @@ Sesión 04
         :glob:
 
         /notebooks/sklearn/sgd/*
-
-
-    **McCullochPitts**
     
 
-    **Regla de aprendizaje del perceptrón**.
+    **Perceptrón bipolar**.
 
     .. toctree::
         :maxdepth: 1

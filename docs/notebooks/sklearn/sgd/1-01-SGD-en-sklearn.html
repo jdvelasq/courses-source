@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SGDRegressor y SGDClassifier &mdash; documentación de --- Cursos --- - </title>
+  <title>Ejemplos de SGD usando sklearn &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -149,7 +149,7 @@
         
           <li><a href="../../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>SGDRegressor y SGDClassifier</li>
+      <li>Ejemplos de SGD usando sklearn</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -410,11 +410,53 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="SGDRegressor-y-SGDClassifier">
-<h1>SGDRegressor y SGDClassifier<a class="headerlink" href="#SGDRegressor-y-SGDClassifier" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Ejemplos-de-SGD-usando-sklearn">
+<h1>Ejemplos de SGD usando sklearn<a class="headerlink" href="#Ejemplos-de-SGD-usando-sklearn" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>30 min</em> | Última modificación: Julio 11, 2019</p></li>
+<li><p><em>30 min</em> | Última modificación: Marzo 20, 2020</p></li>
 </ul>
+<div class="section" id="SGDRegressor">
+<h2>SGDRegressor<a class="headerlink" href="#SGDRegressor" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Este es un modelo lineal de la forma:</p>
+<div class="math notranslate nohighlight">
+\[y = w_0 + \sum_i w_i x_i\]</div>
+<p>con las siguientes características:</p>
+<ul>
+<li><p>Los parámetros son estimados usando el gradiente descendente estocástico computado sobre cada muestra del patrón de entrenamiento.</p></li>
+<li><p>Permite usar diferentes funciones de pérdida:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squared_loss</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[L(d, y) = (d - y)^2\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">huber</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}L(d, y)=
+\begin{cases}
+\frac{1}{2}[d - y]^2 &amp; \text{Si } |d-y| \le \epsilon \\
+\\
+\epsilon |d-y|-\frac{1}{2}\epsilon^2 &amp; \text{en cualquier otro caso}
+\end{cases}\end{split}\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epsilon_insensitive</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}L(d, y)=
+\begin{cases}
+0 &amp; \text{Si } |d-y| \le \epsilon \\
+\\
+\epsilon |d-y| - \epsilon &amp; \text{en cualquier otro caso}
+\end{cases}\end{split}\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squared_epsilon_insensitive</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[L(d, y)= [\text{epsilon_insensitive}(d, y)]^2\]</div>
+</li>
+<li><p>Se pueden especificar diferentes funciones de penalización (ridge, LASSO o ElasticNet).</p></li>
+<li><p>El intercepto del modelo (<span class="math notranslate nohighlight">\(w_0\)</span>) puede ser eliminado del modelo.</p></li>
+<li><p>Pueden especificarse diferentes esquemas para la tasa de aprendizaje (constante, optima, escala inversa, adaptativa).</p></li>
+<li><p>El algoritmo de entreamiento puede usar Early Stopping para finalizar el proceso de optimización.</p></li>
+<li><p>El modelo puede usar los parametros computados sobre el último patrón o como un promedio.</p></li>
+</ul>
+<p>A continuación se ejemplifica el uso de <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code> para realizar una regressión lineal.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -428,14 +470,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Regresión">
-<h2>Regresión<a class="headerlink" href="#Regresión" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_regression</span>
+<span></span><span class="c1">#</span>
+<span class="c1">#  Generación de datos artificiales</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_regression</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_regression</span><span class="p">(</span>
     <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>         <span class="c1">#</span>
@@ -458,7 +502,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_3_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_3_0.png" />
+<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_7_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_7_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -466,8 +510,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDRegressor</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Uso de SGDRegressor</span>
+<span class="c1">#</span>
 
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDRegressor</span>
+
+<span class="c1">#</span>
+<span class="c1"># Crea el modelo y su parametrización</span>
+<span class="c1">#</span>
 <span class="n">sgdRegressor</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span>
     <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;squared_loss&#39;</span><span class="p">,</span>         <span class="c1"># &#39;squared_loss&#39;, &#39;huber&#39;, &#39;epsilon_insensitive&#39;, &#39;squared_epsilon_insensitive&#39;</span>
     <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span>                <span class="c1"># &#39;none&#39;, &#39;l2&#39;, &#39;l1&#39;, &#39;elasticnet&#39;</span>
@@ -489,11 +540,19 @@ div.rendered_html tbody tr:hover {
     <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>            <span class="c1">#</span>
     <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>               <span class="c1"># average weights</span>
 
-
+<span class="c1">#</span>
+<span class="c1"># Entrenamiento del modelo</span>
+<span class="c1">#</span>
 <span class="n">sgdRegressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
+<span class="c1">#</span>
+<span class="c1"># Grafico de la muestra para entrenamiento</span>
+<span class="c1">#</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
+<span class="c1">#</span>
+<span class="c1"># Gráfico del pronóstico usando SGDRegressor</span>
+<span class="c1">#</span>
 <span class="n">X_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">X_pred</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X_pred</span><span class="p">]</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">sgdRegressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_pred</span><span class="p">)</span>
@@ -505,20 +564,95 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_4_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_4_0.png" />
+<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_8_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_8_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Clasificación">
-<h2>Clasificación<a class="headerlink" href="#Clasificación" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="Dataset">
-<h3>Dataset<a class="headerlink" href="#Dataset" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span></span><span class="n">sgdRegressor</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([44.19702465])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sgdRegressor</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1.32086051])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="SGDClassifier">
+<h2>SGDClassifier<a class="headerlink" href="#SGDClassifier" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Permite estimar un clasificador lineal con las siguientes características (se usa +/- 1 para representar las clases):</p>
+<ul>
+<li><p>Los parámetros son estimados usando el gradiente descendente estocástico computado sobre cada muestra del patrón de entrenamiento.</p></li>
+<li><p>Permite usar diferentes funciones de pérdida:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hinge</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[L(d,y)=\max (0, 1 - d \times y)\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code>: (logistica)</p>
+<div class="math notranslate nohighlight">
+\[L(d, y) = -d \log (y) - (1-d) \log(1 - y)\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modified_huber</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}L(d, y)=
+\begin{cases}
+\max(0, 1 - d \times y) &amp; \text{Si } $d \times y \ge -1$ \\
+\\
+-4 \times d \times y &amp; \text{en cualquier otro caso}
+\end{cases}\end{split}\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squared</span> <span class="pre">hinge</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[L(d,y)=[\max (0, 1 - d \times y)]^2\]</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">perceptron</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[L(d, y)= d - y\]</div>
+</li>
+<li><p>Cualquiera de las funciones usandas con <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code>.</p></li>
+<li><p>Se pueden especificar diferentes funciones de penalización (ridge, LASSO o ElasticNet).</p></li>
+<li><p>El intercepto del modelo (<span class="math notranslate nohighlight">\(w_0\)</span>) puede ser eliminado del modelo.</p></li>
+<li><p>Pueden especificarse diferentes esquemas para la tasa de aprendizaje (constante, optima, escala inversa, adaptativa).</p></li>
+<li><p>El algoritmo de entreamiento puede usar Early Stopping para finalizar el proceso de optimización.</p></li>
+<li><p>El modelo puede usar los parametros computados sobre el último patrón o como un promedio.</p></li>
+</ul>
+<p>A continuación se ejemplifica el uso de <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> para construir un classificador lineal.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1">#  Generación de datos artificiales</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
 
 <span class="n">NPOINTS</span> <span class="o">=</span> <span class="mi">150</span>
 
@@ -541,19 +675,19 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_7_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_7_0.png" />
+<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_14_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_14_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Modelo">
-<h3>Modelo<a class="headerlink" href="#Modelo" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
 
+<span class="c1">#</span>
+<span class="c1"># Crea el modelo y su parametrización</span>
+<span class="c1">#</span>
 <span class="n">sgdClassifier</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span>
     <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;hinge&#39;</span><span class="p">,</span>                <span class="c1"># &#39;hinge&#39;, &#39;log&#39;, &#39;modified_huber&#39;, &#39;squared_hinge&#39;,</span>
                                  <span class="c1"># &#39;perceptron&#39;, &#39;squared_loss&#39;, &#39;huber&#39;, &#39;epsilon_insensitive&#39;,</span>
@@ -578,13 +712,15 @@ div.rendered_html tbody tr:hover {
     <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>            <span class="c1"># ?reusa solución previa</span>
     <span class="n">average</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>               <span class="c1">#</span>
 
-
+<span class="c1">#</span>
+<span class="c1"># Estimación de los parámetros óptimos</span>
+<span class="c1">#</span>
 <span class="n">sgdClassifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -598,7 +734,7 @@ SGDClassifier(alpha=0.0001, average=False, class_weight=None,
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -607,18 +743,18 @@ SGDClassifier(alpha=0.0001, average=False, class_weight=None,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[  9.17984201,  -9.0332372 ],
-       [-32.38345592, -14.34846758],
-       [  0.61967664,  38.81812241]])
+array([[ 23.19819684, -12.85266256],
+       [ -2.85611246,  -2.20249112],
+       [ -3.10519567,  50.23539299]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -627,16 +763,16 @@ array([[  9.17984201,  -9.0332372 ],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([-49.71283893, -37.96440731,   5.11558828])
+array([-140.15290237,  -10.        ,   18.38237593])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -645,7 +781,7 @@ array([-49.71283893, -37.96440731,   5.11558828])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -659,14 +795,16 @@ array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
 </pre></div></div>
 </div>
-<div class="section" id="Fronteras-de-decisión">
-<h4>Fronteras de decisión<a class="headerlink" href="#Fronteras-de-decisión" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Gráfica de las fronteras de decisión</span>
+<span class="c1">#</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">100</span><span class="p">:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">100</span><span class="p">:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
@@ -697,11 +835,10 @@ array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_14_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_14_0.png" />
+<img alt="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_19_0.png" src="../../../_images/notebooks_sklearn_sgd_1-01-SGD-en-sklearn_19_0.png" />
 </div>
 </div>
-</div>
-</div>
+<p><strong>Ejercicio.—</strong> ¿Cómo se modifican las fronteras de decisión cuando se usa la función de pérdida de la regresión logística?</p>
 </div>
 </div>
 

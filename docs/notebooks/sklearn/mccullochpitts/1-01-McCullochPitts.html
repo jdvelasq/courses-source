@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Memoria asociativa lineal" href="../associative/1-01-memoria-asociativa-lineal.html" />
-    <link rel="prev" title="Introducción a TensorBoard" href="../low-level-apis/1-04-tensorboard.html" /> 
+    <link rel="next" title="Regla de aprendizaje del perceptrón" href="../bipolar-perceptron/1-01-perceptron-bipolar.html" />
+    <link rel="prev" title="Sesiones" href="../../../redes-neuronales-con-tensorflow/content.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -155,7 +155,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/tensorflow/mccullochpitts/1-01-McCullochPitts.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/sklearn/mccullochpitts/1-01-McCullochPitts.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -413,7 +413,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Reconocimiento-de-patrones-binarios-usando-neuronas-de-McCulloch-Pitts">
 <h1>Reconocimiento de patrones binarios usando neuronas de McCulloch-Pitts<a class="headerlink" href="#Reconocimiento-de-patrones-binarios-usando-neuronas-de-McCulloch-Pitts" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>30 min</em> | Última modificación: Junio 22, 2019</p></li>
+<li><p><em>30 min</em> | Última modificación: Marzo 20, 2020</p></li>
 </ul>
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -421,7 +421,7 @@ div.rendered_html tbody tr:hover {
 <p>En términos de los datos, se tiene un conjunto de cuatro patrones binarios de entrada que deben ser reconocidos, donde cada patrón está conformado por tres dígitos binarios <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>. Los patrones a ser reconocidos y su simil con el cerebro son presentados en la figura de abajo. En este caso, el sistema de visión debe determinar el valor de los tres bits (entrada al modelo) y el cerebro debe determinar si el patrón arbitrario observado corresponde a uno de los cuatro patrones indicados
 (decisión).</p>
 <p>En términos matemáticos, este problema puede ser definido como un problema de clasificación de patrones donde las entradas son todas las cadenas de tres dígitos binarios posibles, y la salida es 1 si la cadena es reconocida y 0 en caso contrario.</p>
-<p><img alt="assets/McCullochPitts-01.png" src="../../../_images/McCullochPitts-011.png" /></p>
+<p><img alt="assets/McCullochPitts-01.png" src="../../../_images/McCullochPitts-01.png" /></p>
 <p>En otras palabras, se desea tener un modelo matemático <span class="math notranslate nohighlight">\(f(\)</span> <code class="docutils literal notranslate"><span class="pre">Entrada</span></code> <span class="math notranslate nohighlight">\()\)</span> = <code class="docutils literal notranslate"><span class="pre">Salida</span></code> cuyas entradas y salidas están determinadas por la siguiente tabla, donde cero es blanco y uno es gris. Los patrones con salida 1 son los que deben ser reconocidos.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Entrada</span>   <span class="n">Salida</span>
 <span class="o">------------------</span>
@@ -452,11 +452,11 @@ div.rendered_html tbody tr:hover {
       0, &amp; \text{Si $v \lt \theta$}\\
 \end{cases}\end{split}\]</div>
 <p>El valor <span class="math notranslate nohighlight">\(\theta\)</span> es un umbral. Así, la salida de la neurona es un dígito binario <span class="math notranslate nohighlight">\(\{0, 1\}\)</span> (parte central de la figura de abajo).</p>
-<p><img alt="assets/McCullochPitts-02.png" src="../../../_images/McCullochPitts-021.png" /></p>
+<p><img alt="assets/McCullochPitts-02.png" src="../../../_images/McCullochPitts-02.png" /></p>
 <p>Adicionalmente, la neurona artificial contiene conexiones inhibitorias notadas como <span class="math notranslate nohighlight">\(y_m\)</span>, tal que la salida siempre es cero si alguna de las entradas inhibitorias vale 1, independientemente del valor que puedan tomar las conexiones excitatorias. La representación gráfica de la neurona de McCulloch-Pitts aparece en la parte derecha de la figura anterior.</p>
 <p>Las entradas <span class="math notranslate nohighlight">\(x_i\)</span> son señales exitadores, y las señales <span class="math notranslate nohighlight">\(y_j\)</span> son inhibidoras. La salida es cero (0) si alguna de las señales inhibidoras es uno (1). La salida es uno (1) si la suma de señales de entrada es mayor o igual que el umbral (<span class="math notranslate nohighlight">\(\theta\)</span>), y todas las señales inhibidoras son cero (0).</p>
 <p>Una neurona de McCulloch-Pitts puede interpretarse como compuerta lógica de umbral (circuito lógico):</p>
-<p><img alt="assets/McCullochPitts-06.png" src="../../../_images/McCullochPitts-061.png" /></p>
+<p><img alt="assets/McCullochPitts-06.png" src="../../../_images/McCullochPitts-06.png" /></p>
 <p>Por ejemplo:</p>
 <ul class="simple">
 <li><p>Para <span class="math notranslate nohighlight">\(x_1\)</span> AND <span class="math notranslate nohighlight">\(x_2\)</span>:</p></li>
@@ -483,7 +483,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <p><strong>Ejercicio.—</strong> Calcule la salida para la siguiente red de neuronas de McCulloch-Pitts.</p>
-<p><img alt="assets/McCullochPitts-04.png" src="../../../_images/McCullochPitts-041.png" /></p>
+<p><img alt="assets/McCullochPitts-04.png" src="../../../_images/McCullochPitts-04.png" /></p>
 <p>Rta/</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Entrada</span>  <span class="n">Salida</span>
 <span class="o">-----------------</span>
@@ -518,7 +518,7 @@ función lógica son las cadenas de bits observadas y la salida en un número bi
 <div class="section" id="Representación-de-funciones-lógicas-mediante-redes-de-neuronas-de-McCulloch-Pitts">
 <h3>Representación de funciones lógicas mediante redes de neuronas de McCulloch-Pitts<a class="headerlink" href="#Representación-de-funciones-lógicas-mediante-redes-de-neuronas-de-McCulloch-Pitts" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una red de neuronas de McCulloch-Pitts de dos capas puede representar cualquier función lógica <span class="math notranslate nohighlight">\(F:\{0,1\}^n \to \{0,1\}\)</span>. A continuación se presenta el proceso de construcción para la función lógica que se presenta en la siguiente figura:</p>
-<p><img alt="assets/McCullochPitts-03.png" src="../../../_images/McCullochPitts-031.png" /></p>
+<p><img alt="assets/McCullochPitts-03.png" src="../../../_images/McCullochPitts-03.png" /></p>
 <ul class="simple">
 <li><p>Se crea una neurona en la primera capa por cada salida igual a 1; para el ejemplo planteado se requieren dos neuronas.</p></li>
 <li><p>La segunda capa contiene una neurona que representa la función OR; esto es, si todas las entradas a la neurona son cero, la salida es cero; si una o más entradas son uno, la salida de la neurona es uno. Esta neurona recibe como entrada todas las salida de las neuronas de la primera capa; todas las entradas son excitatorias y el umbral es 1.</p></li>
@@ -704,261 +704,6 @@ excitatoria. El valor del umbral de la neurona es la cantidad de unos de la entr
 <div class="highlight"><pre>
 
 </pre></div></div>
-</div>
-</div>
-<div class="section" id="Implementación-en-TensorFlow">
-<h2>Implementación en TensorFlow<a class="headerlink" href="#Implementación-en-TensorFlow" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## Preparación</span>
-<span class="c1">##</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-
-<span class="c1">##</span>
-<span class="c1">## Peso de las neuronas inhibitorias</span>
-<span class="c1">##</span>
-<span class="n">N</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.0</span>
-
-<span class="c1">## Pesos asociados a las conexiones.</span>
-<span class="c1">## Se traspone la matriz para que cada</span>
-<span class="c1">## fila representa un patrón y cada columna</span>
-<span class="c1">## un dígito binario</span>
-<span class="n">weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  <span class="c1"># 001</span>
-                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">],</span>  <span class="c1"># 100</span>
-                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">],</span>  <span class="c1"># 110</span>
-                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="c1"># 111</span>
-                      <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-
-
-<span class="c1">## valor límite de las neuronas para</span>
-<span class="c1">## la función de activación</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-                        <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-
-
-
-<span class="c1">##</span>
-<span class="c1">## vector fila que representa la entrada a la red neuronal</span>
-<span class="c1">##</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
-
-
-
-<span class="c1">##</span>
-<span class="c1">## Cálculo de la salida de la red</span>
-<span class="c1">##</span>
-<span class="n">out0</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="p">)</span>       <span class="c1"># suma de las entradas</span>
-<span class="n">out1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">out0</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">out2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">out1</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span> <span class="c1"># resta el umbral: g() - umbral</span>
-<span class="n">out3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">map_fn</span><span class="p">(</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
-                                      <span class="n">true_fn</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
-                                      <span class="n">false_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)),</span>
-                  <span class="n">out2</span><span class="p">)</span>
-
-<span class="c1">##</span>
-<span class="c1">## Computa la función OR</span>
-<span class="c1">##</span>
-<span class="n">nnet</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">out3</span><span class="p">)</span> <span class="c1"># salida de la red neuronal</span>
-
-<span class="c1">##</span>
-<span class="c1">## Abre una sesión y ejecuta</span>
-<span class="c1">## los cálculos para diferentes valores de entrada</span>
-<span class="c1">##</span>
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]}))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]}))</span>
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.0
-1.0
-0.0
-0.0
-1.0
-0.0
-1.0
-1.0
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="Apéndice-----Implementación-en-R">
-<h2>Apéndice — Implementación en R<a class="headerlink" href="#Apéndice-----Implementación-en-R" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>A continuación se presenta el programa en R para simular una red de neuronas de McCulloch-Pitts.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="n">R</span>
-<span class="n">nnet</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="c1">##</span>
-    <span class="c1">## define x como un vector fila</span>
-    <span class="c1">##</span>
-    <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
-
-    <span class="c1">## Peso de las neuronas inhibitorias, es</span>
-    <span class="c1">## un valor mucho más grande que la cantidad</span>
-    <span class="c1">## de entradas</span>
-    <span class="n">N</span> <span class="o">&lt;-</span> <span class="m">-10.0</span>
-
-    <span class="c1">## Las conexiones son representadas mediante</span>
-    <span class="c1">## una matriz donde las filas corresponden</span>
-    <span class="c1">## a los patrones y las columnas a los bits.</span>
-    <span class="c1">## Note que N representa las conexiones inhibitorias.</span>
-    <span class="c1">## Las conexiones excitatorias tienen un</span>
-    <span class="c1">## valor de 1.</span>
-    <span class="n">weights</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span>  <span class="c1"># 001</span>
-                        <span class="m">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span>  <span class="c1"># 100</span>
-                        <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span>  <span class="c1"># 110</span>
-                        <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="c1"># 111</span>
-                      <span class="n">nrow</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>   <span class="c1"># número de bits por patron</span>
-                      <span class="n">ncol</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>   <span class="c1"># número de patrones</span>
-
-    <span class="c1">## se traspone la matriz para que cada</span>
-    <span class="c1">## fila representa un patrón y cada columna</span>
-    <span class="c1">## un dígito binario</span>
-    <span class="n">weights</span> <span class="o">&lt;-</span> <span class="nf">t</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-
-    <span class="c1">## El umbral de las neuronas de la primera capa</span>
-    <span class="c1">## se almacena en un vector</span>
-    <span class="n">threshold</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">4</span><span class="p">,,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
-
-    <span class="c1">## operaciones matemáticas</span>
-    <span class="n">out</span> <span class="o">&lt;-</span> <span class="n">weights</span> <span class="o">%*%</span> <span class="n">x</span>          <span class="c1"># multiplicación matricial</span>
-    <span class="n">out</span> <span class="o">&lt;-</span> <span class="n">out</span> <span class="o">-</span> <span class="n">threshold</span>        <span class="c1"># resta el umbral</span>
-    <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">out</span> <span class="o">&gt;=</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="c1"># aplica la función f</span>
-    <span class="n">out</span> <span class="o">&lt;-</span> <span class="nf">max</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>               <span class="c1"># computa la función OR</span>
-
-    <span class="nf">return</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>                   <span class="c1"># retorna la salida de la red neuronal</span>
-<span class="p">}</span>
-
-<span class="c1">##</span>
-<span class="c1">## Verificacion</span>
-<span class="c1">##</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">))</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">))</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">))</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">))</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">nnet</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1] TRUE
-[1] TRUE
-[1] TRUE
-[1] TRUE
-[1] TRUE
-[1] TRUE
-[1] TRUE
-[1] TRUE
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="Apéndice-----Implementación-en-TensorFlow-for-R">
-<h2>Apéndice — Implementación en TensorFlow for R<a class="headerlink" href="#Apéndice-----Implementación-en-TensorFlow-for-R" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%</span><span class="n">R</span>
-<span class="c1">##</span>
-<span class="c1">## Preparación</span>
-<span class="c1">##</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">tensorflow</span><span class="p">)</span>
-
-<span class="c1">##</span>
-<span class="c1">## Peso de las neuronas inhibitorias</span>
-<span class="c1">##</span>
-<span class="n">N</span> <span class="o">&lt;-</span> <span class="m">-10.0</span>
-
-<span class="c1">## Pesos asociados a las conexiones.</span>
-<span class="c1">## Se traspone la matriz para que cada</span>
-<span class="c1">## fila representa un patrón y cada columna</span>
-<span class="c1">## un dígito binario</span>
-<span class="n">weights</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">constant</span><span class="p">(</span> <span class="nf">t</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span>  <span class="c1"># 001</span>
-                                   <span class="m">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span>  <span class="c1"># 100</span>
-                                   <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span>  <span class="c1"># 110</span>
-                                   <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="c1"># 111</span>
-                                 <span class="n">nrow</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>   <span class="c1"># número de bits de la entrada</span>
-                                 <span class="n">ncol</span> <span class="o">=</span> <span class="m">4</span><span class="p">)),</span> <span class="c1"># número de patrones)</span>
-                          <span class="n">tf</span><span class="o">$</span><span class="n">float32</span><span class="p">)</span>
-
-
-<span class="c1">## valor límite de las neuronas para</span>
-<span class="c1">## la función de activación</span>
-<span class="n">threshold</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">constant</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span>
-                                <span class="n">nrow</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span>
-                                <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
-                         <span class="n">tf</span><span class="o">$</span><span class="n">float32</span><span class="p">)</span>
-
-
-
-<span class="c1">##</span>
-<span class="c1">## vector fila que representa la entrada a la red neuronal</span>
-<span class="c1">##</span>
-<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">$</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
-
-
-
-<span class="c1">##</span>
-<span class="c1">## Cálculo de la salida de la red</span>
-<span class="c1">##</span>
-<span class="n">out0</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">matmul</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>        <span class="c1"># suma de las entradas</span>
-<span class="n">out1</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">subtract</span><span class="p">(</span><span class="n">out0</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span> <span class="c1"># resta el umbral: g() - umbral</span>
-<span class="n">out2</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">map_fn</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="n">tf</span><span class="o">$</span><span class="nf">cond</span><span class="p">(</span><span class="n">tf</span><span class="o">$</span><span class="nf">greater_equal</span><span class="p">(</span><span class="n">m[[0]]</span><span class="p">,</span> <span class="m">0.0</span><span class="p">),</span>
-                                      <span class="n">true_fn</span> <span class="o">=</span> <span class="nf">function</span><span class="p">()</span> <span class="n">tf</span><span class="o">$</span><span class="nf">constant</span><span class="p">(</span><span class="m">1</span><span class="n">.)</span><span class="p">,</span>
-                                      <span class="n">false_fn</span> <span class="o">=</span> <span class="nf">function</span><span class="p">()</span> <span class="n">tf</span><span class="o">$</span><span class="nf">constant</span><span class="p">(</span><span class="m">0.0</span><span class="p">)),</span>
-                  <span class="n">out1</span><span class="p">)</span>
-
-<span class="c1">##</span>
-<span class="c1">## Computa la función OR</span>
-<span class="c1">##</span>
-<span class="n">nnet</span> <span class="o">&lt;-</span> <span class="n">tf</span><span class="o">$</span><span class="nf">reduce_max</span><span class="p">(</span><span class="n">out2</span><span class="p">)</span> <span class="c1"># salida de la red neuronal</span>
-
-<span class="c1">##</span>
-<span class="c1">## Abre una sesión y ejecuta</span>
-<span class="c1">## los cálculos para diferentes valores de entrada</span>
-<span class="c1">##</span>
-<span class="nf">with</span><span class="p">(</span><span class="n">tf</span><span class="o">$</span><span class="nf">Session</span><span class="p">()</span> <span class="o">%as%</span> <span class="n">sess</span><span class="p">,</span> <span class="p">{</span>
-
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">nnet</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))))</span>
-<span class="p">})</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
