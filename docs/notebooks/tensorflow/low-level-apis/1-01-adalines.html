@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="MADALINEs" href="1-02-madalines.html" />
-    <link rel="prev" title="Opcional — Perceptrón unario bipolar" href="../bipolar-perceptron/1-03-perceptron-unario-bipolar.html" /> 
+    <link rel="next" title="Introducción a TensorFlow" href="1-01-tensorflow-intro.html" />
+    <link rel="prev" title="Optimización de funciones no lineales" href="../../optimization/optimizacion-no-lineal-python.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -155,7 +155,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/sklearn/adaline/1-01-adalines.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/tensorflow/low-level-apis/1-01-adalines.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -418,7 +418,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Perceptrón-bipolar-con-entradas-y-pesos-reales">
 <h2>Perceptrón bipolar con entradas y pesos reales<a class="headerlink" href="#Perceptrón-bipolar-con-entradas-y-pesos-reales" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El modelo que se presenta a continuación representa un perceptrón bipolar (con salida <span class="math notranslate nohighlight">\(\in \{-1, +1\}\)</span>) con entradas y pesos reales:</p>
-<p><img alt="assets/AdalinePronostico-02.png" src="../../../_images/AdalinePronostico-02.png" /></p>
+<p><img alt="assets/AdalinePronostico-02.png" src="notebooks/tensorflow/low-level-apis/assets/AdalinePronostico-02.png" /></p>
 <p>La entrada neta se calcula como:</p>
 <div class="math notranslate nohighlight">
 \[v = w_0 + \sum_{i=1}^n w_i x_i = \mathbf{w}^T \mathbf{x}\]</div>
@@ -430,14 +430,14 @@ div.rendered_html tbody tr:hover {
       -1, &amp; \text{Si $v \lt 0$}\\
 \end{cases}\end{split}\]</div>
 <p>Este tipo de perceptrón puede ser utilizado para representar funciones lógicas bipolares:</p>
-<p><img alt="assets/AdalinePronostico-03.png" src="../../../_images/AdalinePronostico-03.png" /></p>
+<p><img alt="assets/AdalinePronostico-03.png" src="notebooks/tensorflow/low-level-apis/assets/AdalinePronostico-03.png" /></p>
 <p><strong>Actividad.—</strong> Especifique pesos que permitan representar las siguientes funciones:</p>
-<p><img alt="assets/AdalinePronostico-04.png" src="../../../_images/AdalinePronostico-04.png" /></p>
+<p><img alt="assets/AdalinePronostico-04.png" src="notebooks/tensorflow/low-level-apis/assets/AdalinePronostico-04.png" /></p>
 </div>
 <div class="section" id="Combinador-lineal-adaptativo">
 <h2>Combinador lineal adaptativo<a class="headerlink" href="#Combinador-lineal-adaptativo" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La primera parte del perceptrón bipolar corresponde a un combinador lineal adaptativo (ADALINE), mientras que la función de activación es un conmutador bipolar.</p>
-<p><img alt="assets/AdalinePronostico-05.png" src="../../../_images/AdalinePronostico-05.png" /></p>
+<p><img alt="assets/AdalinePronostico-05.png" src="notebooks/tensorflow/low-level-apis/assets/AdalinePronostico-05.png" /></p>
 <p>El combinador lineal adaptativo puede:</p>
 <ul class="simple">
 <li><p>Adaptarse automáticamente a ambientes dinámicos (¿auto-optimización?).</p></li>
@@ -457,7 +457,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Comparación entre el resultado deseado y la salida del sistema adaptativo para modificar los ajustes.</p></li>
 </ul>
 <p>En el caso del problema planteado, el pronóstico se realiza usando el siguiente sistema adaptativo de lazo cerrado, en el cual, el modelo adaptativo es un ADALINE.</p>
-<p><img alt="assets/AdalinePronostico-06.png" src="../../../_images/AdalinePronostico-06.png" /></p>
+<p><img alt="assets/AdalinePronostico-06.png" src="notebooks/tensorflow/low-level-apis/assets/AdalinePronostico-06.png" /></p>
 </div>
 <div class="section" id=" Estimación-de-los-parámetros-del-modelo">
 <h2> Estimación de los parámetros del modelo<a class="headerlink" href="# Estimación-de-los-parámetros-del-modelo" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -639,7 +639,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_24_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_24_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_24_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_24_0.png" />
 </div>
 </div>
 </div>
@@ -742,7 +742,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_32_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_32_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_32_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_32_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -759,7 +759,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_33_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_33_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_33_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_33_0.png" />
 </div>
 </div>
 </div>
@@ -843,7 +843,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_40_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_40_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_40_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_40_0.png" />
 </div>
 </div>
 <p><strong>Actividad.–</strong> Implemente el algoritmo <span class="math notranslate nohighlight">\(\alpha\)</span>-LMS usando TensorFlow.</p>
@@ -855,13 +855,13 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="id5">
 <h3>Definición del problema<a class="headerlink" href="#id5" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Cuando un sistema desconocido es excitado mediante una señal de entrada <span class="math notranslate nohighlight">\(z(k)\)</span> se produce una señal de salida <span class="math notranslate nohighlight">\(d(k)\)</span>. El diagrama del sistema aparece en la figura de abajo. Para efectos de control se requiere un modelo que permita pronosticar el valor de <span class="math notranslate nohighlight">\(d(k)\)</span> a partir del valor actual y los valores pasados de la señal de entrada <span class="math notranslate nohighlight">\(z(k)\)</span>, <span class="math notranslate nohighlight">\(z(k-1)\)</span>, <span class="math notranslate nohighlight">\(z(k-2)\)</span>, … El diagrama ilustrativo es presentado a continuación.</p>
-<p><img alt="assets/AdalineIdentificacion-01.png" src="../../../_images/AdalineIdentificacion-01.png" /></p>
+<p><img alt="assets/AdalineIdentificacion-01.png" src="notebooks/tensorflow/low-level-apis/assets/AdalineIdentificacion-01.png" /></p>
 <p>En este tipo de problemas no es posible modelar el sistema que genera la señal de salida <span class="math notranslate nohighlight">\(d(t)\)</span>. Adicionalmente, la señal está contaminada con ruído por lo que resulta imposible pronosticarla de forma perfecta. Por facilidad se supondra que la dinámica del sistema desconocido es descrita por siguiente ecuación no lineal:</p>
 <div class="math notranslate nohighlight">
 \[d_t = 0.4 + 0.1 z_{t} + 0.9 z_{t-1} - 0.6 z_{t-2} - 0.2 z_{t-1}^2 + u_t\]</div>
 <p>donde <span class="math notranslate nohighlight">\(u_t\)</span> es una variable aleatoria normal con <span class="math notranslate nohighlight">\(\mu=0\)</span> y <span class="math notranslate nohighlight">\(\sigma = 0.05\)</span>. <span class="math notranslate nohighlight">\(z_t\)</span> es una variable aleatoria uniforme en el intervalo <span class="math notranslate nohighlight">\([0,1]\)</span>. A continuación se generan las series.</p>
 <p>El problema propuesto es conocido como un problema de identificación de sistemas, donde un modelo adaptativo (una red neuronal en este caso) debe aproximar el comportamiento real (la salida, <span class="math notranslate nohighlight">\(d_t\)</span>) de un sistema desconocido a partir de un conjunto de entradas (el vector <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>) conocidas. El diagrama esquemático del sistema es el siguiente:</p>
-<p><img alt="assets/AdalineIdentificacion-02.png" src="../../../_images/AdalineIdentificacion-02.png" /></p>
+<p><img alt="assets/AdalineIdentificacion-02.png" src="notebooks/tensorflow/low-level-apis/assets/AdalineIdentificacion-02.png" /></p>
 </div>
 <div class="section" id="id6">
 <h3>Dataset<a class="headerlink" href="#id6" title="Enlazar permanentemente con este título">¶</a></h3>
@@ -896,7 +896,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_49_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_49_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_49_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_49_0.png" />
 </div>
 </div>
 <p>En términos de los datos se requiere construir un modelo de regresión que permita pronosticar <span class="math notranslate nohighlight">\(d_t\)</span> a partir de los valores <span class="math notranslate nohighlight">\(z_t\)</span>, <span class="math notranslate nohighlight">\(z_{t-1}\)</span>, …</p>
@@ -1000,7 +1000,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_58_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_58_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_58_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_58_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1017,7 +1017,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_59_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_59_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_59_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_59_0.png" />
 </div>
 </div>
 </div>
@@ -1034,7 +1034,7 @@ div.rendered_html tbody tr:hover {
 <li><p>El error del ADALINE con parámetros <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, <span class="math notranslate nohighlight">\(E(\mathbf{w})\)</span>, es la cantidad de patrones mal clasificados.</p></li>
 </ul>
 <p>El siguiente diagrama representa como sería solucionado el problema mediante un perceptrón binario. Si la salida del perceptrón es <span class="math notranslate nohighlight">\(+1\)</span>, la correspondiente entrada <span class="math notranslate nohighlight">\((x_1, x_2)\)</span> es clasificada en la clase <span class="math notranslate nohighlight">\(C_2\)</span>, y si la salida es <span class="math notranslate nohighlight">\(-1\)</span> la entrada es clasificada en la clase <span class="math notranslate nohighlight">\(C_1\)</span>.</p>
-<p><img alt="../assets/AdalineClasificacion-01.png" src="../../../_images/AdalineClasificacion-01.png" /></p>
+<p><img alt="../assets/AdalineClasificacion-01.png" src="notebooks/tensorflow/low-level-apis/assets/AdalineClasificacion-01.png" /></p>
 <p>La frontera de decisión se obtiene al hacer cero la entrada al ADALINE:</p>
 <div class="math notranslate nohighlight">
 \[v=w_0+\sum_{i=}^n w_i x_i =0\]</div>
@@ -1044,7 +1044,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Para redes de neuronas ADALINE (MADALINE), cada neurona de salida tiene su propia frontera de decisión.</p></li>
 </ul>
 <p>A continuación se presenta la frontera de decisión generada por un ADALINE para la función lógica AND:</p>
-<p><img alt="../assets/AdalineClasificacion-02.png" src="../../../_images/AdalineClasificacion-02.png" /></p>
+<p><img alt="../assets/AdalineClasificacion-02.png" src="notebooks/tensorflow/low-level-apis/assets/AdalineClasificacion-02.png" /></p>
 </div>
 <div class="section" id="id12">
 <h3>Dataset<a class="headerlink" href="#id12" title="Enlazar permanentemente con este título">¶</a></h3>
@@ -1077,7 +1077,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_65_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_65_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_65_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_65_0.png" />
 </div>
 </div>
 </div>
@@ -1109,7 +1109,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_67_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_67_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_67_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_67_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1138,7 +1138,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_68_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_68_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_68_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_68_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1167,7 +1167,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_69_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_69_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_69_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_69_0.png" />
 </div>
 </div>
 </div>
@@ -1210,7 +1210,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_adaline_1-01-adalines_71_0.png" src="../../../_images/notebooks_sklearn_adaline_1-01-adalines_71_0.png" />
+<img alt="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_71_0.png" src="../../../_images/notebooks_tensorflow_low-level-apis_1-01-adalines_71_0.png" />
 </div>
 </div>
 </div>
