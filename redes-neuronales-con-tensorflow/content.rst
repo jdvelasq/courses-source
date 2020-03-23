@@ -55,7 +55,7 @@ Sesión 03
 Sesión 04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Gradiente descendente estocástico en sklearn**.
+    **Gradiente descendente estocástico**.
 
     .. toctree::
         :maxdepth: 1
@@ -105,7 +105,7 @@ Sesión 06
 Sesión 07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Multilayer perceptrons en sklearn**
+    **Perceptrones multicapa**
 
     .. toctree::
         :maxdepth: 1
