@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sensibilidad de los resultados a la selección de datos &mdash; documentación de --- Cursos --- - </title>
+  <title>Caso de aplicación &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Estimación de estadísticos usando bootstrap" href="3-13-estimacion-de-estadisticos-usando-bootstrap.html" />
-    <link rel="prev" title="Funciones de pérdida en modelos de regresión" href="3-11-regression-loss-functions.html" /> 
+    <link rel="next" title="Ejemplos de SGD usando sklearn" href="../sgd/1-01-SGD-en-sklearn.html" />
+    <link rel="prev" title="Esquemas de partición de los datos" href="3-15-particion-de-los-datos.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Sensibilidad de los resultados a la selección de datos</li>
+      <li>Caso de aplicación</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/sklearn/fundamentals/3-12-sensibilidad-particion-datos.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/sklearn/fundamentals/3-16-ejemplo-de-aplicacion.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -410,12 +410,14 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Sensibilidad-de-los-resultados-a-la-selección-de-datos">
-<h1>Sensibilidad de los resultados a la selección de datos<a class="headerlink" href="#Sensibilidad-de-los-resultados-a-la-selección-de-datos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Caso-de-aplicación">
+<h1>Caso de aplicación<a class="headerlink" href="#Caso-de-aplicación" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>15 min</em> | Ultima modificación: Marzo 19, 2020</p></li>
+<li><p><em>30 min</em> | Ultima modificación: Marzo 19, 2020</p></li>
 </ul>
-<p>En el tutorial sobre aprendizaje y memorización, se usó un polinomio de grado <span class="math notranslate nohighlight">\(N\)</span> para aproximar el siguiente conjunto de datos, cuya gráfica se presenta a continuación.</p>
+<p>En este tutorial se determinará el orden óptimo del polinomio usando leave-one-out.</p>
+<div class="section" id="Datos">
+<h2>Datos<a class="headerlink" href="#Datos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -446,60 +448,114 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_fundamentals_3-12-sensibilidad-particion-datos_2_0.png" src="../../../_images/notebooks_sklearn_fundamentals_3-12-sensibilidad-particion-datos_2_0.png" />
+<img alt="../../../_images/notebooks_sklearn_fundamentals_3-16-ejemplo-de-aplicacion_3_0.png" src="../../../_images/notebooks_sklearn_fundamentals_3-16-ejemplo-de-aplicacion_3_0.png" />
 </div>
 </div>
-<p>En ese mismo tutorial se discutió el dilema sesgo-varianza, el cual indica que mientras más ajuste el modelo a los datos de entrenamiento (sesgo), se dan resultados más volátiles cuando se presentan nuevos datos a dicho modelo.</p>
-<p>En el siguiente fragmento de código, se seleccionan aleatoriamente 13 datos para entrenamiento del modelo. Los tres datos restantes serían usados para evaluar la generalización del modelo. En la figura de abajo, se grafica el polinomio estimado para cada conjunto de datos.</p>
-<div class="nbinput docutils container">
+<div class="section" id="Implementación">
+<h3>Implementación<a class="headerlink" href="#Implementación" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#</span>
-<span class="c1"># Los datos disponibles se dividen en dos conjuntos:</span>
-<span class="c1"># x_fit, y_fit: para estimar el modelo</span>
-<span class="c1"># x_test, y_test: para evaluar la generalización</span>
-<span class="c1">#</span>
-<span class="c1"># Se usaran 13 datos para estimar el modelo</span>
-<span class="c1"># y los 3 restantes para evaluarlo.</span>
-<span class="c1"># Los conjuntos son escogidos aleatoriamente</span>
-<span class="c1">#</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneOut</span>
 
-<span class="c1"># orden del modelo</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">LOO</span> <span class="o">=</span> <span class="n">LeaveOneOut</span><span class="p">()</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">sse_fit</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">sse_test</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">mse_fit</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">mse_test</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">):</span>
 
-    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># se almacenan los resultados de cada corrida</span>
+    <span class="c1"># en una lista</span>
+    <span class="n">mse_fit_n</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">mse_test_n</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="n">x_fit</span> <span class="o">=</span> <span class="n">x_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">d_fit</span> <span class="o">=</span> <span class="n">d_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">fit_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">LOO</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x_data</span><span class="p">):</span>
 
-    <span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-    <span class="n">d_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">d_data</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="c1"># Parte los datos</span>
+        <span class="n">x_fit</span><span class="p">,</span> <span class="n">x_test</span> <span class="o">=</span> <span class="n">x_data</span><span class="p">[</span><span class="n">fit_index</span><span class="p">],</span> <span class="n">x_data</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">d_fit</span><span class="p">,</span> <span class="n">d_test</span> <span class="o">=</span> <span class="n">d_data</span><span class="p">[</span><span class="n">fit_index</span><span class="p">],</span> <span class="n">d_data</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 
-    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span> <span class="n">d_fit</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="c1"># Ajusta el polinomio</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span> <span class="n">d_fit</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
-    <span class="n">y_fit</span>  <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x_fit</span><span class="p">)</span>
-    <span class="n">y_test</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
-    <span class="n">y_real</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x_real</span><span class="p">)</span>
+        <span class="n">y_fit</span>  <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x_fit</span><span class="p">)</span>
+        <span class="n">y_test</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
 
-    <span class="n">sse_fit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">d_fit</span> <span class="o">-</span> <span class="n">y_fit</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">sse_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">d_test</span>  <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">mse_fit_n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">d_fit</span> <span class="o">-</span> <span class="n">y_fit</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">d_fit</span><span class="p">))</span>
+        <span class="n">mse_test_n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">d_test</span>  <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">d_test</span><span class="p">))</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">d_data</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_real</span><span class="p">,</span> <span class="n">d_real</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_real</span><span class="p">,</span> <span class="n">y_real</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">d_test</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">11</span><span class="p">);</span>
+    <span class="n">mse_fit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">mse_fit_n</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">mse_fit_n</span><span class="p">))</span>
+    <span class="n">mse_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">mse_test_n</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">mse_test_n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mse_fit</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.3163738677832469,
+ 0.3149210275783337,
+ 0.30383047689941045,
+ 0.2995630719407414,
+ 0.28362003392177154,
+ 0.27420247998445435,
+ 0.09463073319485812,
+ 0.08207039352693304,
+ 0.018021471223005243,
+ 0.015423822704119506,
+ 0.009994977688623485]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mse_test</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.40836605625907524,
+ 0.4617158322885997,
+ 0.6056781631814689,
+ 0.9867224147786928,
+ 1.2996505263611198,
+ 5.005561740717397,
+ 3.3107897856332014,
+ 27.44242536604417,
+ 3.9122536398994607,
+ 83.82008738301249,
+ 13.14097360958775]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mse_fit</span><span class="p">)),</span> <span class="n">mse_fit</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -507,11 +563,29 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_fundamentals_3-12-sensibilidad-particion-datos_5_0.png" src="../../../_images/notebooks_sklearn_fundamentals_3-12-sensibilidad-particion-datos_5_0.png" />
+<img alt="../../../_images/notebooks_sklearn_fundamentals_3-16-ejemplo-de-aplicacion_8_0.png" src="../../../_images/notebooks_sklearn_fundamentals_3-16-ejemplo-de-aplicacion_8_0.png" />
 </div>
 </div>
-<p>Como se puede observar, los resultados difieren notoriamente y dependen de los datos usados para la estimación de los coeficientes del modelo.</p>
-<p>Lo anterior implica que el modelo óptimo debe seleccionarse usando técnicas que sean robustas ante la variabilidad en la selección del conjunto de datos.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mse_test</span><span class="p">)),</span> <span class="n">mse_test</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/notebooks_sklearn_fundamentals_3-16-ejemplo-de-aplicacion_9_0.png" src="../../../_images/notebooks_sklearn_fundamentals_3-16-ejemplo-de-aplicacion_9_0.png" />
+</div>
+</div>
+<p><strong>Actividad.—</strong> Explique el resultado anterior.</p>
+<p><strong>Actividad.—</strong> ¿Cómo se determina el grado óptimo del polinomio?</p>
+</div>
+</div>
 </div>
 
 

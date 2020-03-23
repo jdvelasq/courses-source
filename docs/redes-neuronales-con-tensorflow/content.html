@@ -225,8 +225,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-05-apren-batch-online-SGD.html">Aprendizaje batch, online, minibatch y Gradiente Descendente Estocástico (SGD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-06-tasa-de-aprendizaje.html">Algoritmos para modificar la tasa de aprendizaje</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-07-aprendizaje-y-memorizacion.html">Aprendizaje y memorización (dilema sesgo - varianza)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-08-early-stopping.html">Optimización usando Early Stopping (parada temprana)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-09-ridge.html">Optimización usando ridge regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-08-akaike.html">Regresión lineal y criterios de información</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-09-early-stopping.html">Optimización usando Early Stopping (parada temprana)</a></li>
 </ul>
 </div>
 </div></blockquote>
@@ -237,12 +237,13 @@
 <div><p><strong>Fundamentos de aprendizaje automático III</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-10-lasso-elasticnet.html">Optimización usando LASSO y ElasticNet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-11-regression-loss-functions.html">Funciones de pérdida en modelos de regresión</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-12-sensibilidad-particion-datos.html">Sensibilidad de los resultados a la selección de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-13-estimacion-de-estadisticos-usando-bootstrap.html">Estimación de estadísticos usando bootstrap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-14-particion-de-los-datos.html">Esquemas de partición de los datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-15-ejemplo-de-aplicacion.html">Caso de aplicación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-10-ridge.html">Optimización usando ridge regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-11-lasso-elasticnet.html">Optimización usando LASSO y ElasticNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-12-regression-loss-functions.html">Funciones de pérdida en modelos de regresión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-13-sensibilidad-particion-datos.html">Sensibilidad de los resultados a la selección de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-14-estimacion-de-estadisticos-usando-bootstrap.html">Estimación de estadísticos usando bootstrap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-15-particion-de-los-datos.html">Esquemas de partición de los datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-16-ejemplo-de-aplicacion.html">Caso de aplicación</a></li>
 </ul>
 </div>
 </div></blockquote>
@@ -286,13 +287,30 @@
 <div class="section" id="sesion-06">
 <h2>Sesión 06<a class="headerlink" href="#sesion-06" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
-<div><p><strong>Perceptrón continuo</strong></p>
+<div><p><strong>Perceptrón continuo y regresión logística</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-01-percpetron-continuo.html">Perceptrón continuo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-01-percpetron-continuo.html">Regresión no lineal usando perceptrones continuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-02-clasificacion.html">Clasificación usando perceptrones continuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-03-percpetron-continuo-R.html">Opcional — Implementación de perceptrones continuos en R</a></li>
 </ul>
 </div>
-<p><strong>Multilayer perceptrons en sklearn</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-01-regresion-logistica.html">Regresión Logística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-02-pronostico-del-exito-de-libros.html">Pronóstico de la popularidad de libros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-03-taller.html">Taller — Clasificación del dataset artificial two-clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-04-taller.html">Taller — Clasificación del dataset artificial two-circles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-05-taller.html">Taller — Detección de hongos venenosos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-06-one-VS-others.html">Estrategías One-Vs-One y One-Vs-Others</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-07">
+<h2>Sesión 07<a class="headerlink" href="#sesion-07" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Multilayer perceptrons en sklearn</strong></p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/01-mlp-regresion-univariada.html">Regresión no lineal univariada con perceptrones multicapa</a></li>
@@ -305,8 +323,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-07">
-<h2>Sesión 07<a class="headerlink" href="#sesion-07" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-08">
+<h2>Sesión 08<a class="headerlink" href="#sesion-08" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><strong>Support Vector Machines</strong></p>
 <div class="toctree-wrapper compound">
@@ -320,8 +338,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-08">
-<h2>Sesión 08<a class="headerlink" href="#sesion-08" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-09">
+<h2>Sesión 09<a class="headerlink" href="#sesion-09" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="toctree-wrapper compound">
 <ul>
@@ -330,8 +348,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-09">
-<h2>Sesión 09<a class="headerlink" href="#sesion-09" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-10">
+<h2>Sesión 10<a class="headerlink" href="#sesion-10" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><strong>API de bajo nivel de TensorFlow</strong>.</p>
 <div class="toctree-wrapper compound">
@@ -350,8 +368,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-10">
-<h2>Sesión 10<a class="headerlink" href="#sesion-10" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-11">
+<h2>Sesión 11<a class="headerlink" href="#sesion-11" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><div class="toctree-wrapper compound">
 <ul>
@@ -361,8 +379,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-11">
-<h2>Sesión 11<a class="headerlink" href="#sesion-11" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-12">
+<h2>Sesión 12<a class="headerlink" href="#sesion-12" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><strong>Gradiente descendente estocástico en TensorFlow</strong>.</p>
 <div class="toctree-wrapper compound">
@@ -374,8 +392,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-12">
-<h2>Sesión 12<a class="headerlink" href="#sesion-12" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-13">
+<h2>Sesión 13<a class="headerlink" href="#sesion-13" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><strong>Multilayer perceptrons en TensorFlow</strong></p>
 <div class="toctree-wrapper compound">
@@ -397,8 +415,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-13">
-<h2>Sesión 13<a class="headerlink" href="#sesion-13" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-14">
+<h2>Sesión 14<a class="headerlink" href="#sesion-14" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><strong>Research and experimentation</strong></p>
 <div class="toctree-wrapper compound">
@@ -421,8 +439,8 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-14">
-<h2>Sesión 14<a class="headerlink" href="#sesion-14" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-15">
+<h2>Sesión 15<a class="headerlink" href="#sesion-15" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><p><strong>Sequences</strong></p>
 <blockquote>
@@ -440,8 +458,8 @@
 </div></blockquote>
 </div></blockquote>
 </div>
-<div class="section" id="sesion-15">
-<h2>Sesión 15<a class="headerlink" href="#sesion-15" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="sesion-16">
+<h2>Sesión 16<a class="headerlink" href="#sesion-16" title="Enlazar permanentemente con este título">¶</a></h2>
 <blockquote>
 <div><blockquote>
 <div><p><strong>Estimators</strong></p>
@@ -455,12 +473,7 @@
 <div><div class="toctree-wrapper compound">
 </div>
 </div></blockquote>
-</div></blockquote>
-</div>
-<div class="section" id="sesion-16">
-<h2>Sesión 16<a class="headerlink" href="#sesion-16" title="Enlazar permanentemente con este título">¶</a></h2>
-<blockquote>
-<div><p><strong>Embedings</strong></p>
+<p><strong>Embedings</strong></p>
 <blockquote>
 <div><blockquote>
 <div><div class="toctree-wrapper compound">

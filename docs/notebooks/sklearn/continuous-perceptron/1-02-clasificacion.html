@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Regresión no lineal usando perceptrones continuos &mdash; documentación de --- Cursos --- - </title>
+  <title>Clasificación usando perceptrones continuos &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Clasificación usando perceptrones continuos" href="1-02-clasificacion.html" />
-    <link rel="prev" title="MADALINEs" href="../adaline/1-06-madalines.html" /> 
+    <link rel="next" title="Opcional — Implementación de perceptrones continuos en R" href="1-03-percpetron-continuo-R.html" />
+    <link rel="prev" title="Regresión no lineal usando perceptrones continuos" href="1-01-percpetron-continuo.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../../redes-neuronales-con-tensorflow/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Regresión no lineal usando perceptrones continuos</li>
+      <li>Clasificación usando perceptrones continuos</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/sklearn/continuous-perceptron/1-01-percpetron-continuo.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/sklearn/continuous-perceptron/1-02-clasificacion.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -410,103 +410,11 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Regresión-no-lineal-usando-perceptrones-continuos">
-<h1>Regresión no lineal usando perceptrones continuos<a class="headerlink" href="#Regresión-no-lineal-usando-perceptrones-continuos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Clasificación-usando-perceptrones-continuos">
+<h1>Clasificación usando perceptrones continuos<a class="headerlink" href="#Clasificación-usando-perceptrones-continuos" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>30 min</em> | Última modificación: Marzo 22, 2020</p></li>
 </ul>
-<p>En este tutorial se describe la forma matemática y el algoritmo de entrenamiento de un perceptrón continuo.</p>
-<div class="section" id="Modelo-matemático">
-<h2>Modelo matemático<a class="headerlink" href="#Modelo-matemático" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Este problema será resuelto mediante un perceptrón continuo. En el perceptrón continuo, la función de activación es del tipo sigmoidea-logística en vez de la función de paso duro o conmutador bipolar. La especificación matemática de las funciones de activación y el diagrama representativo del modelo son presentadas a continuación.</p>
-<ul class="simple">
-<li><p>Función tangente hiperbólica:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\tanh⁡(v) = \frac{\sinh⁡(v)}{\cosh⁡(v)} = \frac{\exp⁡(v)-\exp⁡(-v)}{\exp⁡(v)+\exp⁡(-v)}=\frac{1-\exp⁡(-2v)}{1+\exp⁡(2v)}\]</div>
-<ul class="simple">
-<li><p>Función sigmoidea:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\sigma (v) = \frac{1}{1+\exp(-v)}\]</div>
-<p>De esta forma, la arquitectura del perceptrón continuo es la siguiente:</p>
-<p><img alt="assets/PerceptronRegresion-02.png" src="../../../_images/PerceptronRegresion-02.png" /></p>
-</div>
-<div class="section" id="Algoritmo-de-propagación-hacia-atrás-del-error-(backpropagation)">
-<h2>Algoritmo de propagación hacia atrás del error (backpropagation)<a class="headerlink" href="#Algoritmo-de-propagación-hacia-atrás-del-error-(backpropagation)" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para estimar los valores de los pesos asociados a las conexiones se usa el algoritmo de backpropagation. Este es un algoritmo de gradiente descendente, por lo que resulta muy similar a las ecuaciones de aprendizaje usadas en los documentos anteriores.</p>
-<div class="section" id="Error-instántaneo">
-<h3>Error instántaneo<a class="headerlink" href="#Error-instántaneo" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>En este caso, el error instántaneo se define como:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{split}
-e &amp; = d - y \\
-  &amp; = d - \sigma \left( w_0 + \sum_i w_i x_i \right) \\
-  &amp; = d - \sigma \left( \mathbf{w}^T \mathbf{x} \right)
-\end{split}\end{split}\]</div>
-</div>
-<div class="section" id="Gradiente-del-error-cuadrático-instántaneo">
-<h3>Gradiente del error cuadrático instántaneo<a class="headerlink" href="#Gradiente-del-error-cuadrático-instántaneo" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>El gradiente del error cuadrático respecto a los pesos es:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{split}
-\frac{\partial}{\partial \mathbf{w}} e^2
-  &amp; = 2  e \cdot \frac{\partial}{\partial \mathbf{w}} e \\
-  \\
-  &amp; = 2 e \cdot \frac{\partial}{\partial \mathbf{w}} (d - y) \\
-  \\
-  &amp; = - 2 e \cdot \frac{\partial}{\partial \mathbf{w}} y \\
-  \\
-  &amp; = - 2 e \cdot \frac{\partial}{\partial \mathbf{w}} \sigma \left( w_0 + \sum_i w_i x_i \right) \\
-\end{split}\end{split}\]</div>
-<p>Haciendo:</p>
-<div class="math notranslate nohighlight">
-\[s = w_0 + \sum_i w_i x_i\]</div>
-<p>Entonces,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{split}
-\frac{\partial}{\partial \mathbf{w}} e^2
-  &amp; = - 2 e \cdot \frac{\partial}{\partial \mathbf{w}} \sigma \left( w_0 + \sum_i w_i x_i \right) \\
-  \\
-  &amp; = - 2 e \cdot \frac{\partial}{\partial \mathbf{w}} \sigma \left( s \right) \\
-  \\
-  &amp; = - 2 e \cdot \sigma (s)'  \cdot \frac{\partial}{\partial \mathbf{w}} s \\
-  \\
-  &amp; = - 2 e  \cdot \sigma (s)'  \cdot \mathbf{x} \\
-\end{split}\end{split}\]</div>
-</div>
-<div class="section" id="Gradiente-descendente">
-<h3>Gradiente descendente<a class="headerlink" href="#Gradiente-descendente" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="math notranslate nohighlight">
-\[\mathbf{w}_{k+1} = \mathbf{w}_k - \mu \frac{\partial}{\partial\mathbf{w}} \left[ e^2_k\right] =
-\mathbf{w}_k + 2 \mu \cdot e_k \cdot \sigma' \left(s_k \right) \mathbf{x}_k\]</div>
-</div>
-<div class="section" id="Derivadas-de-la-función-de-activación">
-<h3>Derivadas de la función de activación<a class="headerlink" href="#Derivadas-de-la-función-de-activación" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Las derivadas de la función de activación son las siguientes</p>
-<ul class="simple">
-<li><p>Para la función logistica-sigmoidea:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\sigma (u) = \frac{1}{1+\exp(-u)}, \quad  \frac{\partial }{\partial u} \sigma(u)=\sigma(u)[1-\sigma(u)]\]</div>
-<ul class="simple">
-<li><p>Para la función <span class="math notranslate nohighlight">\(\tanh\)</span>:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\sigma(u) = \tanh(u) = \frac{\exp(u) - \exp(-u)}{\exp(u) + \exp(-u)}, \quad \frac{d}{du} \sigma(u) = 1 - \sigma(u)^2\]</div>
-</div>
-<div class="section" id="Ecuación-de-mejora">
-<h3>Ecuación de mejora<a class="headerlink" href="#Ecuación-de-mejora" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Para solucionar el problema se usará un perceptrón continuo que usa la función logística. La fórmula de correción de los pesos es la siguiente:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{w}_{k+1} =
-\mathbf{w}_k + 2 \mu \cdot e_k \cdot \sigma(u) \cdot[1 - \sigma(u)] \cdot  \mathbf{x}_k\]</div>
-<p>Nóte que esta es la misma ecuación usada en los tutoriales anteriores, excepto por la inclusión de la derivada de la función de activación (la función logística en la ecuación anterior).</p>
-</div>
-</div>
-<div class="section" id="Implementación">
-<h2>Implementación<a class="headerlink" href="#Implementación" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El código es similar al de los libros ya estudiados, excepto por el cálculo de la derivada de la función sigmoidea.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -520,8 +428,54 @@ e &amp; = d - y \\
 </pre></div>
 </div>
 </div>
+<div class="section" id="Definición-del-problema">
+<h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se tiene una muestra de 150 ejemplos, con dos variables independientes y tres clases; cada clase tiene 50 ejemplos. Se desea construir un sistema clasificador que permita discriminar a que clase pertenece un nuevo patrón. Los ejemplos son generados artificialmente a continuación.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+
+<span class="n">NPOINTS</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">NPOINTS</span><span class="p">,</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>En la siguiente gráfica cada color representa una clase diferente.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">100</span><span class="p">:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">100</span><span class="p">:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/notebooks_sklearn_continuous-perceptron_1-02-clasificacion_6_0.png" src="../../../_images/notebooks_sklearn_continuous-perceptron_1-02-clasificacion_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Solución">
+<h2>Solución<a class="headerlink" href="#Solución" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se usa la misma implementación del tutorial anterior.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -599,82 +553,93 @@ e &amp; = d - y \\
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id=" Regresión-no-lineal-usando-perceptrones-continuos">
-<h2> Regresión no lineal usando perceptrones continuos<a class="headerlink" href="# Regresión-no-lineal-usando-perceptrones-continuos" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="Dataset">
-<h3>Dataset<a class="headerlink" href="#Dataset" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.53</span> <span class="o">*</span> <span class="n">X</span><span class="p">)))</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">e</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">X</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_continuous-perceptron_1-01-percpetron-continuo_28_0.png" src="../../../_images/notebooks_sklearn_continuous-perceptron_1-01-percpetron-continuo_28_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="Especificación-del-modelo">
-<h3>Especificación del modelo<a class="headerlink" href="#Especificación-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">continuousPerceptron</span> <span class="o">=</span> <span class="n">ContinuousPerceptron</span><span class="p">(</span>
-    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
-    <span class="n">max_epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">random_state</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">,</span>
-    <span class="n">batch</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="Entrenamiento">
-<h3>Entrenamiento<a class="headerlink" href="#Entrenamiento" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">d</span></code> codifica la clase a la que pertenece cada patrón de ejemplo.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">history</span> <span class="o">=</span> <span class="n">continuousPerceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="p">);</span>
+<span></span><span class="n">d</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_continuous-perceptron_1-01-percpetron-continuo_32_0.png" src="../../../_images/notebooks_sklearn_continuous-perceptron_1-01-percpetron-continuo_32_0.png" />
+<div class="highlight"><pre>
+array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+</pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="Pronóstico">
-<h3>Pronóstico<a class="headerlink" href="#Pronóstico" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="nbinput docutils container">
+<p>Sin embargo, la salida del perceptrón es un número entre 0 y 1, donde 0 representa la absoluta certeza de que el patrón no pertence a una clase determinada, y el 1 representa la absoluta certeza de que si pertenece.</p>
+<p>Ya que el problema tiene 3 clases, se crean tres variables <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code> y <code class="docutils literal notranslate"><span class="pre">C</span></code>, que indica respectivamente que el patrón pertence o no a la primera clase, que pertence o no a la segunda clase, y, finalmente, que pertence o no pertence a la tercera clase.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">);</span>
-<span class="n">X_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">X_pred</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X_pred</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">continuousPerceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_pred</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">);</span>
+<span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">d</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">d</span><span class="p">]</span>
+<span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">d</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Esto es, <code class="docutils literal notranslate"><span class="pre">A</span></code> vale 1 si el patrón pertence a la primera clase y cero en caso contrario.</p>
+<p>Se crean tres modelos y se entrenan:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">max_epochs</span> <span class="o">=</span> <span class="mi">2000</span>
+
+
+<span class="n">mA</span> <span class="o">=</span> <span class="n">ContinuousPerceptron</span><span class="p">(</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+    <span class="n">max_epochs</span><span class="o">=</span><span class="n">max_epochs</span><span class="p">,</span>
+    <span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">historyA</span> <span class="o">=</span> <span class="n">mA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+
+<span class="n">mB</span> <span class="o">=</span> <span class="n">ContinuousPerceptron</span><span class="p">(</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+    <span class="n">max_epochs</span><span class="o">=</span><span class="n">max_epochs</span><span class="p">,</span>
+    <span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">historyB</span> <span class="o">=</span> <span class="n">mB</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+
+<span class="n">mC</span> <span class="o">=</span> <span class="n">ContinuousPerceptron</span><span class="p">(</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+    <span class="n">max_epochs</span><span class="o">=</span><span class="n">max_epochs</span><span class="p">,</span>
+    <span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">historyC</span> <span class="o">=</span> <span class="n">mC</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Evolución del error</span>
+<span class="c1">#</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">historyA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">historyB</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">historyC</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_epochs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -682,10 +647,76 @@ e &amp; = d - y \\
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_continuous-perceptron_1-01-percpetron-continuo_34_0.png" src="../../../_images/notebooks_sklearn_continuous-perceptron_1-01-percpetron-continuo_34_0.png" />
+<img alt="../../../_images/notebooks_sklearn_continuous-perceptron_1-02-clasificacion_18_0.png" src="../../../_images/notebooks_sklearn_continuous-perceptron_1-02-clasificacion_18_0.png" />
 </div>
 </div>
+<p>Con los modelos entrenados, se realiza el pronóstico para el patron <code class="docutils literal notranslate"><span class="pre">(2.5,</span> <span class="pre">-4.0)</span></code>, que no pertence a la muestra de datos.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
 </div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">mA</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">]]),</span>
+      <span class="n">mB</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">]]),</span>
+      <span class="n">mC</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">]]))</span>
+
+<span class="c1"># el punto pertence a la clase B (valor más alto)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.66901627] [0.77413817] [0.00362753]
+</pre></div></div>
+</div>
+<p>A contiuación se grafican las fronteras de decisión generadas por cada clasificador.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">100</span><span class="p">:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="mi">100</span><span class="p">:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+<span class="n">xlim</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">ylim</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stop</span><span class="o">=</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">num</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">fronteraA</span> <span class="o">=</span> <span class="o">-</span> <span class="n">mA</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">/</span> <span class="n">mA</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mA</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mA</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xplot</span>
+<span class="n">fronteraB</span> <span class="o">=</span> <span class="o">-</span> <span class="n">mB</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">/</span> <span class="n">mB</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mB</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mB</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xplot</span>
+<span class="n">fronteraC</span> <span class="o">=</span> <span class="o">-</span> <span class="n">mC</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">/</span> <span class="n">mC</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mC</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">mC</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">xplot</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">fronteraA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">fronteraB</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">fronteraC</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/notebooks_sklearn_continuous-perceptron_1-02-clasificacion_22_0.png" src="../../../_images/notebooks_sklearn_continuous-perceptron_1-02-clasificacion_22_0.png" />
+</div>
+</div>
+<p><strong>Ejercicio.—</strong> ¿Cuál es la región que no es asignada a ninguna clase?</p>
+<p><strong>Ejercicio.—</strong> ¿Cuales son las regiones que pertenecen a más de una clase?</p>
+</div>
+<div class="section" id="Relación-entre-la-regresión-logística-y-el-perceptrón-continuo">
+<h2>Relación entre la regresión logística y el perceptrón continuo<a class="headerlink" href="#Relación-entre-la-regresión-logística-y-el-perceptrón-continuo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La regresión logística usa el mismo modelo matemático del perceptrón continuo, cuyos parámetros óptimos son obtenidos minimizando la función de entropía cruzada:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{P} \sum_i^P d_i \cdot \log(y_i) +
+(1-d_i) \cdot \log(1- y_i)\]</div>
+<p>la cual es computada sobre todo el conjunto de datos.</p>
 </div>
 </div>
 

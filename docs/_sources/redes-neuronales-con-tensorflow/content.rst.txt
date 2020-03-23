@@ -87,7 +87,7 @@ Sesión 05
 Sesión 06
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Perceptrón continuo**
+    **Perceptrón continuo y regresión logística**
     
     .. toctree::
         :maxdepth: 1
@@ -95,6 +95,15 @@ Sesión 06
 
         /notebooks/sklearn/continuous-perceptron/*
 
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/logistic/*
+
+
+Sesión 07
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Multilayer perceptrons en sklearn**
 
@@ -105,7 +114,7 @@ Sesión 06
         /notebooks/sklearn/mlp/*
 
 
-Sesión 07
+Sesión 08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Support Vector Machines**
@@ -117,7 +126,7 @@ Sesión 07
         /notebooks/sklearn/svm/*
 
 
-Sesión 08
+Sesión 09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -127,7 +136,7 @@ Sesión 08
         /notebooks/optimization/*        
     
 
-Sesión 09
+Sesión 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **API de bajo nivel de TensorFlow**.
@@ -146,7 +155,7 @@ Sesión 09
         /notebooks/tensorflow/mccullochpitts/*
 
 
-Sesión 10
+Sesión 11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -157,7 +166,7 @@ Sesión 10
 
 
 
-Sesión 11
+Sesión 12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -172,7 +181,7 @@ Sesión 11
         /notebooks/tensorflow/perceptron/*
 
 
-Sesión 12
+Sesión 13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Multilayer perceptrons en TensorFlow**
@@ -193,7 +202,7 @@ Sesión 12
 
 
 
-Sesión 13
+Sesión 14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Research and experimentation**
@@ -213,7 +222,7 @@ Sesión 13
         /notebooks/tensorflow/ml-at-production-scale/*
 
 
-Sesión 14
+Sesión 15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Sequences**
@@ -235,7 +244,7 @@ Sesión 14
         /notebooks/tensorflow/data-representation/*
 
 
-Sesión 15
+Sesión 16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Estimators**
@@ -254,10 +263,6 @@ Sesión 15
         :glob:
 
         /notebooks/tensorflow/high-level-apis/*
-
-Sesión 16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 
    **Embedings**
