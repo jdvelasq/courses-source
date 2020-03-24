@@ -487,7 +487,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Capacidad-de-aprendizaje">
 <h3>Capacidad de aprendizaje<a class="headerlink" href="#Capacidad-de-aprendizaje" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Un perceptrón multicapa puede aproximar cualquier función arbitraria simplemente agregando neuronas a la capa oculta. En la siguiente figura, se muestran las superficies generadas para por cada una de las cuatro neuronas de la capa oculta (las cuatro superficies en forma de S), y como al combinarse en la capa de salida producen la figura de la derecha (que corresponde a la variable <span class="math notranslate nohighlight">\(z\)</span>).</p>
-<p><img alt="alt" src="../../../_images/MulticapaRegresionUniv-02.png" /></p>
+<p><img alt="MulticapaRegresionUniv-01" src="../../../_images/MulticapaRegresionUniv-01.png" /></p>
 <p>Una pregunta fundamental en redes neuronales es la determinación de cuántas capas ocultas y cuántas neuronas por capa oculta deben usarse. En la figura de abajo se presentan las fronteras de decisión para diferentes configuraciones de una red neuronal para resolver un problema de clasificación.</p>
 <ul class="simple">
 <li><p>Un perceptrón simple puede generar una frontera de decisión lineal (figura de la izquierda).</p></li>
@@ -495,7 +495,7 @@ div.rendered_html tbody tr:hover {
 neurona de salida representa un AND (todos los perceptrones de la capa oculta deben indicar que el punto pertenece a la región sombreada). De forma análoga, si los perceptrones de la capa oculta indican la no pertenencia a la región sombreada, entonces, la neurona de salida debe representar un OR. Esto implica (de forma intuitiva) que un perceptrón con una capa oculta puede aproximar cualquier función continua definida en un dominio compacto</p></li>
 <li><p>Finalmente, una red con dos capas ocultas puede resolver problemas de clasificación donde los elementos de la clase de interés están aglomerados en distintas regiones (ya no hay un dominio compacto). Si se tiene en cuenta que cada región compacta puede ser generada por u perceptrón con una capa oculta, entonces se requieren dos percptrones los cuales son unidos mediante una capa adicional (al final) que representa un OR lógico.</p></li>
 </ul>
-<p><img alt="alt" src="../../../_images/MulticapaRegresionUniv-02.png" /></p>
+<p><img alt="MulticapaRegresionUniv-02" src="../../../_images/MulticapaRegresionUniv-02.png" /></p>
 </div>
 <div class="section" id="Estimación-de-los-pesos-óptimos-de-la-red-neuronal">
 <h3>Estimación de los pesos óptimos de la red neuronal<a class="headerlink" href="#Estimación-de-los-pesos-óptimos-de-la-red-neuronal" title="Enlazar permanentemente con este título">¶</a></h3>
