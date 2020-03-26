@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Regresión no lineal univariada con perceptrones multicapa en R &mdash; documentación de --- Cursos --- - </title>
+  <title>Opcional — Regresión no lineal univariada con perceptrones multicapa en R &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Taller — Clasificación del dataset artificial two-groups-four-clusters" href="04-taller.html" />
-    <link rel="prev" title="Predicción de la resistencia del concreto" href="02-pronostico-de-la-resistencia-del-concreto.html" /> 
+    <link rel="next" title="Predicción de la resistencia del concreto" href="1-03-pronostico-de-la-resistencia-del-concreto.html" />
+    <link rel="prev" title="Regresión no lineal univariada con perceptrones multicapa" href="1-01-mlp-regresion-univariada.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Regresión no lineal univariada con perceptrones multicapa en R</li>
+      <li>Opcional — Regresión no lineal univariada con perceptrones multicapa en R</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/sklearn/mlp/03-mlp-regresion-univariada-R.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/sklearn/mlp/1-02-mlp-regresion-univariada-R.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -410,8 +410,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Regresión-no-lineal-univariada-con-perceptrones-multicapa-en-R">
-<h1>Regresión no lineal univariada con perceptrones multicapa en R<a class="headerlink" href="#Regresión-no-lineal-univariada-con-perceptrones-multicapa-en-R" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Opcional-----Regresión-no-lineal-univariada-con-perceptrones-multicapa-en-R">
+<h1>Opcional — Regresión no lineal univariada con perceptrones multicapa en R<a class="headerlink" href="#Opcional-----Regresión-no-lineal-univariada-con-perceptrones-multicapa-en-R" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En este documento se abordan las redes de perceptrones continuos completamente conectados con propagación de la señal hacia adelante; esta puede ser la arquitectura de red neuronal artificial más ampliamente utilizada en las dos últimas décadas. Como caso de aplicación se construye un modelo de regresión no lineal univariada. Al finalizar este documento, el lecto debe estar en capacidad de:</p>
 <ul class="simple">
 <li><p>Describir el modelo matemático, la operación y los casos de uso de un perceptrón multicapa.</p></li>
@@ -425,22 +425,22 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">-3.5000</span><span class="p">,</span> <span class="m">-3.2941</span><span class="p">,</span> <span class="m">-3.0882</span><span class="p">,</span> <span class="m">-2.8824</span><span class="p">,</span> <span class="m">-2.6765</span><span class="p">,</span>
-       <span class="m">-2.4706</span><span class="p">,</span> <span class="m">-2.2647</span><span class="p">,</span> <span class="m">-2.0588</span><span class="p">,</span> <span class="m">-1.8529</span><span class="p">,</span> <span class="m">-1.6471</span><span class="p">,</span>
-       <span class="m">-1.4412</span><span class="p">,</span> <span class="m">-1.2353</span><span class="p">,</span> <span class="m">-1.0294</span><span class="p">,</span> <span class="m">-0.8235</span><span class="p">,</span> <span class="m">-0.6176</span><span class="p">,</span>
-       <span class="m">-0.4118</span><span class="p">,</span> <span class="m">-0.2059</span><span class="p">,</span>  <span class="m">0.0000</span><span class="p">,</span>  <span class="m">0.2059</span><span class="p">,</span>  <span class="m">0.4118</span><span class="p">,</span>
-        <span class="m">0.6176</span><span class="p">,</span>  <span class="m">0.8235</span><span class="p">,</span>  <span class="m">1.0294</span><span class="p">,</span>  <span class="m">1.2353</span><span class="p">,</span>  <span class="m">1.4412</span><span class="p">,</span>
-        <span class="m">1.6471</span><span class="p">,</span>  <span class="m">1.8529</span><span class="p">,</span>  <span class="m">2.0588</span><span class="p">,</span>  <span class="m">2.2647</span><span class="p">,</span>  <span class="m">2.4706</span><span class="p">,</span>
-        <span class="m">2.6765</span><span class="p">,</span>  <span class="m">2.8824</span><span class="p">,</span>  <span class="m">3.0882</span><span class="p">,</span>  <span class="m">3.2941</span><span class="p">,</span>  <span class="m">3.5000</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5000</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.2941</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0882</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.8824</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.6765</span><span class="p">,</span>
+       <span class="o">-</span><span class="mf">2.4706</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.2647</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0588</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.8529</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.6471</span><span class="p">,</span>
+       <span class="o">-</span><span class="mf">1.4412</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2353</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0294</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8235</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6176</span><span class="p">,</span>
+       <span class="o">-</span><span class="mf">0.4118</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2059</span><span class="p">,</span>  <span class="mf">0.0000</span><span class="p">,</span>  <span class="mf">0.2059</span><span class="p">,</span>  <span class="mf">0.4118</span><span class="p">,</span>
+        <span class="mf">0.6176</span><span class="p">,</span>  <span class="mf">0.8235</span><span class="p">,</span>  <span class="mf">1.0294</span><span class="p">,</span>  <span class="mf">1.2353</span><span class="p">,</span>  <span class="mf">1.4412</span><span class="p">,</span>
+        <span class="mf">1.6471</span><span class="p">,</span>  <span class="mf">1.8529</span><span class="p">,</span>  <span class="mf">2.0588</span><span class="p">,</span>  <span class="mf">2.2647</span><span class="p">,</span>  <span class="mf">2.4706</span><span class="p">,</span>
+        <span class="mf">2.6765</span><span class="p">,</span>  <span class="mf">2.8824</span><span class="p">,</span>  <span class="mf">3.0882</span><span class="p">,</span>  <span class="mf">3.2941</span><span class="p">,</span>  <span class="mf">3.5000</span><span class="p">)</span>
 
-<span class="n">d</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span> <span class="m">0.0000</span><span class="p">,</span>  <span class="m">0.0000</span><span class="p">,</span>  <span class="m">0.0001</span><span class="p">,</span>  <span class="m">0.0002</span><span class="p">,</span>  <span class="m">0.0008</span><span class="p">,</span>
-        <span class="m">0.0022</span><span class="p">,</span>  <span class="m">0.0059</span><span class="p">,</span>  <span class="m">0.0144</span><span class="p">,</span>  <span class="m">0.0323</span><span class="p">,</span>  <span class="m">0.0664</span><span class="p">,</span>
-        <span class="m">0.1253</span><span class="p">,</span>  <span class="m">0.2174</span><span class="p">,</span>  <span class="m">0.3466</span><span class="p">,</span>  <span class="m">0.5075</span><span class="p">,</span>  <span class="m">0.6828</span><span class="p">,</span>
-        <span class="m">0.8440</span><span class="p">,</span>  <span class="m">0.9585</span><span class="p">,</span>  <span class="m">1.0000</span><span class="p">,</span>  <span class="m">0.9585</span><span class="p">,</span>  <span class="m">0.8440</span><span class="p">,</span>
-        <span class="m">0.6828</span><span class="p">,</span>  <span class="m">0.5075</span><span class="p">,</span>  <span class="m">0.3466</span><span class="p">,</span>  <span class="m">0.2174</span><span class="p">,</span>  <span class="m">0.1253</span><span class="p">,</span>
-        <span class="m">0.0664</span><span class="p">,</span>  <span class="m">0.0323</span><span class="p">,</span>  <span class="m">0.0144</span><span class="p">,</span>  <span class="m">0.0059</span><span class="p">,</span>  <span class="m">0.0022</span><span class="p">,</span>
-        <span class="m">0.0008</span><span class="p">,</span>  <span class="m">0.0002</span><span class="p">,</span>  <span class="m">0.0001</span><span class="p">,</span>  <span class="m">0.0000</span><span class="p">,</span>  <span class="m">0.0000</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span> <span class="mf">0.0000</span><span class="p">,</span>  <span class="mf">0.0000</span><span class="p">,</span>  <span class="mf">0.0001</span><span class="p">,</span>  <span class="mf">0.0002</span><span class="p">,</span>  <span class="mf">0.0008</span><span class="p">,</span>
+        <span class="mf">0.0022</span><span class="p">,</span>  <span class="mf">0.0059</span><span class="p">,</span>  <span class="mf">0.0144</span><span class="p">,</span>  <span class="mf">0.0323</span><span class="p">,</span>  <span class="mf">0.0664</span><span class="p">,</span>
+        <span class="mf">0.1253</span><span class="p">,</span>  <span class="mf">0.2174</span><span class="p">,</span>  <span class="mf">0.3466</span><span class="p">,</span>  <span class="mf">0.5075</span><span class="p">,</span>  <span class="mf">0.6828</span><span class="p">,</span>
+        <span class="mf">0.8440</span><span class="p">,</span>  <span class="mf">0.9585</span><span class="p">,</span>  <span class="mf">1.0000</span><span class="p">,</span>  <span class="mf">0.9585</span><span class="p">,</span>  <span class="mf">0.8440</span><span class="p">,</span>
+        <span class="mf">0.6828</span><span class="p">,</span>  <span class="mf">0.5075</span><span class="p">,</span>  <span class="mf">0.3466</span><span class="p">,</span>  <span class="mf">0.2174</span><span class="p">,</span>  <span class="mf">0.1253</span><span class="p">,</span>
+        <span class="mf">0.0664</span><span class="p">,</span>  <span class="mf">0.0323</span><span class="p">,</span>  <span class="mf">0.0144</span><span class="p">,</span>  <span class="mf">0.0059</span><span class="p">,</span>  <span class="mf">0.0022</span><span class="p">,</span>
+        <span class="mf">0.0008</span><span class="p">,</span>  <span class="mf">0.0002</span><span class="p">,</span>  <span class="mf">0.0001</span><span class="p">,</span>  <span class="mf">0.0000</span><span class="p">,</span>  <span class="mf">0.0000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -449,10 +449,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">21</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
-<span class="nf">grid</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">options</span><span class="p">(</span><span class="nb">repr</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">repr</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -460,7 +460,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_6_0.png" src="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_6_0.png" />
+<img alt="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_6_0.png" src="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_6_0.png" />
 </div>
 </div>
 </div>
@@ -504,18 +504,18 @@ neurona de salida representa un AND (todos los perceptrones de la capa oculta de
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;neuralnet&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">library</span><span class="p">(</span><span class="s2">&quot;neuralnet&quot;</span><span class="p">)</span>
 
 <span class="c1">## la librería recibe un dataframe</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
 
 <span class="c1">## se crea y entrena el modelo</span>
-<span class="n">nn</span> <span class="o">&lt;-</span> <span class="nf">neuralnet</span><span class="p">(</span><span class="n">d</span> <span class="o">~</span> <span class="n">x</span><span class="p">,</span>                <span class="c1"># usa las misma formulas de los modelos de regresión</span>
+<span class="n">nn</span> <span class="o">&lt;-</span> <span class="n">neuralnet</span><span class="p">(</span><span class="n">d</span> <span class="o">~</span> <span class="n">x</span><span class="p">,</span>                <span class="c1"># usa las misma formulas de los modelos de regresión</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span>            <span class="c1"># el dataframe usado</span>
-                <span class="n">hidden</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>           <span class="c1"># neuronas de la capa oculta</span>
-                <span class="n">act.fct</span> <span class="o">=</span> <span class="s">&quot;logistic&quot;</span><span class="p">,</span> <span class="c1"># función de activación</span>
-                <span class="n">linear.output</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># función de activación de la capa de salida</span>
+                <span class="n">hidden</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>           <span class="c1"># neuronas de la capa oculta</span>
+                <span class="n">act</span><span class="o">.</span><span class="n">fct</span> <span class="o">=</span> <span class="s2">&quot;logistic&quot;</span><span class="p">,</span> <span class="c1"># función de activación</span>
+                <span class="n">linear</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span> <span class="c1"># función de activación de la capa de salida</span>
                                       <span class="c1"># que puede ser lineal o sigmoidea</span>
 </pre></div>
 </div>
@@ -524,17 +524,17 @@ neurona de salida representa un AND (todos los perceptrones de la capa oculta de
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## crea un dataframe de prueba</span>
-<span class="n">dftest</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>## crea un dataframe de prueba
+dftest &lt;- data.frame(x=x)
 
-<span class="c1">## pronostica la salida de la red neuronal para el dataframe de prueba</span>
-<span class="n">y_pred</span> <span class="o">&lt;-</span> <span class="nf">compute</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">dftest</span><span class="p">)</span>
+## pronostica la salida de la red neuronal para el dataframe de prueba
+y_pred &lt;- compute(nn, dftest)
 
-<span class="c1">## grafica la aproximación de la red neuronal</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">21</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
-<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">$</span><span class="n">net.result</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="nf">grid</span><span class="p">()</span>
+## grafica la aproximación de la red neuronal
+plot(x, d, type=&#39;p&#39;, pch=21, bg=&#39;red&#39;)
+lines(x, y_pred$net.result, col = &#39;black&#39;)
+grid()
 </pre></div>
 </div>
 </div>
@@ -542,7 +542,7 @@ neurona de salida representa un AND (todos los perceptrones de la capa oculta de
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_19_0.png" src="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_19_0.png" />
+<img alt="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_19_0.png" src="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_19_0.png" />
 </div>
 </div>
 <div class="section" id="Solución-usando-TensorFlow">
@@ -552,29 +552,29 @@ neurona de salida representa un AND (todos los perceptrones de la capa oculta de
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
 <span class="c1">## Se importa la librería</span>
 <span class="c1">##</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
 
 <span class="c1">##</span>
 <span class="c1">## crea la red neuronal como un modelo secuencial de capas</span>
 <span class="c1">##</span>
-<span class="n">model</span> <span class="o">&lt;-</span> <span class="nf">keras_model_sequential</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">&lt;-</span> <span class="n">keras_model_sequential</span><span class="p">()</span>
 
 
 <span class="n">model</span> <span class="o">%&gt;%</span>
-    <span class="nf">layer_dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>                 <span class="c1"># 3 neuronas en la capa oculta</span>
-                <span class="n">activation</span> <span class="o">=</span> <span class="s">&#39;sigmoid&#39;</span><span class="p">,</span>    <span class="c1"># función de activación</span>
-                <span class="n">input_shape</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>  <span class="o">%&gt;%</span>   <span class="c1"># una neurona de entrada</span>
-    <span class="nf">layer_dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span>                 <span class="c1"># 1 neurona en la capa de salida</span>
-                <span class="n">activation</span> <span class="o">=</span> <span class="s">&#39;sigmoid&#39;</span><span class="p">)</span>    <span class="c1"># función de activación</span>
+    <span class="n">layer_dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>                 <span class="c1"># 3 neuronas en la capa oculta</span>
+                <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">,</span>    <span class="c1"># función de activación</span>
+                <span class="n">input_shape</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="o">%&gt;%</span>   <span class="c1"># una neurona de entrada</span>
+    <span class="n">layer_dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>                 <span class="c1"># 1 neurona en la capa de salida</span>
+                <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>    <span class="c1"># función de activación</span>
 
 <span class="c1">##</span>
 <span class="c1">## imprime un resumen de la arquitectura del modelo</span>
 <span class="c1">##</span>
-<span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -600,26 +600,26 @@ ________________________________________________________________________________
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## compila el modelo para poder ejecutarlo</span>
-<span class="c1">##</span>
-<span class="n">model</span> <span class="o">%&gt;%</span> <span class="nf">compile</span><span class="p">(</span>
-  <span class="n">loss</span> <span class="o">=</span> <span class="s">&#39;mse&#39;</span><span class="p">,</span>                         <span class="c1">## funcion a minimizar</span>
-  <span class="n">optimizer</span> <span class="o">=</span> <span class="nf">optimizer_sgd</span><span class="p">(</span><span class="n">lr</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">),</span>  <span class="c1">## optimizador</span>
-  <span class="n">metrics</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;mse&#39;</span><span class="p">)</span>                    <span class="c1">## metricas de error reportadas</span>
-<span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>##
+## compila el modelo para poder ejecutarlo
+##
+model %&gt;% compile(
+  loss = &#39;mse&#39;,                         ## funcion a minimizar
+  optimizer = optimizer_sgd(lr = 0.1),  ## optimizador
+  metrics = c(&#39;mse&#39;)                    ## metricas de error reportadas
+)
 
-<span class="c1">##</span>
-<span class="c1">## entrena el modelo</span>
-<span class="c1">##</span>
-<span class="n">h</span> <span class="o">&lt;-</span> <span class="n">model</span> <span class="o">%&gt;%</span> <span class="nf">fit</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>           <span class="c1">## patrones de entrenamiento</span>
-    <span class="n">epochs</span><span class="o">=</span><span class="m">25000</span><span class="p">,</span>    <span class="c1">## numero máximo de iteraciones</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>      <span class="c1">## sin reporte de la ejecución del optimizador</span>
+##
+## entrena el modelo
+##
+h &lt;- model %&gt;% fit(
+    x, d,           ## patrones de entrenamiento
+    epochs=25000,    ## numero máximo de iteraciones
+    verbose=0)      ## sin reporte de la ejecución del optimizador
 
-<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">6</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">h</span><span class="o">$</span><span class="n">metrics</span><span class="o">$</span><span class="n">loss</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#39;l&#39;</span><span class="p">)</span>
+options(repr.plot.width=6, repr.plot.height=4)
+plot(h$metrics$loss, type = &#39;l&#39;)
 </pre></div>
 </div>
 </div>
@@ -627,24 +627,24 @@ ________________________________________________________________________________
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_23_0.png" src="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_23_0.png" />
+<img alt="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_23_0.png" src="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_23_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
 <span class="c1">## grafica la evolución del error durante</span>
 <span class="c1">## la optimizacion</span>
 <span class="c1">##</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">21</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
-<span class="n">x_pred</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">-4</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>
-<span class="n">y_pred</span> <span class="o">&lt;-</span> <span class="n">model</span> <span class="o">%&gt;%</span> <span class="nf">predict</span><span class="p">(</span><span class="n">x_pred</span><span class="p">)</span>
-<span class="nf">lines</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="nf">grid</span><span class="p">()</span>
+<span class="n">x_pred</span> <span class="o">&lt;-</span> <span class="n">seq</span><span class="p">(</span><span class="kn">from</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">&lt;-</span> <span class="n">model</span> <span class="o">%&gt;%</span> <span class="n">predict</span><span class="p">(</span><span class="n">x_pred</span><span class="p">)</span>
+<span class="n">lines</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ ________________________________________________________________________________
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_24_0.png" src="../../../_images/notebooks_sklearn_mlp_03-mlp-regresion-univariada-R_24_0.png" />
+<img alt="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_24_0.png" src="../../../_images/notebooks_sklearn_mlp_1-02-mlp-regresion-univariada-R_24_0.png" />
 </div>
 </div>
 <hr class="docutils" />
