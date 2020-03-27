@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Transformación no lineal de variables (independientes y dependiente) &mdash; documentación de --- Cursos --- - </title>
+  <title>Esquema del proceso de modelado &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Ejemplo básico de aplicación" href="3-18-aplicacion.html" />
-    <link rel="prev" title="Caso de aplicación" href="3-16-ejemplo-de-aplicacion.html" /> 
+    <link rel="next" title="Ejemplos de SGD usando sklearn" href="../sgd/1-01-SGD-en-sklearn.html" />
+    <link rel="prev" title="Ejemplo básico de aplicación" href="3-18-aplicacion.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Transformación no lineal de variables (independientes y dependiente)</li>
+      <li>Esquema del proceso de modelado</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/sklearn/fundamentals/3-17-transformacion-de-variables.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/sklearn/fundamentals/3-19-esqema.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -192,68 +192,12 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Transformación-no-lineal-de-variables-(independientes-y-dependiente)">
-<h1>Transformación no lineal de variables (independientes y dependiente)<a class="headerlink" href="#Transformación-no-lineal-de-variables-(independientes-y-dependiente)" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Esquema-del-proceso-de-modelado">
+<h1>Esquema del proceso de modelado<a class="headerlink" href="#Esquema-del-proceso-de-modelado" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>15 min</em> | Ultima modificación: Marzo 26, 2020</p></li>
 </ul>
-<p>A continuación, se describen las principales transformaciones que pueden realizarse tanto a la variable dependiente como independiente.</p>
-<ul class="simple">
-<li><p>Logaritmo (natural):</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[w = \log (z)\]</div>
-<ul class="simple">
-<li><p>Logaritmo base 10:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[w = \log_{10} (z)\]</div>
-<ul>
-<li><p>Logística:</p>
-<div class="math notranslate nohighlight">
-\[w = \log
-\left[
-\frac{c \cdot z}{1 - c \cdot z}
-\right]\]</div>
-</li>
-</ul>
-<p>con:</p>
-<div class="math notranslate nohighlight">
-\[c = (1 - 10^{-6}) \cdot 10 ^{-\text{ceil} (\log_{10} (\max (z)))}\]</div>
-<p>donde la función ceil() retorna el entero más pequeño que es igual o mayor que <span class="math notranslate nohighlight">\(z\)</span>.</p>
-<ul>
-<li><p>Raíz cuadrada:</p>
-<div class="math notranslate nohighlight">
-\[w = z^{1/2}\]</div>
-</li>
-<li><p>Raíz cúbica:</p>
-<div class="math notranslate nohighlight">
-\[w = z^{1/3}\]</div>
-</li>
-<li><p>Box-Cox:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}w =
-\begin{cases}
-\frac{z^\lambda - 1}{\lambda}, &amp; \lambda \ne 0 \\
-\\
-\log{z}, &amp; \lambda = 0
-\end{cases}\end{split}\]</div>
-</li>
-</ul>
-<p><strong>Comparación de modelos con diferentes transformaciones de las variables independientes.</strong></p>
-<p>En este caso, se comparan diferentes modelos alternativos que difieren en la transformación aplicada a las variables independientes. Se selecciona el modelo con mejor ajuste a las muestras de entrenamiento y prueba.</p>
-<p><strong>Comparación de modelos con diferentes transformaciones de la variable dependiente.</strong></p>
-<p>En este caso, los modelos no pueden compararse directamente con la serie transformada.</p>
-<p><strong>Pregunta.—</strong> ¿Explique por qué no se pueden compara?</p>
-<p>El procedimiento es el siguiente:</p>
-<ul class="simple">
-<li><p>Se aplica la transformación seleccionada a la variable dependiente.</p></li>
-<li><p>Se construye el mejor modelo posible.</p></li>
-<li><p>Se pronostican los datos de entrenamiento y prueba.</p></li>
-<li><p>Se aplica la transformación inversa a los pronosticos de entrenamiento y prueba.</p></li>
-<li><p>Se calcula la función de pérdida para los pronósticos con la transformación inversa.</p></li>
-</ul>
-<p>Una vez se ha calculado la función de pérdida para todas las transformaciones se selecciona la que genera mejores resultados.</p>
+<p><img alt="esquema-modelado" src="../../../_images/esquema.png" /></p>
 </div>
 
 
