@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Eager Execution &mdash; documentación de --- Cursos --- - </title>
+  <title>Datasets en TensorFlow &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Reconocimiento de patrones binarios usando neuronas de McCulloch-Pitts" href="1-03-McCullochPitts.html" />
-    <link rel="prev" title="Introducción a TensorFlow" href="1-01-tensorflow-intro.html" /> 
+    <link rel="next" title="Introducción a TensorBoard" href="1-06-tensorboard.html" />
+    <link rel="prev" title="Implementación de un combinador lineal adaptativo en TensorFlow" href="1-04-adalines.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../../redes-neuronales-con-tensorflow/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Eager Execution</li>
+      <li>Datasets en TensorFlow</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/tensorflow/low-level-apis/1-02-eager-execution.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/tensorflow/low-level-apis/1-05-datasets.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -410,8 +410,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Eager-Execution">
-<h1>Eager Execution<a class="headerlink" href="#Eager-Execution" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Datasets-en-TensorFlow">
+<h1>Datasets en TensorFlow<a class="headerlink" href="#Datasets-en-TensorFlow" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>60 min</em> | Última modificación: Julio 12, 2019.</p></li>
 </ul>
@@ -437,42 +437,56 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="Cómputos-con-constantes-en-TensorFlow">
-<h2>Cómputos con constantes en TensorFlow<a class="headerlink" href="#Cómputos-con-constantes-en-TensorFlow" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput docutils container">
+<div class="section" id="Source-Datasets">
+<h2>Source Datasets<a class="headerlink" href="#Source-Datasets" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">##</span>
-<span class="c1">#</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span></span><span class="n">ds_tensors</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Line 1</span>
+<span class="s2">Line 2</span>
+<span class="s2">Line 3</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">ds_file</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TextLineDataset</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tf.Tensor(3, shape=(), dtype=int32)
-tf.Tensor([4 6], shape=(2,), dtype=int32)
-tf.Tensor(25, shape=(), dtype=int32)
-tf.Tensor(6, shape=(), dtype=int32)
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">([[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span></span><span class="c1">##</span>
+<span class="c1">## Ubicación del archivo</span>
+<span class="c1">##</span>
+<span class="n">filename</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/tmp/tmp07z5gd50&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>cat <span class="nv">$filename</span>
 </pre></div>
 </div>
 </div>
@@ -481,109 +495,27 @@ tf.Tensor(6, shape=(), dtype=int32)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(1, 2)
-&lt;dtype: &#39;int32&#39;&gt;
+Line 1
+Line 2
+Line 3
+
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="NumPy">
-<h2>NumPy<a class="headerlink" href="#NumPy" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">ndarray</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[1., 1., 1.],
-       [1., 1., 1.],
-       [1., 1., 1.]])
-</pre></div></div>
-</div>
+<div class="section" id="Transformaciones">
+<h2>Transformaciones<a class="headerlink" href="#Transformaciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tensor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">ndarray</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tf.Tensor(
-[[42. 42. 42.]
- [42. 42. 42.]
- [42. 42. 42.]], shape=(3, 3), dtype=float64)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[43. 43. 43.]
- [43. 43. 43.]
- [43. 43. 43.]]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## Tensor --&gt; NumPy</span>
-<span class="c1">##</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[42. 42. 42.]
- [42. 42. 42.]
- [42. 42. 42.]]
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="GPU">
-<h2>GPU<a class="headerlink" href="#GPU" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is there a GPU available: &quot;</span><span class="p">),</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">is_gpu_available</span><span class="p">())</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elements of ds_tensors:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ds_tensors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is the Tensor on GPU #0:  &quot;</span><span class="p">),</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;GPU:0&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Elements in ds_file:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ds_file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -592,10 +524,19 @@ tf.Tensor(
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Is there a GPU available:
-False
-Is the Tensor on GPU #0:
-False
+Elements of ds_tensors:
+tf.Tensor(1, shape=(), dtype=int32)
+tf.Tensor(2, shape=(), dtype=int32)
+tf.Tensor(3, shape=(), dtype=int32)
+tf.Tensor(4, shape=(), dtype=int32)
+tf.Tensor(5, shape=(), dtype=int32)
+tf.Tensor(6, shape=(), dtype=int32)
+
+Elements in ds_file:
+tf.Tensor(b&#39;Line 1&#39;, shape=(), dtype=string)
+tf.Tensor(b&#39;Line 2&#39;, shape=(), dtype=string)
+tf.Tensor(b&#39;Line 3&#39;, shape=(), dtype=string)
+tf.Tensor(b&#39;  &#39;, shape=(), dtype=string)
 </pre></div></div>
 </div>
 </div>

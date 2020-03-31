@@ -134,9 +134,19 @@ Sesión 09
         :glob:
 
         /notebooks/optimization/*        
-    
+
 
 Sesión 10
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/sklearn/associative/*
+
+
+Sesión 11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **API de bajo nivel de TensorFlow**.
@@ -146,24 +156,6 @@ Sesión 10
         :glob:
 
         /notebooks/tensorflow/low-level-apis/*
-
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/mccullochpitts/*
-
-
-Sesión 11
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/associative/*
-
 
 
 Sesión 12
