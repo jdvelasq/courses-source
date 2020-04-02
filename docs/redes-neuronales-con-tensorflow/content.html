@@ -1,0 +1,553 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sesiones &mdash; documentación de --- Cursos --- - </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Reconocimiento de patrones binarios usando neuronas de McCulloch-Pitts" href="../notebooks/sklearn/mccullochpitts/1-01-McCullochPitts.html" />
+    <link rel="prev" title="Redes Neuronales Artificiales" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> --- Cursos ---
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Configuración</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Instalación de Vagrant y Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Cursos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analitica-financiera/index.html">Analítica Financiera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analitica-predictiva/index.html">Analítica Predictiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fundamentos-de-analitica/index.html">Fundamentos de Analítica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../productos-de-datos/index.html">Productos de Datos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Redes Neuronales Artificiales</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course-info.html">Información del curso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming-labs.html">Laboratorios de programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complement.html">Material Complementario</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">--- Cursos ---</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Redes Neuronales Artificiales</a> &raquo;</li>
+        
+      <li>Sesiones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/redes-neuronales-con-tensorflow/content.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="sesiones">
+<h1>Sesiones<a class="headerlink" href="#sesiones" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="sesion-01">
+<h2>Sesión 01<a class="headerlink" href="#sesion-01" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Presentación del curso</strong></p>
+<ul class="simple">
+<li><p>Ver la sección de <em>Información del curso</em> en el menú de la izquierda.</p></li>
+</ul>
+<p><strong>Modelo de McCulloch-Pitts</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mccullochpitts/1-01-McCullochPitts.html">Reconocimiento de patrones binarios usando neuronas de McCulloch-Pitts</a></li>
+</ul>
+</div>
+<p><strong>Fundamentos de aprendizaje automático I</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/1-01-optimizacion-usando-sgd.html">Optimización usando el gradiente descendente (GD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/1-02-opt-regresion.html">Optimización de modelos de regresión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/1-03-taller.html">Taller — Estimación de parámetros en modelos de regresión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/1-04-momentum.html">Regla delta generalizada y algoritmos con supermemoria</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-02">
+<h2>Sesión 02<a class="headerlink" href="#sesion-02" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Fundamentos de aprendizaje automático II</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-05-apren-batch-online-SGD.html">Aprendizaje batch, online, minibatch y Gradiente Descendente Estocástico (SGD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-06-tasa-de-aprendizaje.html">Algoritmos para modificar la tasa de aprendizaje</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-07-aprendizaje-y-memorizacion.html">Aprendizaje y memorización (dilema sesgo - varianza)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-08-akaike.html">Regresión lineal y criterios de información</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/2-09-early-stopping.html">Optimización usando Early Stopping (parada temprana)</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-03">
+<h2>Sesión 03<a class="headerlink" href="#sesion-03" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Fundamentos de aprendizaje automático III</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-10-ridge.html">Optimización usando ridge regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-11-lasso-elasticnet.html">Optimización usando LASSO y ElasticNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-12-regression-loss-functions.html">Funciones de pérdida en modelos de regresión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-13-sensibilidad-particion-datos.html">Sensibilidad de los resultados a la selección de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-14-estimacion-de-estadisticos-usando-bootstrap.html">Estimación de estadísticos usando bootstrap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-15-particion-de-los-datos.html">Esquemas de partición de los datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-16-ejemplo-de-aplicacion.html">Caso de aplicación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-17-transformacion-de-variables.html">Transformación no lineal de variables (independientes y dependiente)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-18-aplicacion.html">Ejemplo básico de aplicación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/fundamentals/3-19-esquema.html">Esquema del proceso de modelado</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-04">
+<h2>Sesión 04<a class="headerlink" href="#sesion-04" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Gradiente descendente estocástico</strong>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sgd/1-01-SGD-en-sklearn.html">SGDRegressor y SGDClassifier usando sklearn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sgd/1-02-SGD-iris-flowers.html">Desarrollo de una APP para clasificar las flores IRIS usando SDG</a></li>
+</ul>
+</div>
+<p><strong>Perceptrón bipolar</strong>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/bipolar-perceptron/1-01-perceptron-bipolar.html">Regla de aprendizaje del perceptrón</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/bipolar-perceptron/1-02-perceptron-bipolar-R.html">Opcional — Implementación en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/bipolar-perceptron/1-03-perceptron-unario-bipolar.html">Opcional — Perceptrón unario bipolar</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-05">
+<h2>Sesión 05<a class="headerlink" href="#sesion-05" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Combinadores lineales adaptativos</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/adaline/1-01-adaline-teoria.html">Combinadores lineales adaptativos (ADALINEs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/adaline/1-02-pronostico-adaptativo.html">Pronóstico adaptativo usando ADALINEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/adaline/1-03-pronostico-airline.html">Pronóstico de la cantidad de usuarios que acceden a un servidor de internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/adaline/1-04-identificacion-de-sistemas.html">Identificación de sistemas usando ADALINEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/adaline/1-05-clasificacion.html">Clasificación usando ADALINEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/adaline/1-06-madalines.html">MADALINEs</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-06">
+<h2>Sesión 06<a class="headerlink" href="#sesion-06" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Perceptrón continuo y regresión logística</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-01-percpetron-continuo.html">Regresión no lineal usando perceptrones continuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-02-clasificacion.html">Clasificación usando perceptrones continuos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/continuous-perceptron/1-03-percpetron-continuo-R.html">Opcional — Implementación de perceptrones continuos en R</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-01-regresion-logistica.html">Regresión Logística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-02-pronostico-del-exito-de-libros.html">Pronóstico de la popularidad de libros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-03-taller.html">Taller — Clasificación del dataset artificial two-clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-04-taller.html">Taller — Clasificación del dataset artificial two-circles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-05-taller.html">Taller — Detección de hongos venenosos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/logistic/1-06-one-VS-others.html">Estrategías One-Vs-One y One-Vs-Others</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-07">
+<h2>Sesión 07<a class="headerlink" href="#sesion-07" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Perceptrones multicapa</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-01-mlp-regresion-univariada.html">Regresión no lineal univariada con perceptrones multicapa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-02-mlp-regresion-univariada-R.html">Opcional — Regresión no lineal univariada con perceptrones multicapa en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-03-pronostico-de-la-resistencia-del-concreto.html">Predicción de la resistencia del concreto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-04-pronostico-series-de-tiempo.html">Pronóstico de una serie de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-05-taller.html">Taller — Clasificación del dataset artificial two-groups-four-clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-06-taller.html">Taller — Clasificación del dataset artificial two-circles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/mlp/1-07-taller.html">Taller — Predicción de la evolución de la diabetes</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-08">
+<h2>Sesión 08<a class="headerlink" href="#sesion-08" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Support Vector Machines</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/svm/1-01-svm.html">Clasificación usando máquinas de soporte vectorial (SVMs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/svm/1-02-olivetti-faces-svm.html">Clasificación de imágenes usando SVMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/svm/1-03-reconocimiento-ocr.html">Reconocimiento de texto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/svm/1-04-taller.html">Taller — Clasificación del dataset artificial two-circles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/svm/1-05-taller.html">Taller — Clasificación del dataset artificial two-groups-four-clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/svm/1-06-taller.html">Taller — Identificación de créditos riesgosos</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-09">
+<h2>Sesión 09<a class="headerlink" href="#sesion-09" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/optimization/optimizacion-no-lineal-python.html">Optimización de funciones no lineales</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-10">
+<h2>Sesión 10<a class="headerlink" href="#sesion-10" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/associative/1-01-memoria-asociativa-lineal.html">Memoria asociativa lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/associative/1-02-otros-modelos-asociativos.html">Otros modelos asociativos</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-11">
+<h2>Sesión 11<a class="headerlink" href="#sesion-11" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>API de bajo nivel de TensorFlow</strong>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/low-level-apis/1-01-tensorflow-intro.html">Introducción a TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/low-level-apis/1-02-eager-execution.html">Eager Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/low-level-apis/1-03-McCullochPitts.html">Reconocimiento de patrones binarios usando neuronas de McCulloch-Pitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/low-level-apis/1-04-adalines.html">Implementación de un combinador lineal adaptativo en TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/low-level-apis/1-05-datasets.html">Datasets en TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/low-level-apis/1-06-tensorboard.html">Introducción a TensorBoard</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-12">
+<h2>Sesión 12<a class="headerlink" href="#sesion-12" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Gradiente descendente estocástico en TensorFlow</strong>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/sgd/1-01-sgd.html">Implementación del SGD en TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/perceptron/1-01-perceptron-continuo.html">Perceptrón Continuo en TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/perceptron/1-02-perceptron-continuo-R.html">Opcional — Perceptron continuo en TensorFlow for R</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-13">
+<h2>Sesión 13<a class="headerlink" href="#sesion-13" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Multilayer perceptrons en TensorFlow</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/dense/1-01-regresion-univariada.html">Regresión no lineal univariada usando MLP en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/dense/1-02-mlp-entrenamiento.html">Aproximación y entrenamiento de modelos de redes neuronales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/dense/1-03-mlp-regularizacion.html">Regularización</a></li>
+</ul>
+</div>
+<p><strong>Learn and use ML</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/learn-and-use-ml/1-01-basic-classification.html">Clasificación del Fashion MNIST dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/learn-and-use-ml/1-02-text-classification.html">Análisis de sentimientos de IMDB usando TF.1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/learn-and-use-ml/1-03-regression.html">Predicción de la eficiencia de combustible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/learn-and-use-ml/1-04-overfitting-and-underfitting.html">Subajuste y sobreajuste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/learn-and-use-ml/1-05-save-and-restore-models.html">Como salvar y restaurar modelos</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-14">
+<h2>Sesión 14<a class="headerlink" href="#sesion-14" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Research and experimentation</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/research-and-experimentation/1-01-automatic-differentiation.html">Diferenciación automática</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/research-and-experimentation/1-02-custom-training-basics.html">Entrenamiento personalizado (basics)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/research-and-experimentation/1-03-custom-layers.html">Capas personalizadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/research-and-experimentation/1-04-custom-training-walkthroungh.html">Entrenamiento personalizado — avanzado</a></li>
+</ul>
+</div>
+<p><strong>ML at production scale</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/ml-at-production-scale/1-01-linear-models-with-estimators.html">Construcción de modelos usando estimadores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/ml-at-production-scale/1-02-wide-and-deep.html">Wide and deep learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/ml-at-production-scale/1-03-boosted-trees.html">Boosted trees en TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/ml-at-production-scale/1-04-boosted-trees-understanding.html">Boosted trees en TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/ml-at-production-scale/1-05-build-a-cnn-using-estimators.html">Construcción de una CNN usando estimadores</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-15">
+<h2>Sesión 15<a class="headerlink" href="#sesion-15" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><p><strong>Sequences</strong></p>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/sequences/1-01-text-generation-rnn.html">Generación de texto usando una RNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tensorflow/sequences/1-04-rnn.html">Redes neuronales recurrentes</a></li>
+</ul>
+</div>
+</div></blockquote>
+<p><strong>Data representation</strong></p>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="sesion-16">
+<h2>Sesión 16<a class="headerlink" href="#sesion-16" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Estimators</strong></p>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+</div>
+</div></blockquote>
+</div></blockquote>
+<p><strong>High level APIs</strong></p>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+</div>
+</div></blockquote>
+<p><strong>Embedings</strong></p>
+<blockquote>
+<div><blockquote>
+<div><div class="toctree-wrapper compound">
+</div>
+</div></blockquote>
+<p>Cierre</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="anexos-y-material-complementario">
+<h2>Anexos y material complementario<a class="headerlink" href="#anexos-y-material-complementario" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/performance/05-afinacion-de-los-parametros-de-los-modelos.html">Afinación de los parámetros de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/performance/06-apendice-R.html">Apéndice — Análisis del desempeño del modelo en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/performance/1-23-afinacion-de-los-parametros-de-los-modelos.html">Afinación de los parámetros de modelos</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Juan D. Velasquez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Como salvar y restaurar modelos\n",
+    "==="
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* *30 min* | Última modificación: Julio 09, 2019"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Adaptado de https://www.tensorflow.org/beta/tutorials/keras/save_and_restore_models"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Preparación"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'2.0.0-beta1'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from __future__ import absolute_import, division, print_function\n",
+    "\n",
+    "import os\n",
+    "\n",
+    "import tensorflow as tf\n",
+    "from tensorflow import keras\n",
+    "\n",
+    "tf.__version__"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Carga de datos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()\n",
+    "\n",
+    "train_labels = train_labels[:1000]\n",
+    "test_labels = test_labels[:1000]\n",
+    "\n",
+    "train_images = train_images[:1000].reshape(-1, 28 * 28) / 255.0\n",
+    "test_images = test_images[:1000].reshape(-1, 28 * 28) / 255.0"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Creación del modelo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Model: \"sequential\"\n",
+      "_________________________________________________________________\n",
+      "Layer (type)                 Output Shape              Param #   \n",
+      "=================================================================\n",
+      "dense (Dense)                (None, 512)               401920    \n",
+      "_________________________________________________________________\n",
+      "dropout (Dropout)            (None, 512)               0         \n",
+      "_________________________________________________________________\n",
+      "dense_1 (Dense)              (None, 10)                5130      \n",
+      "=================================================================\n",
+      "Total params: 407,050\n",
+      "Trainable params: 407,050\n",
+      "Non-trainable params: 0\n",
+      "_________________________________________________________________\n"
+     ]
+    }
+   ],
+   "source": [
+    "def create_model():\n",
+    "    \n",
+    "    model = tf.keras.models.Sequential([\n",
+    "        keras.layers.Dense(512, \n",
+    "                           activation=tf.keras.activations.relu, \n",
+    "                           input_shape=(784,)),\n",
+    "        keras.layers.Dropout(0.2),\n",
+    "        keras.layers.Dense(10, \n",
+    "                           activation=tf.keras.activations.softmax)\n",
+    "    ])\n",
+    "  \n",
+    "    model.compile(\n",
+    "        optimizer=tf.keras.optimizers.Adam(),\n",
+    "        loss=tf.keras.losses.sparse_categorical_crossentropy,\n",
+    "        metrics=['accuracy'])\n",
+    "  \n",
+    "    return model\n",
+    "\n",
+    "model = create_model()\n",
+    "model.summary()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Guardado de puntos de control durante el entrenamiento"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Logging before flag parsing goes to stderr.\n",
+      "W0709 16:26:19.418592 139873513322304 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/math_grad.py:1250: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "Use tf.where in 2.0, which has the same broadcast rule as np.where\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Train on 1000 samples, validate on 1000 samples\n",
+      "Epoch 1/10\n",
+      " 992/1000 [============================>.] - ETA: 0s - loss: 1.1481 - accuracy: 0.6754\n",
+      "Epoch 00001: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 1s 511us/sample - loss: 1.1417 - accuracy: 0.6780 - val_loss: 0.7217 - val_accuracy: 0.7740\n",
+      "Epoch 2/10\n",
+      " 960/1000 [===========================>..] - ETA: 0s - loss: 0.4218 - accuracy: 0.8865\n",
+      "Epoch 00002: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 246us/sample - loss: 0.4201 - accuracy: 0.8870 - val_loss: 0.5088 - val_accuracy: 0.8380\n",
+      "Epoch 3/10\n",
+      " 480/1000 [=============>................] - ETA: 0s - loss: 0.3021 - accuracy: 0.9354\n",
+      "Epoch 00003: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 213us/sample - loss: 0.2739 - accuracy: 0.9300 - val_loss: 0.4818 - val_accuracy: 0.8520\n",
+      "Epoch 4/10\n",
+      " 576/1000 [================>.............] - ETA: 0s - loss: 0.1927 - accuracy: 0.9549\n",
+      "Epoch 00004: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 207us/sample - loss: 0.2064 - accuracy: 0.9550 - val_loss: 0.4336 - val_accuracy: 0.8660\n",
+      "Epoch 5/10\n",
+      " 608/1000 [=================>............] - ETA: 0s - loss: 0.1302 - accuracy: 0.9819\n",
+      "Epoch 00005: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 218us/sample - loss: 0.1583 - accuracy: 0.9650 - val_loss: 0.4655 - val_accuracy: 0.8510\n",
+      "Epoch 6/10\n",
+      " 992/1000 [============================>.] - ETA: 0s - loss: 0.1127 - accuracy: 0.9808\n",
+      "Epoch 00006: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 242us/sample - loss: 0.1124 - accuracy: 0.9810 - val_loss: 0.4241 - val_accuracy: 0.8660\n",
+      "Epoch 7/10\n",
+      " 544/1000 [===============>..............] - ETA: 0s - loss: 0.0796 - accuracy: 0.9926\n",
+      "Epoch 00007: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 219us/sample - loss: 0.0805 - accuracy: 0.9920 - val_loss: 0.4288 - val_accuracy: 0.8570\n",
+      "Epoch 8/10\n",
+      " 512/1000 [==============>...............] - ETA: 0s - loss: 0.0584 - accuracy: 0.9980\n",
+      "Epoch 00008: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 219us/sample - loss: 0.0608 - accuracy: 0.9960 - val_loss: 0.4104 - val_accuracy: 0.8680\n",
+      "Epoch 9/10\n",
+      " 544/1000 [===============>..............] - ETA: 0s - loss: 0.0380 - accuracy: 0.9982\n",
+      "Epoch 00009: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 224us/sample - loss: 0.0459 - accuracy: 0.9960 - val_loss: 0.4081 - val_accuracy: 0.8660\n",
+      "Epoch 10/10\n",
+      " 992/1000 [============================>.] - ETA: 0s - loss: 0.0366 - accuracy: 0.9980\n",
+      "Epoch 00010: saving model to training_1/cp.ckpt\n",
+      "1000/1000 [==============================] - 0s 234us/sample - loss: 0.0367 - accuracy: 0.9980 - val_loss: 0.4212 - val_accuracy: 0.8710\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Path\n",
+    "##\n",
+    "checkpoint_path = \"training_1/cp.ckpt\"\n",
+    "checkpoint_dir = os.path.dirname(checkpoint_path)\n",
+    "\n",
+    "\n",
+    "cp_callback = tf.keras.callbacks.ModelCheckpoint(\n",
+    "    checkpoint_path, \n",
+    "    save_weights_only=True,\n",
+    "    verbose=1)\n",
+    "\n",
+    "model = create_model()\n",
+    "\n",
+    "model.fit(train_images, \n",
+    "          train_labels,  \n",
+    "          epochs = 10, \n",
+    "          validation_data = (test_images,test_labels),\n",
+    "          callbacks = [cp_callback]); "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 4784\n",
+      "-rw-r--r-- 1 vagrant vagrant      71 Jul  9 16:26 checkpoint\n",
+      "-rw-r--r-- 1 vagrant vagrant 4886700 Jul  9 16:26 cp.ckpt.data-00000-of-00001\n",
+      "-rw-r--r-- 1 vagrant vagrant    1222 Jul  9 16:26 cp.ckpt.index\n"
+     ]
+    }
+   ],
+   "source": [
+    "## \n",
+    "## contenido del directorio\n",
+    "##\n",
+    "!ls -l {checkpoint_dir}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Entrenamiento de un nuevo modelo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1000/1000 [==============================] - 0s 92us/sample - loss: 2.3604 - accuracy: 0.1290\n",
+      "Untrained model, accuracy: 12.90%\n"
+     ]
+    }
+   ],
+   "source": [
+    "model = create_model()\n",
+    "\n",
+    "loss, acc = model.evaluate(\n",
+    "    test_images, \n",
+    "    test_labels)\n",
+    "\n",
+    "print(\"Untrained model, accuracy: {:5.2f}%\".format(100*acc))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Carga de los pesos anteriores"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1000/1000 [==============================] - 0s 49us/sample - loss: 0.4212 - accuracy: 0.8710\n",
+      "Restored model, accuracy: 87.10%\n"
+     ]
+    }
+   ],
+   "source": [
+    "model.load_weights(checkpoint_path)\n",
+    "loss,acc = model.evaluate(test_images, test_labels)\n",
+    "print(\"Restored model, accuracy: {:5.2f}%\".format(100*acc))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Opciones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "W0709 16:26:22.858520 139873513322304 callbacks.py:859] `period` argument is deprecated. Please use `save_freq` to specify the frequency in number of samples seen.\n",
+      "W0709 16:26:23.318456 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.iter\n",
+      "W0709 16:26:23.319385 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_1\n",
+      "W0709 16:26:23.320108 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_2\n",
+      "W0709 16:26:23.320736 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.decay\n",
+      "W0709 16:26:23.321236 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.learning_rate\n",
+      "W0709 16:26:23.322189 139873513322304 util.py:252] A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/alpha/guide/checkpoints#loading_mechanics for details.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Epoch 00005: saving model to training_2/cp-0005.ckpt\n",
+      "\n",
+      "Epoch 00010: saving model to training_2/cp-0010.ckpt\n",
+      "\n",
+      "Epoch 00015: saving model to training_2/cp-0015.ckpt\n",
+      "\n",
+      "Epoch 00020: saving model to training_2/cp-0020.ckpt\n",
+      "\n",
+      "Epoch 00025: saving model to training_2/cp-0025.ckpt\n",
+      "\n",
+      "Epoch 00030: saving model to training_2/cp-0030.ckpt\n",
+      "\n",
+      "Epoch 00035: saving model to training_2/cp-0035.ckpt\n",
+      "\n",
+      "Epoch 00040: saving model to training_2/cp-0040.ckpt\n",
+      "\n",
+      "Epoch 00045: saving model to training_2/cp-0045.ckpt\n",
+      "\n",
+      "Epoch 00050: saving model to training_2/cp-0050.ckpt\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<tensorflow.python.keras.callbacks.History at 0x7f3644e8a8d0>"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "checkpoint_path = \"training_2/cp-{epoch:04d}.ckpt\"\n",
+    "\n",
+    "checkpoint_dir = os.path.dirname(checkpoint_path)\n",
+    "\n",
+    "cp_callback = tf.keras.callbacks.ModelCheckpoint(\n",
+    "    checkpoint_path, \n",
+    "    verbose=1, \n",
+    "    save_weights_only=True,\n",
+    "    period=5) # salva los pesos cada 5 epochs\n",
+    "\n",
+    "model = create_model()\n",
+    "\n",
+    "model.save_weights(checkpoint_path.format(epoch=0))\n",
+    "\n",
+    "model.fit(\n",
+    "    train_images, \n",
+    "    train_labels,\n",
+    "    epochs = 50, \n",
+    "    callbacks = [cp_callback],\n",
+    "    validation_data = (test_images,test_labels),\n",
+    "    verbose=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "checkpoint\t\t\t  cp-0025.ckpt.index\n",
+      "cp-0000.ckpt.data-00000-of-00001  cp-0030.ckpt.data-00000-of-00001\n",
+      "cp-0000.ckpt.index\t\t  cp-0030.ckpt.index\n",
+      "cp-0005.ckpt.data-00000-of-00001  cp-0035.ckpt.data-00000-of-00001\n",
+      "cp-0005.ckpt.index\t\t  cp-0035.ckpt.index\n",
+      "cp-0010.ckpt.data-00000-of-00001  cp-0040.ckpt.data-00000-of-00001\n",
+      "cp-0010.ckpt.index\t\t  cp-0040.ckpt.index\n",
+      "cp-0015.ckpt.data-00000-of-00001  cp-0045.ckpt.data-00000-of-00001\n",
+      "cp-0015.ckpt.index\t\t  cp-0045.ckpt.index\n",
+      "cp-0020.ckpt.data-00000-of-00001  cp-0050.ckpt.data-00000-of-00001\n",
+      "cp-0020.ckpt.index\t\t  cp-0050.ckpt.index\n",
+      "cp-0025.ckpt.data-00000-of-00001\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Contenido del directorio\n",
+    "##\n",
+    "! ls {checkpoint_dir}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'training_2/cp-0050.ckpt'"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Carga el último modelo\n",
+    "##\n",
+    "latest = tf.train.latest_checkpoint(checkpoint_dir)\n",
+    "latest"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1000/1000 [==============================] - 0s 89us/sample - loss: 0.4944 - accuracy: 0.8740\n",
+      "Restored model, accuracy: 87.40%\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Se crea un nuevo modelo y se cargan los pesos\n",
+    "##\n",
+    "model = create_model()\n",
+    "model.load_weights(latest)\n",
+    "loss, acc = model.evaluate(test_images, test_labels)\n",
+    "print(\"Restored model, accuracy: {:5.2f}%\".format(100*acc))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Guardado manual de los pesos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1000/1000 [==============================] - 0s 92us/sample - loss: 0.4944 - accuracy: 0.8740\n",
+      "Restored model, accuracy: 87.40%\n"
+     ]
+    }
+   ],
+   "source": [
+    "model.save_weights('./checkpoints/my_checkpoint')\n",
+    "\n",
+    "# Carga los pesos\n",
+    "model = create_model()\n",
+    "model.load_weights('./checkpoints/my_checkpoint')\n",
+    "\n",
+    "loss,acc = model.evaluate(test_images, test_labels)\n",
+    "print(\"Restored model, accuracy: {:5.2f}%\".format(100*acc))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Train on 1000 samples\n",
+      "Epoch 1/5\n",
+      "1000/1000 [==============================] - 0s 255us/sample - loss: 1.1655 - accuracy: 0.6620\n",
+      "Epoch 2/5\n",
+      "1000/1000 [==============================] - 0s 114us/sample - loss: 0.4243 - accuracy: 0.8840\n",
+      "Epoch 3/5\n",
+      "1000/1000 [==============================] - 0s 136us/sample - loss: 0.2806 - accuracy: 0.9250\n",
+      "Epoch 4/5\n",
+      "1000/1000 [==============================] - 0s 114us/sample - loss: 0.2256 - accuracy: 0.9400\n",
+      "Epoch 5/5\n",
+      "1000/1000 [==============================] - 0s 106us/sample - loss: 0.1599 - accuracy: 0.9680\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Formato HDF5\n",
+    "##\n",
+    "\n",
+    "model = create_model()\n",
+    "\n",
+    "model.fit(\n",
+    "    train_images, \n",
+    "    train_labels, \n",
+    "    epochs=5)\n",
+    "\n",
+    "model.save('my_model.h5')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "W0709 16:26:33.302357 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.iter\n",
+      "W0709 16:26:33.303262 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_1\n",
+      "W0709 16:26:33.303816 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_2\n",
+      "W0709 16:26:33.304501 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.decay\n",
+      "W0709 16:26:33.305703 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.learning_rate\n",
+      "W0709 16:26:33.306409 139873513322304 util.py:252] A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/alpha/guide/checkpoints#loading_mechanics for details.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Model: \"sequential_6\"\n",
+      "_________________________________________________________________\n",
+      "Layer (type)                 Output Shape              Param #   \n",
+      "=================================================================\n",
+      "dense_12 (Dense)             (None, 512)               401920    \n",
+      "_________________________________________________________________\n",
+      "dropout_6 (Dropout)          (None, 512)               0         \n",
+      "_________________________________________________________________\n",
+      "dense_13 (Dense)             (None, 10)                5130      \n",
+      "=================================================================\n",
+      "Total params: 407,050\n",
+      "Trainable params: 407,050\n",
+      "Non-trainable params: 0\n",
+      "_________________________________________________________________\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Carga del modelo\n",
+    "##\n",
+    "new_model = keras.models.load_model('my_model.h5')\n",
+    "new_model.summary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1000/1000 [==============================] - 0s 90us/sample - loss: 0.4320 - accuracy: 0.8600\n",
+      "Restored model, accuracy: 86.00%\n"
+     ]
+    }
+   ],
+   "source": [
+    "loss, acc = new_model.evaluate(test_images, test_labels)\n",
+    "print(\"Restored model, accuracy: {:5.2f}%\".format(100*acc))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## saved_model"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Train on 1000 samples\n",
+      "Epoch 1/5\n",
+      "1000/1000 [==============================] - 0s 217us/sample - loss: 1.1088 - accuracy: 0.7020\n",
+      "Epoch 2/5\n",
+      "1000/1000 [==============================] - 0s 91us/sample - loss: 0.4101 - accuracy: 0.8800\n",
+      "Epoch 3/5\n",
+      "1000/1000 [==============================] - 0s 91us/sample - loss: 0.2908 - accuracy: 0.9110\n",
+      "Epoch 4/5\n",
+      "1000/1000 [==============================] - 0s 94us/sample - loss: 0.2177 - accuracy: 0.9380\n",
+      "Epoch 5/5\n",
+      "1000/1000 [==============================] - 0s 87us/sample - loss: 0.1539 - accuracy: 0.9660\n"
+     ]
+    }
+   ],
+   "source": [
+    "model = create_model()\n",
+    "\n",
+    "model.fit(train_images, train_labels, epochs=5);"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "W0709 16:26:35.618914 139873513322304 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/saved_model/signature_def_utils_impl.py:253: build_tensor_info (from tensorflow.python.saved_model.utils_impl) is deprecated and will be removed in a future version.\n",
+      "Instructions for updating:\n",
+      "This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.utils.build_tensor_info or tf.compat.v1.saved_model.build_tensor_info.\n",
+      "W0709 16:26:35.620182 139873513322304 export_utils.py:182] Export includes no default signature!\n",
+      "W0709 16:26:35.868068 139873513322304 export_utils.py:182] Export includes no default signature!\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'./saved_models/1562689594'"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import time\n",
+    "saved_model_path = \"./saved_models/{}\".format(int(time.time()))\n",
+    "\n",
+    "tf.keras.experimental.export_saved_model(model, saved_model_path)\n",
+    "\n",
+    "saved_model_path"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1562689594\n"
+     ]
+    }
+   ],
+   "source": [
+    "!ls saved_models/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Model: \"sequential_7\"\n",
+      "_________________________________________________________________\n",
+      "Layer (type)                 Output Shape              Param #   \n",
+      "=================================================================\n",
+      "dense_14 (Dense)             (None, 512)               401920    \n",
+      "_________________________________________________________________\n",
+      "dropout_7 (Dropout)          (None, 512)               0         \n",
+      "_________________________________________________________________\n",
+      "dense_15 (Dense)             (None, 10)                5130      \n",
+      "=================================================================\n",
+      "Total params: 407,050\n",
+      "Trainable params: 407,050\n",
+      "Non-trainable params: 0\n",
+      "_________________________________________________________________\n"
+     ]
+    }
+   ],
+   "source": [
+    "##\n",
+    "## Recupera el modelo del disco duro\n",
+    "##\n",
+    "new_model = tf.keras.experimental.load_from_saved_model(saved_model_path)\n",
+    "new_model.summary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(1000, 10)"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "model.predict(test_images).shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1000/1000 [==============================] - 0s 84us/sample - loss: 0.4153 - accuracy: 0.8750\n",
+      "Restored model, accuracy: 87.50%\n"
+     ]
+    }
+   ],
+   "source": [
+    "new_model.compile(\n",
+    "    optimizer=model.optimizer, \n",
+    "    loss='sparse_categorical_crossentropy',\n",
+    "    metrics=['accuracy'])\n",
+    "\n",
+    "loss, acc = new_model.evaluate(test_images, test_labels)\n",
+    "print(\"Restored model, accuracy: {:5.2f}%\".format(100*acc))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Limpieza del directorio de trabajo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "rm: cannot remove 'my_model.h5': No such file or directory\n"
+     ]
+    }
+   ],
+   "source": [
+    "!rm -Rf saved_models/\n",
+    "!rm -Rf checkpoints/\n",
+    "!rm -Rf training_1/\n",
+    "!rm -Rf training_2/\n",
+    "!rm my_model.h5"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

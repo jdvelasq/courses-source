@@ -1,0 +1,1208 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Como salvar y restaurar modelos &mdash; documentación de --- Cursos --- - </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="Diferenciación automática" href="../research-and-experimentation/1-01-automatic-differentiation.html" />
+    <link rel="prev" title="Subajuste y sobreajuste" href="1-04-overfitting-and-underfitting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> --- Cursos ---
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Configuración</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">Instalación de Vagrant y Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Cursos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../analitica-de-grandes-datos/index.html">Analítica de grandes datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analitica-financiera/index.html">Analítica Financiera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analitica-predictiva/index.html">Analítica Predictiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fundamentos-de-analitica/index.html">Fundamentos de Analítica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../productos-de-datos/index.html">Productos de Datos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../redes-neuronales-con-tensorflow/index.html">Redes Neuronales Artificiales</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../redes-neuronales-con-tensorflow/content.html">Sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../redes-neuronales-con-tensorflow/course-info.html">Información del curso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../redes-neuronales-con-tensorflow/programming-labs.html">Laboratorios de programación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../redes-neuronales-con-tensorflow/complement.html">Material Complementario</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">--- Cursos ---</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../redes-neuronales-con-tensorflow/index.html">Redes Neuronales Artificiales</a> &raquo;</li>
+        
+          <li><a href="../../../redes-neuronales-con-tensorflow/content.html">Sesiones</a> &raquo;</li>
+        
+      <li>Como salvar y restaurar modelos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/notebooks/tensorflow/learn-and-use-ml/1-05-save-and-restore-models.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Como-salvar-y-restaurar-modelos">
+<h1>Como salvar y restaurar modelos<a class="headerlink" href="#Como-salvar-y-restaurar-modelos" title="Enlazar permanentemente con este título">¶</a></h1>
+<ul class="simple">
+<li><p><em>30 min</em> | Última modificación: Julio 09, 2019</p></li>
+</ul>
+<p>Adaptado de <a class="reference external" href="https://www.tensorflow.org/beta/tutorials/keras/save_and_restore_models">https://www.tensorflow.org/beta/tutorials/keras/save_and_restore_models</a></p>
+<div class="section" id="Preparación">
+<h2>Preparación<a class="headerlink" href="#Preparación" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+
+<span class="n">tf</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;2.0.0-beta1&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Carga-de-datos">
+<h2>Carga de datos<a class="headerlink" href="#Carga-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+<span class="n">test_labels</span> <span class="o">=</span> <span class="n">test_labels</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id=" Creación-del-modelo">
+<h2> Creación del modelo<a class="headerlink" href="# Creación-del-modelo" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">():</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+        <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span>
+                           <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">activations</span><span class="o">.</span><span class="n">relu</span><span class="p">,</span>
+                           <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,)),</span>
+        <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+        <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span>
+                           <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">activations</span><span class="o">.</span><span class="n">softmax</span><span class="p">)</span>
+    <span class="p">])</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+        <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">sparse_categorical_crossentropy</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Model: &#34;sequential&#34;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense (Dense)                (None, 512)               401920
+_________________________________________________________________
+dropout (Dropout)            (None, 512)               0
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                5130
+=================================================================
+Total params: 407,050
+Trainable params: 407,050
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div></div>
+</div>
+</div>
+<div class="section" id=" Guardado-de-puntos-de-control-durante-el-entrenamiento">
+<h2> Guardado de puntos de control durante el entrenamiento<a class="headerlink" href="# Guardado-de-puntos-de-control-durante-el-entrenamiento" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Path</span>
+<span class="c1">##</span>
+<span class="n">checkpoint_path</span> <span class="o">=</span> <span class="s2">&quot;training_1/cp.ckpt&quot;</span>
+<span class="n">checkpoint_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">)</span>
+
+
+<span class="n">cp_callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+    <span class="n">checkpoint_path</span><span class="p">,</span>
+    <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span>
+          <span class="n">train_labels</span><span class="p">,</span>
+          <span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+          <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span><span class="n">test_labels</span><span class="p">),</span>
+          <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span><span class="n">cp_callback</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+WARNING: Logging before flag parsing goes to stderr.
+W0709 16:26:19.418592 139873513322304 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/math_grad.py:1250: add_dispatch_support.&lt;locals&gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Train on 1000 samples, validate on 1000 samples
+Epoch 1/10
+ 992/1000 [============================&gt;.] - ETA: 0s - loss: 1.1481 - accuracy: 0.6754
+Epoch 00001: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 1s 511us/sample - loss: 1.1417 - accuracy: 0.6780 - val_loss: 0.7217 - val_accuracy: 0.7740
+Epoch 2/10
+ 960/1000 [===========================&gt;..] - ETA: 0s - loss: 0.4218 - accuracy: 0.8865
+Epoch 00002: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 246us/sample - loss: 0.4201 - accuracy: 0.8870 - val_loss: 0.5088 - val_accuracy: 0.8380
+Epoch 3/10
+ 480/1000 [=============&gt;................] - ETA: 0s - loss: 0.3021 - accuracy: 0.9354
+Epoch 00003: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 213us/sample - loss: 0.2739 - accuracy: 0.9300 - val_loss: 0.4818 - val_accuracy: 0.8520
+Epoch 4/10
+ 576/1000 [================&gt;.............] - ETA: 0s - loss: 0.1927 - accuracy: 0.9549
+Epoch 00004: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 207us/sample - loss: 0.2064 - accuracy: 0.9550 - val_loss: 0.4336 - val_accuracy: 0.8660
+Epoch 5/10
+ 608/1000 [=================&gt;............] - ETA: 0s - loss: 0.1302 - accuracy: 0.9819
+Epoch 00005: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 218us/sample - loss: 0.1583 - accuracy: 0.9650 - val_loss: 0.4655 - val_accuracy: 0.8510
+Epoch 6/10
+ 992/1000 [============================&gt;.] - ETA: 0s - loss: 0.1127 - accuracy: 0.9808
+Epoch 00006: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 242us/sample - loss: 0.1124 - accuracy: 0.9810 - val_loss: 0.4241 - val_accuracy: 0.8660
+Epoch 7/10
+ 544/1000 [===============&gt;..............] - ETA: 0s - loss: 0.0796 - accuracy: 0.9926
+Epoch 00007: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 219us/sample - loss: 0.0805 - accuracy: 0.9920 - val_loss: 0.4288 - val_accuracy: 0.8570
+Epoch 8/10
+ 512/1000 [==============&gt;...............] - ETA: 0s - loss: 0.0584 - accuracy: 0.9980
+Epoch 00008: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 219us/sample - loss: 0.0608 - accuracy: 0.9960 - val_loss: 0.4104 - val_accuracy: 0.8680
+Epoch 9/10
+ 544/1000 [===============&gt;..............] - ETA: 0s - loss: 0.0380 - accuracy: 0.9982
+Epoch 00009: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 224us/sample - loss: 0.0459 - accuracy: 0.9960 - val_loss: 0.4081 - val_accuracy: 0.8660
+Epoch 10/10
+ 992/1000 [============================&gt;.] - ETA: 0s - loss: 0.0366 - accuracy: 0.9980
+Epoch 00010: saving model to training_1/cp.ckpt
+1000/1000 [==============================] - 0s 234us/sample - loss: 0.0367 - accuracy: 0.9980 - val_loss: 0.4212 - val_accuracy: 0.8710
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## contenido del directorio</span>
+<span class="c1">##</span>
+<span class="o">!</span>ls -l <span class="o">{</span>checkpoint_dir<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+total 4784
+-rw-r--r-- 1 vagrant vagrant      71 Jul  9 16:26 checkpoint
+-rw-r--r-- 1 vagrant vagrant 4886700 Jul  9 16:26 cp.ckpt.data-00000-of-00001
+-rw-r--r-- 1 vagrant vagrant    1222 Jul  9 16:26 cp.ckpt.index
+</pre></div></div>
+</div>
+</div>
+<div class="section" id=" Entrenamiento-de-un-nuevo-modelo">
+<h2> Entrenamiento de un nuevo modelo<a class="headerlink" href="# Entrenamiento-de-un-nuevo-modelo" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+
+<span class="n">loss</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+    <span class="n">test_images</span><span class="p">,</span>
+    <span class="n">test_labels</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Untrained model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000/1000 [==============================] - 0s 92us/sample - loss: 2.3604 - accuracy: 0.1290
+Untrained model, accuracy: 12.90%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Carga-de-los-pesos-anteriores">
+<h2>Carga de los pesos anteriores<a class="headerlink" href="#Carga-de-los-pesos-anteriores" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">)</span>
+<span class="n">loss</span><span class="p">,</span><span class="n">acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000/1000 [==============================] - 0s 49us/sample - loss: 0.4212 - accuracy: 0.8710
+Restored model, accuracy: 87.10%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Opciones">
+<h2>Opciones<a class="headerlink" href="#Opciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">checkpoint_path</span> <span class="o">=</span> <span class="s2">&quot;training_2/cp-</span><span class="si">{epoch:04d}</span><span class="s2">.ckpt&quot;</span>
+
+<span class="n">checkpoint_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">)</span>
+
+<span class="n">cp_callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+    <span class="n">checkpoint_path</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">period</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># salva los pesos cada 5 epochs</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">save_weights</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_images</span><span class="p">,</span>
+    <span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span><span class="n">cp_callback</span><span class="p">],</span>
+    <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span><span class="n">test_labels</span><span class="p">),</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+W0709 16:26:22.858520 139873513322304 callbacks.py:859] `period` argument is deprecated. Please use `save_freq` to specify the frequency in number of samples seen.
+W0709 16:26:23.318456 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.iter
+W0709 16:26:23.319385 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_1
+W0709 16:26:23.320108 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_2
+W0709 16:26:23.320736 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.decay
+W0709 16:26:23.321236 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.learning_rate
+W0709 16:26:23.322189 139873513322304 util.py:252] A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/alpha/guide/checkpoints#loading_mechanics for details.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Epoch 00005: saving model to training_2/cp-0005.ckpt
+
+Epoch 00010: saving model to training_2/cp-0010.ckpt
+
+Epoch 00015: saving model to training_2/cp-0015.ckpt
+
+Epoch 00020: saving model to training_2/cp-0020.ckpt
+
+Epoch 00025: saving model to training_2/cp-0025.ckpt
+
+Epoch 00030: saving model to training_2/cp-0030.ckpt
+
+Epoch 00035: saving model to training_2/cp-0035.ckpt
+
+Epoch 00040: saving model to training_2/cp-0040.ckpt
+
+Epoch 00045: saving model to training_2/cp-0045.ckpt
+
+Epoch 00050: saving model to training_2/cp-0050.ckpt
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.keras.callbacks.History at 0x7f3644e8a8d0&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Contenido del directorio</span>
+<span class="c1">##</span>
+<span class="o">!</span> ls <span class="o">{</span>checkpoint_dir<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+checkpoint                        cp-0025.ckpt.index
+cp-0000.ckpt.data-00000-of-00001  cp-0030.ckpt.data-00000-of-00001
+cp-0000.ckpt.index                cp-0030.ckpt.index
+cp-0005.ckpt.data-00000-of-00001  cp-0035.ckpt.data-00000-of-00001
+cp-0005.ckpt.index                cp-0035.ckpt.index
+cp-0010.ckpt.data-00000-of-00001  cp-0040.ckpt.data-00000-of-00001
+cp-0010.ckpt.index                cp-0040.ckpt.index
+cp-0015.ckpt.data-00000-of-00001  cp-0045.ckpt.data-00000-of-00001
+cp-0015.ckpt.index                cp-0045.ckpt.index
+cp-0020.ckpt.data-00000-of-00001  cp-0050.ckpt.data-00000-of-00001
+cp-0020.ckpt.index                cp-0050.ckpt.index
+cp-0025.ckpt.data-00000-of-00001
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Carga el último modelo</span>
+<span class="c1">##</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">)</span>
+<span class="n">latest</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;training_2/cp-0050.ckpt&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Se crea un nuevo modelo y se cargan los pesos</span>
+<span class="c1">##</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000/1000 [==============================] - 0s 89us/sample - loss: 0.4944 - accuracy: 0.8740
+Restored model, accuracy: 87.40%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Guardado-manual-de-los-pesos">
+<h2>Guardado manual de los pesos<a class="headerlink" href="#Guardado-manual-de-los-pesos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s1">&#39;./checkpoints/my_checkpoint&#39;</span><span class="p">)</span>
+
+<span class="c1"># Carga los pesos</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s1">&#39;./checkpoints/my_checkpoint&#39;</span><span class="p">)</span>
+
+<span class="n">loss</span><span class="p">,</span><span class="n">acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000/1000 [==============================] - 0s 92us/sample - loss: 0.4944 - accuracy: 0.8740
+Restored model, accuracy: 87.40%
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Formato HDF5</span>
+<span class="c1">##</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_images</span><span class="p">,</span>
+    <span class="n">train_labels</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_model.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Train on 1000 samples
+Epoch 1/5
+1000/1000 [==============================] - 0s 255us/sample - loss: 1.1655 - accuracy: 0.6620
+Epoch 2/5
+1000/1000 [==============================] - 0s 114us/sample - loss: 0.4243 - accuracy: 0.8840
+Epoch 3/5
+1000/1000 [==============================] - 0s 136us/sample - loss: 0.2806 - accuracy: 0.9250
+Epoch 4/5
+1000/1000 [==============================] - 0s 114us/sample - loss: 0.2256 - accuracy: 0.9400
+Epoch 5/5
+1000/1000 [==============================] - 0s 106us/sample - loss: 0.1599 - accuracy: 0.9680
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Carga del modelo</span>
+<span class="c1">##</span>
+<span class="n">new_model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;my_model.h5&#39;</span><span class="p">)</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+W0709 16:26:33.302357 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.iter
+W0709 16:26:33.303262 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_1
+W0709 16:26:33.303816 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.beta_2
+W0709 16:26:33.304501 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.decay
+W0709 16:26:33.305703 139873513322304 util.py:244] Unresolved object in checkpoint: (root).optimizer.learning_rate
+W0709 16:26:33.306409 139873513322304 util.py:252] A checkpoint was restored (e.g. tf.train.Checkpoint.restore or tf.keras.Model.load_weights) but not all checkpointed values were used. See above for specific issues. Use expect_partial() on the load status object, e.g. tf.train.Checkpoint.restore(...).expect_partial(), to silence these warnings, or use assert_consumed() to make the check explicit. See https://www.tensorflow.org/alpha/guide/checkpoints#loading_mechanics for details.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Model: &#34;sequential_6&#34;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense_12 (Dense)             (None, 512)               401920
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 512)               0
+_________________________________________________________________
+dense_13 (Dense)             (None, 10)                5130
+=================================================================
+Total params: 407,050
+Trainable params: 407,050
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">new_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000/1000 [==============================] - 0s 90us/sample - loss: 0.4320 - accuracy: 0.8600
+Restored model, accuracy: 86.00%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="saved_model">
+<h2>saved_model<a class="headerlink" href="#saved_model" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Train on 1000 samples
+Epoch 1/5
+1000/1000 [==============================] - 0s 217us/sample - loss: 1.1088 - accuracy: 0.7020
+Epoch 2/5
+1000/1000 [==============================] - 0s 91us/sample - loss: 0.4101 - accuracy: 0.8800
+Epoch 3/5
+1000/1000 [==============================] - 0s 91us/sample - loss: 0.2908 - accuracy: 0.9110
+Epoch 4/5
+1000/1000 [==============================] - 0s 94us/sample - loss: 0.2177 - accuracy: 0.9380
+Epoch 5/5
+1000/1000 [==============================] - 0s 87us/sample - loss: 0.1539 - accuracy: 0.9660
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">saved_model_path</span> <span class="o">=</span> <span class="s2">&quot;./saved_models/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">export_saved_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">saved_model_path</span><span class="p">)</span>
+
+<span class="n">saved_model_path</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+W0709 16:26:35.618914 139873513322304 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/saved_model/signature_def_utils_impl.py:253: build_tensor_info (from tensorflow.python.saved_model.utils_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This function will only be available through the v1 compatibility library as tf.compat.v1.saved_model.utils.build_tensor_info or tf.compat.v1.saved_model.build_tensor_info.
+W0709 16:26:35.620182 139873513322304 export_utils.py:182] Export includes no default signature!
+W0709 16:26:35.868068 139873513322304 export_utils.py:182] Export includes no default signature!
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;./saved_models/1562689594&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>ls saved_models/
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1562689594
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Recupera el modelo del disco duro</span>
+<span class="c1">##</span>
+<span class="n">new_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">load_from_saved_model</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">)</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Model: &#34;sequential_7&#34;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense_14 (Dense)             (None, 512)               401920
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 512)               0
+_________________________________________________________________
+dense_15 (Dense)             (None, 10)                5130
+=================================================================
+Total params: 407,050
+Trainable params: 407,050
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_images</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1000, 10)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">new_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span>
+    <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="n">loss</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">new_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">acc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000/1000 [==============================] - 0s 84us/sample - loss: 0.4153 - accuracy: 0.8750
+Restored model, accuracy: 87.50%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Limpieza-del-directorio-de-trabajo">
+<h2>Limpieza del directorio de trabajo<a class="headerlink" href="#Limpieza-del-directorio-de-trabajo" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm -Rf saved_models/
+<span class="o">!</span>rm -Rf checkpoints/
+<span class="o">!</span>rm -Rf training_1/
+<span class="o">!</span>rm -Rf training_2/
+<span class="o">!</span>rm my_model.h5
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+rm: cannot remove &#39;my_model.h5&#39;: No such file or directory
+</pre></div></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Juan D. Velasquez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
