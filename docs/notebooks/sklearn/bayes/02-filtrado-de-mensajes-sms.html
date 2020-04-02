@@ -1706,7 +1706,7 @@ array([[6.63801021e-15, 1.00000000e+00],
 <span class="c1">## Usa las palabras que aparecen por lo menos cinco veces</span>
 <span class="c1">##</span>
 <span class="n">freq_words</span> <span class="o">&lt;-</span> <span class="nf">findFreqTerms</span><span class="p">(</span><span class="n">dtm</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
-<span class="n">dtm</span> <span class="o">&lt;-</span> <span class="n">dtm[</span><span class="p">,</span><span class="n">freq_words]</span>
+<span class="n">dtm</span> <span class="o">&lt;-</span> <span class="n">dtm</span><span class="p">[,</span><span class="n">freq_words</span><span class="p">]</span>
 <span class="n">dtm</span>
 </pre></div>
 </div>
@@ -1754,10 +1754,10 @@ Weighting          : term frequency (tf)
 <span class="c1">##</span>
 <span class="c1">## Creación de los conjuntos de entrenamiento y prueba.</span>
 <span class="c1">##</span>
-<span class="n">X_train</span>      <span class="o">&lt;-</span> <span class="n">dtm[1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="n">]</span>
-<span class="n">X_test</span>       <span class="o">&lt;-</span> <span class="n">dtm[4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="n">]</span>
-<span class="n">y_train_true</span> <span class="o">&lt;-</span> <span class="n">df[1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="n">]</span><span class="o">$</span><span class="n">type</span>
-<span class="n">y_test_true</span>  <span class="o">&lt;-</span> <span class="n">df[4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="n">]</span><span class="o">$</span><span class="n">type</span>
+<span class="n">X_train</span>      <span class="o">&lt;-</span> <span class="n">dtm</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">X_test</span>       <span class="o">&lt;-</span> <span class="n">dtm</span><span class="p">[</span><span class="m">4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">y_train_true</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="p">]</span><span class="o">$</span><span class="n">type</span>
+<span class="n">y_test_true</span>  <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="p">]</span><span class="o">$</span><span class="n">type</span>
 
 
 <span class="c1">##</span>

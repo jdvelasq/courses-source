@@ -1978,7 +1978,7 @@ Name: friends, dtype: float64
 <span class="c1">## y se escala para eliminar problemas asociados</span>
 <span class="c1">## a la medida de los datos.</span>
 <span class="c1">##</span>
-<span class="n">interests</span> <span class="o">&lt;-</span> <span class="n">df[5</span><span class="o">:</span><span class="m">40</span><span class="n">]</span>
+<span class="n">interests</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">5</span><span class="o">:</span><span class="m">40</span><span class="p">]</span>
 <span class="n">interests_z</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">interests</span><span class="p">,</span> <span class="n">scale</span><span class="p">))</span>
 
 <span class="c1">##</span>
@@ -2106,7 +2106,7 @@ List of 9
 <span class="c1">##</span>
 <span class="c1">## clusters a los que pertenecen los primeros cinco patrones</span>
 <span class="c1">##</span>
-<span class="n">df[1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;cluster&quot;</span><span class="p">,</span> <span class="s">&quot;gender&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;friends&quot;</span><span class="p">)</span><span class="n">]</span>
+<span class="n">df</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;cluster&quot;</span><span class="p">,</span> <span class="s">&quot;gender&quot;</span><span class="p">,</span> <span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;friends&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>

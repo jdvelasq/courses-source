@@ -1297,7 +1297,7 @@ array([[3, 1, 2],
 <span class="c1">## (variables x) y el sistema de reglas obtenido.</span>
 <span class="c1">## La notación y ~ . indica que la variable y del dataframe es función de las restantes</span>
 <span class="c1">##</span>
-<span class="n">clf</span> <span class="o">&lt;-</span> <span class="nf">OneR</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">&lt;-</span> <span class="nf">OneR</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 
 <span class="c1">##</span>
 <span class="c1">## la salida del modelo indica la tasa de éxito para los clasificadores de todas las clases</span>

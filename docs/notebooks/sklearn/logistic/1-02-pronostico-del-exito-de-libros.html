@@ -729,11 +729,11 @@ Column Total |        50 |        50 |       100 |
     <span class="c1">## en una muestra para el entrenamiento y otra</span>
     <span class="c1">## para prueba</span>
     <span class="n">indices</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="m">80</span><span class="p">)</span>
-    <span class="n">training.x</span> <span class="o">&lt;-</span> <span class="n">x[indices</span><span class="p">,</span> <span class="n">]</span>
-    <span class="n">training.y</span> <span class="o">&lt;-</span> <span class="n">y[indices]</span>
+    <span class="n">training.x</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="p">]</span>
+    <span class="n">training.y</span> <span class="o">&lt;-</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
 
-    <span class="n">test.x</span> <span class="o">&lt;-</span> <span class="n">x[</span><span class="o">-</span><span class="n">indices</span><span class="p">,</span> <span class="n">]</span>
-    <span class="n">test.y</span> <span class="o">&lt;-</span> <span class="n">y[</span><span class="o">-</span><span class="n">indices]</span>
+    <span class="n">test.x</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="n">indices</span><span class="p">,</span> <span class="p">]</span>
+    <span class="n">test.y</span> <span class="o">&lt;-</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="n">indices</span><span class="p">]</span>
 
     <span class="c1">## Realiza la regresión logística para diferentes</span>
     <span class="c1">## valores de lambda.</span>

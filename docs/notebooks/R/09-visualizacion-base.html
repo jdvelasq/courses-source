@@ -933,8 +933,8 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">20</span><span class="p">)</span>
 
-<span class="n">y2</span> <span class="o">&lt;-</span> <span class="n">x^2</span>
-<span class="n">y3</span> <span class="o">&lt;-</span> <span class="n">x^3</span>
+<span class="n">y2</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="o">^</span><span class="m">2</span>
+<span class="n">y3</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="o">^</span><span class="m">3</span>
 
 <span class="nf">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span>           <span class="c1"># grafica x^3</span>
      <span class="n">y</span> <span class="o">=</span> <span class="n">y3</span><span class="p">,</span>
@@ -952,8 +952,8 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
 
 <span class="nf">clip</span><span class="p">(</span><span class="n">x1</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
      <span class="n">x2</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span>
-     <span class="n">y1</span> <span class="o">=</span> <span class="n">usr[3]</span><span class="p">,</span>
-     <span class="n">y2</span> <span class="o">=</span> <span class="n">usr[4]</span><span class="p">)</span>
+     <span class="n">y1</span> <span class="o">=</span> <span class="n">usr</span><span class="p">[</span><span class="m">3</span><span class="p">],</span>
+     <span class="n">y2</span> <span class="o">=</span> <span class="n">usr</span><span class="p">[</span><span class="m">4</span><span class="p">])</span>
 
 
 <span class="c1"># las líneas solo se gráfican en la región definida</span>
@@ -1071,7 +1071,7 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
         <span class="n">varwidth</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>                <span class="c1"># ancho relativo a la cantidad de puntos en cada caja</span>
         <span class="n">notch</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>                   <span class="c1"># dibuja el notch?</span>
         <span class="n">outline</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>                  <span class="c1"># grafica los outliers</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="kc">LETTERS</span><span class="n">[1</span><span class="o">:</span><span class="m">3</span><span class="n">]</span><span class="p">,</span>            <span class="c1"># nombres</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="kc">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">],</span>            <span class="c1"># nombres</span>
         <span class="n">border</span> <span class="o">=</span> <span class="nf">par</span><span class="p">(</span><span class="s">&quot;fg&quot;</span><span class="p">),</span>              <span class="c1"># colores de los bordes</span>
         <span class="n">col</span> <span class="o">=</span> <span class="nf">rainbow</span><span class="p">(</span><span class="m">3</span><span class="p">),</span>                <span class="c1"># colores de las cajas</span>
         <span class="n">horizontal</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>               <span class="c1"># horizontal o vertical?</span>
@@ -1103,7 +1103,7 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
 
 <span class="n">N</span> <span class="o">&lt;-</span> <span class="m">5</span>                             <span class="c1"># cantidad de barras</span>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">runif</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">min</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="m">30</span><span class="p">)</span>  <span class="c1"># datos de cada barra</span>
-<span class="n">x.names</span> <span class="o">&lt;-</span> <span class="kc">LETTERS</span><span class="n">[1</span><span class="o">:</span><span class="n">N]</span>            <span class="c1"># nombres de cada barra</span>
+<span class="n">x.names</span> <span class="o">&lt;-</span> <span class="kc">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="n">N</span><span class="p">]</span>            <span class="c1"># nombres de cada barra</span>
 
 <span class="nf">barplot</span><span class="p">(</span><span class="n">height</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span>                <span class="c1"># longitud de las barras</span>
         <span class="n">horiz</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>              <span class="c1"># TRUE - horizontal, FALSE - vertical</span>
@@ -1175,7 +1175,7 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
 <span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">5</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
-<span class="n">labels</span> <span class="o">&lt;-</span> <span class="kc">LETTERS</span><span class="n">[1</span><span class="o">:</span><span class="m">8</span><span class="n">]</span>
+<span class="n">labels</span> <span class="o">&lt;-</span> <span class="kc">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span>
 <span class="nf">dotchart</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>                <span class="c1"># datos</span>
          <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">,</span>                <span class="c1"># nombres</span>
          <span class="n">cex</span> <span class="o">=</span> <span class="nf">par</span><span class="p">(</span><span class="s">&quot;cex&quot;</span><span class="p">),</span>               <span class="c1">#</span>
@@ -1184,7 +1184,7 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
          <span class="n">bg</span> <span class="o">=</span> <span class="s">&#39;red&#39;</span><span class="p">,</span>                     <span class="c1"># relleno de los puntos</span>
          <span class="n">color</span> <span class="o">=</span> <span class="s">&#39;green&#39;</span><span class="p">,</span>                <span class="c1"># color de las letras</span>
          <span class="n">lcolor</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span>                <span class="c1"># color de las líneas horizontales para cada dato</span>
-         <span class="n">xlim</span> <span class="o">=</span> <span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="nf">[is.finite</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="n">]</span><span class="p">),</span>  <span class="c1"># límites del eje X</span>
+         <span class="n">xlim</span> <span class="o">=</span> <span class="nf">range</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nf">is.finite</span><span class="p">(</span><span class="n">x</span><span class="p">)]),</span>  <span class="c1"># límites del eje X</span>
          <span class="n">main</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>                    <span class="c1"># título principal</span>
          <span class="n">xlab</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>                    <span class="c1"># eje X</span>
          <span class="n">ylab</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>                    <span class="c1"># eje Y</span>
@@ -1308,9 +1308,9 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
 <span></span><span class="c1"># genera la información para la función</span>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span> <span class="m">30</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">x</span>
-<span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x^2</span><span class="o">+</span><span class="n">y^2</span><span class="p">);</span> <span class="m">10</span> <span class="o">*</span> <span class="nf">sin</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">r</span> <span class="p">}</span>
+<span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="o">+</span><span class="n">y</span><span class="o">^</span><span class="m">2</span><span class="p">);</span> <span class="m">10</span> <span class="o">*</span> <span class="nf">sin</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">r</span> <span class="p">}</span>
 <span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">outer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<span class="n">z</span><span class="nf">[is.na</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">z</span><span class="p">[</span><span class="nf">is.na</span><span class="p">(</span><span class="n">z</span><span class="p">)]</span> <span class="o">&lt;-</span> <span class="m">1</span>
 
 <span class="c1"># opciones gráficas</span>
 <span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
@@ -1417,8 +1417,8 @@ columnas del dataframe. Es así como la segunda gráfica ejemplifica como grafic
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-4</span><span class="o">*</span><span class="kc">pi</span><span class="p">,</span> <span class="m">4</span><span class="o">*</span><span class="kc">pi</span><span class="p">,</span> <span class="n">len</span> <span class="o">=</span> <span class="m">27</span><span class="p">)</span>
 
 <span class="c1"># r es una matriz que representa las alturas</span>
-<span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">outer</span><span class="p">(</span><span class="n">x^2</span><span class="p">,</span> <span class="n">y^2</span><span class="p">,</span> <span class="s">&quot;+&quot;</span><span class="p">))</span>
-<span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">cos</span><span class="p">(</span><span class="n">r^2</span><span class="p">)</span><span class="o">*</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="m">6</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">outer</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="p">,</span> <span class="n">y</span><span class="o">^</span><span class="m">2</span><span class="p">,</span> <span class="s">&quot;+&quot;</span><span class="p">))</span>
+<span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">cos</span><span class="p">(</span><span class="n">r</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">*</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="m">6</span><span class="p">)</span>
 
 <span class="nf">image</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span>                        <span class="c1"># vector que representa los valores del eje x</span>
       <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span>                        <span class="c1"># vector que representa los valores del eje y</span>

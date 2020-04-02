@@ -774,7 +774,7 @@ R[write to console]: Loaded glmnet 2.0-18
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="n">R</span>
-<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">df1[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;x1&#39;</span><span class="p">,</span><span class="s">&#39;x2&#39;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>   <span class="c1">## se genera una matriz con las variables regresoras (x1, x2)</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">df1</span><span class="p">[,</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;x1&#39;</span><span class="p">,</span><span class="s">&#39;x2&#39;</span><span class="p">)])</span>   <span class="c1">## se genera una matriz con las variables regresoras (x1, x2)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">df1</span><span class="o">$</span><span class="n">y</span>                           <span class="c1">## se crea un vector que contenga la variable de decisión (clase)</span>
 </pre></div>
 </div>

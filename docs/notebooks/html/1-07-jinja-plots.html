@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Creación de un dashboard en HTML usando Jinja2 (Python) &mdash; documentación de --- Cursos --- - </title>
+  <title>Insersión directa de gráficas en HTML usando Jinja2 &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Insersión directa de gráficas en HTML usando Jinja2" href="1-07-jinja-plots.html" />
-    <link rel="prev" title="Reporte básico en HTML" href="1-05-telephones.html" /> 
+    <link rel="next" title="Scrapping y captura de información" href="../scrapping/scrapping.html" />
+    <link rel="prev" title="Creación de un dashboard en HTML usando Jinja2 (Python)" href="1-06-jinja.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../ciencia-de-los-datos/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Creación de un dashboard en HTML usando Jinja2 (Python)</li>
+      <li>Insersión directa de gráficas en HTML usando Jinja2</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/html/1-06-jinja.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/notebooks/html/1-07-jinja-plots.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -410,13 +410,14 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Creación-de-un-dashboard-en-HTML-usando-Jinja2-(Python)">
-<h1>Creación de un dashboard en HTML usando Jinja2 (Python)<a class="headerlink" href="#Creación-de-un-dashboard-en-HTML-usando-Jinja2-(Python)" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Insersión-directa-de-gráficas-en-HTML-usando-Jinja2">
+<h1>Insersión directa de gráficas en HTML usando Jinja2<a class="headerlink" href="#Insersión-directa-de-gráficas-en-HTML-usando-Jinja2" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>45 min</em> | Última modificación: Febrero 19, 2020.</p></li>
+<li><p><em>15 min</em> | Última modificación: Marzo 31, 2020.</p></li>
 </ul>
 <div class="section" id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>(Igual al tutorial anterior)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -424,20 +425,20 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">45939</span><span class="p">,</span> <span class="mi">21574</span><span class="p">,</span> <span class="mi">2876</span><span class="p">,</span> <span class="mi">1815</span><span class="p">,</span> <span class="mi">1646</span><span class="p">,</span>   <span class="mi">89</span><span class="p">,</span>  <span class="mi">555</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">60423</span><span class="p">,</span> <span class="mi">29990</span><span class="p">,</span> <span class="mi">4708</span><span class="p">,</span> <span class="mi">2568</span><span class="p">,</span> <span class="mi">2366</span><span class="p">,</span> <span class="mi">1411</span><span class="p">,</span>  <span class="mi">733</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">64721</span><span class="p">,</span> <span class="mi">32510</span><span class="p">,</span> <span class="mi">5230</span><span class="p">,</span> <span class="mi">2695</span><span class="p">,</span> <span class="mi">2526</span><span class="p">,</span> <span class="mi">1546</span><span class="p">,</span>  <span class="mi">773</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">68484</span><span class="p">,</span> <span class="mi">35218</span><span class="p">,</span> <span class="mi">6662</span><span class="p">,</span> <span class="mi">2845</span><span class="p">,</span> <span class="mi">2691</span><span class="p">,</span> <span class="mi">1663</span><span class="p">,</span>  <span class="mi">836</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">71799</span><span class="p">,</span> <span class="mi">37598</span><span class="p">,</span> <span class="mi">6856</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">2868</span><span class="p">,</span> <span class="mi">1769</span><span class="p">,</span>  <span class="mi">911</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">76036</span><span class="p">,</span> <span class="mi">40341</span><span class="p">,</span> <span class="mi">8220</span><span class="p">,</span> <span class="mi">3145</span><span class="p">,</span> <span class="mi">3054</span><span class="p">,</span> <span class="mi">1905</span><span class="p">,</span> <span class="mi">1008</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">79831</span><span class="p">,</span> <span class="mi">43173</span><span class="p">,</span> <span class="mi">9053</span><span class="p">,</span> <span class="mi">3338</span><span class="p">,</span> <span class="mi">3224</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">1076</span><span class="p">]]</span>
-
-
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">45939</span><span class="p">,</span> <span class="mi">21574</span><span class="p">,</span> <span class="mi">2876</span><span class="p">,</span> <span class="mi">1815</span><span class="p">,</span> <span class="mi">1646</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">555</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">60423</span><span class="p">,</span> <span class="mi">29990</span><span class="p">,</span> <span class="mi">4708</span><span class="p">,</span> <span class="mi">2568</span><span class="p">,</span> <span class="mi">2366</span><span class="p">,</span> <span class="mi">1411</span><span class="p">,</span> <span class="mi">733</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">64721</span><span class="p">,</span> <span class="mi">32510</span><span class="p">,</span> <span class="mi">5230</span><span class="p">,</span> <span class="mi">2695</span><span class="p">,</span> <span class="mi">2526</span><span class="p">,</span> <span class="mi">1546</span><span class="p">,</span> <span class="mi">773</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">68484</span><span class="p">,</span> <span class="mi">35218</span><span class="p">,</span> <span class="mi">6662</span><span class="p">,</span> <span class="mi">2845</span><span class="p">,</span> <span class="mi">2691</span><span class="p">,</span> <span class="mi">1663</span><span class="p">,</span> <span class="mi">836</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">71799</span><span class="p">,</span> <span class="mi">37598</span><span class="p">,</span> <span class="mi">6856</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">2868</span><span class="p">,</span> <span class="mi">1769</span><span class="p">,</span> <span class="mi">911</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">76036</span><span class="p">,</span> <span class="mi">40341</span><span class="p">,</span> <span class="mi">8220</span><span class="p">,</span> <span class="mi">3145</span><span class="p">,</span> <span class="mi">3054</span><span class="p">,</span> <span class="mi">1905</span><span class="p">,</span> <span class="mi">1008</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">79831</span><span class="p">,</span> <span class="mi">43173</span><span class="p">,</span> <span class="mi">9053</span><span class="p">,</span> <span class="mi">3338</span><span class="p">,</span> <span class="mi">3224</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">1076</span><span class="p">],</span>
+<span class="p">]</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1951</span><span class="p">,</span> <span class="mi">1956</span><span class="p">,</span> <span class="mi">1957</span><span class="p">,</span> <span class="mi">1958</span><span class="p">,</span> <span class="mi">1959</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1961</span><span class="p">],</span>
-    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N.Amer&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;S.Amer&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Mid.Amer&#39;</span><span class="p">]</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1951</span><span class="p">,</span> <span class="mi">1956</span><span class="p">,</span> <span class="mi">1957</span><span class="p">,</span> <span class="mi">1958</span><span class="p">,</span> <span class="mi">1959</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">1961</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;N.Amer&quot;</span><span class="p">,</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span> <span class="s2">&quot;S.Amer&quot;</span><span class="p">,</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span> <span class="s2">&quot;Mid.Amer&quot;</span><span class="p">],</span>
 <span class="p">)</span>
 
 <span class="n">data</span>
@@ -559,8 +560,17 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">col</span><span class="p">)</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/&#39;</span> <span class="o">+</span> <span class="n">col</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+<span></span><span class="kn">import</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">base64</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Markup</span>
+
+<span class="n">images</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">col</span><span class="p">)</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">);</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">image_decode</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">images</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">Markup</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;data:image/png;base64,</span><span class="si">{}</span><span class="s1">&quot;&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">image_decode</span><span class="p">))</span>
+
 </pre></div>
 </div>
 </div>
@@ -568,49 +578,49 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_0.png" src="../../_images/notebooks_html_1-06-jinja_4_0.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_0.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_0.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_1.png" src="../../_images/notebooks_html_1-06-jinja_4_1.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_1.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_1.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_2.png" src="../../_images/notebooks_html_1-06-jinja_4_2.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_2.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_2.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_3.png" src="../../_images/notebooks_html_1-06-jinja_4_3.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_3.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_3.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_4.png" src="../../_images/notebooks_html_1-06-jinja_4_4.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_4.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_4.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_5.png" src="../../_images/notebooks_html_1-06-jinja_4_5.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_5.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_5.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_html_1-06-jinja_4_6.png" src="../../_images/notebooks_html_1-06-jinja_4_6.png" />
+<img alt="../../_images/notebooks_html_1-07-jinja-plots_4_6.png" src="../../_images/notebooks_html_1-07-jinja-plots_4_6.png" />
 </div>
 </div>
 </div>
@@ -679,23 +689,9 @@ div.rendered_html tbody tr:hover {
       &lt;p class=&quot;seltext&quot;&gt;Region:&lt;/p&gt;
       &lt;select id=&quot;region&quot; name=&quot;region&quot;  onchange=&quot;selectPlot()&quot;&gt;
 
-        &lt;!--- Este codigo se elimina
-        &lt;option value=&quot;N.Amer&quot;&gt;N.Amer&lt;/option&gt;
-        &lt;option value=&quot;Europe&quot;&gt;Europe&lt;/option&gt;
-        &lt;option value=&quot;Asia&quot;&gt;Asia&lt;/option&gt;
-        &lt;option value=&quot;S.Amer&quot;&gt;S.Amer&lt;/option&gt;
-        &lt;option value=&quot;Oceania&quot;&gt;Oceania&lt;/option&gt;
-        &lt;option value=&quot;Africa&quot;&gt;Africa&lt;/option&gt;
-        &lt;option value=&quot;Mid.Amer&quot;&gt;Mid.Amer&lt;/option&gt;
-        ---&gt;
-
-        &lt;!--- Genera las opciones del menu usando Jinja2 ---&gt;
-
-        {% for i in regions %}
-            &lt;option value=&quot;{{ i }}&quot;&gt;{{ i }}&lt;/option&gt;
+        {% for region in region_names %}
+            &lt;option value=&quot;{{ region }}&quot;&gt;{{ region }}&lt;/option&gt;
         {% endfor %}
-
-        &lt;!--- Fin de la modificacion ---&gt;
 
       &lt;/select&gt;
       &lt;br&gt;
@@ -705,29 +701,13 @@ div.rendered_html tbody tr:hover {
 
     &lt;div&gt;
 
-      &lt;!--- Este codigo se elimina
-      &lt;div class=&quot;myImage&quot; id=&quot;N.Amer&quot;   style=&quot;display:block&quot;&gt; &lt;img src=&quot;figs/N.Amer.png&quot;   alt=&quot;N.Amer&quot;&gt;   &lt;/div&gt;
-      &lt;div class=&quot;myImage&quot; id=&quot;Europe&quot;   style=&quot;display:none&quot;&gt;  &lt;img src=&quot;figs/Europe.png&quot;   alt=&quot;Europe&quot;&gt;   &lt;/div&gt;
-      &lt;div class=&quot;myImage&quot; id=&quot;Asia&quot;     style=&quot;display:none&quot;&gt;  &lt;img src=&quot;figs/Asia.png&quot;     alt=&quot;Asia&quot;&gt;     &lt;/div&gt;
-      &lt;div class=&quot;myImage&quot; id=&quot;S.Amer&quot;   style=&quot;display:none&quot;&gt;  &lt;img src=&quot;figs/S.Amer.png&quot;   alt=&quot;S.Amer&quot;&gt;   &lt;/div&gt;
-      &lt;div class=&quot;myImage&quot; id=&quot;Oceania&quot;  style=&quot;display:none&quot;&gt;  &lt;img src=&quot;figs/Oceania.png&quot;  alt=&quot;Oceania&quot;&gt;  &lt;/div&gt;
-      &lt;div class=&quot;myImage&quot; id=&quot;Africa&quot;   style=&quot;display:none&quot;&gt;  &lt;img src=&quot;figs/Africa.png&quot;   alt=&quot;Africa&quot;&gt;   &lt;/div&gt;
-      &lt;div class=&quot;myImage&quot; id=&quot;Mid.Amer&quot; style=&quot;display:none&quot;&gt;  &lt;img src=&quot;figs/Mid.Amer.png&quot; alt=&quot;Mid.Amer&quot;&gt; &lt;/div&gt;
-      ---&gt;
-
-
-      &lt;!--- Genera la division de cada imagen usando Jinja2 ---&gt;
-
-
-      {% for i in regions %}
-        {% if i == regions[0] %}
-          &lt;div class=&quot;myImage&quot; id=&quot;{{ i }}&quot; style=&quot;display:block&quot;&gt; &lt;img src=&quot;figs/{{ i }}.png&quot; alt=&quot;{{ i }}&quot;&gt; &lt;/div&gt;
+      {% for region_name in region_names %}
+        {% if region_name == region_names[0] %}
+          &lt;div class=&quot;myImage&quot; id=&quot;{{ region_name }}&quot; style=&quot;display:block&quot;&gt; {{ images[region_name] }} &lt;/div&gt;
         {% else %}
-          &lt;div class=&quot;myImage&quot; id=&quot;{{ i }}&quot; style=&quot;display:none&quot;&gt; &lt;img src=&quot;figs/{{ i }}.png&quot; alt=&quot;{{ i }}&quot;&gt; &lt;/div&gt;
+          &lt;div class=&quot;myImage&quot; id=&quot;{{ region_name }}&quot; style=&quot;display:none&quot;&gt;  {{ images[region_name] }} &lt;/div&gt;
         {% endif %}
       {% endfor %}
-
-      &lt;!--- Fin de la modificacion ---&gt;
 
     &lt;/div&gt;
 
@@ -761,15 +741,16 @@ Overwriting templates/index.html
 <div class="section" id="Generación-de-la-página">
 <h2>Generación de la página<a class="headerlink" href="#Generación-de-la-página" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
-<span class="nb">str</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;templates/index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">str</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;templates/index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="nb">str</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">regions</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-<span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span>
+<span class="nb">str</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">region_names</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
