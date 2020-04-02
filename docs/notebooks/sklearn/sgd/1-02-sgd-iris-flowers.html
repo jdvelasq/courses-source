@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Clasificación de las flores IRIS usando SDG &mdash; documentación de --- Cursos --- - </title>
+  <title>Desarrollo de una APP para clasificar las flores IRIS usando SDG &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -40,7 +40,7 @@
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
     <link rel="next" title="Regresión Lineal" href="../linear/1-01-lm.html" />
-    <link rel="prev" title="Ejemplos de SGD usando sklearn" href="1-01-SGD-en-sklearn.html" /> 
+    <link rel="prev" title="SGDRegressor y SGDClassifier usando sklearn" href="1-01-SGD-en-sklearn.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -149,13 +149,13 @@
         
           <li><a href="../../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Clasificación de las flores IRIS usando SDG</li>
+      <li>Desarrollo de una APP para clasificar las flores IRIS usando SDG</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/sklearn/sgd/1-02-sgd-iris-flowers.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/notebooks/sklearn/sgd/1-02-SGD-iris-flowers.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -410,20 +410,21 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Clasificación-de-las-flores-IRIS-usando-SDG">
-<h1>Clasificación de las flores IRIS usando SDG<a class="headerlink" href="#Clasificación-de-las-flores-IRIS-usando-SDG" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Desarrollo-de-una-APP-para-clasificar-las-flores-IRIS-usando-SDG">
+<h1>Desarrollo de una APP para clasificar las flores IRIS usando SDG<a class="headerlink" href="#Desarrollo-de-una-APP-para-clasificar-las-flores-IRIS-usando-SDG" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>60 min</em> | Última modificación: Junio 22, 2019.</p></li>
 </ul>
 <p><strong>Bibliografia.</strong></p>
 <ul class="simple">
 <li><p>Learning scikit-learn: Machine Learning in Python. R. Garreta, G. Moncecchi. Packt Publishing, 2013.</p></li>
+<li><p>Monetizing Machine Learning. M. Amunaategui, M. Roopaei. Apress, 2018.</p></li>
 </ul>
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Se desea realizar la identificación del tipo de flor (virginica, setosa, versicolor) a partir de la medición del tamaño del sépalo y el pétalo.</p>
+<p>Se desea desarrollar una app que permita la identificación del tipo de flor (virginica, setosa, versicolor) a partir de la medición del tamaño del sépalo y el pétalo.</p>
 <p><img alt="assets/iris.jpg" src="../../../_images/iris.jpg" /></p>
-<p>Se tienen 150 medidiciones del ancho y el largo del sépalo y el pétalo para las tres especies de la flor Iris, con 50 mediciones para cada especie. Se desea construir un clasificador que pronostique la especie de la flor a partir de dichas mediciones.</p>
+<p>Para dearrollar el modelo se tienen 150 medidiciones del ancho y el largo del sépalo y el pétalo para las tres especies de la flor Iris, con 50 mediciones para cada especie. La app debe implementar un clasificador que pronostique la especie de la flor a partir de dichas mediciones.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -509,14 +510,20 @@ latter are NOT linearly separable from each other.
 </pre></div></div>
 </div>
 </div>
-<div class="section" id=" Carga-de-datos">
-<h2> Carga de datos<a class="headerlink" href="# Carga-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Desarrollo-del-clasificador">
+<h2>Desarrollo del clasificador<a class="headerlink" href="#Desarrollo-del-clasificador" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Carga-y-partición-de-los-datos">
+<h3>Carga y partición de los datos<a class="headerlink" href="#Carga-y-partición-de-los-datos" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Carga de datos.</span>
+<span class="c1">#   Se verifica la cantidad de datos de la muestra</span>
+<span class="c1">#</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -534,16 +541,23 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Nombres de las variables independientes</span>
+<span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">feature_names</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;]
+[&#39;sepal length (cm)&#39;,
+ &#39;sepal width (cm)&#39;,
+ &#39;petal length (cm)&#39;,
+ &#39;petal width (cm)&#39;]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -551,17 +565,20 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## primer ejemplo</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Nombres de las clases de salida</span>
+<span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">target_names</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[5.1 3.5 1.4 0.2] 0
+array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -569,7 +586,9 @@ latter are NOT linearly separable from each other.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## Clases</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Codificación de la clase a la que pertence cada instancia</span>
+<span class="c1">#</span>
 <span class="n">data</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 </div>
@@ -594,7 +613,10 @@ array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Nombre de la clase a la que pertenece cada instancia</span>
+<span class="c1">#</span>
+<span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -637,15 +659,14 @@ array([&#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &
        &#39;virginica&#39;, &#39;virginica&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Partición-de-los-datos">
-<h2>Partición de los datos<a class="headerlink" href="#Partición-de-los-datos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## Partición de los datos</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Partición de los datos en conjuntos de entrenamiento y prueba</span>
+<span class="c1">#</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
 </pre></div>
@@ -656,7 +677,10 @@ array([&#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Dimensiones de las variables del conjunto de entrenamiento</span>
+<span class="c1">#</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -673,7 +697,10 @@ array([&#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Dimensiones de las variables del conjunto de prueba</span>
+<span class="c1">#</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -687,53 +714,90 @@ array([&#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &#39;setosa&#39;, &
 </div>
 </div>
 <div class="section" id="Preprocesamiento">
-<h2>Preprocesamiento<a class="headerlink" href="#Preprocesamiento" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput nblast docutils container">
+<h3>Preprocesamiento<a class="headerlink" href="#Preprocesamiento" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_test</span>  <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Diagrama de caja y bigote que muestra la distribución</span>
+<span class="c1"># de las variables independientes</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="section" id="Clasificador-lineal-usando-gradiente-descendente-estocástico">
-<h2>Clasificador lineal usando gradiente descendente estocástico<a class="headerlink" href="#Clasificador-lineal-usando-gradiente-descendente-estocástico" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="output_area docutils container">
+<img alt="../../../_images/notebooks_sklearn_sgd_1-02-SGD-iris-flowers_18_0.png" src="../../../_images/notebooks_sklearn_sgd_1-02-SGD-iris-flowers_18_0.png" />
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Escalamiento de los datos</span>
+<span class="c1">#  El StandardScaler remueve la media de los datos y</span>
+<span class="c1">#  luego los divide por su desviación estándar</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Crea el preprocesador</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Entrena el preprocesador. Note que se calcula</span>
+<span class="c1"># unicamente para el conjunto de entrenamiento</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Escala los conjuntos de entrenamiento y prueba</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span>  <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Efecto del StandardScaler</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-SGDClassifier(alpha=0.0001, average=False, class_weight=None,
-              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
-              l1_ratio=0.15, learning_rate=&#39;optimal&#39;, loss=&#39;hinge&#39;, max_iter=10,
-              n_iter_no_change=5, n_jobs=None, penalty=&#39;l2&#39;, power_t=0.5,
-              random_state=None, shuffle=True, tol=None,
-              validation_fraction=0.1, verbose=0, warm_start=False)
-</pre></div></div>
+<img alt="../../../_images/notebooks_sklearn_sgd_1-02-SGD-iris-flowers_19_0.png" src="../../../_images/notebooks_sklearn_sgd_1-02-SGD-iris-flowers_19_0.png" />
 </div>
+</div>
+</div>
+<div class="section" id="Creación-y-entrenamiento-del-clasificador">
+<h3>Creación y entrenamiento del clasificador<a class="headerlink" href="#Creación-y-entrenamiento-del-clasificador" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
+
+<span class="c1"># Crea y parametriza el clasificador</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Entrena el clasificador</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Valores del intercepto de los clasificadores</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Valores de los coeficientes de los atributos escalados</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -742,76 +806,69 @@ SGDClassifier(alpha=0.0001, average=False, class_weight=None,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[ -4.47502255   7.54013091  -7.66530119  -6.92602862]
- [ -2.82993767 -11.31462652  19.60575204 -20.90287917]
- [ -8.20584003  -0.40757464  29.00358924  30.23401519]]
+[[ -5.02338417  11.50955353 -15.00750783 -14.54976528]
+ [ -7.94145139  -0.20378732  14.50179462 -29.6724453 ]
+ [ -6.01239353  -0.40757464  30.31469757  34.68119491]]
+
+[ -9.52836026 -20.17760991 -52.51058698]
 </pre></div></div>
 </div>
+</div>
+<div class="section" id="Métricas-de-desempeño-usando-partición-de-los-datos-en-entrenamiento-y-validación">
+<h3>Métricas de desempeño usando partición de los datos en entrenamiento y validación<a class="headerlink" href="#Métricas-de-desempeño-usando-partición-de-los-datos-en-entrenamiento-y-validación" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[ -9.86189169 -11.0559832  -50.0116181 ]
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="Métricas-de-desempeño">
-<h2>Métricas de desempeño<a class="headerlink" href="#Métricas-de-desempeño" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="c1"># Pronóstico para el conjunto de entrenamiento</span>
 <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Precisión para el conjunto de entrenamiento</span>
 <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.9375
+0.8214285714285714
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span></span><span class="c1"># Precisión para el conjunto de prueba</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.9210526315789473
+0.7368421052631579
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Métricas de evaluación</span>
+<span class="c1">#</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -822,14 +879,37 @@ SGDClassifier(alpha=0.0001, average=False, class_weight=None,
 <div class="highlight"><pre>
               precision    recall  f1-score   support
 
-      setosa       1.00      1.00      1.00         8
-  versicolor       0.83      0.91      0.87        11
-   virginica       0.94      0.89      0.92        19
+      setosa       0.62      1.00      0.76         8
+  versicolor       1.00      0.09      0.17        11
+   virginica       0.79      1.00      0.88        19
 
-    accuracy                           0.92        38
-   macro avg       0.93      0.93      0.93        38
-weighted avg       0.92      0.92      0.92        38
+    accuracy                           0.74        38
+   macro avg       0.80      0.70      0.60        38
+weighted avg       0.81      0.74      0.65        38
 
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Matriz de confusión</span>
+<span class="c1">#</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 8,  0,  0],
+       [ 5,  1,  5],
+       [ 0,  0, 19]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -837,7 +917,16 @@ weighted avg       0.92      0.92      0.92        38
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+
+<span class="c1">#</span>
+<span class="c1"># Note que la función computa internamente</span>
+<span class="c1"># el pronósitco del clasificador</span>
+<span class="c1">#</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span>
+    <span class="n">clf</span><span class="p">,</span>        <span class="c1"># clasificador entrenado</span>
+    <span class="n">X_test</span><span class="p">,</span>     <span class="c1"># matriz de variables de entrada</span>
+    <span class="n">y_test</span><span class="p">);</span>    <span class="c1"># valor real</span>
 </pre></div>
 </div>
 </div>
@@ -845,65 +934,55 @@ weighted avg       0.92      0.92      0.92        38
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-[[ 8  0  0]
- [ 0 10  1]
- [ 0  2 17]]
-</pre></div></div>
+<img alt="../../../_images/notebooks_sklearn_sgd_1-02-SGD-iris-flowers_27_0.png" src="../../../_images/notebooks_sklearn_sgd_1-02-SGD-iris-flowers_27_0.png" />
 </div>
-<p><strong>Ejercicio.—</strong> ¿Es posible mejorar la distribución de la matriz de confusión usando otras métricas de error?</p>
+</div>
+<p><strong>Pregunta.—</strong> ¿Es posible mejorar la distribución de la matriz de confusión usando otras métricas de error?</p>
 </div>
 <div class="section" id="Construcción-de-un-pipeline">
-<h2>Construcción de un pipeline<a class="headerlink" href="#Construcción-de-un-pipeline" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3>Construcción de un pipeline<a class="headerlink" href="#Construcción-de-un-pipeline" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Esta es la estrategia real para implementar modelos</span>
+<span class="c1">#   El pipeline empaqueta todas las operaciones requeridas</span>
+<span class="c1">#   por el clasificador.</span>
+<span class="c1">#</span>
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 
 <span class="n">clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
     <span class="p">(</span><span class="s1">&#39;linear_model&#39;</span><span class="p">,</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
 <span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="Evaluación-del-desempeño-usando-validación-cruzada">
-<h2>Evaluación del desempeño usando validación cruzada<a class="headerlink" href="#Evaluación-del-desempeño-usando-validación-cruzada" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
-<span class="n">cv</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">get_n_splits</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[0.93333333 0.93333333 0.8        0.9        0.93333333]
-</pre></div></div>
-</div>
+<div class="section" id="Evaluación-del-desempeño-(del-pipeline)-usando-validación-cruzada">
+<h3>Evaluación del desempeño (del pipeline) usando validación cruzada<a class="headerlink" href="#Evaluación-del-desempeño-(del-pipeline)-usando-validación-cruzada" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Computa la precisión usando validación cruzada</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="k">def</span> <span class="nf">mean_score</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Mean score: </span><span class="si">{0:.3f}</span><span class="s2"> (+/- </span><span class="si">{1:.3f}</span><span class="s2">)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mean_score</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
+    <span class="n">clf</span><span class="p">,</span>        <span class="c1"># clasificador</span>
+    <span class="n">X</span><span class="p">,</span>          <span class="c1">#</span>
+    <span class="n">y</span><span class="p">,</span>          <span class="c1">#</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>      <span class="c1"># Número de particiones para realizar validación cruzada</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean score: </span><span class="si">{0:.3f}</span><span class="s2"> (+/- </span><span class="si">{1:.3f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">scores</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -912,8 +991,323 @@ weighted avg       0.92      0.92      0.92        38
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Mean score: 0.900 (+/- 0.026)
+[1.         1.         1.         0.93333333 0.86666667 0.93333333
+ 0.73333333 0.93333333 1.         1.        ]
+Mean score: 0.940 (+/- 0.027)
 </pre></div></div>
+</div>
+</div>
+<div class="section" id="Almacenamiento-y-restauración-del-(pipeline)-modelo">
+<h3>Almacenamiento y restauración del (pipeline) modelo<a class="headerlink" href="#Almacenamiento-y-restauración-del-(pipeline)-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Se entrena el modelo definitivo</span>
+<span class="c1">#</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>  <span class="c1"># este es el pipeline</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Almacenamiento en disco</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c1"># Abre el archivo en disco modo binario para escritura</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;clf.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Se verifica que el modelo quedo</span>
+<span class="c1"># almacenado en disco</span>
+<span class="c1">#</span>
+<span class="o">!</span>ls *.pickle
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+clf.pickle
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Lectura desde el disco</span>
+<span class="c1">#</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;clf.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">new_clf</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># verificación</span>
+<span class="n">new_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 0, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Desarrollo-de-la-APP-usando-Flask">
+<h2>Desarrollo de la APP usando Flask<a class="headerlink" href="#Desarrollo-de-la-APP-usando-Flask" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se separa el desarrollo y entrenamiento del clasificador de la aplicación que lo despliega en productivo.</p>
+<div class="section" id="Funcionalidad">
+<h3>Funcionalidad<a class="headerlink" href="#Funcionalidad" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>mkdir -p app
+<span class="o">!</span>mkdir -p app/templates
+<span class="o">!</span>cp clf.pickle app/
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> app/app.py
+
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">flash</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;you-will-never-guess&#39;</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/index&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1"># Nombres de las clases</span>
+        <span class="n">classnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;versicolor&#39;</span><span class="p">,</span> <span class="s1">&#39;virginica&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Lee los valores de las cajas de texto de la interfaz</span>
+        <span class="n">sepal_length</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">])</span>
+        <span class="n">sepal_width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">])</span>
+        <span class="n">petal_length</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">])</span>
+        <span class="n">petal_width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;petal_width&quot;</span><span class="p">])</span>
+
+        <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">sepal_width</span><span class="p">,</span> <span class="n">petal_length</span><span class="p">,</span> <span class="n">petal_width</span><span class="p">]]</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;clf.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">clf</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">classnames</span><span class="p">[</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting app/app.py
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%%writefile app/templates/index.html
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;IrisPredictor&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+
+        &lt;nav&gt;
+            &lt;form id=&#39;myDialog&#39; method=&quot;POST&quot;&gt;
+
+                &lt;label for=&quot;fname&quot;&gt;Sepal Length (cm):&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;sepal_length&quot; name=&quot;sepal_length&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+                &lt;label for=&quot;fname&quot;&gt;Sepal Width (cm):&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;sepal_width&quot; name=&quot;sepal_width&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+                &lt;label for=&quot;fname&quot;&gt;Petal Length (cm):&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;petal_length&quot; name=&quot;petal_length&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+                &lt;label for=&quot;fname&quot;&gt;Petal Width (cm):&lt;/label&gt;
+                &lt;input type=&quot;text&quot; id=&quot;petal_width&quot; name=&quot;petal_width&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+                &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+
+            &lt;/form&gt;
+        &lt;/nav&gt;
+
+        &lt;div&gt;
+            &lt;p&gt; {{ result }} &lt;/p&gt;
+        &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting app/templates/index.html
+</pre></div></div>
+</div>
+<p>Ejecute la aplicación desde el <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> con:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>La primera vez que ejecute la aplicación, se presentará la siguiente interfaz:</p>
+<p><img alt="assets/app-iris-0.png" src="../../../_images/app-iris-0.png" /></p>
+<p>Una vez se llenen los campos, el boton <code class="docutils literal notranslate"><span class="pre">Submit</span></code> hace el cálculo y refresca la pantalla con el resultado:</p>
+<p><img alt="assets/app-iris-1.png" src="../../../_images/app-iris-2.png" /></p>
+</div>
+<div class="section" id="Aspecto">
+<h3>Aspecto<a class="headerlink" href="#Aspecto" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El aspecto de la app se puede modificar usando CSS, tal como es usual en el diseño de páginas web.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>%%writefile app/templates/index.html
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;IrisPredictor&lt;/title&gt;
+
+    &lt;style&gt;
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding-left: 10px;
+      }
+
+      header {
+          font-size: 20px;
+      }
+
+      nav {
+        float: left;
+        width: 150px;
+        height: 250px;
+        background: #eeeeee;
+        padding: 20px;
+      }
+
+      div {
+          padding-left: 200px;
+      }
+
+      .seltext {
+          font-size: 20px;
+      }
+
+      .resulttext {
+          font-weight: bold;
+          font-size: 80px;
+          color: #807F7F;
+      }
+
+    &lt;/style&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;header&gt;
+      &lt;h2&gt;Iris Forecast Example&lt;/h2&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+      &lt;form id=&#39;myDialog&#39; method=&quot;POST&quot;&gt;
+
+        &lt;label for=&quot;fname&quot;&gt;Sepal Length (cm):&lt;/label&gt; &lt;br&gt;
+        &lt;input type=&quot;text&quot; id=&quot;sepal_length&quot; name=&quot;sepal_length&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;label for=&quot;fname&quot;&gt;Sepal Width (cm):&lt;/label&gt; &lt;br&gt;
+        &lt;input type=&quot;text&quot; id=&quot;sepal_width&quot; name=&quot;sepal_width&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;label for=&quot;fname&quot;&gt;Petal Length (cm):&lt;/label&gt; &lt;br&gt;
+        &lt;input type=&quot;text&quot; id=&quot;petal_length&quot; name=&quot;petal_length&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;label for=&quot;fname&quot;&gt;Petal Width (cm):&lt;/label&gt; &lt;br&gt;
+        &lt;input type=&quot;text&quot; id=&quot;petal_width&quot; name=&quot;petal_width&quot;&gt;&lt;br&gt;&lt;br&gt;
+
+        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+
+      &lt;/form&gt;
+    &lt;/nav&gt;
+
+    &lt;div&gt;
+      &lt;p class=&quot;seltext&quot;&gt;Forecasted class:&lt;/p&gt;
+      &lt;p class=&quot;resulttext&quot;&gt; {{ result }} &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting app/templates/index.html
+</pre></div></div>
+</div>
+<p><img alt="assets/app-iris-1.png" src="../../../_images/app-iris-2.png" /></p>
 </div>
 </div>
 </div>
