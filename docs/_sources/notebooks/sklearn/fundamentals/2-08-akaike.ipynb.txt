@@ -9,7 +9,7 @@
     "Regresión lineal y criterios de información\n",
     "===\n",
     "\n",
-    "* *30 min* | Ultima modificación: Marzo 22, 2020"
+    "* *45 min* | Ultima modificación: Marzo 22, 2020"
    ]
   },
   {
@@ -53,7 +53,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Definición matemática"
+    "###  Definición matemática"
    ]
   },
   {
@@ -175,7 +175,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Caso de aplicación"
+    "### Caso de aplicación"
    ]
   },
   {
@@ -187,6 +187,7 @@
     "import math\n",
     "import matplotlib.pyplot as plt\n",
     "import numpy as np\n",
+    "\n",
     "%matplotlib inline"
    ]
   },
@@ -205,16 +206,17 @@
     "np.random.seed(12345)\n",
     "\n",
     "X, d = make_regression(\n",
-    "    n_samples=200,         #\n",
-    "    n_features=4,          #\n",
-    "    n_informative=1,       #\n",
-    "    bias=0.0,              # intercepto\n",
-    "    effective_rank=None,   # numero de vectores singulares para explicar los datos\n",
-    "    tail_strength=0.9,     # ? importancia relativa de las colas\n",
-    "    noise=12.0,            #\n",
-    "    shuffle=False,         # ?\n",
-    "    coef=False,            # ?coeficientes de la regresion \n",
-    "    random_state=12136)    #"
+    "    n_samples=200,\n",
+    "    n_features=4,\n",
+    "    n_informative=1,\n",
+    "    bias=0.0,  # intercepto\n",
+    "    effective_rank=None,  # numero de vectores singulares para explicar los datos\n",
+    "    tail_strength=0.9,  # ? importancia relativa de las colas\n",
+    "    noise=12.0,\n",
+    "    shuffle=False,  # ?\n",
+    "    coef=False,  # ?coeficientes de la regresion\n",
+    "    random_state=12136,\n",
+    ")"
    ]
   },
   {
@@ -237,10 +239,11 @@
    ],
    "source": [
     "#\n",
-    "# Grafica de la variable dependiente contra \n",
+    "# Grafica de la variable dependiente contra\n",
     "# la variable explicativa\n",
     "#\n",
-    "plt.scatter(X[:,0], d);"
+    "plt.scatter(X[:, 0], d)\n",
+    "plt.show()"
    ]
   },
   {
@@ -332,9 +335,9 @@
    ],
    "source": [
     "#\n",
-    "# Modelo que titne una sola variable \n",
+    "# Modelo que titne una sola variable\n",
     "#\n",
-    "model = sm.OLS(d, X[:,0])\n",
+    "model = sm.OLS(d, X[:, 0])\n",
     "results = model.fit()\n",
     "print(results.summary())"
    ]

@@ -106,9 +106,19 @@ Sesión 2---07
         
         /notebooks/sklearn/fundamentals/3-*
 
-
 Sesión 2---08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+        
+        /notebooks/sklearn/fundamentals/4-*
+
+
+Sesión 3---09
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
     .. toctree::
         :titlesonly:
@@ -123,10 +133,9 @@ Sesión 2---08
         /notebooks/sklearn/linear/*
 
 
-        
-Sesión 3---09
+Sesión 3---10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+        
     .. toctree::
         :titlesonly:
         :glob:
@@ -134,7 +143,7 @@ Sesión 3---09
         /notebooks/sklearn/logistic/*
 
 
-Sesión 3---10
+Sesión 3---11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -152,7 +161,7 @@ Sesión 3---10
 
 
 
-Sesión 3---11
+Sesión 3---12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -162,7 +171,7 @@ Sesión 3---11
         /notebooks/sklearn/trees/*
 
 
-Sesión 3---12
+Sesión 4---13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -172,7 +181,7 @@ Sesión 3---12
         /notebooks/sklearn/ensembles/*
 
 
-Sesión 4---13
+Sesión 4---14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -182,7 +191,7 @@ Sesión 4---13
         /notebooks/sklearn/mlp/*
 
 
-Sesión 4---14
+Sesión 4---15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -192,33 +201,10 @@ Sesión 4---14
         /notebooks/sklearn/svm/*
 
 
-Sesión 4---15
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    .. toctree::
-        :titlesonly:
-        :glob:
-
-        /notebooks/sklearn/variables/variables-nominales-categoricas
-        /notebooks/sklearn/variables/variables-nominales
-    
-
 Sesión 4---16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    .. toctree::
-        :titlesonly:
-        :glob:
-
-        /notebooks/sklearn/performance/*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    
 
 
+    **Cierre y evaluación del curso**
 
-    Cierre
-
-
-Material adicional
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    Redes bayesianas
 

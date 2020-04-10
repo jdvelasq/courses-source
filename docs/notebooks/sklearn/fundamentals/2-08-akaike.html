@@ -25,8 +25,8 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -413,7 +413,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Regresión-lineal-y-criterios-de-información">
 <h1>Regresión lineal y criterios de información<a class="headerlink" href="#Regresión-lineal-y-criterios-de-información" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>30 min</em> | Ultima modificación: Marzo 22, 2020</p></li>
+<li><p><em>45 min</em> | Ultima modificación: Marzo 22, 2020</p></li>
 </ul>
 <div class="section" id="Definición-del-problema">
 <h2>Definición del problema<a class="headerlink" href="#Definición-del-problema" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -424,8 +424,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Solución">
 <h2>Solución<a class="headerlink" href="#Solución" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id=" Definición-matemática">
-<h3> Definición matemática<a class="headerlink" href="# Definición-matemática" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="Definición-matemática">
+<h3>Definición matemática<a class="headerlink" href="#Definición-matemática" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En estadística y econometría se suele usar todo el conjunto de datos disponibles para la estimación de los parámetros del modelo <span class="math notranslate nohighlight">\(w_0\)</span>, …, <span class="math notranslate nohighlight">\(w_n\)</span> mediante la minimización del SSE:</p>
 <div class="math notranslate nohighlight">
 \[\text{SSE} = \sum_{p=1}^P (d_p - y_p)^2\]</div>
@@ -451,8 +451,8 @@ div.rendered_html tbody tr:hover {
 <p>Cuando se comparán modelos, se selecciona aquel que tenga el menor valor del criterio.</p>
 <p>Prácticamente, todos los softwares estadísticos computan el criterio de información para el modelo de regresión lineal.</p>
 </div>
-<div class="section" id=" Caso-de-aplicación">
-<h3> Caso de aplicación<a class="headerlink" href="# Caso-de-aplicación" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="Caso-de-aplicación">
+<h3>Caso de aplicación<a class="headerlink" href="#Caso-de-aplicación" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -461,6 +461,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -479,16 +480,17 @@ div.rendered_html tbody tr:hover {
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">make_regression</span><span class="p">(</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>         <span class="c1">#</span>
-    <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>          <span class="c1">#</span>
-    <span class="n">n_informative</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>       <span class="c1">#</span>
-    <span class="n">bias</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>              <span class="c1"># intercepto</span>
-    <span class="n">effective_rank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>   <span class="c1"># numero de vectores singulares para explicar los datos</span>
-    <span class="n">tail_strength</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>     <span class="c1"># ? importancia relativa de las colas</span>
-    <span class="n">noise</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span>            <span class="c1">#</span>
-    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># ?</span>
-    <span class="n">coef</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>            <span class="c1"># ?coeficientes de la regresion</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">12136</span><span class="p">)</span>    <span class="c1">#</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">bias</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># intercepto</span>
+    <span class="n">effective_rank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># numero de vectores singulares para explicar los datos</span>
+    <span class="n">tail_strength</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>  <span class="c1"># ? importancia relativa de las colas</span>
+    <span class="n">noise</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># ?</span>
+    <span class="n">coef</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># ?coeficientes de la regresion</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">12136</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -501,7 +503,8 @@ div.rendered_html tbody tr:hover {
 <span class="c1"># Grafica de la variable dependiente contra</span>
 <span class="c1"># la variable explicativa</span>
 <span class="c1">#</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -571,7 +574,7 @@ Warnings:
 <span></span><span class="c1">#</span>
 <span class="c1"># Modelo que titne una sola variable</span>
 <span class="c1">#</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>

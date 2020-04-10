@@ -25,8 +25,8 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -427,7 +427,8 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="c1">## importa la librería</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.notebook_repr_html&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.notebook_repr_html&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -500,9 +501,10 @@ head: cannot open &#39;files/drivers/timesheet.csv&#39; for reading: No such fil
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">drivers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="s2">&quot;https://raw.githubusercontent.com/jdvelasq/playground/master/datasets/drivers/drivers.csv&quot;</span><span class="p">,</span>
-    <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>         <span class="c1"># separador de campos</span>
-    <span class="n">thousands</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># separador de miles para números</span>
-    <span class="n">decimal</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>     <span class="c1"># separador de los decimales para números</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>  <span class="c1"># separador de campos</span>
+    <span class="n">thousands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1">#  separador de miles para números</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1">#  separador de los decimales para números</span>
 </pre></div>
 </div>
 </div>
@@ -558,9 +560,10 @@ head: cannot open &#39;files/drivers/timesheet.csv&#39; for reading: No such fil
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">timesheet</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="s2">&quot;https://raw.githubusercontent.com/jdvelasq/playground/master/datasets/drivers/timesheet.csv&quot;</span><span class="p">,</span>
-    <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>         <span class="c1"># separador de campos</span>
-    <span class="n">thousands</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># separador de miles para números</span>
-    <span class="n">decimal</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>     <span class="c1"># separador de los decimales para números</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>  <span class="c1"># separador de campos</span>
+    <span class="n">thousands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1">#  separador de miles para números</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1">#  separador de los decimales para números</span>
 </pre></div>
 </div>
 </div>
@@ -601,7 +604,7 @@ head: cannot open &#39;files/drivers/timesheet.csv&#39; for reading: No such fil
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sum_timesheet</span> <span class="o">=</span> <span class="p">(</span><span class="n">timesheet</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;driverId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span></span><span class="n">sum_timesheet</span> <span class="o">=</span> <span class="n">timesheet</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;driverId&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">sum_timesheet</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -626,7 +629,7 @@ driverId
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sum_timesheet</span> <span class="o">=</span> <span class="n">sum_timesheet</span><span class="p">[[</span><span class="s1">&#39;hours-logged&#39;</span><span class="p">,</span> <span class="s1">&#39;miles-logged&#39;</span><span class="p">]]</span>
+<span></span><span class="n">sum_timesheet</span> <span class="o">=</span> <span class="n">sum_timesheet</span><span class="p">[[</span><span class="s2">&quot;hours-logged&quot;</span><span class="p">,</span> <span class="s2">&quot;miles-logged&quot;</span><span class="p">]]</span>
 <span class="n">sum_timesheet</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -651,8 +654,8 @@ driverId
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#sum_timesheet[&#39;driverId&#39;] = sum_timesheet.index.tolist()</span>
-<span class="c1">#sum_timesheet.head()</span>
+<span></span><span class="c1"># sum_timesheet[&#39;driverId&#39;] = sum_timesheet.index.tolist()</span>
+<span class="c1"># sum_timesheet.head()</span>
 </pre></div>
 </div>
 </div>
@@ -665,7 +668,7 @@ driverId
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sum_timesheet</span><span class="p">,</span> <span class="n">drivers</span><span class="p">[[</span><span class="s1">&#39;driverId&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;driverId&#39;</span><span class="p">)</span>
+<span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sum_timesheet</span><span class="p">,</span> <span class="n">drivers</span><span class="p">[[</span><span class="s2">&quot;driverId&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;driverId&quot;</span><span class="p">)</span>
 <span class="n">summary</span>
 </pre></div>
 </div>

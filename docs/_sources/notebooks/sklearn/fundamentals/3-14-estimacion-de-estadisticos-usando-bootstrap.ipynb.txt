@@ -210,9 +210,11 @@
     "import seaborn as sns\n",
     "from scipy import stats\n",
     "import matplotlib.pyplot as plt\n",
+    "from sklearn.utils import resample\n",
+    "\n",
     "%matplotlib inline\n",
-    "%load_ext rpy2.ipython\n",
-    "from sklearn.utils import resample"
+    "\n",
+    "%load_ext rpy2.ipython"
    ]
   },
   {
@@ -234,12 +236,13 @@
    "source": [
     "#\n",
     "# La función resample permite hacer un muestreo con reemplazo.\n",
-    "# \n",
+    "#\n",
     "boot = resample(\n",
-    "    x,                   # muestra\n",
-    "    replace=True,        # reemplazo?\n",
-    "    n_samples=len(x),    # longitud de la nueva muestra\n",
-    "    random_state=None)   # generador de aleatorios\n",
+    "    x,  # muestra\n",
+    "    replace=True,  # reemplazo?\n",
+    "    n_samples=len(x),  # longitud de la nueva muestra\n",
+    "    random_state=None,\n",
+    ")  # generador de aleatorios\n",
     "\n",
     "boot"
    ]
@@ -287,7 +290,7 @@
    ],
    "source": [
     "##\n",
-    "## Se generan 500 muestras bootstrap \n",
+    "## Se generan 500 muestras bootstrap\n",
     "##\n",
     "sample = [resample(x, replace=True, n_samples=len(x)) for _ in range(500)]\n",
     "sample[0:2]"
@@ -314,9 +317,9 @@
     }
    ],
    "source": [
-    "##\n",
-    "## Se computa la media para cada muestra bootstrap\n",
-    "## \n",
+    "#\n",
+    "# Se computa la media para cada muestra bootstrap\n",
+    "#\n",
     "stat = [np.mean(s) for s in sample]\n",
     "stat[0:5]"
    ]
@@ -365,7 +368,8 @@
     "# Histograma de las medias calculadas\n",
     "#\n",
     "sns.set(color_codes=True)\n",
-    "sns.distplot(stat, rug=True);"
+    "sns.distplot(stat, rug=True)\n",
+    "plt.show()"
    ]
   },
   {
@@ -386,7 +390,7 @@
    ],
    "source": [
     "#\n",
-    "# Error estándar (desviación estándar) para \n",
+    "# Error estándar (desviación estándar) para\n",
     "# el valor computado de la media\n",
     "#\n",
     "np.std(stat)"
@@ -442,7 +446,8 @@
     "# Distribución normal teórica\n",
     "#\n",
     "sns.set(color_codes=True)\n",
-    "sns.distplot(stat, rug=True, fit=stats.norm);"
+    "sns.distplot(stat, rug=True, fit=stats.norm)\n",
+    "plt.show()"
    ]
   },
   {
@@ -462,10 +467,10 @@
     }
    ],
    "source": [
-    "##\n",
-    "## Intervalos de confianza para +/- 2 sigma\n",
-    "## aprox el 95% de confianza\n",
-    "##\n",
+    "#\n",
+    "# Intervalos de confianza para +/- 2 sigma\n",
+    "# aprox el 95% de confianza\n",
+    "#\n",
     "[np.mean(stat) - 2 * np.std(stat), np.mean(stat) + 2 * np.std(stat)]"
    ]
   },
@@ -573,12 +578,14 @@
    ],
    "source": [
     "%%R\n",
-    "##\n",
-    "## Se calculan los intervalos de confianza\n",
-    "##\n",
-    "boot.ci(mean_est,                               ## se utiliza la función boot.ci para estimar los intervalos de confianza\n",
-    "        conf = 0.95,                            ## con una confianza del 95% \n",
-    "        type = c(\"basic\"))                      ## se seleccionan intervalos básicos"
+    "#\n",
+    "# Se calculan los intervalos de confianza\n",
+    "#\n",
+    "boot.ci(\n",
+    "    mean_est,  # se utiliza la función boot.ci para estimar los intervalos de confianza\n",
+    "    conf=0.95,  # con una confianza del 95%\n",
+    "    type=c(\"basic\"),\n",
+    ")  # se seleccionan intervalos básicos"
    ]
   }
  ],

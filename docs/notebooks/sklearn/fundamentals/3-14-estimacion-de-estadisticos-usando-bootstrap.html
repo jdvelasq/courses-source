@@ -25,8 +25,8 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Esquemas de partición de los datos" href="3-15-particion-de-los-datos.html" />
+    <link rel="next" title="Esquemas de partición de los datos" href="4-15-particion-de-los-datos.html" />
     <link rel="prev" title="Sensibilidad de los resultados a la selección de datos" href="3-13-sensibilidad-particion-datos.html" /> 
 </head>
 
@@ -497,9 +497,11 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">resample</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
 </pre></div>
 </div>
 </div>
@@ -512,10 +514,11 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 <span class="c1"># La función resample permite hacer un muestreo con reemplazo.</span>
 <span class="c1">#</span>
 <span class="n">boot</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span>                   <span class="c1"># muestra</span>
-    <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># reemplazo?</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>    <span class="c1"># longitud de la nueva muestra</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>   <span class="c1"># generador de aleatorios</span>
+    <span class="n">x</span><span class="p">,</span>  <span class="c1"># muestra</span>
+    <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># reemplazo?</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>  <span class="c1"># longitud de la nueva muestra</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># generador de aleatorios</span>
 
 <span class="n">boot</span>
 </pre></div>
@@ -582,9 +585,9 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## Se computa la media para cada muestra bootstrap</span>
-<span class="c1">##</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Se computa la media para cada muestra bootstrap</span>
+<span class="c1">#</span>
 <span class="n">stat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">]</span>
 <span class="n">stat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
@@ -633,7 +636,8 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 <span class="c1"># Histograma de las medias calculadas</span>
 <span class="c1">#</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -684,7 +688,8 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 <span class="c1"># Distribución normal teórica</span>
 <span class="c1">#</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -700,10 +705,10 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## Intervalos de confianza para +/- 2 sigma</span>
-<span class="c1">## aprox el 95% de confianza</span>
-<span class="c1">##</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Intervalos de confianza para +/- 2 sigma</span>
+<span class="c1"># aprox el 95% de confianza</span>
+<span class="c1">#</span>
 <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">stat</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">stat</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -779,12 +784,14 @@ de dicho estadístico, lo cual es mucho más informativo.</p>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="n">R</span>
-<span class="c1">##</span>
-<span class="c1">## Se calculan los intervalos de confianza</span>
-<span class="c1">##</span>
-<span class="nf">boot.ci</span><span class="p">(</span><span class="n">mean_est</span><span class="p">,</span>                               <span class="c1">## se utiliza la función boot.ci para estimar los intervalos de confianza</span>
-        <span class="n">conf</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">,</span>                            <span class="c1">## con una confianza del 95%</span>
-        <span class="n">type</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;basic&quot;</span><span class="p">))</span>                      <span class="c1">## se seleccionan intervalos básicos</span>
+<span class="c1">#</span>
+<span class="c1"># Se calculan los intervalos de confianza</span>
+<span class="c1">#</span>
+<span class="nf">boot.ci</span><span class="p">(</span>
+    <span class="n">mean_est</span><span class="p">,</span>  <span class="c1"># se utiliza la función boot.ci para estimar los intervalos de confianza</span>
+    <span class="n">conf</span><span class="o">=</span><span class="m">0.95</span><span class="p">,</span>  <span class="c1"># con una confianza del 95%</span>
+    <span class="n">type</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;basic&quot;</span><span class="p">),</span>
+<span class="p">)</span>  <span class="c1"># se seleccionan intervalos básicos</span>
 </pre></div>
 </div>
 </div>

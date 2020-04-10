@@ -20,7 +20,7 @@ Sesión 01
         /notebooks/sklearn/mccullochpitts/1-*
 
     
-    **Fundamentos de aprendizaje automático I**
+    **Fundamentos de aprendizaje automático --- I**
 
     .. toctree::
         :titlesonly:
@@ -31,7 +31,7 @@ Sesión 01
 Sesión 02
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Fundamentos de aprendizaje automático II**
+    **Fundamentos de aprendizaje automático --- II**
     
     .. toctree::
         :titlesonly:
@@ -43,7 +43,7 @@ Sesión 02
 Sesión 03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Fundamentos de aprendizaje automático III**
+    **Fundamentos de aprendizaje automático --- III**
     
     .. toctree::
         :titlesonly:
@@ -55,7 +55,19 @@ Sesión 03
 Sesión 04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Gradiente descendente estocástico**.
+    **Fundamentos de aprendizaje automático --- IV**
+    
+    .. toctree::
+        :titlesonly:
+        :glob:
+        
+        /notebooks/sklearn/fundamentals/4-*
+
+
+Sesión 05
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Gradiente descendente estocástico**
 
     .. toctree::
         :maxdepth: 1
@@ -72,7 +84,7 @@ Sesión 04
 
         /notebooks/sklearn/bipolar-perceptron/*
 
-Sesión 05
+Sesión 06
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Combinadores lineales adaptativos**
@@ -84,7 +96,7 @@ Sesión 05
         /notebooks/sklearn/adaline/*
 
 
-Sesión 06
+Sesión 07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Perceptrón continuo y regresión logística**
@@ -102,7 +114,7 @@ Sesión 06
         /notebooks/sklearn/logistic/*
 
 
-Sesión 07
+Sesión 08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Perceptrones multicapa**
@@ -114,7 +126,7 @@ Sesión 07
         /notebooks/sklearn/mlp/*
 
 
-Sesión 08
+Sesión 09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Support Vector Machines**
@@ -126,8 +138,10 @@ Sesión 08
         /notebooks/sklearn/svm/*
 
 
-Sesión 09
+Sesión 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Fundamentos de optimización no lineal**
 
     .. toctree::
         :maxdepth: 1
@@ -135,151 +149,84 @@ Sesión 09
 
         /notebooks/optimization/*        
 
-
-Sesión 10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **(Opcional) Modelos asociativos**
 
     .. toctree::
-        :maxdepth: 1
-        :glob:
+            :maxdepth: 1
+            :glob:
 
-        /notebooks/sklearn/associative/*
+            /notebooks/sklearn/associative/*
 
 
 Sesión 11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **API de bajo nivel de TensorFlow**.
+    **Arboles de regresión y clasificación**
 
     .. toctree::
-        :maxdepth: 1
+        :titlesonly:
         :glob:
 
-        /notebooks/tensorflow/low-level-apis/*
+        /notebooks/sklearn/trees/*
 
 
 Sesión 12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-    **Gradiente descendente estocástico en TensorFlow**.
+    **Deep Leaning con TensorFlow-2.0 --- I**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/sgd/*
-
-        /notebooks/tensorflow/perceptron/*
+        /notebooks/tensorflow/01-*
 
 
 Sesión 13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Multilayer perceptrons en TensorFlow**
+    **Deep Leaning con TensorFlow-2.0 --- II**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/dense/*
-
-    **Learn and use ML**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/learn-and-use-ml/*
-
+        /notebooks/tensorflow/02-*
 
 
 Sesión 14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Research and experimentation**
+    **Deep Leaning con TensorFlow-2.0 --- III**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/research-and-experimentation/*
-
-    **ML at production scale**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/ml-at-production-scale/*
-
+        /notebooks/tensorflow/03-*
 
 Sesión 15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Sequences**
-
-     .. toctree::
-        :maxdepth: 1
-        :glob:
-
-  
-        /notebooks/tensorflow/sequences/*
-
-
-    **Data representation**
-
-     .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/data-representation/*
-
-
-Sesión 16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Estimators**
-
-     .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/estimators/*
-
-
-   **High level APIs**
-
-     .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/high-level-apis/*
-
-
-   **Embedings**
-
-     .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/embedings/*
-
-
-    Cierre
-
-
-    
-
-Anexos y material complementario
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     
+    **Deep Leaning con TensorFlow-2.0 --- IV**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/sklearn/performance/*
+        /notebooks/tensorflow/04-*
 
+Sesión 16
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+     .. toctree::
+        :maxdepth: 1
+        :glob:
+ 
+        /notebooks/tensorflow/05-*
+
+
+
+    **Cierre y evaluación del curso**
 
 

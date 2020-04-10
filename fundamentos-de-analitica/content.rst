@@ -33,7 +33,6 @@ Sesión 02
 
         /notebooks/python/3-*
 
-    * Realice el `LAB 01: Programación en Python para manipulación de datos <https://classroom.github.com/a/TUMNIG9S>`_.
 
 Sesión 03
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -46,7 +45,6 @@ Sesión 03
 
         /notebooks/sqlite3/*
 
-    * Realice el `LAB 02: Consultas en SQL <https://classroom.github.com/a/2PMAZdzc>`_.    
 
 Sesión 04
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,8 +58,6 @@ Sesión 04
         :glob:
 
         /notebooks/pandas/*    
-
-    * Realice el `LAB 03: Programación con Pandas <https://classroom.github.com/a/qKzqXKUf>`_.
 
 Sesión 05
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,8 +74,6 @@ Sesión 05
         /notebooks/visualizacion/*
         
 
-    * Realice el `LAB 04: Visualización de datos usando Matplotlib <https://classroom.github.com/a/Xcy7Q0DB>`_.
-
 
 Sesión 06
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,8 +85,6 @@ Sesión 06
         :glob:
     
         /notebooks/aexp/*
-
-    * Realice el `LAB 05: Análisis exploratorio de datos <https://classroom.github.com/a/bX1xPLls>`_.    
 
 
 Sesión 07
@@ -192,9 +184,22 @@ Sesión 13
 
         * :download:`ASUM </pdfs/ASUM.pdf>`
 
+Sesión 14
+^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Asesoria proyecto final**
 
 
+Sesión 15
+^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Asesoria proyecto final**
+
+
+Sesión 16
+^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Cierre y evaluación del curso**
 
 
 

@@ -257,5 +257,5 @@ Sesión 4---15
 Sesión 4---16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    Revisión, cierre y retroalimentación del curso.
+    **Cierre y evaluación del curso**
 

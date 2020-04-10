@@ -172,7 +172,7 @@ Sesión 4---15
 Sesión 4---16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    Cierre
+    **Cierre y evaluación del curso**
 
 
 Material complementario

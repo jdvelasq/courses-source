@@ -25,8 +25,8 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
@@ -431,7 +431,8 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="c1">## importa la librería</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.notebook_repr_html&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.notebook_repr_html&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -446,9 +447,10 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">truck_events</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="s2">&quot;https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/drivers/truck_event_text_partition.csv&quot;</span><span class="p">,</span>
-    <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>         <span class="c1"># separador de campos</span>
-    <span class="n">thousands</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># separador de miles para números</span>
-    <span class="n">decimal</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>     <span class="c1"># separador de los decimales para números</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>  <span class="c1"># separador de campos</span>
+    <span class="n">thousands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1">#  separador de miles para números</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1">#  separador de los decimales para números</span>
 </pre></div>
 </div>
 </div>
@@ -649,7 +651,7 @@ max    1.962262e+09
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">specific_columns</span> <span class="o">=</span> <span class="n">truck_events_subset</span><span class="p">[[</span><span class="s1">&#39;driverId&#39;</span><span class="p">,</span> <span class="s1">&#39;eventTime&#39;</span><span class="p">,</span> <span class="s1">&#39;eventType&#39;</span><span class="p">]]</span>
+<span></span><span class="n">specific_columns</span> <span class="o">=</span> <span class="n">truck_events_subset</span><span class="p">[[</span><span class="s2">&quot;driverId&quot;</span><span class="p">,</span> <span class="s2">&quot;eventTime&quot;</span><span class="p">,</span> <span class="s2">&quot;eventType&quot;</span><span class="p">]]</span>
 <span class="n">specific_columns</span>
 </pre></div>
 </div>
@@ -681,7 +683,7 @@ max    1.962262e+09
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_sub_set</span> <span class="o">=</span> <span class="n">truck_events</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;driverId&#39;</span><span class="p">,</span> <span class="s1">&#39;eventTime&#39;</span><span class="p">,</span> <span class="s1">&#39;eventType&#39;</span><span class="p">]]</span>
+<span></span><span class="n">new_sub_set</span> <span class="o">=</span> <span class="n">truck_events</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;driverId&quot;</span><span class="p">,</span> <span class="s2">&quot;eventTime&quot;</span><span class="p">,</span> <span class="s2">&quot;eventType&quot;</span><span class="p">]]</span>
 <span class="n">new_sub_set</span>
 </pre></div>
 </div>
@@ -762,7 +764,7 @@ Name: 1, dtype: object
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">truck_events</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;eventKey&#39;</span><span class="p">]</span>
+<span></span><span class="n">truck_events</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;eventKey&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -793,11 +795,7 @@ Name: 1, dtype: object
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">specific_columns</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
-    <span class="s1">&#39;tmp/specific-columns.csv&#39;</span><span class="p">,</span>
-    <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>
-    <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span></span><span class="n">specific_columns</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;tmp/specific-columns.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
