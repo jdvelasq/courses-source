@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script src="../../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -1358,8 +1358,8 @@ Column Total |        68 |        32 |       100 |
 <span class="c1">## Genera los conjuntos de entrenamiento y prueba. La</span>
 <span class="c1">## columna 17 es la variable dependiente</span>
 <span class="c1">##</span>
-<span class="n">df_train</span>     <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="n">train_sample</span><span class="p">,]</span>
-<span class="n">df_test</span>      <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="o">-</span><span class="n">train_sample</span><span class="p">,]</span>
+<span class="n">df_train</span>     <span class="o">&lt;-</span> <span class="n">df[train_sample</span><span class="p">,</span><span class="n">]</span>
+<span class="n">df_test</span>      <span class="o">&lt;-</span> <span class="n">df[</span><span class="o">-</span><span class="n">train_sample</span><span class="p">,</span><span class="n">]</span>
 
 <span class="c1">##</span>
 <span class="c1">## Se verifica la proporción entre créditos pagados</span>
@@ -1410,7 +1410,7 @@ Column Total |        68 |        32 |       100 |
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="n">R</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">rpart</span><span class="p">)</span>
-<span class="n">clf</span> <span class="o">&lt;-</span> <span class="nf">rpart</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">&lt;-</span> <span class="nf">rpart</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">)</span>
 <span class="nf">summary</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 </pre></div>
 </div>

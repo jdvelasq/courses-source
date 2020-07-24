@@ -137,6 +137,14 @@ Sesión 2---08
 
         /notebooks/pandas/*
 
+    **Python para usuarios de Excel** 
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/excel/*
+
 Sesión 3---09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script src="../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -534,7 +534,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="m">5</span> <span class="o">^</span> <span class="m">2</span> <span class="c1"># potencia</span>
+<span></span><span class="m">5</span> <span class="n">^</span> <span class="m">2</span> <span class="c1"># potencia</span>
 </pre></div>
 </div>
 </div>
@@ -1262,7 +1262,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">squares</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>  <span class="c1"># Sus elementos se indexan desde uno</span>
+<span></span><span class="n">squares[1]</span>  <span class="c1"># Sus elementos se indexan desde uno</span>
 </pre></div>
 </div>
 </div>
@@ -1398,7 +1398,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">squares</span><span class="p">[</span><span class="m">-1</span><span class="p">]</span> <span class="c1"># los indices negativos indican exclusión del elemento.</span>
+<span></span><span class="n">squares[</span><span class="m">-1</span><span class="n">]</span> <span class="c1"># los indices negativos indican exclusión del elemento.</span>
 </pre></div>
 </div>
 </div>
@@ -1418,7 +1418,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">squares</span><span class="p">[(</span><span class="nf">length</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="m">-2</span><span class="p">)</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">squares</span><span class="p">)]</span>  <span class="c1"># ultimos tres elementos</span>
+<span></span><span class="n">squares</span><span class="nf">[</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="m">-2</span><span class="p">)</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="n">]</span>  <span class="c1"># ultimos tres elementos</span>
 </pre></div>
 </div>
 </div>
@@ -1536,7 +1536,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">cubes</span><span class="p">[</span><span class="m">4</span><span class="p">]</span> <span class="o">=</span> <span class="m">64</span>  <span class="c1"># se reemplaza el valor erróneo</span>
+<span></span><span class="n">cubes[4]</span> <span class="o">=</span> <span class="m">64</span>  <span class="c1"># se reemplaza el valor erróneo</span>
 <span class="n">cubes</span>
 </pre></div>
 </div>
@@ -1607,7 +1607,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="kc">letters</span><span class="p">[</span><span class="m">3</span><span class="o">:</span><span class="m">5</span><span class="p">]</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">)</span>  <span class="c1"># se puede reemplazar un rango de posiciones</span>
+<span></span><span class="kc">letters</span><span class="n">[3</span><span class="o">:</span><span class="m">5</span><span class="n">]</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">)</span>  <span class="c1"># se puede reemplazar un rango de posiciones</span>
 <span class="kc">letters</span>
 </pre></div>
 </div>
@@ -1631,7 +1631,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="kc">letters</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">)]</span>
+<span></span><span class="kc">letters</span><span class="n">[</span><span class="o">-</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">)</span><span class="n">]</span>
 </pre></div>
 </div>
 </div>
@@ -1650,7 +1650,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="kc">letters</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="m">7</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="m">2</span><span class="p">)]</span>
+<span></span><span class="kc">letters</span><span class="nf">[seq</span><span class="p">(</span><span class="n">from</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="m">7</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="m">2</span><span class="p">)</span><span class="n">]</span>
 </pre></div>
 </div>
 </div>
@@ -1935,7 +1935,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">squares</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span>  <span class="c1"># acceso por nombre.</span>
+<span></span><span class="n">squares[</span><span class="s">&#39;b&#39;</span><span class="n">]</span>  <span class="c1"># acceso por nombre.</span>
 </pre></div>
 </div>
 </div>
@@ -1950,7 +1950,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">squares</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>  <span class="c1"># acceso por posición.</span>
+<span></span><span class="n">squares[2]</span>  <span class="c1"># acceso por posición.</span>
 </pre></div>
 </div>
 </div>
@@ -2032,7 +2032,7 @@ segunda linea.
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="nf">list</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">))</span>
-<span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+<span class="n">x[1]</span>
 </pre></div>
 </div>
 </div>
@@ -2054,7 +2054,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+<span></span><span class="n">x[[1]]</span>
 </pre></div>
 </div>
 </div>
@@ -2073,7 +2073,7 @@ segunda linea.
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="p">[[</span><span class="m">1</span><span class="p">]][</span><span class="m">2</span><span class="p">]</span>
+<span></span><span class="n">x[[1]][2]</span>
 </pre></div>
 </div>
 </div>

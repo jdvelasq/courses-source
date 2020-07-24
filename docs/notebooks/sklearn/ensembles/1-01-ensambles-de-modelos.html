@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script src="../../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -1143,7 +1143,7 @@ Loading required package: ggplot2
 <span class="c1">##</span>
 <span class="c1">## Se entrena el modelo con 25 arboles</span>
 <span class="c1">##</span>
-<span class="n">mybag</span> <span class="o">&lt;-</span> <span class="nf">bagging</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">nbagg</span> <span class="o">=</span> <span class="m">25</span><span class="p">)</span>
+<span class="n">mybag</span> <span class="o">&lt;-</span> <span class="nf">bagging</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">nbagg</span> <span class="o">=</span> <span class="m">25</span><span class="p">)</span>
 <span class="n">mybag</span>  <span class="c1">## se muestra la salida del modelo</span>
 </pre></div>
 </div>
@@ -1236,7 +1236,7 @@ data_pred  No Yes
 
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">300</span><span class="p">)</span>                                                        <span class="c1">## se establece la semilla aleatoria</span>
 <span class="n">ctrl</span> <span class="o">&lt;-</span> <span class="nf">trainControl</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s">&quot;cv&quot;</span><span class="p">,</span> <span class="n">number</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>                     <span class="c1">## se generan los parámetros</span>
-<span class="nf">train</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;treebag&quot;</span><span class="p">,</span> <span class="n">trControl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="p">)</span><span class="c1">## se entrena el modelo</span>
+<span class="nf">train</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;treebag&quot;</span><span class="p">,</span> <span class="n">trControl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="p">)</span><span class="c1">## se entrena el modelo</span>
 
 <span class="c1">##</span>
 <span class="c1">## note que tiene un desempeño muy similar al metodo C5.0</span>
@@ -1310,7 +1310,7 @@ The following object is masked from &#39;package:ipred&#39;:
 <span class="c1">## se entrena el modelo</span>
 <span class="c1">##</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">300</span><span class="p">)</span>                                    <span class="c1">## se establece la semilla aleatoria</span>
-<span class="n">m_adaboost</span> <span class="o">&lt;-</span> <span class="nf">boosting</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span> <span class="c1">## se entrena el modelo con los parámetros por defecto</span>
+<span class="n">m_adaboost</span> <span class="o">&lt;-</span> <span class="nf">boosting</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span> <span class="c1">## se entrena el modelo con los parámetros por defecto</span>
 <span class="nf">summary</span><span class="p">(</span><span class="n">m_adaboost</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1370,7 +1370,7 @@ Predicted Class  No Yes
 <span class="c1">## verificación usando CV</span>
 <span class="c1">##</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">300</span><span class="p">)</span>
-<span class="n">adaboost_cv</span> <span class="o">&lt;-</span> <span class="nf">boosting.cv</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span> <span class="c1">## se entrena el modelo</span>
+<span class="n">adaboost_cv</span> <span class="o">&lt;-</span> <span class="nf">boosting.cv</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span> <span class="c1">## se entrena el modelo</span>
 <span class="n">adaboost_cv</span><span class="o">$</span><span class="n">confusion</span>                                <span class="c1">## se realiza la matriz de confusión</span>
 </pre></div>
 </div>
@@ -1484,7 +1484,7 @@ The following object is masked from &#39;package:ggplot2&#39;:
 <span class="c1">## que usan la raíz cuadrada de la cantidad</span>
 <span class="c1">## de atributos presentes en el conjunto de entrenamiento</span>
 <span class="c1">##</span>
-<span class="n">rf</span> <span class="o">&lt;-</span> <span class="nf">randomForest</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">rf</span> <span class="o">&lt;-</span> <span class="nf">randomForest</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
 <span class="n">rf</span>
 <span class="c1">## en la salida OOB se refiere a out-of-bag error rate</span>
 </pre></div>
@@ -1534,7 +1534,7 @@ Yes 180 120  0.60000000
 <span class="n">grid_rf</span> <span class="o">&lt;-</span> <span class="nf">expand.grid</span><span class="p">(</span><span class="n">.mtry</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">16</span><span class="p">))</span>
 
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">300</span><span class="p">)</span>
-<span class="n">m_rf</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span>
+<span class="n">m_rf</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span>
               <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
               <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;rf&quot;</span><span class="p">,</span>
               <span class="n">metric</span> <span class="o">=</span> <span class="s">&quot;Kappa&quot;</span><span class="p">,</span>
@@ -1583,7 +1583,7 @@ The final value used for the model was mtry = 16.
                         <span class="n">.trials</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">40</span><span class="p">),</span>
                         <span class="n">.winnow</span> <span class="o">=</span> <span class="s">&quot;FALSE&quot;</span><span class="p">)</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">300</span><span class="p">)</span>
-<span class="n">m_c50</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span>
+<span class="n">m_c50</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">default</span> <span class="o">~</span> <span class="n">.,</span>
                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
                <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;C5.0&quot;</span><span class="p">,</span>
                <span class="n">metric</span> <span class="o">=</span> <span class="s">&quot;Kappa&quot;</span><span class="p">,</span>

@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script src="../../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -1706,7 +1706,7 @@ array([[6.63801021e-15, 1.00000000e+00],
 <span class="c1">## Usa las palabras que aparecen por lo menos cinco veces</span>
 <span class="c1">##</span>
 <span class="n">freq_words</span> <span class="o">&lt;-</span> <span class="nf">findFreqTerms</span><span class="p">(</span><span class="n">dtm</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
-<span class="n">dtm</span> <span class="o">&lt;-</span> <span class="n">dtm</span><span class="p">[,</span><span class="n">freq_words</span><span class="p">]</span>
+<span class="n">dtm</span> <span class="o">&lt;-</span> <span class="n">dtm[</span><span class="p">,</span><span class="n">freq_words]</span>
 <span class="n">dtm</span>
 </pre></div>
 </div>
@@ -1754,10 +1754,10 @@ Weighting          : term frequency (tf)
 <span class="c1">##</span>
 <span class="c1">## Creación de los conjuntos de entrenamiento y prueba.</span>
 <span class="c1">##</span>
-<span class="n">X_train</span>      <span class="o">&lt;-</span> <span class="n">dtm</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="p">]</span>
-<span class="n">X_test</span>       <span class="o">&lt;-</span> <span class="n">dtm</span><span class="p">[</span><span class="m">4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="p">]</span>
-<span class="n">y_train_true</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="p">]</span><span class="o">$</span><span class="n">type</span>
-<span class="n">y_test_true</span>  <span class="o">&lt;-</span> <span class="n">df</span><span class="p">[</span><span class="m">4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="p">]</span><span class="o">$</span><span class="n">type</span>
+<span class="n">X_train</span>      <span class="o">&lt;-</span> <span class="n">dtm[1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="n">]</span>
+<span class="n">X_test</span>       <span class="o">&lt;-</span> <span class="n">dtm[4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="n">]</span>
+<span class="n">y_train_true</span> <span class="o">&lt;-</span> <span class="n">df[1</span><span class="o">:</span><span class="m">4169</span><span class="p">,</span> <span class="n">]</span><span class="o">$</span><span class="n">type</span>
+<span class="n">y_test_true</span>  <span class="o">&lt;-</span> <span class="n">df[4170</span><span class="o">:</span><span class="m">5559</span><span class="p">,</span> <span class="n">]</span><span class="o">$</span><span class="n">type</span>
 
 
 <span class="c1">##</span>

@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script src="../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -507,7 +507,7 @@ comúnmente utilizado en redes neuronales artificiales.</p>
 <span class="c1">## Sumatoria del error cuadrático</span>
 <span class="c1">##</span>
 <span class="n">SSE</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nf">return</span><span class="p">(</span><span class="nf">sum</span><span class="p">((</span><span class="n">d</span> <span class="o">-</span> <span class="p">(</span><span class="n">w0</span> <span class="o">+</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">))</span>
+    <span class="nf">return</span><span class="p">(</span><span class="nf">sum</span><span class="p">((</span><span class="n">d</span> <span class="o">-</span> <span class="p">(</span><span class="n">w0</span> <span class="o">+</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">x</span><span class="p">))</span><span class="n">^2</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -682,8 +682,8 @@ comúnmente utilizado en redes neuronales artificiales.</p>
     <span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">gSSE</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
 
     <span class="c1">## extrae las componentes del gradiente</span>
-    <span class="n">gW0</span> <span class="o">&lt;-</span> <span class="n">r</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
-    <span class="n">gW1</span> <span class="o">&lt;-</span> <span class="n">r</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+    <span class="n">gW0</span> <span class="o">&lt;-</span> <span class="n">r[1]</span>
+    <span class="n">gW1</span> <span class="o">&lt;-</span> <span class="n">r[2]</span>
 
     <span class="c1">## computa las mejoras de cada w</span>
     <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w0</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">gW0</span>
@@ -720,8 +720,8 @@ comúnmente utilizado en redes neuronales artificiales.</p>
     <span class="c1">## optimización. La tasa de aprendizaje</span>
     <span class="c1">## es 0.03</span>
     <span class="n">w</span> <span class="o">&lt;-</span> <span class="nf">mejora</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="m">0.03</span><span class="p">)</span>
-    <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
-    <span class="n">w1</span> <span class="o">&lt;-</span> <span class="n">w</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+    <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w[1]</span>
+    <span class="n">w1</span> <span class="o">&lt;-</span> <span class="n">w[2]</span>
 
     <span class="c1">## Se alamcenan los valores calculados</span>
     <span class="c1">## en cada iteración</span>
@@ -860,7 +860,7 @@ Valores encontrados
         <span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">tf</span><span class="o">$</span><span class="nf">global_variables_initializer</span><span class="p">())</span>
         <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">){</span>
             <span class="n">summary</span> <span class="o">&lt;-</span> <span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">resumen</span><span class="p">))</span>
-            <span class="n">writer</span><span class="o">$</span><span class="nf">add_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">global_step</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">writer</span><span class="o">$</span><span class="nf">add_summary</span><span class="p">(</span><span class="n">summary[[2]]</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="nf">cat</span><span class="p">(</span><span class="s">&#39;\nValores encontrados\n\n  w0 =&#39;</span><span class="p">,</span> <span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">w0</span><span class="p">),</span> <span class="s">&#39;\n  w1 = &#39;</span><span class="p">,</span><span class="n">sess</span><span class="o">$</span><span class="nf">run</span><span class="p">(</span><span class="n">w1</span><span class="p">))</span>
     <span class="p">})</span>
@@ -938,8 +938,8 @@ Valores encontrados
 
     <span class="c1">## computa el gradiente para los parámetros actuales</span>
     <span class="n">gw</span> <span class="o">&lt;-</span> <span class="nf">gOnline</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
-    <span class="n">gw0</span> <span class="o">&lt;-</span> <span class="n">gw</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
-    <span class="n">gw1</span> <span class="o">&lt;-</span> <span class="n">gw</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+    <span class="n">gw0</span> <span class="o">&lt;-</span> <span class="n">gw[1]</span>
+    <span class="n">gw1</span> <span class="o">&lt;-</span> <span class="n">gw[2]</span>
 
     <span class="c1">## realiza la corrección de los parámetros</span>
     <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w0</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">gw0</span>
@@ -966,14 +966,14 @@ Valores encontrados
     <span class="c1">## Se recorren secuencialmente todos</span>
     <span class="c1">## los patrones xi, yi</span>
     <span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">w</span> <span class="o">&lt;-</span> <span class="nf">mejora</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="m">0.03</span><span class="p">)</span>
-        <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
-        <span class="n">w1</span> <span class="o">&lt;-</span> <span class="n">w</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+        <span class="n">w</span> <span class="o">&lt;-</span> <span class="nf">mejora</span><span class="p">(</span><span class="n">x[p]</span><span class="p">,</span> <span class="n">d[p]</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="m">0.03</span><span class="p">)</span>
+        <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w[1]</span>
+        <span class="n">w1</span> <span class="o">&lt;-</span> <span class="n">w[2]</span>
 
         <span class="c1">## se almacena la historia de puntos recorridos</span>
         <span class="n">history_w0</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_w0</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
         <span class="n">history_w1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_w1</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
-        <span class="n">history_f</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_f</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">-</span> <span class="n">w0</span> <span class="o">-</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">p</span><span class="p">])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+        <span class="n">history_f</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_f</span><span class="p">,</span> <span class="p">(</span><span class="n">d[p]</span> <span class="o">-</span> <span class="n">w0</span> <span class="o">-</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">x[p]</span><span class="p">)</span><span class="n">^2</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -1042,14 +1042,14 @@ Valores encontrados
     <span class="c1">## se recorre el conjunto de datos</span>
     <span class="c1">## en un orden aleatorio</span>
     <span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="nf">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span> <span class="p">{</span>
-        <span class="n">w</span> <span class="o">&lt;-</span> <span class="nf">mejora</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="m">0.03</span><span class="p">)</span>
-        <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
-        <span class="n">w1</span> <span class="o">&lt;-</span> <span class="n">w</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+        <span class="n">w</span> <span class="o">&lt;-</span> <span class="nf">mejora</span><span class="p">(</span><span class="n">x[p]</span><span class="p">,</span> <span class="n">d[p]</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="m">0.03</span><span class="p">)</span>
+        <span class="n">w0</span> <span class="o">&lt;-</span> <span class="n">w[1]</span>
+        <span class="n">w1</span> <span class="o">&lt;-</span> <span class="n">w[2]</span>
 
         <span class="c1">## se almacena la historia</span>
         <span class="n">history_w0</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_w0</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
         <span class="n">history_w1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_w1</span><span class="p">,</span> <span class="n">w1</span><span class="p">)</span>
-        <span class="n">history_f</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_f</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">-</span> <span class="n">w0</span> <span class="o">-</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">p</span><span class="p">])</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+        <span class="n">history_f</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">history_f</span><span class="p">,</span> <span class="p">(</span><span class="n">d[p]</span> <span class="o">-</span> <span class="n">w0</span> <span class="o">-</span> <span class="n">w1</span> <span class="o">*</span> <span class="n">x[p]</span><span class="p">)</span><span class="n">^2</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 

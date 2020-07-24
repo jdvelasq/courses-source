@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script src="../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -564,7 +564,7 @@ abcdefg 7
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">a</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;Mary&#39;</span><span class="p">,</span> <span class="s">&#39;had&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;little&#39;</span><span class="p">,</span> <span class="s">&#39;lamb&#39;</span><span class="p">)</span>
 <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
-    <span class="nf">cat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&#39;\n&#39;</span><span class="p">)</span>
+    <span class="nf">cat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a[i]</span><span class="p">,</span> <span class="s">&#39;\n&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1094,7 +1094,7 @@ abcdefg 7
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#39;%g&#39;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="nf">grep</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)]</span>
+<span class="n">x</span><span class="nf">[grep</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="n">]</span>
 <span class="nf">grep</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1141,7 +1141,7 @@ abcdefg 7
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#39;%g&#39;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="nf">grep</span><span class="p">(</span><span class="s">&#39;1$&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)]</span>  <span class="c1"># **Imprima los números del 1 al 100 que finalicen con un &#39;1&#39;.**</span>
+<span class="n">x</span><span class="nf">[grep</span><span class="p">(</span><span class="s">&#39;1$&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="n">]</span>  <span class="c1"># **Imprima los números del 1 al 100 que finalicen con un &#39;1&#39;.**</span>
 </pre></div>
 </div>
 </div>
@@ -1168,7 +1168,7 @@ abcdefg 7
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#39;%g&#39;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="nf">grep</span><span class="p">(</span><span class="s">&#39;^1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)]</span> <span class="c1"># **Imprima los números del 1 al 100 que empiecen con un &#39;1&#39;.**</span>
+<span class="n">x</span><span class="nf">[grep</span><span class="p">(</span><span class="s">&#39;^1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="n">]</span> <span class="c1"># **Imprima los números del 1 al 100 que empiecen con un &#39;1&#39;.**</span>
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1197,7 @@ abcdefg 7
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&#39;%g&#39;</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
-<span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="nf">grep</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)])</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="nf">[grep</span><span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -21,13 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script src="../../../_static/translations.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
@@ -1276,7 +1276,7 @@ northeast northwest southeast southwest
 <span class="c1">## con la edad y el bmi, pero no con la</span>
 <span class="c1">## cantidad de dependientes.</span>
 <span class="c1">##</span>
-<span class="nf">cor</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;bmi&quot;</span><span class="p">,</span> <span class="s">&quot;children&quot;</span><span class="p">,</span> <span class="s">&quot;charges&quot;</span><span class="p">)])</span>
+<span class="nf">cor</span><span class="p">(</span><span class="n">df</span><span class="nf">[c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;bmi&quot;</span><span class="p">,</span> <span class="s">&quot;children&quot;</span><span class="p">,</span> <span class="s">&quot;charges&quot;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1302,7 @@ charges  0.2990082 0.1983410 0.06799823 1.00000000
 <span class="c1">## Se construye la siguiente gráfica para</span>
 <span class="c1">## visualizar relaciones entre las variables</span>
 <span class="c1">##</span>
-<span class="nf">pairs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;bmi&quot;</span><span class="p">,</span> <span class="s">&quot;children&quot;</span><span class="p">,</span> <span class="s">&quot;charges&quot;</span><span class="p">)])</span>
+<span class="nf">pairs</span><span class="p">(</span><span class="n">df</span><span class="nf">[c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;bmi&quot;</span><span class="p">,</span> <span class="s">&quot;children&quot;</span><span class="p">,</span> <span class="s">&quot;charges&quot;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
 
 <span class="c1">##</span>
 <span class="c1">## la gráfica muestra una relación entre age y charges,</span>
@@ -1331,7 +1331,7 @@ charges  0.2990082 0.1983410 0.06799823 1.00000000
 <span class="c1"># install.packages(&quot;psych&quot;)</span>
 <span class="c1">##</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">psych</span><span class="p">)</span>
-<span class="nf">pairs.panels</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;bmi&quot;</span><span class="p">,</span> <span class="s">&quot;children&quot;</span><span class="p">,</span> <span class="s">&quot;charges&quot;</span><span class="p">)])</span>
+<span class="nf">pairs.panels</span><span class="p">(</span><span class="n">df</span><span class="nf">[c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;bmi&quot;</span><span class="p">,</span> <span class="s">&quot;children&quot;</span><span class="p">,</span> <span class="s">&quot;charges&quot;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1396,7 +1396,7 @@ regionsouthwest
 <span class="c1">## explicativas disponibles, la llamada a la</span>
 <span class="c1">## función puede simplificarse como:</span>
 <span class="c1">##</span>
-<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">charges</span> <span class="o">~</span> <span class="n">.</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">charges</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -1524,7 +1524,7 @@ F-statistic: 500.8 on 8 and 1329 DF,  p-value: &lt; 2.2e-16
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="n">R</span>
-<span class="n">df</span><span class="o">$</span><span class="n">age2</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="o">$</span><span class="n">age</span><span class="o">^</span><span class="m">2</span>
+<span class="n">df</span><span class="o">$</span><span class="n">age2</span> <span class="o">&lt;-</span> <span class="n">df</span><span class="o">$</span><span class="n">age^2</span>
 </pre></div>
 </div>
 </div>
