@@ -420,6 +420,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="c1">##</span>
 <span class="c1">## Preparacion</span>
 <span class="c1">##</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -680,7 +681,7 @@ Name: Source title, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9b167eb3c8&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f858bf2b668&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -692,6 +693,87 @@ Name: Source title, dtype: object
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Personalización</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="n">TEXTLEN</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">(</span>
+    <span class="n">height</span><span class="p">,</span>
+    <span class="n">darkness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">darkness</span> <span class="o">=</span> <span class="n">height</span> <span class="k">if</span> <span class="n">darkness</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">darkness</span>
+
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">cmap</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.90</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">darkness</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">darkness</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">darkness</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">darkness</span>
+    <span class="p">]</span>
+
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">height</span><span class="p">)),</span>
+        <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span>
+        <span class="n">zorder</span><span class="o">=</span><span class="n">zorder</span><span class="p">,</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ylabel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+
+    <span class="n">xticklabels</span> <span class="o">=</span> <span class="n">height</span><span class="o">.</span><span class="n">index</span>
+    <span class="k">if</span> <span class="n">xticklabels</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;int64&quot;</span><span class="p">:</span>
+        <span class="n">xticklabels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">textwrap</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">TEXTLEN</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">xticklabels</span>
+        <span class="p">]</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">height</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;bottom&#39;</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_tight_layout</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="n">bar</span><span class="p">(</span><span class="n">height</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cited by&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_13_0.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_13_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -710,16 +792,16 @@ Name: Source title, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
-<div id="altair-viz-f1565507291149e1840b975d1e22e59c"></div>
+<div id="altair-viz-21e70e13e5f54821b86ed090d8a77993"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f1565507291149e1840b975d1e22e59c") {
-      outputDiv = document.getElementById("altair-viz-f1565507291149e1840b975d1e22e59c");
+    if (outputDiv.id !== "altair-viz-21e70e13e5f54821b86ed090d8a77993") {
+      outputDiv = document.getElementById("altair-viz-21e70e13e5f54821b86ed090d8a77993");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -768,7 +850,7 @@ Name: Source title, dtype: object
 <div class="section" id="Total-de-citas-por-año">
 <h2>Total de citas por año<a class="headerlink" href="#Total-de-citas-por-año" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -780,7 +862,7 @@ Name: Source title, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -867,7 +949,7 @@ Name: Source title, dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -881,7 +963,7 @@ Name: Source title, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -981,7 +1063,7 @@ Name: Source title, dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1015,11 +1097,11 @@ Name: Source title, dtype: object
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_17_1.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_17_1.png" />
+<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_18_1.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_18_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1038,16 +1120,16 @@ Name: Source title, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
-<div id="altair-viz-87526021bd3448558119a918987fd7c8"></div>
+<div id="altair-viz-fad2dfdfb4f442b08506239c9663b9f9"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-87526021bd3448558119a918987fd7c8") {
-      outputDiv = document.getElementById("altair-viz-87526021bd3448558119a918987fd7c8");
+    if (outputDiv.id !== "altair-viz-fad2dfdfb4f442b08506239c9663b9f9") {
+      outputDiv = document.getElementById("altair-viz-fad2dfdfb4f442b08506239c9663b9f9");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -1092,11 +1174,550 @@ Name: Source title, dtype: object
   })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-4e4a552f569cdb78ee5b33cb7ce87dd7"}, "mark": "circle", "encoding": {"color": {"type": "quantitative", "field": "Cited by"}, "size": {"type": "quantitative", "field": "Cited by"}, "x": {"type": "quantitative", "axis": {"labelAngle": 270}, "field": "Year", "scale": {"domain": [2002, 2019]}}, "y": {"type": "nominal", "field": "Source title"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-4e4a552f569cdb78ee5b33cb7ce87dd7": [{"Source title": "Applied Marketing Analytics", "Year": 2018, "Cited by": 2.0}, {"Source title": "Applied Marketing Analytics", "Year": 2019, "Cited by": 0.0}, {"Source title": "Big Data", "Year": 2013, "Cited by": 543.0}, {"Source title": "Big Data", "Year": 2014, "Cited by": 170.0}, {"Source title": "Big Data", "Year": 2015, "Cited by": 203.0}, {"Source title": "Big Data", "Year": 2016, "Cited by": 109.0}, {"Source title": "Big Data", "Year": 2017, "Cited by": 129.0}, {"Source title": "Big Data", "Year": 2018, "Cited by": 10.0}, {"Source title": "Big Data", "Year": 2019, "Cited by": 0.0}, {"Source title": "Big Data Research", "Year": 2014, "Cited by": 79.0}, {"Source title": "Big Data Research", "Year": 2015, "Cited by": 499.0}, {"Source title": "Big Data Research", "Year": 2016, "Cited by": 173.0}, {"Source title": "Big Data Research", "Year": 2017, "Cited by": 120.0}, {"Source title": "Big Data Research", "Year": 2018, "Cited by": 55.0}, {"Source title": "Big Data Research", "Year": 2019, "Cited by": 0.0}, {"Source title": "Big data", "Year": 2017, "Cited by": 0.0}, {"Source title": "Data Science Journal", "Year": 2003, "Cited by": 50.0}, {"Source title": "Data Science Journal", "Year": 2006, "Cited by": 144.0}, {"Source title": "Data Science Journal", "Year": 2007, "Cited by": 307.0}, {"Source title": "Data Science Journal", "Year": 2008, "Cited by": 81.0}, {"Source title": "Data Science Journal", "Year": 2009, "Cited by": 233.0}, {"Source title": "Data Science Journal", "Year": 2010, "Cited by": 44.0}, {"Source title": "Data Science Journal", "Year": 2011, "Cited by": 38.0}, {"Source title": "Data Science Journal", "Year": 2012, "Cited by": 31.0}, {"Source title": "Data Science Journal", "Year": 2013, "Cited by": 327.0}, {"Source title": "Data Science Journal", "Year": 2014, "Cited by": 70.0}, {"Source title": "Data Science Journal", "Year": 2015, "Cited by": 20.0}, {"Source title": "Data Science Journal", "Year": 2016, "Cited by": 46.0}, {"Source title": "Data Science Journal", "Year": 2017, "Cited by": 66.0}, {"Source title": "Data Science Journal", "Year": 2018, "Cited by": 11.0}, {"Source title": "Data Science Journal", "Year": 2019, "Cited by": 0.0}, {"Source title": "Data Science and Engineering", "Year": 2016, "Cited by": 129.0}, {"Source title": "Data Science and Engineering", "Year": 2017, "Cited by": 70.0}, {"Source title": "Data Science and Engineering", "Year": 2018, "Cited by": 23.0}, {"Source title": "Data Science and Engineering", "Year": 2019, "Cited by": 0.0}, {"Source title": "EPJ Data Science", "Year": 2012, "Cited by": 514.0}, {"Source title": "EPJ Data Science", "Year": 2013, "Cited by": 166.0}, {"Source title": "EPJ Data Science", "Year": 2014, "Cited by": 391.0}, {"Source title": "EPJ Data Science", "Year": 2015, "Cited by": 247.0}, {"Source title": "EPJ Data Science", "Year": 2016, "Cited by": 363.0}, {"Source title": "EPJ Data Science", "Year": 2017, "Cited by": 162.0}, {"Source title": "EPJ Data Science", "Year": 2018, "Cited by": 59.0}, {"Source title": "EPJ Data Science", "Year": 2019, "Cited by": 0.0}, {"Source title": "Easy Care in Wool; Woolmark Business Intelligence July 1999", "Year": 1999, "Cited by": 0.0}, {"Source title": "Environment and Planning B: Urban Analytics and City Science", "Year": 2017, "Cited by": 210.0}, {"Source title": "Environment and Planning B: Urban Analytics and City Science", "Year": 2018, "Cited by": 122.0}, {"Source title": "Environment and Planning B: Urban Analytics and City Science", "Year": 2019, "Cited by": 38.0}, {"Source title": "International Journal of Business Analytics", "Year": 2014, "Cited by": 40.0}, {"Source title": "International Journal of Business Analytics", "Year": 2015, "Cited by": 26.0}, {"Source title": "International Journal of Business Analytics", "Year": 2016, "Cited by": 49.0}, {"Source title": "International Journal of Business Analytics", "Year": 2017, "Cited by": 7.0}, {"Source title": "International Journal of Business Analytics", "Year": 2018, "Cited by": 8.0}, {"Source title": "International Journal of Business Analytics", "Year": 2019, "Cited by": 1.0}, {"Source title": "International Journal of Business Intelligence Research", "Year": 2018, "Cited by": 1.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2005, "Cited by": 213.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2006, "Cited by": 140.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2007, "Cited by": 225.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2008, "Cited by": 151.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2009, "Cited by": 95.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2010, "Cited by": 197.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2011, "Cited by": 56.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2012, "Cited by": 40.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2013, "Cited by": 57.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2014, "Cited by": 91.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2015, "Cited by": 99.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2016, "Cited by": 41.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2017, "Cited by": 7.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2018, "Cited by": 8.0}, {"Source title": "International Journal of Business Intelligence and Data Mining", "Year": 2019, "Cited by": 0.0}, {"Source title": "Journal of Big Data", "Year": 2014, "Cited by": 147.0}, {"Source title": "Journal of Big Data", "Year": 2015, "Cited by": 1395.0}, {"Source title": "Journal of Big Data", "Year": 2016, "Cited by": 465.0}, {"Source title": "Journal of Big Data", "Year": 2017, "Cited by": 220.0}, {"Source title": "Journal of Big Data", "Year": 2018, "Cited by": 83.0}, {"Source title": "Journal of Big Data", "Year": 2019, "Cited by": 2.0}, {"Source title": "Journal of Management Analytics", "Year": 2014, "Cited by": 114.0}, {"Source title": "Journal of Management Analytics", "Year": 2015, "Cited by": 172.0}, {"Source title": "Journal of Management Analytics", "Year": 2016, "Cited by": 78.0}, {"Source title": "Journal of Management Analytics", "Year": 2017, "Cited by": 57.0}, {"Source title": "Journal of Management Analytics", "Year": 2018, "Cited by": 19.0}, {"Source title": "Journal of Management Analytics", "Year": 2019, "Cited by": 0.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2013, "Cited by": 131.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2014, "Cited by": 71.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2015, "Cited by": 27.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2016, "Cited by": 12.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2017, "Cited by": 5.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2018, "Cited by": 7.0}, {"Source title": "Journal of Marketing Analytics", "Year": 2019, "Cited by": 0.0}, {"Source title": "World Wool Supply to 2005; Woolmark Business Intelligence July1999", "Year": 1999, "Cited by": 0.0}]}}, {"mode": "vega-lite"});
 </script></div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Personalizacion</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">bubble</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span>
+    <span class="n">darkness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">,</span>
+    <span class="n">grid_lw</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">grid_c</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+    <span class="n">grid_ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">size_max</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">size_min</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">darkness</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">darkness</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">darkness</span> <span class="o">=</span> <span class="n">darkness</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+    <span class="n">color_max</span> <span class="o">=</span> <span class="n">darkness</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">color_min</span> <span class="o">=</span> <span class="n">darkness</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()):</span>
+
+        <span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mi">150</span> <span class="o">+</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">size_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">size_max</span> <span class="o">-</span> <span class="n">size_min</span><span class="p">)</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="p">]</span>
+
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">cmap</span><span class="p">(</span><span class="mf">0.2</span> <span class="o">+</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">color_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">color_max</span> <span class="o">-</span> <span class="n">color_min</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">darkness</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="p">]</span>
+
+        <span class="c1">#  return range(len(x.columns)), [idx] * len(x.columns)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">))),</span>
+            <span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+            <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+            <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+            <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+            <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+            <span class="n">zorder</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+            <span class="c1">#  **kwargs,</span>
+        <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span>
+            <span class="n">idx</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">grid_lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">grid_c</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">grid_ls</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span>
+            <span class="n">idx</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">grid_lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">grid_c</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">grid_ls</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">mean_color</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">color_min</span> <span class="o">+</span> <span class="n">color_max</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx_col</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx_row</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+
+            <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">darkness</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">mean_color</span><span class="p">:</span>
+                    <span class="n">text_color</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">text_color</span> <span class="o">=</span> <span class="s2">&quot;k&quot;</span>
+
+                <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                    <span class="n">idx_col</span><span class="p">,</span>
+                    <span class="n">idx_row</span><span class="p">,</span>
+                    <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">])</span>
+                    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;int64&quot;</span>
+                    <span class="k">else</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">]),</span>
+                    <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                    <span class="n">zorder</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_tight_layout</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">M</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Cited by&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Source title&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Source title</th>
+      <th>Applied Marketing Analytics</th>
+      <th>Big Data</th>
+      <th>Big Data Research</th>
+      <th>Big data</th>
+      <th>Data Science Journal</th>
+      <th>Data Science and Engineering</th>
+      <th>EPJ Data Science</th>
+      <th>Easy Care in Wool; Woolmark Business Intelligence July 1999</th>
+      <th>Environment and Planning B: Urban Analytics and City Science</th>
+      <th>International Journal of Business Analytics</th>
+      <th>International Journal of Business Intelligence Research</th>
+      <th>International Journal of Business Intelligence and Data Mining</th>
+      <th>Journal of Big Data</th>
+      <th>Journal of Management Analytics</th>
+      <th>Journal of Marketing Analytics</th>
+      <th>World Wool Supply to 2005; Woolmark Business Intelligence July1999</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1999</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>213</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>144</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>140</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>307</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>225</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>81</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>151</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>233</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>95</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>44</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>197</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>38</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>56</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>31</td>
+      <td>0</td>
+      <td>514</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>0</td>
+      <td>543</td>
+      <td>0</td>
+      <td>0</td>
+      <td>327</td>
+      <td>0</td>
+      <td>166</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>57</td>
+      <td>0</td>
+      <td>0</td>
+      <td>131</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>0</td>
+      <td>170</td>
+      <td>79</td>
+      <td>0</td>
+      <td>70</td>
+      <td>0</td>
+      <td>391</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>0</td>
+      <td>91</td>
+      <td>147</td>
+      <td>114</td>
+      <td>71</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>0</td>
+      <td>203</td>
+      <td>499</td>
+      <td>0</td>
+      <td>20</td>
+      <td>0</td>
+      <td>247</td>
+      <td>0</td>
+      <td>0</td>
+      <td>26</td>
+      <td>0</td>
+      <td>99</td>
+      <td>1395</td>
+      <td>172</td>
+      <td>27</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>0</td>
+      <td>109</td>
+      <td>173</td>
+      <td>0</td>
+      <td>46</td>
+      <td>129</td>
+      <td>363</td>
+      <td>0</td>
+      <td>0</td>
+      <td>49</td>
+      <td>0</td>
+      <td>41</td>
+      <td>465</td>
+      <td>78</td>
+      <td>12</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>0</td>
+      <td>129</td>
+      <td>120</td>
+      <td>0</td>
+      <td>66</td>
+      <td>70</td>
+      <td>162</td>
+      <td>0</td>
+      <td>210</td>
+      <td>7</td>
+      <td>0</td>
+      <td>7</td>
+      <td>220</td>
+      <td>57</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>2</td>
+      <td>10</td>
+      <td>55</td>
+      <td>0</td>
+      <td>11</td>
+      <td>23</td>
+      <td>59</td>
+      <td>0</td>
+      <td>122</td>
+      <td>8</td>
+      <td>1</td>
+      <td>8</td>
+      <td>83</td>
+      <td>19</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>38</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">bubble</span><span class="p">(</span>
+    <span class="n">M</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span>
+    <span class="n">darkness</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Oranges&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_22_0.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_22_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="Palabras-claves-más-frecuentes">
 <h2>Palabras claves más frecuentes<a class="headerlink" href="#Palabras-claves-más-frecuentes" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1110,7 +1731,7 @@ Name: Source title, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1119,7 +1740,7 @@ pandas.core.series.Series
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1128,7 +1749,7 @@ pandas.core.series.Series
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1142,7 +1763,7 @@ Name: Author Keywords, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1155,7 +1776,7 @@ Name: Author Keywords, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1169,7 +1790,7 @@ Name: Author Keywords, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1184,7 +1805,7 @@ Name: Author Keywords, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1198,7 +1819,7 @@ Name: Author Keywords, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1211,7 +1832,7 @@ Name: Author Keywords, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1225,7 +1846,7 @@ Name: Author Keywords, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1240,27 +1861,27 @@ Name: Author Keywords, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-big data                    167
-data mining                 134
-machine learning             57
-clustering                   41
-big data analytics           37
-                           ...
-in-game probabilities         1
-quality policy                1
-salespeople                   1
-hierarchical information      1
-geoprocessing                 1
+big data                                               167
+data mining                                            134
+machine learning                                        57
+clustering                                              41
+big data analytics                                      37
+                                                      ...
+hybrid wavelet kernel                                    1
+bare ownership price                                     1
+land use mix                                             1
+local linear radial basis functional neural network      1
+ecocommunity                                             1
 Name: Author Keywords, Length: 6368, dtype: int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1273,7 +1894,7 @@ Name: Author Keywords, Length: 6368, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1292,7 +1913,7 @@ Name: Author Keywords, dtype: int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1306,7 +1927,7 @@ Name: Author Keywords, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1357,23 +1978,23 @@ Name: Author Keywords, dtype: int64
       <td>...</td>
     </tr>
     <tr>
-      <th>associative classifier</th>
+      <th>university proximity</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>goodness-of-fit test</th>
+      <th>hbase</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>space geodesy</th>
+      <th>document store</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>social mining</th>
+      <th>social capital</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>one-second data</th>
+      <th>privacy-preserving association rule mining</th>
       <td>1</td>
     </tr>
   </tbody>
@@ -1382,7 +2003,7 @@ Name: Author Keywords, dtype: int64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1396,7 +2017,7 @@ Name: Author Keywords, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1455,27 +2076,27 @@ Name: Author Keywords, dtype: int64
     </tr>
     <tr>
       <th>6363</th>
-      <td>associative classifier</td>
+      <td>university proximity</td>
       <td>1</td>
     </tr>
     <tr>
       <th>6364</th>
-      <td>goodness-of-fit test</td>
+      <td>hbase</td>
       <td>1</td>
     </tr>
     <tr>
       <th>6365</th>
-      <td>space geodesy</td>
+      <td>document store</td>
       <td>1</td>
     </tr>
     <tr>
       <th>6366</th>
-      <td>social mining</td>
+      <td>social capital</td>
       <td>1</td>
     </tr>
     <tr>
       <th>6367</th>
-      <td>one-second data</td>
+      <td>privacy-preserving association rule mining</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -1484,7 +2105,7 @@ Name: Author Keywords, dtype: int64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1498,16 +2119,16 @@ Name: Author Keywords, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
-<div id="altair-viz-0db02223a4b84aaa8dbbd59c38c277af"></div>
+<div id="altair-viz-74b40da7c1cd4bd0ba99d90e924d5e02"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-0db02223a4b84aaa8dbbd59c38c277af") {
-      outputDiv = document.getElementById("altair-viz-0db02223a4b84aaa8dbbd59c38c277af");
+    if (outputDiv.id !== "altair-viz-74b40da7c1cd4bd0ba99d90e924d5e02") {
+      outputDiv = document.getElementById("altair-viz-74b40da7c1cd4bd0ba99d90e924d5e02");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -1549,11 +2170,11 @@ Name: Author Keywords, dtype: int64
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-c2c2d65f578b80c0418d0c7e522b8a85"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "Author Keywords"}, "x": {"type": "quantitative", "field": "Author Keywords"}, "y": {"type": "nominal", "field": "index", "sort": {"field": "index:Q"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-c2c2d65f578b80c0418d0c7e522b8a85": [{"index": "big data", "Author Keywords": 167}, {"index": "data mining", "Author Keywords": 134}, {"index": "machine learning", "Author Keywords": 57}, {"index": "clustering", "Author Keywords": 41}, {"index": "big data analytics", "Author Keywords": 37}, {"index": "classification", "Author Keywords": 33}, {"index": "business intelligence", "Author Keywords": 31}, {"index": "metadata", "Author Keywords": 30}, {"index": "social media", "Author Keywords": 29}, {"index": "mapreduce", "Author Keywords": 26}, {"index": "hadoop", "Author Keywords": 25}, {"index": "database", "Author Keywords": 22}, {"index": "data sharing", "Author Keywords": 22}, {"index": "data management", "Author Keywords": 22}, {"index": "social networks", "Author Keywords": 21}, {"index": "ontology", "Author Keywords": 19}, {"index": "interoperability", "Author Keywords": 19}, {"index": "cloud computing", "Author Keywords": 18}, {"index": "time series", "Author Keywords": 18}, {"index": "analytics", "Author Keywords": 18}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-2bd31515de1b4b4424b7eb6979cf17df"}, "mark": "bar", "encoding": {"color": {"type": "quantitative", "field": "Author Keywords"}, "x": {"type": "quantitative", "field": "Author Keywords"}, "y": {"type": "nominal", "field": "index", "sort": {"field": "index:Q"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-2bd31515de1b4b4424b7eb6979cf17df": [{"index": "big data", "Author Keywords": 167}, {"index": "data mining", "Author Keywords": 134}, {"index": "machine learning", "Author Keywords": 57}, {"index": "clustering", "Author Keywords": 41}, {"index": "big data analytics", "Author Keywords": 37}, {"index": "classification", "Author Keywords": 33}, {"index": "business intelligence", "Author Keywords": 31}, {"index": "metadata", "Author Keywords": 30}, {"index": "social media", "Author Keywords": 29}, {"index": "mapreduce", "Author Keywords": 26}, {"index": "hadoop", "Author Keywords": 25}, {"index": "data sharing", "Author Keywords": 22}, {"index": "database", "Author Keywords": 22}, {"index": "data management", "Author Keywords": 22}, {"index": "social networks", "Author Keywords": 21}, {"index": "ontology", "Author Keywords": 19}, {"index": "interoperability", "Author Keywords": 19}, {"index": "analytics", "Author Keywords": 18}, {"index": "cloud computing", "Author Keywords": 18}, {"index": "time series", "Author Keywords": 18}]}}, {"mode": "vega-lite"});
 </script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1579,7 +2200,7 @@ Name: Author Keywords, dtype: int64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_30_0.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_30_0.png" />
+<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_34_0.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_34_0.png" />
 </div>
 </div>
 </div>
@@ -1587,7 +2208,7 @@ Name: Author Keywords, dtype: int64
 <h2>Contribuciones por país de origen<a class="headerlink" href="#Contribuciones-por-país-de-origen" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Uno de los gráficos comúnmente usados en los mapeos sistemáticos de literatura es la cantidad de artículos por país de origen. Este gráfico da una idea de en que lugares se está concentrando la investigación sobre el tópico abordado. A continuación se describe el código para este gráfico.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1599,7 +2220,7 @@ Name: Author Keywords, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1612,7 +2233,7 @@ Name: Author Keywords, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1632,7 +2253,7 @@ Name: Affiliations, Length: 1889, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1644,7 +2265,7 @@ Name: Affiliations, Length: 1889, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1654,7 +2275,7 @@ Name: Affiliations, Length: 1889, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1667,7 +2288,7 @@ Name: Affiliations, Length: 1889, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1687,7 +2308,7 @@ Name: Affiliations, Length: 1889, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1700,7 +2321,7 @@ Name: Affiliations, Length: 1889, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1720,7 +2341,7 @@ Name: Affiliations, Length: 3963, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1733,27 +2354,27 @@ Name: Affiliations, Length: 3963, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-United States                             1089
-China                                      457
-India                                      295
-United Kingdom                             250
-Japan                                      239
-                                          ...
-CASS                                         1
-Namibia                                      1
-Amman                                        1
-Open Culture International Association       1
-Croatia                                      1
+United States       1089
+China                457
+India                295
+United Kingdom       250
+Japan                239
+                    ...
+RTL â RTL            1
+Think3 Inc.            1
+Kenya                  1
+French Polynesia       1
+Namibia                1
 Name: Affiliations, Length: 101, dtype: int64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1771,11 +2392,11 @@ Name: Affiliations, Length: 101, dtype: int64
 <div class="highlight"><pre>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100  361k  100  361k    0     0  1127k      0 --:--:-- --:--:-- --:--:-- 1127k
+100  361k  100  361k    0     0   465k      0 --:--:-- --:--:-- --:--:--  465k
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1856,7 +2477,7 @@ Name: Affiliations, Length: 101, dtype: int64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1865,11 +2486,11 @@ Name: Affiliations, Length: 101, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_41_0.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_41_0.png" />
+<img alt="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_45_0.png" src="../../_images/notebooks_aexp_02-analisis-exploratorio-de-informacion-bibiografica_45_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
