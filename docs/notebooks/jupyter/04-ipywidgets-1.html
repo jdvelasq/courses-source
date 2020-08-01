@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>(virtual) Controles interactivos en Jupyter notebooks &mdash; documentación de --- Cursos --- - </title>
+  <title>Controles interactivos en Jupyter Lab &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="(virtual) controles interactivos / Jupyter Dashboards - Ejemplo 2" href="06-controles-interactivos.html" />
-    <link rel="prev" title="(Virtual) Dashboards en Jupyter" href="04-dashboards-en-jupyter.html" /> 
+    <link rel="next" title="Controles interactivos – Ejemplo avanzado" href="05-ipywidgets-2.html" />
+    <link rel="prev" title="HTML para notebooks de Jupyter" href="03-html-para-notebooks-de-jupyter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -148,13 +148,13 @@
         
           <li><a href="../../ciencia-de-los-datos/content.html">Sesiones</a> &raquo;</li>
         
-      <li>(virtual) Controles interactivos en Jupyter notebooks</li>
+      <li>Controles interactivos en Jupyter Lab</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/jupyter/05-controles-interactivos-en-jupyter.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/notebooks/jupyter/04-ipywidgets-1.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -409,26 +409,27 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="(virtual)-Controles-interactivos-en-Jupyter-notebooks">
-<h1>(virtual) Controles interactivos en Jupyter notebooks<a class="headerlink" href="#(virtual)-Controles-interactivos-en-Jupyter-notebooks" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Controles-interactivos-en-Jupyter-Lab">
+<h1>Controles interactivos en Jupyter Lab<a class="headerlink" href="#Controles-interactivos-en-Jupyter-Lab" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
-<li><p><em>60 min</em> | Última modificación: Junio 22, 2019.</p></li>
+<li><p><em>60 min</em> | Última modificación: Julio 31, 2020.</p></li>
 </ul>
-<div class="section" id=" Instalación">
-<h2> Instalación<a class="headerlink" href="# Instalación" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ipywidgets</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="Ejemplo">
-<h2>Ejemplo<a class="headerlink" href="#Ejemplo" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span></span><span class="c1"># !pip3 install -U -q ipywidgets</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># from __future__ import print_function</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -438,142 +439,92 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="interact">
+<h1>interact<a class="headerlink" href="#interact" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Ejemplo 1</span>
+<span class="c1">##</span>
+
+<span class="c1">#</span>
+<span class="c1"># Define la función</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#</span>
+<span class="c1"># interact recibe la función f y sus</span>
+<span class="c1"># argumentos n y color</span>
+<span class="c1">#</span>
+<span class="n">interact</span><span class="p">(</span>
+    <span class="n">f</span><span class="p">,</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Color:&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">]),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2577af346d0842f3b07c6ac2ddf37bba", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Ejemplo 2</span>
+<span class="c1">##</span>
+
+<span class="c1">#</span>
+<span class="c1"># interact genera automaticamente los controles</span>
+<span class="c1"># a partir del tipo de dato que se pase en el</span>
+<span class="c1"># decorador.</span>
+<span class="c1">#</span>
+<span class="c1"># Note que explicitamente no se llama a la</span>
+<span class="c1"># función f</span>
+<span class="c1">#</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3db8fc0c3d2f4ac6ac89e6d1731457ca", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span></span><span class="c1">##</span>
+<span class="c1">## Ejemplo 3</span>
+<span class="c1">##</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>
-         <span class="n">n</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                               <span class="nb">max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-                               <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                               <span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
-         <span class="n">color</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Color:&#39;</span><span class="p">,</span>
-                                      <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">]));</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "781c1a0c6cbb44da80b27f7100efb56d", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-</div>
-<div class="section" id="interact">
-<h2>interact<a class="headerlink" href="#interact" title="Enlazar permanentemente con este título">¶</a></h2>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">`interact</span></code> at GitHub &lt;<a class="reference external" href="https://github.com/ipython/ipywidgets/blob/076f69845373aeecb55a3cfc6314d37823c79878/docs/source/examples/Using%20Interact.ipynb">https://github.com/ipython/ipywidgets/blob/076f69845373aeecb55a3cfc6314d37823c79878/docs/source/examples/Using%20Interact.ipynb</a>&gt;`__</p>
-</div></blockquote>
-<p>Permite la creación de controles interactivos en un libro de Jupyter.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># en primer lugar se define la función</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span>  <span class="c1"># este es el resultado que se visualiza debajo del control.</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># se llama la rurina interact</span>
-<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>  <span class="c1"># estos son los nombres de la función `f` y sus argumento `x`</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "97561de6730b473eafcfcb0f59b4ea07", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># si la función tiene más de un argumento:</span>
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-<span class="n">interact</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span> <span class="c1"># estos son los nombres de la función `g` y sus argumentos `x` y `y`</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1772e22e63fd433f8cefa989d50d73dd", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># mismo ejemplo anterior.</span>
-<span class="nd">@interact</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "90087980e6e34d95a11764bf9f4bd988", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># dependiendo del tipo de dato que se pase a la función `interact`</span>
-<span class="c1"># se produce el tipo de control</span>
-
-<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>  <span class="c1"># checkbox</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "57467697b9654ef7ae9136b4dd3c443e", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span><span class="s1">&#39;oranges&#39;</span><span class="p">])</span> <span class="p">;</span>  <span class="c1"># combo box</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c2a9d5e6a2414182b36d1e1b20b6a0a7", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Hi there!&#39;</span><span class="p">)</span>   <span class="c1"># text box</span>
+<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -581,93 +532,37 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "264e7a93b7184c698b7b8ef9153eb9e5", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a58ba560c7f644babe29729af22b5baa", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;function __main__.f(x)&gt;
+&lt;function __main__.f(n)&gt;
 </pre></div></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">interact</span></code> se puede usar para tareas más complejas. En el siguiente ejemplo, la barra de desplazamiento controla la cantidad de puntos generados aleatoriamente.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>
-         <span class="n">n</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                               <span class="nb">max</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-                               <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                               <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">));</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9fb7128cd1e5430fb6ba1cec310e5ca4", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 </div>
 <div class="section" id="interactive">
 <h2>interactive<a class="headerlink" href="#interactive" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Esta función devuelve un control que puede ser almacenado en una variable y reutilizado en el programa. Para usarlos controles es necesario importar la función <code class="docutils literal notranslate"><span class="pre">display</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">w</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># note que no visualiza nada</span>
-</pre></div>
-</div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># se cambian los valores al visualizar el control.</span>
+<span></span><span class="c1">##</span>
+<span class="c1">## Ejemplo 4</span>
+<span class="c1">##</span>
+
+<span class="c1">#</span>
+<span class="c1"># El objecto se almacena en la variable</span>
+<span class="c1">#</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Se visualiza el control</span>
+<span class="c1">#</span>
 <span class="n">display</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -676,48 +571,42 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "900279adcb354e64b91f949e2d66fa3f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "70c76782be614aea995145952cbd002d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># se obtienen los valores especificados por el usuario de la variable `kwargs` (diccionario)</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># Se recuperan los valores del control como un diccionario</span>
+<span class="c1">#</span>
 <span class="n">w</span><span class="o">.</span><span class="n">kwargs</span>
-
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;a&#39;: 10, &#39;b&#39;: 20}
+{&#39;n&#39;: 10}
 </pre></div></div>
 </div>
 </div>
-<div class="section" id=" Listado-completo-de-widgets">
-<h2> Listado completo de widgets<a class="headerlink" href="# Listado-completo-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El listado completo de widgets y su guía de uso puede obtenerse haciendo click <a class="reference external" href="https://github.com/ipython/ipywidgets/blob/076f69845373aeecb55a3cfc6314d37823c79878/docs/source/examples/Widget%20List.ipynb">aquí</a>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># algunos ejemplos del manual</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="Listado-completo-de-widgets">
+<h2>Listado completo de widgets<a class="headerlink" href="#Listado-completo-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La documentación está disponible en <a class="reference external" href="https://ipywidgets.readthedocs.io/en/latest">https://ipywidgets.readthedocs.io/en/latest</a>/#</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span>
+<span></span><span class="c1">#</span>
+<span class="c1"># algunos ejemplos del manual</span>
+<span class="c1">#</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">RadioButtons</span><span class="p">(</span>
     <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pizza topping:&#39;</span><span class="p">,</span>
     <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pepperoni&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">,</span> <span class="s1">&#39;anchovies&#39;</span><span class="p">],</span>
 <span class="p">)</span>
@@ -728,10 +617,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4e63f0b4e56e45a69d8330f68f69319b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7839c1bfd05f40fd8e713b794aeb66f0", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -746,10 +635,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "86d2cfac7bd34ba5ba4e166e53118488", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "672a028192d5401fa3f1fafed2494976", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -764,10 +653,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "505fa5e2a071425bb924f99ae37cb464", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "08a75a04b6584e22be6bc85f77254c67", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -779,12 +668,69 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b3d69f7546984436a74b39dce5a4f159", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "273445e118a7418da8ef2755edab0ce7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p><strong>Bibliografía</strong>.</p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/ipython/ipywidgets/tree/fdc76ec2f33c77eb4857c8e76b27fbe8debab2d5">ipywidget</a> at GitHub</p>
-</div></blockquote>
+</div>
+<div class="section" id="Ejemplo">
+<h2>Ejemplo<a class="headerlink" href="#Ejemplo" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Puntos de datos</span>
+<span class="c1">#</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">3.1416</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1"># Define las funciones</span>
+<span class="c1"># Note que solo reciben como parámetro el color</span>
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># Widgets interactivos</span>
+<span class="c1">#</span>
+
+<span class="n">interact</span><span class="p">(</span>
+    <span class="n">f1</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Color F1:&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">interact</span><span class="p">(</span>
+    <span class="n">f2</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Color F2:&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "105830551ea9406c94b883b721851dbd", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5d31f1225517494d9f0be745b50eacd7", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 </div>
 </div>
 
