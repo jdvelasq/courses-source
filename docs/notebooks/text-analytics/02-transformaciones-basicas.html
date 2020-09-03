@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Text Analytics — Transformaciones básicas &mdash; documentación de --- Cursos --- - </title>
+  <title>Transformaciones básicas de texto &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Text Analytics — Esquemas de representacion" href="03-esquemas-de-representacion.html" />
-    <link rel="prev" title="Text Analytics — Operaciones básicas sobre texto" href="01-operaciones-basicas-sobre-texto.html" /> 
+    <link rel="next" title="Esquemas de representacion" href="03-esquemas-de-representacion.html" />
+    <link rel="prev" title="Operaciones básicas sobre texto" href="01-operaciones-basicas-sobre-texto.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -147,7 +147,7 @@
         
           <li><a href="../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Text Analytics — Transformaciones básicas</li>
+      <li>Transformaciones básicas de texto</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -408,8 +408,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Text-Analytics-----Transformaciones-básicas">
-<h1>Text Analytics — Transformaciones básicas<a class="headerlink" href="#Text-Analytics-----Transformaciones-básicas" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Transformaciones-básicas-de-texto">
+<h1>Transformaciones básicas de texto<a class="headerlink" href="#Transformaciones-básicas-de-texto" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>30 min</em> | Última modificación: Sept 22, 2020</p></li>
 </ul>
@@ -474,6 +474,96 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
+<span class="c1">## HTML</span>
+<span class="c1">##</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://news.bbc.co.uk/2/hi/health/2284783.stm&quot;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+<span class="n">html</span><span class="p">[:</span><span class="mi">60</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&lt;!doctype html public &#34;-//W3C//DTD HTML 4.0 Transitional//EN&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Limpieza del HTML</span>
+<span class="c1">##</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">raw</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<span class="n">tokens</span><span class="p">[:</span><span class="mi">40</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;BBC&#39;,
+ &#39;NEWS&#39;,
+ &#39;|&#39;,
+ &#39;Health&#39;,
+ &#39;|&#39;,
+ &#39;Blondes&#39;,
+ &#34;&#39;to&#34;,
+ &#39;die&#39;,
+ &#39;out&#39;,
+ &#39;in&#39;,
+ &#39;200&#39;,
+ &#34;years&#39;&#34;,
+ &#39;NEWS&#39;,
+ &#39;SPORT&#39;,
+ &#39;WEATHER&#39;,
+ &#39;WORLD&#39;,
+ &#39;SERVICE&#39;,
+ &#39;A-Z&#39;,
+ &#39;INDEX&#39;,
+ &#39;SEARCH&#39;,
+ &#39;You&#39;,
+ &#39;are&#39;,
+ &#39;in&#39;,
+ &#39;:&#39;,
+ &#39;Health&#39;,
+ &#39;News&#39;,
+ &#39;Front&#39;,
+ &#39;Page&#39;,
+ &#39;Africa&#39;,
+ &#39;Americas&#39;,
+ &#39;Asia-Pacific&#39;,
+ &#39;Europe&#39;,
+ &#39;Middle&#39;,
+ &#39;East&#39;,
+ &#39;South&#39;,
+ &#39;Asia&#39;,
+ &#39;UK&#39;,
+ &#39;Business&#39;,
+ &#39;Entertainment&#39;,
+ &#39;Science/Nature&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
 <span class="c1">## Sentence tokenizer</span>
 <span class="c1">##</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
@@ -495,7 +585,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -509,7 +599,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -533,11 +623,11 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_text-analytics_02-transformaciones-basicas_5_0.png" src="../../_images/notebooks_text-analytics_02-transformaciones-basicas_5_0.png" />
+<img alt="../../_images/notebooks_text-analytics_02-transformaciones-basicas_7_0.png" src="../../_images/notebooks_text-analytics_02-transformaciones-basicas_7_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -558,7 +648,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -572,7 +662,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -581,7 +671,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 <span class="c1">##</span>
 
 <span class="c1">#</span>
-<span class="c1"># Se extraen nuevament los abstracts</span>
+<span class="c1"># Se extraen nuevamente los abstracts</span>
 <span class="c1">#</span>
 <span class="n">abstracts</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">Abstract</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">abstracts</span> <span class="o">=</span> <span class="n">abstracts</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span> <span class="n">w</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\u00a9</span><span class="s2">&quot;</span><span class="p">)],</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -596,7 +686,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -644,7 +734,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -660,7 +750,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -708,7 +798,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -725,7 +815,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -773,7 +863,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -787,7 +877,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -835,7 +925,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -857,7 +947,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -924,7 +1014,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 <div class="section" id="Remoción-de-acentos-y-caracteres-especiales">
 <h2>Remoción de acentos y caracteres especiales<a class="headerlink" href="#Remoción-de-acentos-y-caracteres-especiales" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -942,7 +1032,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -951,7 +1041,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -970,7 +1060,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -982,7 +1072,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 <div class="section" id="Corrección-de-texto">
 <h2>Corrección de texto<a class="headerlink" href="#Corrección-de-texto" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1000,7 +1090,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1009,7 +1099,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1019,7 +1109,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1028,18 +1118,17 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">w</span> <span class="o">=</span> <span class="n">Word</span><span class="p">(</span><span class="s1">&#39;flaot&#39;</span><span class="p">)</span>
 <span class="n">w</span><span class="o">.</span><span class="n">spellcheck</span><span class="p">()</span>
-
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1051,7 +1140,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 <div class="section" id="Stemming">
 <h2>Stemming<a class="headerlink" href="#Stemming" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1066,7 +1155,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1075,7 +1164,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1088,7 +1177,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1097,7 +1186,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1109,7 +1198,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1118,7 +1207,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1130,7 +1219,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1142,7 +1231,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 <div class="section" id="Lematizacion">
 <h2>Lematizacion<a class="headerlink" href="#Lematizacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1189,7 +1278,7 @@ fancy
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1213,7 +1302,7 @@ fancy
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1222,240 +1311,68 @@ fancy
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="POS-tagging">
-<h2>POS tagging<a class="headerlink" href="#POS-tagging" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Esquema-basico">
+<h2>Esquema basico<a class="headerlink" href="#Esquema-basico" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
-<span class="c1">## POS tagging usando spaCy</span>
+<span class="c1">## Clean html</span>
 <span class="c1">##</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;US unveils world&#39;s most powerful supercomputer, beats China.&quot;</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 
-<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">entity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># captura</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://news.bbc.co.uk/2/hi/health/2284783.stm&quot;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
 
-<span class="n">sentence_nlp</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="c1"># se remueven las etiquetas</span>
 
-<span class="n">spacy_pos_tagged</span> <span class="o">=</span> <span class="p">[(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">tag_</span><span class="p">,</span> <span class="n">word</span><span class="o">.</span><span class="n">pos_</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence_nlp</span><span class="p">]</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">spacy_pos_tagged</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Word&#39;</span><span class="p">,</span> <span class="s1">&#39;POS tag&#39;</span><span class="p">,</span> <span class="s1">&#39;Tag type&#39;</span><span class="p">])</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
+<span class="c1"># tokenizer</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">wordpunct_tokenize</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+
+<span class="c1"># tokens --&gt; text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+<span class="c1"># normalizacion</span>
+<span class="c1">#  remocion de puntuacion, acentos, numeros, puntuacion, ....</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+
+<span class="c1"># vocabulario</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))[:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Word</th>
-      <th>POS tag</th>
-      <th>Tag type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>US</td>
-      <td>NNP</td>
-      <td>PROPN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>unveils</td>
-      <td>VBZ</td>
-      <td>VERB</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>world</td>
-      <td>NN</td>
-      <td>NOUN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>'s</td>
-      <td>POS</td>
-      <td>PART</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>most</td>
-      <td>RBS</td>
-      <td>ADV</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>powerful</td>
-      <td>JJ</td>
-      <td>ADJ</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>supercomputer</td>
-      <td>NN</td>
-      <td>NOUN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>,</td>
-      <td>,</td>
-      <td>PUNCT</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>beats</td>
-      <td>VBZ</td>
-      <td>VERB</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>China</td>
-      <td>NNP</td>
-      <td>PROPN</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>.</td>
-      <td>.</td>
-      <td>PUNCT</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
-<span class="c1">## POS tagging usando NLTK</span>
-<span class="c1">##</span>
-<span class="kn">import</span> <span class="nn">nltk</span>
-
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
-<span class="n">nltk_pos_tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nltk_pos_tagged</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Word&#39;</span><span class="p">,</span> <span class="s1">&#39;POS tag&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-[nltk_data] Downloading package averaged_perceptron_tagger to
-[nltk_data]     /Users/jdvelasq/nltk_data...
-[nltk_data]   Package averaged_perceptron_tagger is already up-to-
-[nltk_data]       date!
+[&#39;&#34;&#39;,
+ &#34;&#39;&#34;,
+ &#39;,&#39;,
+ &#39;,&#34;&#39;,
+ &#39;-&#39;,
+ &#39;-------------&#39;,
+ &#39;----------------------------------------------------------------------------------&#39;,
+ &#39;.&#39;,
+ &#39;.&#34;&#39;,
+ &#39;/&#39;,
+ &#39;01&#39;,
+ &#39;02&#39;,
+ &#39;09&#39;,
+ &#39;11&#39;,
+ &#39;12&#39;,
+ &#39;17&#39;,
+ &#39;200&#39;,
+ &#39;2002&#39;,
+ &#39;2202&#39;,
+ &#39;27&#39;]
 </pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Word</th>
-      <th>POS tag</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>US</td>
-      <td>NNP</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>unveils</td>
-      <td>JJ</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>world</td>
-      <td>NN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>'s</td>
-      <td>POS</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>most</td>
-      <td>RBS</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>powerful</td>
-      <td>JJ</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>supercomputer</td>
-      <td>NN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>,</td>
-      <td>,</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>beats</td>
-      <td>VBZ</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>China</td>
-      <td>NNP</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>.</td>
-      <td>.</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
 </div>
 </div>
 </div>

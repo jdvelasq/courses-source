@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Text Analytics — Operaciones básicas sobre texto &mdash; documentación de --- Cursos --- - </title>
+  <title>Operaciones básicas sobre texto &mdash; documentación de --- Cursos --- - </title>
   
 
   
@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Text Analytics — Transformaciones básicas" href="02-transformaciones-basicas.html" />
+    <link rel="next" title="Transformaciones básicas de texto" href="02-transformaciones-basicas.html" />
     <link rel="prev" title="Taller — Identificación de créditos riesgosos" href="../sklearn/svm/1-06-taller.html" /> 
 </head>
 
@@ -147,7 +147,7 @@
         
           <li><a href="../../analitica-predictiva/content.html">Sesiones</a> &raquo;</li>
         
-      <li>Text Analytics — Operaciones básicas sobre texto</li>
+      <li>Operaciones básicas sobre texto</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -408,8 +408,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Text-Analytics-----Operaciones-básicas-sobre-texto">
-<h1>Text Analytics — Operaciones básicas sobre texto<a class="headerlink" href="#Text-Analytics-----Operaciones-básicas-sobre-texto" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="Operaciones-básicas-sobre-texto">
+<h1>Operaciones básicas sobre texto<a class="headerlink" href="#Operaciones-básicas-sobre-texto" title="Enlazar permanentemente con este título">¶</a></h1>
 <ul class="simple">
 <li><p><em>30 min</em> | Última modificación: Sept 22, 2020</p></li>
 </ul>
@@ -594,11 +594,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#</span>
-<span class="c1"># Se convierte todo el texto en un unico string</span>
-<span class="c1">#</span>
-<span class="n">words</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="n">words</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
+<span></span><span class="n">data</span><span class="o">.</span><span class="n">Abstract</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">Abstract</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="s1">&#39;mobility&#39;</span> <span class="ow">in</span> <span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -608,11 +604,155 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;Mobility is one of the fundamental requirements of human life with significant societal impacts including productivity, economy, social wellbeing, adaptation to a changing climate, and so on. Although human movements follow specific patterns during normal periods, there are limited studies on how su&#39;
+0       Mobility is one of the fundamental requirement...
+10      The tendency of people to form socially cohesi...
+54      In recent years, mobility data from smart card...
+95      The influence of urban design on economic vita...
+111     This study demonstrates the use of mobile phon...
+188     Customer profiles that include gender and age ...
+209     To measure job accessibility, person-based app...
+235     In this research, we exploit repeated parts in...
+236     Tourist flows in historical cities are continu...
+239     It is well reported that long commutes have a ...
+242     Nowadays, Location-Based Social Networks (LBSN...
+244     In the last decades, the notion that cities ar...
+251     In Latin America, shopping malls seem to offer...
+253     Traditional crime prediction models based on c...
+255     Human mobility always had a great influence on...
+257     In this paper, we follow the short-ranged Syri...
+262     Epidemic outbreaks are an important healthcare...
+263     Billions of users of mobile phones, social med...
+265     A multi-modal transportation system of a city ...
+266     Estimating revenue and business demand of a ne...
+275     Predictive models for human mobility have impo...
+582     Understanding and modeling the mobility of ind...
+587     Pokémon Go, a location-based game that uses au...
+597     Next place prediction algorithms are invaluabl...
+666     Walking is a form of active transportation wit...
+845     China’s economic reforms of 1978, which led to...
+865     Big data is among the most promising research ...
+870     Predicting human mobility flows at different s...
+886     Tourism is becoming a significant contributor ...
+891     Whenever someone makes or receives a call on a...
+894     The exploration of people’s everyday life has ...
+946     Cloud storage services have become ubiquitous....
+1056    In recent years, we have seen scientists attem...
+1061    One of the greatest concerns related to the po...
+1065    Transportation planning is strongly influenced...
+1066    Customers mobility is dependent on the sophist...
+1102    The wealth of information provided by real-tim...
+1134    Geospatial big data refers to spatial data set...
+1164    The consumerization of information technology ...
+1167    Human mobility in a city represents a fascinat...
+1169    There is an increasing trend of people leaving...
+1300    The newly released Orange D4D mobile phone dat...
+1325    This study leverages mobile phone data to anal...
+1580    The mobile cellular systems are expected to su...
+1625    In the age of mobile computing where users can...
+Name: Abstract, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## word tokenizer</span>
+<span class="c1">##</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">Abstract</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">)</span>
+
+<span class="c1"># primeros 10 tokens del primer abstract</span>
+<span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Mobility&#39;,
+ &#39;is&#39;,
+ &#39;one&#39;,
+ &#39;of&#39;,
+ &#39;the&#39;,
+ &#39;fundamental&#39;,
+ &#39;requirements&#39;,
+ &#39;of&#39;,
+ &#39;human&#39;,
+ &#39;life&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Collocations</span>
+<span class="c1">##</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+
+<span class="c1"># texto original</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Abstract</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Mobility is one of the fundamental requirements of human life with significant societal impacts including productivity, economy, social wellbeing, adaptation to a changing climate, and so on. Although human movements follow specific patterns during normal periods, there are limited studies on how such patterns change due to extreme events. To quantify the impacts of an extreme event to human movements, we introduce the concept of mobility resilience which is defined as the ability of a mobility system to manage shocks and return to a steady state in response to an extreme event. We present a method to detect extreme events from geo-located movement data and to measure mobility resilience and transient loss of resilience due to those events. Applying this method, we measure resilience metrics from geo-located social media data for multiple types of disasters occurred all over the world. Quantifying mobility resilience may help us to assess the higher-order socio-economic impacts of extreme events and guide policies towards developing resilient infrastructures as well as a nation’s overall disaster resilience strategies. &#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## textos que tienden a aparecer juntos</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">collocations</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+extreme events; human movements; mobility resilience; extreme event
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Se convierte todo el texto en un unico string</span>
+<span class="c1">#</span>
+<span class="n">words</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">words</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Mobility is one of the fundamental requirements of human life with significant societal impacts including productivity, economy, social wellbeing, adaptation to a changing climate, and so on. Although human movements follow specific patterns during normal periods, there are limited studies on how su&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -626,7 +766,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -635,7 +775,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -652,7 +792,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -661,7 +801,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -674,7 +814,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -683,7 +823,39 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">##</span>
+<span class="c1">## Busqueda de una palabra</span>
+<span class="c1">##</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Abstract</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="s1">&#39;mobility&#39;</span> <span class="ow">in</span> <span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0        True
+1       False
+2       False
+3       False
+4       False
+        ...
+1897    False
+1898    False
+1899    False
+1900    False
+1901    False
+Name: Abstract, Length: 1902, dtype: bool
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -699,7 +871,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -717,7 +889,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -737,7 +909,7 @@ Index([&#39;DOI&#39;, &#39;Link&#39;, &#39;Abstract&#39;], dtype=&#39;object&#39
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
