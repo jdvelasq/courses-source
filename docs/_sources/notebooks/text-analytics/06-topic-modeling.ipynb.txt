@@ -11,15 +11,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
-    "from scipy.sparse.linalg import svds\n",
+    "# from scipy.sparse.linalg import svds\n",
     "\n",
-    "def low_rank_svd(matrix, singular_count=2):\n",
-    "    u, s, vt = svds(matrix, k=singular_count) \n",
-    "    return u, s, vt"
+    "# def low_rank_svd(matrix, singular_count=2):\n",
+    "#     u, s, vt = svds(matrix, k=singular_count) \n",
+    "#     return u, s, vt"
    ]
   }
  ],
@@ -39,7 +39,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.3"
+   "version": "3.6.9"
   }
  },
  "nbformat": 4,

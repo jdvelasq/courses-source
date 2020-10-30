@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<html class="writer-html5" lang="es" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -25,18 +30,14 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Bonos" href="05-bonos.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> --- Cursos ---
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> --- Cursos ---
           
 
           
@@ -74,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -102,6 +104,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -140,7 +143,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../analitica-financiera/index.html">Analítica Financiera</a> &raquo;</li>
         
@@ -170,21 +173,35 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
     border: none;
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -231,20 +248,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -272,7 +302,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 /* override MathJax center alignment in output cells */
@@ -337,7 +367,8 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
+    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -437,7 +468,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <div class="math notranslate nohighlight">
 \[D_n = \frac{P-F}{N}\]</div>
-<p><strong>*Ejemplo.–*</strong> Un activo cuesta <code class="docutils literal notranslate"><span class="pre">$</span></code> 200. Si la depreciación ocurre durante 5 años, ¿cuál es su depreciación anual?.</p>
+<p><strong>Ejemplo.–</strong> Un activo cuesta <code class="docutils literal notranslate"><span class="pre">$</span></code> 200. Si la depreciación ocurre durante 5 años, ¿cuál es su depreciación anual?.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -590,7 +621,7 @@ Freq: A-DEC, dtype: float64
 </table>
 </div></div>
 </div>
-<p><strong>*Ejemplo.–*</strong> En el año 2001 se compra un activo por valor de <code class="docutils literal notranslate"><span class="pre">$</span></code> 200 y en el año 2006 otro activo por valor de <code class="docutils literal notranslate"><span class="pre">$</span></code> 300. Los activos tienen vidas útiles de 5 y 10 años respectivamente. Calcule la depreciación total anual para cada año. Haga sus cálculos iniciando en el año 2000.</p>
+<p><strong>Ejemplo.–</strong> En el año 2001 se compra un activo por valor de <code class="docutils literal notranslate"><span class="pre">$</span></code> 200 y en el año 2006 otro activo por valor de <code class="docutils literal notranslate"><span class="pre">$</span></code> 300. Los activos tienen vidas útiles de 5 y 10 años respectivamente. Calcule la depreciación total anual para cada año. Haga sus cálculos iniciando en el año 2000.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -892,7 +923,7 @@ Freq: A-DEC, dtype: float64
 \[S = \sum_{i=1}^N i = \frac{1}{2} N(N + 1)\]</div>
 <div class="math notranslate nohighlight">
 \[D_n = (P - F) * \frac{(N - n + 1)}{S} = 2 * (P - F) * \frac{N-n+1}{N(N+1)}\]</div>
-<p><strong>*Ejemplo.–*</strong> Un activo cuesta <code class="docutils literal notranslate"><span class="pre">$</span></code> 200. Si la depreciación ocurre durante 5 años, ¿cuál es su depreciación anual?.</p>
+<p><strong>Ejemplo.–</strong> Un activo cuesta <code class="docutils literal notranslate"><span class="pre">$</span></code> 200. Si la depreciación ocurre durante 5 años, ¿cuál es su depreciación anual?.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -1000,8 +1031,7 @@ Freq: A-DEC, dtype: float64
 </table>
 </div></div>
 </div>
-<div class="section" id=" Efecto-de-la-depreciación-sobre-el-impuesto-de-renta-y-el-flujo-de-caja">
-<h3> Efecto de la depreciación sobre el impuesto de renta y el flujo de caja<a class="headerlink" href="# Efecto-de-la-depreciación-sobre-el-impuesto-de-renta-y-el-flujo-de-caja" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>### Efecto de la depreciación sobre el impuesto de renta y el flujo de caja</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -1396,7 +1426,7 @@ Freq: A-DEC, dtype: float64
 </table>
 </div></div>
 </div>
-<p><strong>*Ejercicio.–*</strong> Una empresa de energía eléctrica realiza las siguientes inversiones:</p>
+<p><strong>Ejercicio.–</strong> Una empresa de energía eléctrica realiza las siguientes inversiones:</p>
 <ul class="simple">
 <li><p>Un nuevo edificio por <code class="docutils literal notranslate"><span class="pre">$</span></code> 1000 (depreciación en línea recta a 20 años) que entra en funcionamiento en 2018-01.</p></li>
 <li><p>Una nueva turbina por <code class="docutils literal notranslate"><span class="pre">$</span></code> 300 (depreciación usando el método de la suma de los dígitos de los años, a 10 años) que entra en operación en 2018-04.</p></li>
@@ -1415,7 +1445,6 @@ Freq: A-DEC, dtype: float64
 </div></blockquote>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -1428,11 +1457,19 @@ Freq: A-DEC, dtype: float64
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, Juan D. Velasquez
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1443,7 +1480,6 @@ Freq: A-DEC, dtype: float64
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

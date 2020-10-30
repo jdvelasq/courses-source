@@ -7,7 +7,7 @@
     "Algoritmo MapReduce -- WordCount en Python\n",
     "===\n",
     "\n",
-    "* *60 min* | Última modificación: Noviembre 05, 2019"
+    "* *60 min* | Última modificación: Octubre 20, 2020"
    ]
   },
   {
@@ -76,37 +76,6 @@
     "```\n",
     "cd /vagrant\n",
     "```\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Ejecución del contendor de Docker"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "Si va a iniciar el contendor de Hadoop en la carpeta compartida con su máquina local use:\n",
-    "\n",
-    "```\n",
-    "docker run --rm -it -v \"$PWD\":/datalake --name hadoop -p 50070:50070 -p 8088:8088 -p 8888:8888 -p 5000:5000 jdvelasq/hadoop:2.8.5\n",
-    "```\n",
-    "\n",
-    "Si desea iniciar la sesión en el `datalake` use:\n",
-    "\n",
-    "```\n",
-    "docker run --rm -it -v datalake:/datalake --name hadoop -p 50070:50070 -p 8088:8088 -p 8888:8888 -p 5000:5000 jdvelasq/hadoop:2.8.5\n",
-    "```\n",
-    "\n",
-    "\n",
-    "Si un contenedor ya se está ejecutando puede abrir un nuevo terminal con:\n",
-    "\n",
-    "```\n",
-    "docker exec -it hadoop bash\n",
-    "```"
    ]
   },
   {
@@ -538,7 +507,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.8"
+   "version": "3.6.9"
   }
  },
  "nbformat": 4,
