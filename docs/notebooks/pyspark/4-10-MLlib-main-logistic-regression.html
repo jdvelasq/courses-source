@@ -40,8 +40,8 @@
     
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Segmentación del mercado de adolecentes en PySpark" href="4-07-pyspark-clustering.html" />
-    <link rel="prev" title="Análisis de datos usando PySpark SQL" href="2-05-pyspark-flights.html" /> 
+    <link rel="next" title="Identificación de créditos riesgosos" href="4-11-MLlib-main-decision-tree-classifier.html" />
+    <link rel="prev" title="Análisis de datos usando PySpark SQL" href="3-09-SparkQL-flights.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -157,7 +157,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pyspark/3-06-pyspark-classification.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/notebooks/pyspark/4-10-MLlib-main-logistic-regression.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -463,23 +463,6 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">##</span>
-<span class="c1">## Se cargan librerías auxiliares que</span>
-<span class="c1">## pueden ser de utilidad en el desarrollo</span>
-<span class="c1">## del código</span>
-<span class="c1">##</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
 <span class="c1">## Carga de las librerías de Spark</span>
 <span class="c1">##</span>
 <span class="kn">import</span> <span class="nn">findspark</span>
@@ -498,7 +481,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>### Exploración</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -511,25 +494,26 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2019-11-15 00:54:50--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/oreilly.csv
+--2020-11-01 03:09:34--  https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/oreilly.csv
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 199.232.48.133
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|199.232.48.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 203329 (199K) [text/plain]
-Saving to: &#39;oreilly.csv&#39;
+Saving to: &#39;oreilly.csv.1&#39;
 
-oreilly.csv         100%[===================&gt;] 198.56K   534KB/s    in 0.4s
+oreilly.csv.1       100%[===================&gt;] 198.56K   852KB/s    in 0.2s
 
-2019-11-15 00:54:51 (534 KB/s) - &#39;oreilly.csv&#39; saved [203329/203329]
+2020-11-01 03:09:34 (852 KB/s) - &#39;oreilly.csv.1&#39; saved [203329/203329]
 
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">##</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1">##</span>
 <span class="c1">## Este archivo resulta particularmente difícil de</span>
 <span class="c1">## leer en Spark, por lo que se lee usando Pandas</span>
 <span class="c1">## para luego cargarlo en Spark.</span>
@@ -544,7 +528,7 @@ oreilly.csv         100%[===================&gt;] 198.56K   534KB/s    in 0.4s
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -569,7 +553,7 @@ oreilly.csv         100%[===================&gt;] 198.56K   534KB/s    in 0.4s
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -600,7 +584,7 @@ root
 <div class="section" id="Transformación-del-texto-en-variables-numéricas">
 <h4>Transformación del texto en variables numéricas<a class="headerlink" href="#Transformación-del-texto-en-variables-numéricas" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -651,7 +635,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -700,7 +684,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -753,7 +737,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -812,7 +796,7 @@ only showing top 20 rows
 <h4>Construcción de la variable de salida<a class="headerlink" href="#Construcción-de-la-variable-de-salida" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>A continuación, se procede a construir una variable binaria de salida para indicar el ranking de los libros. Si la variable vale 1, el libro pertence a los primeros 50, y 0 en caso contrario.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -866,7 +850,7 @@ only showing top 20 rows
 <h4>Regresión Logística<a class="headerlink" href="#Regresión-Logística" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>A continuación se construye un modelo de regresión logística que pronóstica si un libro pertence al grupo de los primeros 50 o no, con base en las palabras del abstract y que ya fueron representadas como un bag-of-words.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -897,7 +881,7 @@ only showing top 20 rows
 <div class="section" id="Arbol-de-clasificación">
 <h4>Arbol de clasificación<a class="headerlink" href="#Arbol-de-clasificación" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -921,7 +905,7 @@ only showing top 20 rows
 <div class="section" id="Random-Forest">
 <h4>Random Forest<a class="headerlink" href="#Random-Forest" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -946,7 +930,7 @@ only showing top 20 rows
 <div class="section" id="Resumen-de-resultados">
 <h4>Resumen de resultados<a class="headerlink" href="#Resumen-de-resultados" title="Enlazar permanentemente con este título">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -991,7 +975,7 @@ only showing top 20 rows
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1026,8 +1010,8 @@ DTC
   areaUnderPR  : 0.8805442176870748
 
 RFC
-  areaUnderROC : 0.9503205128205129
-  areaUnderPR  : 0.92921768707483
+  areaUnderROC : 0.9803921568627452
+  areaUnderPR  : 0.9903921568627451
 
 </pre></div></div>
 </div>

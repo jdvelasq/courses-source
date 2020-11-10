@@ -93,7 +93,8 @@ Sesión 2---07
 Sesión 2---08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Apache SparkQL**
+
+    **Apache Spark MLlib - RDD**
 
     .. toctree::
         :maxdepth: 1
@@ -105,7 +106,7 @@ Sesión 2---08
 Sesión 3---09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Apache Spark ML (I)**
+    **Apache SparkQL**
 
     .. toctree::
         :maxdepth: 1
@@ -114,22 +115,23 @@ Sesión 3---09
         /notebooks/pyspark/3-*
 
 
+
 Sesión 3---10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Apache Spark ML (III)**
+    **Apache Spark MLlib-main (I)**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
         /notebooks/pyspark/4-*
-        
-        
+
+
 Sesión 3---11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Apache Spark ML**
+    **Apache Spark MLlib-main (II)**
 
     .. toctree::
         :maxdepth: 1
@@ -141,21 +143,26 @@ Sesión 3---11
 Sesión 3---12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Apache Spark Streaming**
+**Apache Spark ML**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
         /notebooks/pyspark/6-*
-    
-       
+
 
 Sesión 4---13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Apache Spark Graphx**
 
+    **Apache Spark Streaming**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/pyspark/7-*
     
 
 Sesión 4---14
@@ -165,6 +172,7 @@ Sesión 4---14
 
 Sesión 4---15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 
 
@@ -191,12 +199,5 @@ Material complementario
         :glob:
 
         /notebooks/sparklyr/*
-
-
-
-
-
-
-
 
 
