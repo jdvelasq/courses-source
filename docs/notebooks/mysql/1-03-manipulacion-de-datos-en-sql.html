@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="es" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,14 +25,18 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Creación de consultas básicas en SQL" href="1-04-creacion-de-consultas-basicas-en-sql.html" />
@@ -55,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> --- Cursos ---
+            <a href="../../index.html" class="icon icon-home"> --- Cursos ---
           
 
           
@@ -75,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -107,7 +105,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -146,7 +143,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a> &raquo;</li>
         
@@ -176,35 +173,21 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
     border: none;
-    padding: 0;
+    padding: 0 0;
     margin: 0;
     box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -251,33 +234,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -305,7 +275,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    /*background: #f5f5f5;*/
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -370,8 +340,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -464,20 +433,20 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="k">DROP</span> <span class="k">DATABASE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="n">DMLdb</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">DMLdb</span><span class="p">;</span>
-<span class="n">USE</span> <span class="n">DMLdb</span><span class="p">;</span>
+DROP DATABASE IF EXISTS DMLdb;
+CREATE DATABASE DMLdb;
+USE DMLdb;
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">persons</span> <span class="p">(</span>
-    <span class="n">id</span> <span class="nb">INT</span><span class="p">,</span>
-    <span class="n">firstname</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-    <span class="n">surname</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-    <span class="n">birthday</span> <span class="nb">DATE</span><span class="p">,</span>
-    <span class="n">color</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span>
-    <span class="n">quantity</span> <span class="nb">INT</span>
-<span class="p">);</span>
+CREATE TABLE persons (
+    id INT,
+    firstname VARCHAR(10),
+    surname VARCHAR(10),
+    birthday DATE,
+    color VARCHAR(9),
+    quantity INT
+);
 
 </pre></div>
 </div>
@@ -513,8 +482,8 @@ Index: []
 </pre></div>
 </div>
 <p>(no funciona dentro de Jupyter)</p>
-<hr class="docutils" />
 </div>
+<hr class="docutils" />
 <div class="section" id="INSERT">
 <h2>INSERT<a class="headerlink" href="#INSERT" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSERT</span> <span class="p">[</span><span class="n">INTO</span><span class="p">]</span> <span class="n">tbl_name</span> <span class="p">[(</span><span class="n">column_name</span><span class="p">,</span><span class="o">...</span><span class="p">)]</span>
@@ -526,16 +495,16 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Inserta el registro en la tabla.</span>
-<span class="c1">-- Los valores están en el mismo orden de los campos.</span>
-<span class="c1">--</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">persons</span> <span class="k">VALUES</span>
-   <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="ss">&quot;Vivian&quot;</span><span class="p">,</span><span class="ss">&quot;Hamilton&quot;</span><span class="p">,</span><span class="ss">&quot;1971-07-08&quot;</span><span class="p">,</span><span class="ss">&quot;green&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+--
+-- Inserta el registro en la tabla.
+-- Los valores están en el mismo orden de los campos.
+--
+INSERT INTO persons VALUES
+   (1,&quot;Vivian&quot;,&quot;Hamilton&quot;,&quot;1971-07-08&quot;,&quot;green&quot;,1);
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -563,17 +532,17 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Inserta varios registros a la vez.</span>
-<span class="c1">-- Los valores deben estar en el mismo orden de los campos.</span>
-<span class="c1">--</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">persons</span> <span class="k">VALUES</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="ss">&quot;Karen&quot;</span><span class="p">,</span><span class="ss">&quot;Holcomb&quot;</span><span class="p">,</span><span class="ss">&quot;1974-05-23&quot;</span><span class="p">,</span><span class="ss">&quot;green&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="ss">&quot;Cody&quot;</span><span class="p">,</span><span class="ss">&quot;Garrett&quot;</span><span class="p">,</span><span class="ss">&quot;1973-04-22&quot;</span><span class="p">,</span><span class="ss">&quot;orange&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+--
+-- Inserta varios registros a la vez.
+-- Los valores deben estar en el mismo orden de los campos.
+--
+INSERT INTO persons VALUES
+    (2,&quot;Karen&quot;,&quot;Holcomb&quot;,&quot;1974-05-23&quot;,&quot;green&quot;,4),
+    (3,&quot;Cody&quot;,&quot;Garrett&quot;,&quot;1973-04-22&quot;,&quot;orange&quot;,1);
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -603,18 +572,18 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Inserta registros con información parcial.</span>
-<span class="c1">-- Se indica en cuales campos se inserta la información.</span>
-<span class="c1">--</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">persons</span> <span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="n">firstname</span><span class="p">,</span><span class="n">surname</span><span class="p">)</span> <span class="k">VALUES</span>
-    <span class="p">(</span><span class="ss">&quot;violet&quot;</span><span class="p">,</span><span class="ss">&quot;Vivian&quot;</span><span class="p">,</span> <span class="ss">&quot;Kinney&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="ss">&quot;blue&quot;</span><span class="p">,</span><span class="ss">&quot;Hope&quot;</span><span class="p">,</span><span class="ss">&quot;Kingston&quot;</span><span class="p">),</span>
-    <span class="p">(</span><span class="ss">&quot;red&quot;</span><span class="p">,</span><span class="ss">&quot;Kylan&quot;</span><span class="p">,</span><span class="ss">&quot;Bigelow&quot;</span><span class="p">);</span>
+--
+-- Inserta registros con información parcial.
+-- Se indica en cuales campos se inserta la información.
+--
+INSERT INTO persons (color,firstname,surname) VALUES
+    (&quot;violet&quot;,&quot;Vivian&quot;, &quot;Kinney&quot;),
+    (&quot;blue&quot;,&quot;Hope&quot;,&quot;Kingston&quot;),
+    (&quot;red&quot;,&quot;Kylan&quot;,&quot;Bigelow&quot;);
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -647,14 +616,14 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Inserta un registro con información en un solo campo.</span>
-<span class="c1">-- Se indica en cual campo se inserta la información</span>
-<span class="c1">--</span>
-<span class="k">INSERT</span> <span class="n">persons</span> <span class="p">(</span><span class="n">firstname</span><span class="p">)</span> <span class="n">VALUE</span> <span class="p">(</span><span class="ss">&quot;Camil&quot;</span><span class="p">);</span>
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+--
+-- Inserta un registro con información en un solo campo.
+-- Se indica en cual campo se inserta la información
+--
+INSERT persons (firstname) VALUE (&quot;Camil&quot;);
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -688,18 +657,18 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Se inserta información en un registro.</span>
-<span class="c1">-- No se indican los nombres de los campos.</span>
-<span class="c1">-- Se usa NULL para los campos que no tienen información.</span>
-<span class="c1">--</span>
-<span class="k">INSERT</span> <span class="k">INTO</span>
-    <span class="n">persons</span>
-<span class="k">VALUES</span>
-    <span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="ss">&quot;Kate&quot;</span><span class="p">,</span><span class="ss">&quot;Bond&quot;</span><span class="p">,</span><span class="ss">&quot;1974-05-23&quot;</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">);</span>
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+--
+-- Se inserta información en un registro.
+-- No se indican los nombres de los campos.
+-- Se usa NULL para los campos que no tienen información.
+--
+INSERT INTO
+    persons
+VALUES
+    (NULL,&quot;Kate&quot;,&quot;Bond&quot;,&quot;1974-05-23&quot;,NULL,NULL);
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -742,21 +711,21 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Se actualiza la información de los campos de registros existentes.</span>
-<span class="c1">-- Se indica explictamente el valor de cada campo.</span>
-<span class="c1">-- Si no se introduce la clausura WHERE se cambian todos los</span>
-<span class="c1">-- los registros de la tabla.</span>
-<span class="c1">--</span>
-<span class="k">UPDATE</span> <span class="n">persons</span> <span class="k">SET</span>
-    <span class="n">id</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="ss">&quot;gray&quot;</span>
-<span class="k">WHERE</span>
-    <span class="n">firstname</span> <span class="o">=</span> <span class="ss">&quot;Kate&quot;</span><span class="p">;</span>
+--
+-- Se actualiza la información de los campos de registros existentes.
+-- Se indica explictamente el valor de cada campo.
+-- Si no se introduce la clausura WHERE se cambian todos los
+-- los registros de la tabla.
+--
+UPDATE persons SET
+    id = 8,
+    color = &quot;gray&quot;
+WHERE
+    firstname = &quot;Kate&quot;;
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -791,19 +760,19 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="o">##</span>
-<span class="o">##</span> <span class="n">Se</span> <span class="n">actualiza</span> <span class="n">el</span> <span class="n">campo</span> <span class="n">con</span> <span class="n">base</span> <span class="n">en</span> <span class="n">el</span> <span class="n">indicador</span><span class="p">.</span>
-<span class="o">##</span>
-<span class="k">UPDATE</span>
-    <span class="n">persons</span>
-<span class="k">SET</span>
-   <span class="n">color</span> <span class="o">=</span> <span class="ss">&quot;black&quot;</span>
-<span class="k">WHERE</span>
-   <span class="n">id</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+##
+## Se actualiza el campo con base en el indicador.
+##
+UPDATE
+    persons
+SET
+   color = &quot;black&quot;
+WHERE
+   id = 8;
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -844,18 +813,18 @@ Index: []
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-sql notranslate"><div class="highlight"><pre>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%</span><span class="k">sql</span>
-<span class="c1">--</span>
-<span class="c1">-- Se borran registros de la tabla.</span>
-<span class="c1">-- Si no se usa WHERE se borran todos los registros de la tabla.</span>
-<span class="c1">--</span>
-<span class="k">DELETE</span> <span class="k">FROM</span>
-  <span class="n">persons</span>
-<span class="k">WHERE</span>
-  <span class="n">firstname</span><span class="o">=</span><span class="ss">&quot;Vivian&quot;</span> <span class="k">AND</span> <span class="n">color</span><span class="o">=</span><span class="ss">&quot;violet&quot;</span><span class="p">;</span>
+--
+-- Se borran registros de la tabla.
+-- Si no se usa WHERE se borran todos los registros de la tabla.
+--
+DELETE FROM
+  persons
+WHERE
+  firstname=&quot;Vivian&quot; AND color=&quot;violet&quot;;
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">persons</span><span class="p">;</span>
+SELECT * FROM persons;
 </pre></div>
 </div>
 </div>
@@ -996,19 +965,11 @@ Overwriting DMLpersons.csv
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2019, Juan D. Velasquez
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1019,6 +980,7 @@ Overwriting DMLpersons.csv
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

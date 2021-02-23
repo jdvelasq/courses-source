@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="es" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -30,14 +25,18 @@
         <script type="text/javascript" src="../../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
     <link rel="next" title="Filtrado de spam en mensajes de texto (SMS)" href="02-filtrado-de-mensajes-sms.html" />
@@ -55,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> --- Cursos ---
+            <a href="../../../index.html" class="icon icon-home"> --- Cursos ---
           
 
           
@@ -75,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -105,7 +103,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -144,7 +141,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../../../analitica-predictiva/index.html">Analítica Predictiva</a> &raquo;</li>
         
@@ -174,35 +171,21 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
     border: none;
-    padding: 0;
+    padding: 0 0;
     margin: 0;
     box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -249,33 +232,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -303,7 +273,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    /*background: #f5f5f5;*/
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -368,8 +338,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -587,7 +556,7 @@ condicional en términos de la probabilidad conjunta.</p>
 </div>
 <div class="section" id="Aplicación-al-problema-propuesto">
 <h2>Aplicación al problema propuesto<a class="headerlink" href="#Aplicación-al-problema-propuesto" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>En términos del problema de filtrado de mensajes de texto, V1 se interpreta como “Es spam” y V2 como NOT “Es spam”, ya que son eventos mutuamente exclusivos y colectivamente exhaustivos. Si F es la ocurrencia de una determinada palabra en el texto, como por ejemplo “Viagra”, entonces F1 sería “Viagra”(“viagra” aparece en el mensaje) y F2 sería NOT “Viagra” (“viagra” no aparece en el mensaje).</p>
+<p>En términos del problema de filtrado de mensajes de texto, V1 se interpreta como «Es spam» y V2 como NOT «Es spam», ya que son eventos mutuamente exclusivos y colectivamente exhaustivos. Si F es la ocurrencia de una determinada palabra en el texto, como por ejemplo «Viagra», entonces F1 sería «Viagra»(«viagra» aparece en el mensaje) y F2 sería NOT «Viagra» («viagra» no aparece en el mensaje).</p>
 <p>De acuerdo con el teorema de Bayes:</p>
 <div class="math notranslate nohighlight">
 \[\text{Pr}(\text{spam} \; | \; \text{viagra}) = \frac{\text{Pr}(\text{viagra} \, | \,
@@ -1141,8 +1110,8 @@ BernoulliNB(alpha=1.0, binarize=0.0, class_prior=None, fit_prior=True)
 </div>
 </div>
 </div>
-<div class="section" id="Apéndice-—-Solución-en-R">
-<h2>Apéndice — Solución en R<a class="headerlink" href="#Apéndice-—-Solución-en-R" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="Apéndice-----Solución-en-R">
+<h2>Apéndice — Solución en R<a class="headerlink" href="#Apéndice-----Solución-en-R" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación se presenta la solución del ejercicio anterior usando el lenguaje R.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1244,7 +1213,7 @@ $`5`
 <span class="c1">##</span>
 <span class="c1">## Se puede consultar un mensaje individual</span>
 <span class="c1">##</span>
-<span class="nf">inspect</span><span class="p">(</span><span class="n">data_corpus</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+<span class="nf">inspect</span><span class="p">(</span><span class="n">data_corpus[[1]]</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1472,19 +1441,11 @@ Levels:
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2019, Juan D. Velasquez
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1495,6 +1456,7 @@ Levels:
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {

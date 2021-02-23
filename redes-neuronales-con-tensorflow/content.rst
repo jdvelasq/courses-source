@@ -11,6 +11,12 @@ Sesión 01
     * Ver la sección de *Información del curso* en el menú de la izquierda.
 
     
+    **Charla --- Introducción a la Inteligencia Computacional**
+
+
+Sesión 02
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     **Modelo de McCulloch-Pitts**
     
     .. toctree::
@@ -28,7 +34,7 @@ Sesión 01
         
         /notebooks/sklearn/fundamentals/1-*
 
-Sesión 02
+Sesión 03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Fundamentos de aprendizaje automático --- II**
@@ -40,7 +46,7 @@ Sesión 02
         /notebooks/sklearn/fundamentals/2-*
 
 
-Sesión 03
+Sesión 04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Fundamentos de aprendizaje automático --- III**
@@ -52,7 +58,7 @@ Sesión 03
         /notebooks/sklearn/fundamentals/3-*
 
 
-Sesión 04
+Sesión 05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Fundamentos de aprendizaje automático --- IV**
@@ -64,7 +70,7 @@ Sesión 04
         /notebooks/sklearn/fundamentals/4-*
 
 
-Sesión 05
+Sesión 06
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Gradiente descendente estocástico**
@@ -84,7 +90,7 @@ Sesión 05
 
         /notebooks/sklearn/bipolar-perceptron/*
 
-Sesión 06
+Sesión 07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Combinadores lineales adaptativos**
@@ -96,7 +102,7 @@ Sesión 06
         /notebooks/sklearn/adaline/*
 
 
-Sesión 07
+Sesión 08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Perceptrón continuo y regresión logística**
@@ -114,7 +120,7 @@ Sesión 07
         /notebooks/sklearn/logistic/*
 
 
-Sesión 08
+Sesión 09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Perceptrones multicapa**
@@ -126,7 +132,7 @@ Sesión 08
         /notebooks/sklearn/mlp/*
 
 
-Sesión 09
+Sesión 10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Support Vector Machines**
@@ -138,7 +144,7 @@ Sesión 09
         /notebooks/sklearn/svm/*
 
 
-Sesión 10
+Sesión 11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Fundamentos de optimización no lineal**
@@ -158,7 +164,7 @@ Sesión 10
             /notebooks/sklearn/associative/*
 
 
-Sesión 11
+Sesión 12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Arboles de regresión y clasificación**
@@ -170,7 +176,7 @@ Sesión 11
         /notebooks/sklearn/trees/*
 
 
-Sesión 12
+Sesión 13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Leaning con TensorFlow-2.0 --- I**
@@ -182,7 +188,7 @@ Sesión 12
         /notebooks/tensorflow/01-*
 
 
-Sesión 13
+Sesión 14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Leaning con TensorFlow-2.0 --- II**
@@ -194,7 +200,7 @@ Sesión 13
         /notebooks/tensorflow/02-*
 
 
-Sesión 14
+Sesión 15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Leaning con TensorFlow-2.0 --- III**
@@ -205,7 +211,7 @@ Sesión 14
 
         /notebooks/tensorflow/03-*
 
-Sesión 15
+Sesión 16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Leaning con TensorFlow-2.0 --- IV**
@@ -215,9 +221,6 @@ Sesión 15
         :glob:
 
         /notebooks/tensorflow/04-*
-
-Sesión 16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
      .. toctree::
         :maxdepth: 1

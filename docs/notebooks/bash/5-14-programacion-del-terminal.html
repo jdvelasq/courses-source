@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="es" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,18 +12,12 @@
   
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,14 +25,18 @@
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
         <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Creación y ejecución de programas de Python" href="../python/1-01-python-en-bash.html" />
@@ -55,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> --- Cursos ---
+            <a href="../../index.html" class="icon icon-home"> --- Cursos ---
           
 
           
@@ -75,7 +74,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -107,7 +105,6 @@
             
           
         </div>
-        
       </div>
     </nav>
 
@@ -146,7 +143,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
           <li><a href="../../ciencia-de-los-datos/index.html">Ciencia de los Datos</a> &raquo;</li>
         
@@ -176,35 +173,21 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
     border: none;
-    padding: 0;
+    padding: 0 0;
     margin: 0;
     box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -251,33 +234,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -305,7 +275,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    /*background: #f5f5f5;*/
+    background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
@@ -370,8 +340,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -446,7 +415,8 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p><em>120 min</em> | Última modificación: Diciembre 17, 2019.</p></li>
 </ul>
-<p>## Variables y arrays</p>
+<div class="section" id=" Variables-y-arrays">
+<h2> Variables y arrays<a class="headerlink" href="# Variables-y-arrays" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Las variables en Bash funcionan de forma análoga a las variables en otros lenguajes de programación.</p>
 <p>Las variables en Bash no necesitan ser declaradas (tal como en el lenguaje C) para ser usadas. Para hacer la asignación se utiliza el símbolo <code class="docutils literal notranslate"><span class="pre">=</span></code>; note que no puede haber espacio alrededor del <code class="docutils literal notranslate"><span class="pre">=</span></code>. En la segunda línea de código es necesario preceder el nombre de la variable por <code class="docutils literal notranslate"><span class="pre">$</span></code> para indicar que var1 es un nombre de variable y no una cadena de texto.</p>
 <div class="nbinput docutils container">
@@ -704,7 +674,9 @@ d
 e
 </pre></div></div>
 </div>
-<p>## Scripts</p>
+</div>
+<div class="section" id=" Scripts">
+<h2> Scripts<a class="headerlink" href="# Scripts" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los scripts son archivos que contienen secuencias de comandos y que pueden ser ejecutados directamente en la línea de comandos (Bash en este caso). En el siguiente ejemplo, se va a crear un script llamado <code class="docutils literal notranslate"><span class="pre">demo.sh</span></code> el cual imprime <code class="docutils literal notranslate"><span class="pre">hola</span> <span class="pre">mundo</span></code> en la pantalla.</p>
 <p>Se direcciona la salida al archivo en vez de la pantalla.</p>
 <div class="nbinput nblast docutils container">
@@ -947,6 +919,7 @@ demo.sh
 a
 4
 </pre></div></div>
+</div>
 </div>
 <div class="section" id="Funciones">
 <h2>Funciones<a class="headerlink" href="#Funciones" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -1467,7 +1440,8 @@ minimum <span class="m">6</span> <span class="m">1</span> <span class="m">7</spa
 <h2>Implementación de herramientas escritas en otros lenguajes<a class="headerlink" href="#Implementación-de-herramientas-escritas-en-otros-lenguajes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una de las características primordiales del sistema operativo Unix es que los comandos como cat y ls, realmente son programas (almacenados en archivos) que existen en el disco duro del computador y el interprete de comandos los ejecuta en respuesta a las acciones del usuario. Cada uno de estos programas puede estar escrito en un lenguaje de programación y el interprete permite que se ejecuten de una forma transparente. Consecuentemente, la utilidad de la línea de comandos radica en la
 posibilidad de crear nuevas herramientas con el lenguaje de programación que sea más ventajoso para cada tarea particular, y combinarlas con las herramientas existentes.</p>
-<p>### Herramientas en Python</p>
+<div class="section" id=" Herramientas-en-Python">
+<h3> Herramientas en Python<a class="headerlink" href="# Herramientas-en-Python" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Como primer ejemplo, se escribirá una herramienta <code class="docutils literal notranslate"><span class="pre">seq.py</span></code> en el lenguaje Python, la cual recibe como parámetro un entero <code class="docutils literal notranslate"><span class="pre">n</span></code> e imprima la secuencia de <code class="docutils literal notranslate"><span class="pre">1</span></code> hasta <code class="docutils literal notranslate"><span class="pre">n</span></code>. Si se desea una herramientas que funcione de forma similar a los comandos del sistema operativo se obviaría la extensión del archivo.</p>
 <p>El primer paso es ubicar el directorio de instalación de Python usando el comando <code class="docutils literal notranslate"><span class="pre">which</span></code>.</p>
 <div class="nbinput docutils container">
@@ -1627,7 +1601,9 @@ cat &gt; seq.py <span class="s">&lt;&lt;EOF</span>
 4
 </pre></div></div>
 </div>
-<p>### Herramientas en R (deprecated)</p>
+</div>
+<div class="section" id=" Herramientas-en-R-(deprecated)">
+<h3> Herramientas en R (deprecated)<a class="headerlink" href="# Herramientas-en-R-(deprecated)" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>También es posible escribir herramientas en R. En este ejemplo se escribirá una herramienta que genere una secuencia de números aleatorios. En primer lugar (al igual que en el caso anterior), se obtiene la ubicación del interprete del lenguaje R para la consola de comandos.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
@@ -1797,6 +1773,7 @@ rm demo*
 </div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -1809,19 +1786,11 @@ rm demo*
 
   <div role="contentinfo">
     <p>
-        
         &copy; Copyright 2019, Juan D. Velasquez
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1832,6 +1801,7 @@ rm demo*
 
   </div>
   
+
 
   <script type="text/javascript">
       jQuery(function () {
