@@ -46,11 +46,18 @@ extensions = [
 #    'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx.ext.autosectionlabel',
+    'sphinx_copybutton',
 #    'sphinx.ext.ifconfig',
 #    'sphinx.ext.viewcode',
 #    'sphinx.ext.githubpages',
     'nbsphinx',
 ]
+
+highlight_options = {
+  'python': {'linenos':  1},
+  # 'python3': {'linenos': 1},
+  'default': {'linenos': 1},
+}
 
 # Add any paths that contain templates here, relative to this directory.
 #templates_path = ['_templates']
