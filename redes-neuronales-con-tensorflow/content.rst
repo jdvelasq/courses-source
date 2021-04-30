@@ -170,7 +170,7 @@ Sesión 09
         :maxdepth: 1
         :glob:
 
-        /notebooks/sklearn/mlp/*
+        /notebooks/sklearn/mlp/1-*
 
 
     * `LAB --- Clasificación del conjunto artificial de datos de los dos circulos usando MLP <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_de_datos_de_los_dos_circulos_usando_mlp.ipynb>`_.
@@ -207,6 +207,88 @@ Sesión 10
 Sesión 11
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Arboles de regresión y clasificación**
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+
+        /notebooks/sklearn/trees/*
+
+
+    * `LAB --- Clasificación del conjunto artificial 2G4C usando Arboles <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_2G4C_usando_arboles.ipynb>`_.
+
+
+
+
+    **Ensambles de modelos y combinación de pronósticos**
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+
+        /notebooks/sklearn/ensembles/1-*
+
+
+Sesión 12
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Leaning con TensorFlow-2.0 --- I**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/0-*
+        /notebooks/tensorflow/1-*
+
+
+Sesión 13
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Leaning con TensorFlow-2.0 --- II**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/2-*
+
+
+Sesión 14
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Leaning con TensorFlow-2.0 --- III**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/3-*
+
+Sesión 15
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Leaning con TensorFlow-2.0 --- IV**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/4-*
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+ 
+        /notebooks/tensorflow/5-*
+
+
+
+
+Sesión 16
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     **Fundamentos de optimización no lineal**
 
     .. toctree::
@@ -224,73 +306,9 @@ Sesión 11
             /notebooks/sklearn/associative/*
 
 
-Sesión 12
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Arboles de regresión y clasificación**
-
-    .. toctree::
-        :titlesonly:
-        :glob:
-
-        /notebooks/sklearn/trees/*
-
-
-    * `LAB --- Clasificación del conjunto artificial 2G4C usando Arboles <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_2G4C_usando_arboles.ipynb>`_.
 
 
 
-Sesión 13
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Leaning con TensorFlow-2.0 --- I**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/01-*
-
-
-Sesión 14
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Leaning con TensorFlow-2.0 --- II**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/02-*
-
-
-Sesión 15
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Leaning con TensorFlow-2.0 --- III**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/03-*
-
-Sesión 16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Leaning con TensorFlow-2.0 --- IV**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/04-*
-
-     .. toctree::
-        :maxdepth: 1
-        :glob:
- 
-        /notebooks/tensorflow/05-*
 
 
 

@@ -1,0 +1,19 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'dropout.py'
+ outputting to 'dropout_v2.py'
+--------------------------------------------------------------------------------
+
+3:4: INFO: Changing keep_prob arg of tf.nn.dropout to rate, and recomputing value.
+
+4:4: INFO: Renaming tf.zeros_like to tf.compat.v1.zeros_like because argument optimize is present. tf.zeros_like no longer takes an optimize argument, and behaves as if optimize=True. This call site specifies something other than optimize=True, so it was converted to compat.v1.
+--------------------------------------------------------------------------------
+
