@@ -1,0 +1,164 @@
+TUTORIALS
+=================================================
+
+       Quickstart
+[X]      QuickStart for beginners
+[ ]      QuickStart for experts
+
+       ML basics with Keras
+[X]      Basic image clasification
+[ ]      Basic text clasification
+[ ]      Text clasification with TF Hub
+[ ]      Regression
+[ ]      Overfit and underfit
+[ ]      Save and load
+[ ]      Tune hyperparameters with keras tuner
+[ ]      MORE EXAMPLES ON KERAS.IO
+
+       Load and preprocess data
+[ ]      Images
+[ ]      CSV
+[ ]      NumPy
+[ ]      pandas.DataFrame
+[ ]      TF.Text
+[ ]      Subword tokenization
+[ ]      TFRecord and tf.Example
+[ ]      Additional formats with tf.io
+
+       Customization
+[ ]      Tensor and operations
+[ ]      Custom layers
+[ ]      Custom training: walkthrough
+
+       Distributed training
+[ ]      Distributed training with keras
+[ ]      custom training loops
+[ ]      Multi-worker training with keras
+[ ]      Multi-worker training with CTL
+[ ]      Parameter server training
+[ ]      Save and load
+[ ]      Distributed input
+
+       Images
+[ ]      Convolutotional neural networks
+[ ]      image clasification
+[ ]      transfer learning and fine-tuning
+[ ]      Tranfer learning with TF Hub
+[ ]      Data Augmentation
+[ ]      Image segmentation
+[ ]      Object detection with TF Hub
+
+       Text
+[ ]      Word emebddings
+[ ]      Word2vec
+[ ]      text clasification with an RNN
+[ ]      Classify text with bert
+[ ]      solve GLUE task using bert on TPU
+[ ]      Fine tunning  BERT
+[ ]      Text generation with an RNN
+[ ]      Neural machine translation with attention
+[ ]      Image captioning
+[ ]      Transfer model for language understanding
+
+       Audio
+[ ]      Sample audio recognition
+[ ]      Transfer learning for audio recognition
+
+       Structured data
+[ ]      Classify structured data with feature columns
+[ ]      Classify structured data with preprocessing layers
+[ ]      Classification of imbalanced data
+[ ]      Time series forecasting
+[ ]      Reomenders 
+
+       Generative
+[ ]      Neural style transfer
+[ ]      DeepDream
+[ ]      DCGAN
+[ ]      Pix2Pix
+[ ]      CycleGAN
+[ ]      Adversarial FGSM
+[ ]      Intro to autoencoders
+[ ]      variational autoencoders
+
+
+       Interpretability
+[ ]      Integrated gradients
+
+
+       Reinforced learning
+[ ]      Actor-critic method
+[ ]      TensorFlow agents
+
+       tf.Estimator
+[ ]      Premade estimator
+[ ]      Linear models
+[ ]      Boosted trees
+[ ]      Boosted. trees understanding
+[ ]      Keras model to estimator
+[ ]      multi-worker training with estimator
+
+GUIDE
+=========================================================
+
+       TensorFlow 2.0
+
+       TensorFlow Basics
+[ ]      Eager execution
+[ ]      Tensor
+[ ]      Variable
+[ ]      Automatic differenciation
+[ ]      Intro to graphs and functions
+[ ]      Intro to modules, layers and models
+[ ]      Training loops
+[ ]      Advanced autodiff
+[ ]      ragged tensor
+[ ]      sparce tensor
+[ ]      NumPy API
+[ ]      Tensor slicing
+
+       Keras
+[ ]      The sequential model
+[ ]      The funcional api
+[ ]      Training and evaluation with built-methods
+[ ]      Making new layers and models via subclassing
+[ ]      Save and load Keras models
+[ ]      Working with preprocessing layers
+[ ]      Customize what happens in model.fit
+[ ]      Writing a training loop from scratch
+[ ]      Recurrent neural networks with keras
+[ ]      Masking and padding with keras
+[ ]      Writing you own callbacks
+[ ]      Transfer learning and fine-tuning
+[ ]      Transfer Keras models with TensorFlow Cloud
+
+       Customization
+[ ]      Create an op
+[ ]      Random number generation
+
+       Data input pipelines
+[ ]      tf.data
+[ ]      Optimize pipeline performance
+[ ]      Analize pipieline performance
+
+       Save a model
+[ ]      Checkpoing
+[ ]      SaveModel
+
+
+       Accelerators
+[ ]      Distributed training
+[ ]      GPU
+[ ]      TPU
+
+       Performance
+[ ]      Better performance with tf.function
+[ ]      Profile TensorFlow performance
+[ ]      Optimize GPU performance
+[ ]      Graph optimization
+[ ]      Mixed precision
+
+       Estimators
+[ ]      Estimators overview
+       
+		
