@@ -216,7 +216,8 @@ Sesión 11
         /notebooks/sklearn/trees/*
 
 
-    * `LAB --- Clasificación del conjunto artificial 2G4C usando Arboles <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_2G4C_usando_arboles.ipynb>`_.
+    * `LAB --- Clasificación del conjunto artificial 2G4C usando arboles <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_2G4C_usando_arboles.ipynb>`_.
+    
 
 
 
@@ -233,55 +234,219 @@ Sesión 11
 Sesión 12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Leaning con TensorFlow-2.0 --- I**
+    **Introduccion a Keras con TensorFlow-2.4**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/0-*
-        /notebooks/tensorflow/1-*
+        /notebooks/tensorflow/intro/1-*
+        
+    
 
 
-Sesión 13
+Sesión XX - POR REVISAR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Leaning con TensorFlow-2.0 --- II**
+    **Deep Leaning con TensorFlow-2.4 --- II**
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/2-*
+        /notebooks/tensorflow/tutorials/tf.estimator/1-*
 
 
-Sesión 14
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Leaning con TensorFlow-2.0 --- III**
+/notebooks/tensorflow/tutorials/ML_basics_with_Keras/1-*
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/3-*
+        /notebooks/tensorflow/tutorials/ML_basics_with_Keras/1-*
 
-Sesión 15
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Leaning con TensorFlow-2.0 --- IV**
+/notebooks/tensorflow/tutorials/tf.estimator
 
     .. toctree::
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/4-*
+        /notebooks/tensorflow/tutorials/tf.estimator/1-*
+
+
+/notebooks/tensorflow/tutorials/Audio
 
     .. toctree::
         :maxdepth: 1
         :glob:
- 
-        /notebooks/tensorflow/5-*
+
+        /notebooks/tensorflow/tutorials/Audio/1-*        
+
+
+
+/notebooks/tensorflow/keras.io/audio
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/audio/0-*        
+
+
+/notebooks/tensorflow/Customization/
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/tutorials/Customization/1-*        
+
+
+/notebooks/tensorflow/Distributed_training/
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/Distributed_training/1-*        
+
+
+/notebooks/tensorflow/tutorials/Generative
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+        
+        /notebooks/tensorflow/tutorials/Generative/1-*        
+
+
+/notebooks/tensorflow/keras.io/generative
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/generative/0-*
+
+
+/notebooks/tensorflow/tutorials/Images
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+        
+        /notebooks/tensorflow/tutorials/Images/1-*        
+
+
+/notebooks/tensorflow/keras.io/vision
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/vision/0-*
+
+
+/notebooks/tensorflow/tutorials/Interpretability
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+        
+        /notebooks/tensorflow/tutorials/Interpretability/1-*        
+
+
+/notebooks/tensorflow/tutorials/Load_and_process_data
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+        
+        /notebooks/tensorflow/tutorials/Load_and_process_data/1-*        
+
+
+/notebooks/tensorflow/tutorials/Quickstart
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+        
+        /notebooks/tensorflow/tutorials/Quickstart/1-*        
+
+
+/notebooks/tensorflow/tutorials/Reinforcement_learning
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/tutorials/Reinforcement_learning/1-*        
+
+
+/notebooks/tensorflow/keras.io/rl
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/rl/0-*
+
+
+/notebooks/tensorflow/tutorials/Structured_data
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/tutorials/Structured_data/1-*        
+
+
+/notebooks/tensorflow/keras.io/structured_data
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/structured_data/0-*
+
+/notebooks/tensorflow/tutorials/Text
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/tutorials/Text/1-*        
+
+
+/notebooks/tensorflow/keras.io/keras_recipes
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/keras_recipes/0-*
+
+
+/notebooks/tensorflow/keras.io/nlp
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/keras.io/nlp/0-*
+
+/notebooks/tensorflow/keras.io/timeseries
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        
+        /notebooks/tensorflow/keras.io/timeseries/0-*
+        
+
 
 
 
