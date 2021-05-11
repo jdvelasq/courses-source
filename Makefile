@@ -27,9 +27,10 @@ help:
 
 	rm -Rf build/html/*
 	rm -Rf build/doctrees/*
+	rm -Rf /Volumes/GitHub/courses/docs/*
 
 
 	# rm -Rf docs/*
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	# cp -R build/html/*  docs/
+	cp -R build/html/*  /Volumes/GitHub/courses/docs/
     
