@@ -264,7 +264,7 @@ Sesión 14
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow/conceptos_basicos/1-*
+        /notebooks/tensorflow/texto/1-*
 
 
 
@@ -273,7 +273,6 @@ Sesión 14
 Sesión XX - POR REVISAR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Leaning con TensorFlow-2.4 --- II**
 
     .. toctree::
         :maxdepth: 1
