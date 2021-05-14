@@ -255,6 +255,19 @@ Sesión 13
         /notebooks/tensorflow/conceptos_basicos/1-*
 
 
+Sesión 14
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Procesamiento básico de texto usando deep learning**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow/conceptos_basicos/1-*
+
+
+
 
 
 Sesión XX - POR REVISAR
@@ -270,13 +283,6 @@ Sesión XX - POR REVISAR
 
 
 
-/notebooks/tensorflow/tutorials/ML_basics_with_Keras/1-*
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow/tutorials/ML_basics_with_Keras/1-*
 
 
 /notebooks/tensorflow/tutorials/tf.estimator
@@ -377,15 +383,6 @@ Sesión XX - POR REVISAR
         :glob:
         
         /notebooks/tensorflow/tutorials/Load_and_process_data/1-*        
-
-
-/notebooks/tensorflow/tutorials/Quickstart
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-        
-        /notebooks/tensorflow/tutorials/Quickstart/1-*        
 
 
 /notebooks/tensorflow/tutorials/Reinforcement_learning
