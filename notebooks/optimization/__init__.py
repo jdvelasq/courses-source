@@ -8,3 +8,4 @@ from testfunctions import *
 from baseoptimizer import *
 from coordinatesearch import *
 from localsearch import *
+from baterialchemotaxis import *

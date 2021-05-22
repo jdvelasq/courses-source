@@ -62,3 +62,43 @@ def plot_contour(fn, x_bounds, n_points=50, figsize=(8, 8), levels=20, minimum=N
     # plt.show()
     
     
+
+def plot_trayectory(stats, fn, x_bounds, minimum):
+    
+    x = [point[0] for point in stats.x]
+    y = [point[1] for point in stats.x]
+
+    plot_contour(
+        fn,
+        x_bounds=x_bounds,
+        minimum=minimum,
+    )
+
+    plt.gca().plot(
+        x,
+        y,
+        "o-k",
+        alpha=0.5,
+    )
+
+    plt.gca().plot(
+        x[0],
+        y[0],
+        "o",
+        c="black",
+        fillstyle="none",
+        markersize=11,
+        markeredgewidth=2,
+    )
+
+    plt.gca().plot(
+        x[-1],
+        y[-1],
+        "o",
+        c="red",
+        fillstyle="none",
+        markersize=11,
+        markeredgewidth=2,
+    )
+
+    plt.show()
