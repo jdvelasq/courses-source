@@ -2,6 +2,7 @@ from baseoptimizer import *
 from baterialchemotaxis import *
 from coordinatesearch import *
 from crossover import *
+from differentialevolution import *
 from gd import *
 from generators import *
 from individual import *
