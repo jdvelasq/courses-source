@@ -1,4 +1,3 @@
-
 from baseoptimizer import BaseOptimizer
 
 class BacterialChemotaxis(BaseOptimizer):

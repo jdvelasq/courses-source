@@ -1,4 +1,3 @@
-
 class Individual(dict):
     #
     # Este es básicamente un diccionario cuyas

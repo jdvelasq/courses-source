@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import cm
@@ -59,7 +58,6 @@ def plot_contour(fn, x_bounds, n_points=50, figsize=(8, 8), levels=20, minimum=N
     if minimum is not None:
         for px, py in minimum:
             plt.plot(px, py, "o", color="red")
-    # plt.show()
     
     
 
