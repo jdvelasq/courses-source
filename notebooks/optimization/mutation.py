@@ -166,3 +166,20 @@ class MutationGaussianEP:
                     )
 
         return population
+
+    
+
+class MutationFlipBit:
+    def __init__(self, probability):
+        self.probability = probability
+        self.n_dim = None
+        
+    def __call__(self, population):
+        
+        if self.n_dim is None:
+            self.n_dim = len(population[0].x)
+        
+        for individual in population:
+            individual.x = np.where(np.random.uniform() <= self.probability, 1 - individual.x, individual.x)
+            
+        return population

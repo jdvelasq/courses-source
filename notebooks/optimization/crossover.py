@@ -68,3 +68,29 @@ class CrossoverUniform:
         
         return [ o1 if np.random.uniform() < 0.5 else o2   for o1, o2 in zip(offsprings1, offsprings2)]
 
+class CrossoverOnePoint:
+    
+    def __init__(self, both=True):
+        self.both = both
+        self.n_dim = None
+    
+    def __call__(self, parent1, parent2):
+        
+        if self.n_dim is None:
+            self.n_dim = len(parent1[0].x)
+        
+        offspring1 = [p for p in parent1]
+        offspring2 = [p for p in parent2]
+        
+        for o1, o2 in zip(offspring1, offspring2):
+            
+            point = np.random.randint(low=1, high=self.n_dim - 1, size=1)[0]
+            x1 = o1.x[:point]
+            x2 = o2.x[:point]
+            o1.x[:point] = x2
+            o2.x[:point] = x1
+            
+        if self.both is True:
+            return offspring1 + offspring2
+        
+        return offspring1

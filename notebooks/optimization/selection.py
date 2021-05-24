@@ -79,4 +79,39 @@ class SelectionTournament:
         idx = [i  for i, _ in fitness]
         idx = idx[:self.k]
         return [population[i] for i in idx]
-   
+
+
+class SelectionRoulette:
+    def __init__(self, k):
+        self.k = k
+        
+    def __call__(self, population):
+        
+        fn_x = [individual.fn_x for individual in population]
+        fn_x_max = max(fn_x)
+        fn_x_min = min(fn_x)
+        if fn_x_max == fn_x_min:
+            fitness = np.array([1] * len(population))
+        else:
+            m = -1. / (fn_x_max - fn_x_min)
+            b = - m * fn_x_min
+            fitness = [m * individual.fn_x + b for individual in population]
+
+        fitness = fitness / sum(fitness) * self.k
+        fitness = fitness.astype(int)
+        
+        spins = []
+        for idx, fs in enumerate(fitness):
+            if fs > 0:
+                spins += [idx] * fs
+        
+        n = len(spins) - self.k
+        if n > 0:
+            spins += random.choices(list(range(len(population))), n)
+        
+        selected = random.choices(list(range(self.k)), k=self.k)
+        
+        return [population[idx] for idx in selected]
+        
+        
+    
