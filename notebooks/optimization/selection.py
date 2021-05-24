@@ -42,22 +42,36 @@ class SelectionRandom:
     #
     # Selecciona aleatoriamente k individuos de la población
     #
-    def __init__(self, k, as_index=False):
+    def __init__(self, k, seed=None, as_index=False):
+        
         self.k = k
         self.as_index = as_index
+        
+        if seed is None:
+            self.rng = np.random.default_rng()
+        else:
+            self.rng = np.random.default_rng(seed)        
 
     def __call__(self, population):
-        index = list(range(len(population)))
-        idx = random.choices(index, k=self.k)
+        idx = self.rng.choice(
+            np.arange(len(population)),
+            size=self.k,
+            replace=False,
+        )
         if self.as_index is False:
-            return [population[i] for i in idx]        
+            return [population[i] for i in idx]
         return idx
     
-    
 class SelectionTournament:
-    def __init__(self, k, tournsize):
+    def __init__(self, k, tournsize, seed=None):
+        
         self.k = k
         self.tournsize = tournsize
+
+        if seed is None:
+            self.rng = np.random.default_rng()
+        else:
+            self.rng = np.random.default_rng(seed)  
         
     def __call__(self, population):
         
@@ -68,7 +82,11 @@ class SelectionTournament:
             
             oponents = list(range(popsize))
             oponents.remove(idx)
-            oponents = random.choices(oponents, k=self.k)
+            oponents = self.rng.choice(
+                oponents,
+                size=self.k,
+                replace=False,
+            )
             
             fn_x_values = [population[oponent].fn_x for oponent in oponents]
             fn_x = individual.fn_x
@@ -82,8 +100,13 @@ class SelectionTournament:
 
 
 class SelectionRoulette:
-    def __init__(self, k):
+    def __init__(self, k, seed=None):
         self.k = k
+        
+        if seed is None:
+            self.rng = np.random.default_rng()
+        else:
+            self.rng = np.random.default_rng(seed)          
         
     def __call__(self, population):
         

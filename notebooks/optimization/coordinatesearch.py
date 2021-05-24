@@ -12,7 +12,9 @@ class CoordinateSearch(BaseOptimizer):
         self.delta = delta
 
     def __call__(self, population):
-
+         
+        population = self.cloning(population)    
+        
         #
         # Asume que ya fue evaluada la función objetivo 
         # para toda la población. Busca a lo largo de cada
@@ -20,17 +22,20 @@ class CoordinateSearch(BaseOptimizer):
         #
         for individual in population:
             
+            if 'CS_delta' not in individual.keys():
+                individual['CS_delta'] = self.delta
+            
             x = individual.x
             fn_x = individual.fn_x
         
             for i_coordinate in range(len(x)):
 
                 x_left = x.copy()
-                x_left[i_coordinate] = x_left[i_coordinate] - self.delta
+                x_left[i_coordinate] = x_left[i_coordinate] - individual.CS_delta
                 fn_x_left = self.fn(x_left)
 
                 x_right = x.copy()
-                x_right[i_coordinate] = x_right[i_coordinate] + self.delta
+                x_right[i_coordinate] = x_right[i_coordinate] + individual.CS_delta
                 fn_x_right = self.fn(x_right)
 
                 if fn_x_left > fn_x and fn_x < fn_x_right:

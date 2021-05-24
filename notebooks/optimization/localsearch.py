@@ -14,6 +14,8 @@ class LocalSearch(BaseOptimizer):
 
     def __call__(self, population):
 
+        population = self.cloning(population)    
+        
         #
         # Asume que ya fue evaluada la función objetivo 
         # para toda la población. Busca a lo largo de cada
@@ -23,8 +25,8 @@ class LocalSearch(BaseOptimizer):
         
         for individual in population:
             
-            if 'delta' not in individual.keys():
-                individual['delta'] = self.delta0
+            if 'LS_delta' not in individual.keys():
+                individual['LS_delta'] = self.delta0
                 
             x_base = individual.x.copy()
             fn_x_base = individual.fn_x
@@ -34,7 +36,7 @@ class LocalSearch(BaseOptimizer):
             for i_coordinate in range(len(x)):
 
                 x_left = x.copy()
-                x_left[i_coordinate] = x_left[i_coordinate] - individual.delta
+                x_left[i_coordinate] = x_left[i_coordinate] - individual.LS_delta
                 fn_x_left = self.fn(x_left)
 
                 if fn_x_left < fn_x:
@@ -42,7 +44,7 @@ class LocalSearch(BaseOptimizer):
                     fn_x = fn_x_left
                 else:
                     x_right = x.copy()
-                    x_right[i_coordinate] = x_right[i_coordinate] + individual.delta
+                    x_right[i_coordinate] = x_right[i_coordinate] + individual.LS_delta
                     fn_x_right = self.fn(x_right)
 
                     if fn_x_right < fn_x:
@@ -75,6 +77,6 @@ class LocalSearch(BaseOptimizer):
                 individual.x = x
                 individual.fn_x = fn_x
             else:
-                individual.delta *= self.reduction_factor
+                individual.LS_delta *= self.reduction_factor
 
         return population

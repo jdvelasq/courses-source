@@ -37,8 +37,8 @@ class Statistics:
         argmin = np.argmin(fn_x)
         self.x.append(population[argmin].x)
         
-        if self.fn_opt is None or self.fn_opt < np.min(fn_x):
-            self.fn_opt = np.min(fn_x)
+        if self.fn_opt is None or min(fn_x) < self.fn_opt:
+            self.fn_opt = min(fn_x)
             self.x_opt = population[argmin].x
         
     def plot(self, figsize=(10, 6)):
