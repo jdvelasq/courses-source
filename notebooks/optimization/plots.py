@@ -56,7 +56,21 @@ def plot_contour(fn, x_bounds, n_points=50, figsize=(8, 8), levels=20, minimum=N
     ax.grid()
     if minimum is not None:
         for px, py in minimum:
-            plt.plot(px, py, "o", color="red")
+            plt.plot(
+                px, 
+                py, 
+                "o", 
+                color="red",
+                fillstyle="none",
+                markersize=11,
+                markeredgewidth=2,
+            )
+            plt.plot(
+                px, 
+                py, 
+                ".", 
+                color="red",
+            )
     
     
 
