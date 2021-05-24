@@ -8,8 +8,8 @@ class BacterialChemotaxis(BaseOptimizer):
     # son atraidas a los mejores ambientes (a nivel macro)
     # y con el comportamiento de las colonias a nivel micro.
     #
-    def __init__(self, fn, rho=0.5):
-        super().__init__(fn=fn)
+    def __init__(self, fn, rho=0.5, seed=None):
+        super().__init__(fn=fn, seed=seed)
         #
         # tamaño del avance
         #
@@ -20,8 +20,13 @@ class BacterialChemotaxis(BaseOptimizer):
         if self.n_dim is None:
             self.n_dim = len(population[0].x)
         
+        population = self.cloning(population)  
+        
         for individual in population:
-                    
+                
+            if 'BC_rho' not in individual.keys():
+                individual['BC_rho'] = self.rho
+                
             x_base = individual.x.copy()
             fn_x_base = individual.fn_x
 
@@ -29,7 +34,7 @@ class BacterialChemotaxis(BaseOptimizer):
             # Genera un vector con dirección aleatoria
             # y radio rho
             #
-            v = self.rho * self.random_direction()
+            v = individual.BC_rho * self.random_direction()
 
             while True:
 

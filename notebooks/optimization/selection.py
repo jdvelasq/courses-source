@@ -1,5 +1,8 @@
 from operator import itemgetter
 import random
+import numpy as np
+from individual import Individual
+
 
 class SelectionBest:
     #
@@ -9,7 +12,13 @@ class SelectionBest:
         self.k = k
         self.as_index = as_index
 
+    def cloning(self, population):
+        return [Individual(individual.copy()) for individual in population]
+        
     def __call__(self, population):
+        
+        population = self.cloning(population)
+        
         idx = [(idx, individual.fn_x) for idx, individual in enumerate(population)]
         idx = sorted(idx, key=itemgetter(1), reverse=False)
         idx = [i for i, _ in idx]
@@ -27,7 +36,12 @@ class SelectionWorst:
         self.k = k
         self.as_index = as_index
 
+    def cloning(self, population):
+        return [Individual(individual.copy()) for individual in population]
+    
     def __call__(self, population):
+        
+        population = self.cloning(population)
         
         idx = [(idx, individual.fn_x) for idx, individual in enumerate(population)]
         idx = sorted(idx, key=itemgetter(1), reverse=False)
@@ -52,11 +66,17 @@ class SelectionRandom:
         else:
             self.rng = np.random.default_rng(seed)        
 
+    def cloning(self, population):
+        return [Individual(individual.copy()) for individual in population]            
+            
     def __call__(self, population):
+        
+        population = self.cloning(population)
+        
         idx = self.rng.choice(
             np.arange(len(population)),
             size=self.k,
-            replace=False,
+            replace=True,
         )
         if self.as_index is False:
             return [population[i] for i in idx]
@@ -72,8 +92,13 @@ class SelectionTournament:
             self.rng = np.random.default_rng()
         else:
             self.rng = np.random.default_rng(seed)  
+
+    def cloning(self, population):
+        return [Individual(individual.copy()) for individual in population]
         
     def __call__(self, population):
+        
+        population = self.cloning(population)
         
         popsize = len(population)
         fitness = []
@@ -107,8 +132,13 @@ class SelectionRoulette:
             self.rng = np.random.default_rng()
         else:
             self.rng = np.random.default_rng(seed)          
-        
+            
+    def cloning(self, population):
+        return [Individual(individual.copy()) for individual in population]
+            
     def __call__(self, population):
+        
+        population = self.cloning(population)
         
         fn_x = [individual.fn_x for individual in population]
         fn_x_max = max(fn_x)
@@ -130,9 +160,9 @@ class SelectionRoulette:
         
         n = len(spins) - self.k
         if n > 0:
-            spins += random.choices(list(range(len(population))), n)
+            spins += self.rng.choice(list(range(len(population))), size=n)
         
-        selected = random.choices(list(range(self.k)), k=self.k)
+        selected = self.rng.choice(list(range(self.k)), size=self.k)
         
         return [population[idx] for idx in selected]
         

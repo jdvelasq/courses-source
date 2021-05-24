@@ -2,19 +2,25 @@ import random
 
 import numpy as np
 from baseoptimizer import BaseOptimizer
+from individual import Individual
 
 
 class DifferentialEvolution(BaseOptimizer):
-    def __init__(self, fn, LB, UB, CR=0.9, F=0.8):
-        super().__init__(fn=fn)
+    def __init__(self, fn, LB, UB, CR=0.9, F=0.8, seed=None):
+        super().__init__(fn=fn, seed=seed)
         self.LB = LB
         self.UB = UB
         self.CR = CR
         self.F = F
         self.n_dim = None
-
+            
+    def cloning(self, population):
+        return [Individual(individual.copy()) for individual in population]            
+        
     def __call__(self, population):
 
+        population = self.cloning(population)
+        
         if self.n_dim is None:
             self.n_dim = len(population[0].x)
 
@@ -24,18 +30,18 @@ class DifferentialEvolution(BaseOptimizer):
 
             agents = np.arange(len(population))
             agents = np.delete(agents, i_individual)
-            agents = np.random.choice(agents, size=3)
+            agents = self.rng.choice(agents, size=3)
 
             x_agent_a = population[agents[0]].x
             x_agent_b = population[agents[1]].x
             x_agent_c = population[agents[2]].x
 
-            random_index = np.random.choice(agents, size=1)
+            random_index = self.rng.choice(agents, size=1)
 
             x = individual.x
 
             for i_dim in range(self.n_dim):
-                if np.random.uniform() < self.CR or i_dim == random_index:
+                if self.rng.uniform() < self.CR or i_dim == random_index:
                     x[i_dim] = x_agent_a[i_dim] + self.F * (
                         x_agent_b[i_dim] - x_agent_c[i_dim]
                     )

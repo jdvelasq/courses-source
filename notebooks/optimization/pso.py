@@ -11,8 +11,9 @@ class ParticleSwarmOptimization(BaseOptimizer):
         omega=0.9,
         phi_local=0.5,
         phi_global=0.5,
+        seed=None
     ):
-        super().__init__(fn=fn)
+        super().__init__(fn=fn, seed=seed)
         self.n_dim = None
         self.best_global = None
         self.Best = SelectionBest(k=1)
@@ -23,6 +24,8 @@ class ParticleSwarmOptimization(BaseOptimizer):
 
     def __call__(self, population):
 
+        population = self.cloning(population)
+        
         if self.n_dim is None:
             self.n_dim = len(population[0].x)
 
@@ -30,15 +33,15 @@ class ParticleSwarmOptimization(BaseOptimizer):
             best_solution = self.Best(population)[0]
             self.best_global = best_solution
 
-        if "best_local_x" not in population[0].keys():
+        if "PSO_best_local_x" not in population[0].keys():
 
             for individual in population:
-                individual.best_local_x = individual.x
-                individual.best_local_fn_x = individual.fn_x
+                individual.PSO_best_local_x = individual.x
+                individual.PSO_best_local_fn_x = individual.fn_x
 
-        if "velocity" not in population[0].keys():
+        if "PSO_velocity" not in population[0].keys():
             for individual in population:
-                individual.velocity = [self.init_velocity] * self.n_dim
+                individual.PSO_velocity = [self.init_velocity] * self.n_dim
 
         for individual in population:
 
@@ -47,14 +50,14 @@ class ParticleSwarmOptimization(BaseOptimizer):
                 #
                 # Actualiza todas las velocidades
                 #
-                r_best_local = np.random.uniform()
-                r_best_global = np.random.uniform()
+                r_best_local = self.rng.uniform()
+                r_best_global = self.rng.uniform()
 
-                individual.velocity[i_dim] = (
-                    self.omega * individual.velocity[i_dim]
+                individual.PSO_velocity[i_dim] = (
+                    self.omega * individual.PSO_velocity[i_dim]
                     + self.phi_local
                     * r_best_local
-                    * (individual.best_local_x[i_dim] - individual.x[i_dim])
+                    * (individual.PSO_best_local_x[i_dim] - individual.x[i_dim])
                     + self.phi_global
                     * r_best_global
                     * (self.best_global.x[i_dim] - individual.x[i_dim])
@@ -64,7 +67,7 @@ class ParticleSwarmOptimization(BaseOptimizer):
                 #
                 # Actualiza la posición de la particula
                 #
-                individual.x[i_dim] += individual.velocity[i_dim]
+                individual.x[i_dim] += individual.PSO_velocity[i_dim]
 
             #
             # Evalua el individuo actual y actualiza el mejor
@@ -72,9 +75,9 @@ class ParticleSwarmOptimization(BaseOptimizer):
             #
             fn_x = self.fn(individual.x)
 
-            if fn_x < individual.best_local_fn_x:
-                individual.best_local_x = individual.x
-                individual.best_local_fn_x = individual.fn_x
+            if fn_x < individual.PSO_best_local_fn_x:
+                individual.PSO_best_local_x = individual.x
+                individual.PSO_best_local_fn_x = individual.fn_x
                 
             if fn_x < self.best_global.fn_x:
                 self.best_global = individual

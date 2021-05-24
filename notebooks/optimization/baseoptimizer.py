@@ -13,7 +13,7 @@ class BaseOptimizer:
             self.rng = np.random.default_rng(seed)  
             
     def random_direction(self):
-        w = rng.uniform(low=-1, high=+1, size=self.n_dim)
+        w = self.rng.uniform(low=-1, high=+1, size=self.n_dim)
         m = np.linalg.norm(w)
         return w / m
     
