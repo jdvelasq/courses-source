@@ -18,7 +18,6 @@ def plot_surface(fn, x_bounds, n_points=50, elev=45, azim=35, figsize=(8, 8)):
     #
     fig = plt.figure(figsize=figsize)
     ax = fig.gca(projection="3d")
-    # ax.plot_wireframe(X, Y, Z, color='gray', linewidth=0.4)
     ax.plot_surface(
         X,
         Y,
