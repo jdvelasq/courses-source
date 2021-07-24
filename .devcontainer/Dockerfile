@@ -1,27 +1,32 @@
-#-------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
-#-------------------------------------------------------------------------------------------------------------
+FROM jdvelasq/python3:colab
 
-FROM jdvelasq/python:3.6.9-ml
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/python-3/.devcontainer/base.Dockerfile
 
-# Avoid warnings by switching to noninteractive
-# ENV DEBIAN_FRONTEND=noninteractive
+# [Choice] Python version: 3, 3.9, 3.8, 3.7, 3.6
+# ARG VARIANT="3.9"
+# FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
-# This Dockerfile adds a non-root user with sudo access. Use the "remoteUser"
-# property in devcontainer.json to use it. On Linux, the container user's GID/UIDs
-# will be updated to match your local UID/GID (when using the dockerFile property).
-# See https://aka.ms/vscode-remote/containers/non-root-user for details.
-# ARG USERNAME=vscode
-# ARG USER_UID=1000
-# ARG USER_GID=$USER_UID
+# [Option] Install Node.js
+# ARG INSTALL_NODE="true"
+# ARG NODE_VERSION="lts/*"
+# RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
-# Uncomment the following COPY line and the corresponding lines in the `RUN` command if you wish to
-# include your requirements in the image itself. It is suggested that you only do this if your
-# requirements rarely (if ever) change.
-# COPY requirements.txt /tmp/pip-tmp/
-
-# Configure apt and install packages
+# RUN pip3 --disable-pip-version-check --no-cache-dir install \
+#     bandit \
+#     black \
+#     flake8 \
+#     isort \
+#     jedi \
+#     mypy \
+#     nose \
+#     poetry \
+#     prospector \
+#     pycodestyle \
+#     pylama \
+#     pylint \
+#     pytest \
+#     rope \
+#     yapf    
 
 
 
