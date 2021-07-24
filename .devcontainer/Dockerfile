@@ -22,33 +22,69 @@ FROM jdvelasq/python:3.6.9-ml
 # COPY requirements.txt /tmp/pip-tmp/
 
 # Configure apt and install packages
+
+
+
 # RUN apt-get update \
-#     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-#     #
-#     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-#     && apt-get -y install git openssh-client iproute2 procps lsb-release \
-#     #
-#     # Install pylint
-#     && pip --disable-pip-version-check --no-cache-dir install pylint \
-#     #
-#     # Update Python environment based on requirements.txt
-#     # && pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-#     # && rm -rf /tmp/pip-tmp \
-#     #
-#     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-#     && groupadd --gid $USER_GID $USERNAME \
-#     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-#     # [Optional] Add sudo support for the non-root user
-#     && apt-get install -y sudo \
-#     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-#     && chmod 0440 /etc/sudoers.d/$USERNAME \
-#     #
-#     # Clean up
-#     && apt-get autoremove -y \
-#     && apt-get clean -y \
-#     && rm -rf /var/lib/apt/lists/*
+#     && apt-get -yq --no-install-recommends install  pandoc  make \
+#     && apt-get clean \
+#     && apt-get autoremove -yq \
+#     && rm -rf /var/lib/apt/lists/* 
 
-# Switch back to dialog for any ad-hoc use of apt-get
-# ENV DEBIAN_FRONTEND=dialog
+# RUN python3 -m pip install \
+#     altair \
+#     flask  \
+#     gensim \
+#     graphviz \
+#     h5py \
+#     ipykernel \
+#     ipywidgets \
+#     isort \
+#     Jinja2 \
+#     keras-tuner \
+#     matplotlib \
+#     nbsphinx \
+#     networkx \
+#     nltk \
+#     numpy \
+#     pandas \
+#     pandas-datareader \
+#     pandas-gbq \
+#     pandas-profiling \
+#     progressbar2 \
+#     pydotplus  \
+#     pygments \
+#     pytest \
+#     pyyaml \
+#     scikit-learn \
+#     scipy \
+#     seaborn \
+#     sklearn-pandas \
+#     snowballstemmer \
+#     spacy \
+#     sphinx_copybutton \
+#     sphinx-rtd-theme \ 
+#     sphinx==4.0.3 \
+#     SQLAlchemy \
+#     statsmodels \
+#     tensorboard \
+#     tensorflow \
+#     tensorflow_io \
+#     tensorflow-addons \
+#     tensorflow-datasets \
+#     tensorflow-estimator \
+#     tensorflow-hub \
+#     tensorflow-text \
+#     textblob \
+#     widgetsnbextension \
+#     wordcloud
 
+# RUN pip install -q git+https://github.com/tensorflow/docs
 
+# RUN pip install -q git+https://github.com/tensorflow/examples.git
+
+# RUN apt update \
+#     && apt -yq --no-install-recommends install  graphviz \
+#     && apt clean \
+#     && apt autoremove -yq \
+#     && rm -rf /var/lib/apt/lists/* 
