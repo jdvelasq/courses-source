@@ -134,7 +134,7 @@ Sesión 06
         * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
 
 
-    **Transformación de datos en Python usando Pandas**
+    **Gestión de datos para Inteligencia de Negocios usando Pandas**
 
         .. toctree::
             :maxdepth: 1

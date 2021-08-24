@@ -260,7 +260,9 @@ Sesión 15 (2021-08-24)
 
         /notebooks/tensorflow__ML_basics/1-*
 
-        
+        /notebooks/tensorflow__text/1-*
+
+
 Sesión 16 (2021-08-31)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -270,7 +272,9 @@ Sesión 16 (2021-08-31)
         :maxdepth: 1
         :glob:
 
-        /notebooks/tensorflow__basics/1-*
+        
+
+        /notebooks/tensorflow__estimators/1-*
 
 
 
@@ -284,12 +288,6 @@ Material para próximos cursos (2022)
 
 
     
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow__estimators/1-*
 
 
     .. toctree::
