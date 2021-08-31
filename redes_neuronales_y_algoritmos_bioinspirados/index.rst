@@ -96,7 +96,7 @@ Sesión 07 (2021-04-13)
 
 
 
-    * `LAB --- Optimización usando LASSO <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ml_fundamentalss/optimizacion_usando_LASSO.ipynb>`_.
+    * `LAB --- Optimización usando LASSO <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ml_fundamentals/optimizacion_usando_LASSO.ipynb>`_.
 
 
     * `LAB --- Optimización usando ElasticNet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ml_fundamentals/optimizacion_usando_ElasticNet.ipynb>`_.
