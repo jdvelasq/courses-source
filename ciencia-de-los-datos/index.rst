@@ -112,15 +112,14 @@ Sesión 06
             /notebooks/sqlite3/2-*
     
     
-    
-    **Análisis de Datos --- Análisis Exploratorio de Datos --- PENDIENTE**
+    **Análisis de Datos --- Visualización Estadística de Datos con Seaborn**
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/exploratory_data_analysis/*
-
+            /notebooks/statistical_data_visualization_with_seaborn/*
+    
 
 
 
