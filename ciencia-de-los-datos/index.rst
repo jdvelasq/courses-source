@@ -26,7 +26,7 @@ Sesión 01
             :maxdepth: 1
             :glob:
 
-/notebooks/jupyterlab/1-*
+            /notebooks/jupyterlab_and_colab_use/1-*
 
 
         * NBviewer https://nbviewer.jupyter.org
