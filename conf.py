@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = '--- Cursos ---'
-copyright = '2019, Juan D. Velasquez'
+copyright = '2019-2021, Juan D. Velasquez'
 author = 'Juan D. Velasquez'
 
 # The short X.Y version
@@ -62,6 +62,9 @@ highlight_options = {
 nbsphinx_allow_errors = True
 nbsphinx_execute = 'never'
 
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 1
+
 # Add any paths that contain templates here, relative to this directory.
 #templates_path = ['_templates']
 
@@ -69,7 +72,10 @@ nbsphinx_execute = 'never'
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = '.rst'
-source_suffix = ['.rst', '.md']
+source_suffix = [
+    '.rst', 
+    '.md',
+]
 
 
 # The master toctree document.
@@ -85,7 +91,16 @@ language = 'es'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', '**.ipynb_checkpoints', '*.pdf', '*.key']
+exclude_patterns = [
+    '_build', 
+    'notebooks',
+    '**.ipynb_checkpoints', 
+    '*.pdf', 
+    '*.key', 
+    '**.virtual_documents', 
+    '-*.ipynb', 
+    '_por_revisar',
+]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'default'

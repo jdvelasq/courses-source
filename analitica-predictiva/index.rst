@@ -32,7 +32,7 @@ Sesión 02
             :titlesonly:
             :glob:
 
-            /notebooks/oneR_algorithm/*
+/notebooks/oneR_algorithm/*
 
 
     **Algoritmo Apriori**
@@ -41,7 +41,7 @@ Sesión 02
             :titlesonly:    
             :glob:
 
-            /notebooks/apriori_algorithm/*
+/notebooks/apriori_algorithm/*
 
 
     **Clasificadores bayesianos**
@@ -50,7 +50,7 @@ Sesión 02
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__naive_bayes/*
+/notebooks/sklearn__naive_bayes/*
 
         * `LAB --- Análisis de sentimientos de mensajes en Amazon usando Naive Bayes <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/analisis_de_sentimientos_en_amazon_usando_bayes.ipynb>`_.
 
@@ -64,7 +64,7 @@ Sesión 03
             :titlesonly:
             :glob:
 
-            /notebooks/ml_fundamentals/1-*
+/notebooks/ml_fundamentals/1-*
 
 
         * `LAB --- Optimización usando el gradiente descendente <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ml_fundamentals/optimizacion_usando_el_gradiente_descendente.ipynb>`_.
@@ -85,7 +85,7 @@ Sesión 03
             :titlesonly:
             :glob:
 
-            /notebooks/ml_fundamentals/2-*
+/notebooks/ml_fundamentals/2-*
 
 
         * `LAB --- Implementación de tasas de aprendizaje <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ml_fundamentals/implementacion_de_tasas_de_aprendizaje.ipynb>`_.
@@ -107,8 +107,8 @@ Sesión 04
             :titlesonly:
             :glob:
 
-            /notebooks/ml_fundamentals/3-*
-            /notebooks/ml_fundamentals/4-*
+/notebooks/ml_fundamentals/3-*
+/notebooks/ml_fundamentals/4-*
 
         * `LAB --- Optimización usando LASSO <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ml_fundamentals/optimizacion_usando_LASSO.ipynb>`_.
 
@@ -131,7 +131,7 @@ Sesión 04
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__sgd/*
+/notebooks/sklearn__sgd/*
 
 
 Sesión 05
@@ -143,7 +143,7 @@ Sesión 05
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__linear_regression/*
+/notebooks/sklearn__linear_regression/*
 
 
         * `LAB --- Transformación óptima de la variable dependiente en modelos de regresión <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/sklearn__linear_regression/transformacion_optima_de_la_variable_dependiente_en_modelos_de_regresion.ipynb>`_.
@@ -164,7 +164,7 @@ Sesión 05
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__logistic_regression/*
+/notebooks/sklearn__logistic_regression/*
 
         * `LAB --- Clasificación del conjunto artificial de datos de los dos circulos usando regresión logística <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/sklearn__logistic_regression/clasificacion_del_conjunto_artificial_de_datos_de_los_dos_circulos_usando_regresion_logistica.ipynb>`_.
 
@@ -183,7 +183,7 @@ Sesión 06
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__neighbors/*
+/notebooks/sklearn__neighbors/*
 
 
         * `LAB --- Fronteras de decisión para el dataset artificial 2moons usando kNN <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/fronteras_de_decision_para_el_dataset_2moons_knn.ipynb.ipynb>`_.
@@ -198,7 +198,7 @@ Sesión 06
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__kmeans/*
+/notebooks/sklearn__kmeans/*
 
 
 
@@ -211,7 +211,7 @@ Sesión 07
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__tree/1-*
+/notebooks/sklearn__tree/1-*
 
         * `LAB --- Clasificación del conjunto artificial 2G4C usando Arboles <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_2G4C_usando_arboles.ipynb>`_.
 
@@ -223,7 +223,7 @@ Sesión 07
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__ensemble/1-*
+/notebooks/sklearn__ensemble/1-*
 
 
 
@@ -236,7 +236,7 @@ Sesión 08
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__neural_network/1-*
+/notebooks/sklearn__neural_network/1-*
 
 
         * `LAB --- Clasificación del conjunto artificial de datos de los dos circulos usando MLP <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_de_datos_de_los_dos_circulos_usando_mlp.ipynb>`_.
@@ -255,7 +255,7 @@ Sesión 08
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn__svm/*
+/notebooks/sklearn__svm/*
 
         * `LAB --- Clasificación del conjunto artificial de datos de los dos circulos usando SVMs <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/labs/clasificacion_del_conjunto_artificial_de_datos_de_los_dos_circulos_usando_svm.ipynb>`_.
 
