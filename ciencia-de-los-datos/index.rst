@@ -4,7 +4,7 @@ Ciencia de los Datos Aplicada
 Sesión 01
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Presentación del curso** (1 hr)
+    **Presentación del curso** (1:00 hr)
 
     * Tiempo estimado: 1 hr.
 
@@ -15,12 +15,12 @@ Sesión 01
             course-info
 
 
-    **Sesión Magistral: Introducción a la Analítica** (2 hr)
+    **Sesión Magistral: Introducción a la Analítica** (2:00 hr)
 
         * `Presentación intro a la analitica <https://jdvelasq.github.io/intro-analitca/>`_ 
 
 
-    **Herramientas --- Jupyter Lab y Google Colab --- PENDIENTE** (30:00 min)
+    **Herramientas --- Jupyter Lab y Google Colab --- PENDIENTE** (30 min)
 
         .. toctree::
             :maxdepth: 1
@@ -50,42 +50,39 @@ Sesión 02
             :maxdepth: 1
             :glob:
 
-/notebooks/python_for_data_analysis/1-*
+            /notebooks/python_for_data_analysis/1-*
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-/notebooks/python_for_data_analysis/2-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-/notebooks/python_for_data_analysis/3-*
+            /notebooks/python_for_data_analysis/2-*
 
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-/notebooks/python_for_data_analysis/4-*
+            /notebooks/python_for_data_analysis/3-*
 
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-/notebooks/python_for_data_analysis/5-*
+            /notebooks/python_for_data_analysis/4-*
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/python_for_data_analysis/5-*
 
 
 Sesión 03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-Sesión 04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Análisis de Datos --- Manipulación de Datos con Pandas --- PENDIENTE** (2 hr)
 
@@ -130,7 +127,7 @@ Sesión 04
 /notebooks/data_ingestion_with_python/1-*
 
 
-Sesión 05
+Sesión 04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -166,7 +163,7 @@ Sesión 05
         * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
 
 
-Sesión 06
+Sesión 05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -181,7 +178,7 @@ Sesión 06
 
 
 
-Sesión 07
+Sesión 06
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     
@@ -205,7 +202,7 @@ Sesión 07
 /notebooks/tree-based_models_in_sklearn/*
 
 
-Sesión 08
+Sesión 07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Ciencia de Datos --- Aprendizaje no Supervizado --- PENDIENTE**
@@ -215,6 +212,10 @@ Sesión 08
             :glob:
 
 /notebooks/unsupervised_learning_with_sklearn/*
+
+
+Sesión 08
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
