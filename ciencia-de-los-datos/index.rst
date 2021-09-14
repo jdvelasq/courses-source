@@ -90,13 +90,13 @@ Sesión 03
             :maxdepth: 1
             :glob:
 
-/notebooks/data_manipulation_with_pandas/1-*
+            /notebooks/data_manipulation_with_pandas/1-*
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-/notebooks/data_manipulation_with_pandas/2-*
+            /notebooks/data_manipulation_with_pandas/2-*
 
 
 
@@ -109,13 +109,15 @@ Sesión 03
 /notebooks/basic_data_visualization/1-*
 
 
-    **Análisis de Datos --- Controles interactivos --- PENDIENTE** (30:00 min)
+    **Análisis de Datos --- Visualización Estadística de Datos con Seaborn** (2 hr)
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-/notebooks/ipywidgets/1-*
+/notebooks/statistical_data_visualization_with_seaborn/*
+
+
 
 
     **Análisis de Datos --- Ingestión de Datos con Python --- PENDIENTE** (1 hr)
@@ -131,13 +133,6 @@ Sesión 04
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Análisis de Datos --- Visualización Estadística de Datos con Seaborn** (2 hr)
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-/notebooks/statistical_data_visualization_with_seaborn/*
 
 
     **Análisis de Datos --- Manipulación de Datos en SQLite3 --- PENDIENTE** (1 hr)
