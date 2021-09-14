@@ -1,7 +1,11 @@
 Ciencia de los Datos Aplicada
 =========================================================================================
 
-Sesión 01
+.. raw:: html
+
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 01 --- 2021-10-08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Presentación del curso** (1:00 hr)
@@ -41,7 +45,11 @@ Sesión 01
 /notebooks/GitHub/1-*
 
 
-Sesión 02
+.. raw:: html
+
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 02 --- 2021-10-15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Herramientas --- Python para Análisis de Datos --- PENDIENTE** (5 hr)
@@ -79,8 +87,11 @@ Sesión 02
 
             /notebooks/python_for_data_analysis/5-*
 
+.. raw:: html
 
-Sesión 03
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 03 --- 2021-10-22
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -100,13 +111,13 @@ Sesión 03
 
 
 
-    **Análisis de Datos --- Visualización básica de datos --- PENDIENTE** (2 hr)
+    **Análisis de Datos --- Visualización básica de datos --- PENDIENTE** (1 hr)
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-/notebooks/basic_data_visualization/1-*
+            /notebooks/basic_data_visualization/1-*
 
 
     **Análisis de Datos --- Visualización Estadística de Datos con Seaborn** (2 hr)
@@ -115,10 +126,18 @@ Sesión 03
             :maxdepth: 1
             :glob:
 
-/notebooks/statistical_data_visualization_with_seaborn/*
+            /notebooks/statistical_data_visualization_with_seaborn/*
 
 
 
+
+.. raw:: html
+
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+Sesión 04 --- 2021-10-29
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Análisis de Datos --- Ingestión de Datos con Python --- PENDIENTE** (1 hr)
 
@@ -127,12 +146,6 @@ Sesión 03
             :glob:
 
 /notebooks/data_ingestion_with_python/1-*
-
-
-Sesión 04
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
 
 
     **Análisis de Datos --- Manipulación de Datos en SQLite3 --- PENDIENTE** (1 hr)
@@ -158,7 +171,11 @@ Sesión 04
         * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
 
 
-Sesión 05
+.. raw:: html
+
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 05 --- 2021-11-05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -172,8 +189,11 @@ Sesión 05
 /notebooks/statistical_thinking/*
 
 
+.. raw:: html
 
-Sesión 06
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 06 ---2021-11-12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     
@@ -196,8 +216,11 @@ Sesión 06
 
 /notebooks/tree-based_models_in_sklearn/*
 
+.. raw:: html
 
-Sesión 07
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 07 --- 2021-11-19
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Ciencia de Datos --- Aprendizaje no Supervizado --- PENDIENTE**
@@ -208,8 +231,11 @@ Sesión 07
 
 /notebooks/unsupervised_learning_with_sklearn/*
 
+.. raw:: html
 
-Sesión 08
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 08 --- 2021-11-26
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -238,7 +264,9 @@ Sesión 08
 
 
     
+.. raw:: html
 
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
     
 **Material Complementario**
