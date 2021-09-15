@@ -111,22 +111,59 @@ Sesión 03 --- 2021-10-22
 
 
 
-    **Análisis de Datos --- Visualización básica de datos --- PENDIENTE** (1 hr)
+    **Análisis de Datos --- Visualización de datos --- PENDIENTE** (3 hr)
+
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/basic_data_visualization/1-*
+            /notebooks/data_visualization_01_fundamentals/1-*
 
+    
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-    **Análisis de Datos --- Visualización Estadística de Datos con Seaborn** (2 hr)
+            /notebooks/data_visualization_02_distribution/1-*
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/statistical_data_visualization_with_seaborn/*
+            /notebooks/data_visualization_03_correlation/1-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_04_ranking/1-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_05_part_of_a_whole/1-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_06_evolution/1-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_07_map/1-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_09_multiplots/1-*                                                            
+
+
 
 
 
@@ -145,7 +182,7 @@ Sesión 04 --- 2021-10-29
             :maxdepth: 1
             :glob:
 
-/notebooks/data_ingestion_with_python/1-*
+            /notebooks/data_ingestion_with_python/1-*
 
 
     **Análisis de Datos --- Manipulación de Datos en SQLite3 --- PENDIENTE** (1 hr)
@@ -154,7 +191,7 @@ Sesión 04 --- 2021-10-29
             :maxdepth: 1
             :glob:
 
-/notebooks/data_manipulation_with_sqlite3/1-*
+            /notebooks/data_manipulation_with_sqlite3/1-*
 
 
     **Análisis de Datos --- Limpieza de Datos --- PENDIENTE** (1 hr)
@@ -163,7 +200,7 @@ Sesión 04 --- 2021-10-29
             :maxdepth: 1
             :glob:
 
-/notebooks/data_cleaning_with_pandas/1-*
+            /notebooks/data_cleaning_with_pandas/1-*
 
     
     **Ciencia de Datos --- Narrativa de Datos** (1 hr)

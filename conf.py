@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = '--- Cursos ---'
+project = 'Cursos de Analítica y Machine Learning'
 copyright = '2019-2021, Juan D. Velasquez'
 author = 'Juan D. Velasquez'
 
@@ -51,6 +51,7 @@ extensions = [
 #    'sphinx.ext.viewcode',
 #    'sphinx.ext.githubpages',
     'nbsphinx',
+    'sphinx_rtd_theme',
 ]
 
 highlight_options = {
@@ -111,6 +112,7 @@ pygments_style = 'default'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+# html_theme = "sphinx_book_theme"
 html_theme = 'sphinx_rtd_theme'
 # html_theme = 'nature'
 
@@ -131,6 +133,7 @@ html_theme_options = {
     'collapse_navigation': True,
     'sticky_navigation': True,
     'navigation_depth': 2,
+    "show_navbar_depth": 1,
     'includehidden': True,
     'titles_only': False
 }
