@@ -203,9 +203,14 @@ Sesión 04 --- 2021-10-29
             /notebooks/data_cleaning_with_pandas/1-*
 
     
-    **Ciencia de Datos --- Narrativa de Datos** (1 hr)
+    **Análisis de Datos --- Análisis Exploratorio de Datos --- PENDIENTE** (5 hr)
 
-        * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/exploratory_data_analysis/*
 
 
 .. raw:: html
@@ -215,6 +220,11 @@ Sesión 04 --- 2021-10-29
 Sesión 05 --- 2021-11-05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Ciencia de Datos --- Narrativa de Datos** (1 hr)
+
+        * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
+
+
 
     **Ciencia de Datos --- Fundamentación Estadísitica --- PENDIENTE** (5 hr)
 
@@ -223,7 +233,7 @@ Sesión 05 --- 2021-11-05
             :maxdepth: 1
             :glob:
 
-/notebooks/statistical_thinking/*
+            /notebooks/statistical_thinking/*
 
 
 .. raw:: html
