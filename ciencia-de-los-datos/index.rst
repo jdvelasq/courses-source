@@ -241,7 +241,17 @@ Sesión 06 ---2021-11-12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     
-    **Ciencia de Datos --- Aprendizaje Supervizado con Scikit-Learn --- PENDIENTE** (3 hr)
+    **Ciencia de Datos --- Fundamentos de Optimización para Machine Learning --- PENDIENTE** (1 hr)
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/optimization_for_ML/*
+
+
+    
+    **Ciencia de Datos --- Aprendizaje Supervizado con Scikit-Learn --- PENDIENTE** (2 hr)
 
         .. toctree::
             :maxdepth: 1
