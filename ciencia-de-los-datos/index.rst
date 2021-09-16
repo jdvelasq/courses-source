@@ -200,7 +200,7 @@ Sesión 04 --- 2021-10-29
             /notebooks/data_cleaning_with_pandas/1-*
 
     
-    **Análisis de Datos --- Análisis Exploratorio de Datos --- PENDIENTE** (5 hr)
+    **Análisis de Datos --- Análisis Exploratorio de Datos --- PENDIENTE** (1 hr)
 
 
         .. toctree::
@@ -249,6 +249,21 @@ Sesión 06 ---2021-11-12
 
             /notebooks/optimization_for_ML/*
 
+    **Ciencia de Datos --- Selección del modelo y evaluación --- PENDIENTE** (1 hr)
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/sklearn_model_selection_and_evaluation/*
+
+    **Ciencia de Datos --- Tranformacones de Datos --- PENDIENTE** (1 hr)
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/*
 
     
     **Ciencia de Datos --- Aprendizaje Supervizado con Scikit-Learn --- PENDIENTE** (2 hr)
