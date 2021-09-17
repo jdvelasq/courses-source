@@ -28,7 +28,7 @@ Sesión 01 --- 2021-10-09
 
    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
-Sesión 02 --- 2021-10-16 --- 2021-10-16
+Sesión 02 --- 2021-10-16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Fundamentos optimización para aprendizaje automático**
