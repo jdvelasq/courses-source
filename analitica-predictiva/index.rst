@@ -40,14 +40,15 @@ Sesión 02 --- 2021-10-16
             /notebooks/optimization_for_ML/1-*
 
 
-
-    **Transformaciones del conjunto de datos**
+    **Selección del modelo y evaluación**
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_dataset_transformations/1-*
+            /notebooks/sklearn_model_selection_and_evaluation/1-*
+
+
 
 
 .. raw:: html
@@ -57,15 +58,13 @@ Sesión 02 --- 2021-10-16
 Sesión 03 --- 2021-10-23
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-    **Selección del modelo y evaluación**
+    **Transformaciones del conjunto de datos**
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_model_selection_and_evaluation/1-*
-
+            /notebooks/sklearn_dataset_transformations/1-*
 
 
     **Aprendizaje supervizado --- Selección de características**
@@ -77,12 +76,22 @@ Sesión 03 --- 2021-10-23
             /notebooks/sklearn_supervized_01_feature_selection/1-*
 
 
+
+
 .. raw:: html
 
    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
 Sesión 04 --- 2021-10-30
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Aprendizaje supervizado --- Selección de Características**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervized_01_feature_selection/1-*
 
 
 
@@ -95,6 +104,32 @@ Sesión 05 --- 2021-11-06
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+    **Aprendizaje supervizado --- Modelos Lineales**
+
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_02_linear_models/1-*
+
+
+    **Aprendizaje supervizado --- Másquinas de Vectores de Soporte**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_03_svm/1-*
+
+
+    **Aprendizaje supervizado --- Gradiente Descendente Estocástico**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_04_sdg/1-*                        
 
 .. raw:: html
 
@@ -106,6 +141,43 @@ Sesión 06 --- 2021-11-13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+    **Aprendizaje supervizado --- Vecinos más cercanos**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_05_neighbors/1-* 
+
+
+    **Aprendizaje supervizado --- Naive Bayes**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_06_naive_bayes/1-* 
+
+
+    **Aprendizaje supervizado --- Árboless**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_07_trees/1-* 
+
+
+    **Aprendizaje supervizado --- Ensambles**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_08_ensembles/1-*                        
+
+
+
 
 .. raw:: html
 
@@ -114,6 +186,33 @@ Sesión 06 --- 2021-11-13
 
 Sesión 07 --- 2021-11-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Aprendizaje Supervizado --- Redes Neuronales**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_09_neural_networks/1-* 
+
+
+    **Aprendizaje No Supervizado --- Clustering**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_01_clustering/1-* 
+
+
+    **Aprendizaje No Supervizado --- Descomposición**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_02_decomposition/1-* 
+
 
 
 
@@ -125,6 +224,43 @@ Sesión 07 --- 2021-11-20
 
 Sesión 08 --- 2021-11-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+    **Aprendizaje No Supervizado --- Mainfold Learning**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_03_mainfold_learning/1-* 
+
+
+    **Aprendizaje No Supervizado --- Outliers**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_04_novelty_outliers/1-* 
+
+
+    **Aprendizaje No Supervizado --- Density Estimation**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_05_density_estimation/1-* 
+    
+
+    **Aprendizaje No Supervizado --- Covariance Estimation**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_06_covariance_estimation/1-* 
+
 
     **Herramientas Visuales: Orange (https://orangedatamining.com)**
 
