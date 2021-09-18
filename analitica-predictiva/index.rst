@@ -79,14 +79,6 @@ Sesión 03 --- 2021-10-23
 
 
 
-    **Aprendizaje supervizado --- Selección de Características**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervized_01_feature_selection/1-*
-
 
 
 .. raw:: html
@@ -108,7 +100,7 @@ Sesión 04 --- 2021-10-30
             /notebooks/sklearn_supervised_02_linear_models/1-*
 
 
-    **Aprendizaje supervizado --- Másquinas de Vectores de Soporte**
+    **Aprendizaje supervizado --- Máquinas de Vectores de Soporte**
 
         .. toctree::
             :titlesonly:
