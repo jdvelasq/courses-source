@@ -257,6 +257,14 @@ Sesión 06 ---2021-11-12
 
             /notebooks/sklearn_model_selection_and_evaluation/*
 
+
+.. raw:: html
+
+   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+Sesión 07 --- 2021-11-19
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     **Ciencia de Datos --- Tranformacones de Datos --- PENDIENTE** (1 hr)
 
         .. toctree::
@@ -266,39 +274,18 @@ Sesión 06 ---2021-11-12
             /notebooks/sklearn_dataset_transformations/*
 
     
-    **Ciencia de Datos --- Aprendizaje Supervizado con Scikit-Learn --- PENDIENTE** (2 hr)
+
+    **Ciencia de Datos --- Modelos Lineales para regresión y clasificación**
+
 
         .. toctree::
-            :maxdepth: 1
+            :titlesonly:
             :glob:
 
-/notebooks/supervised_learning_with_sklearn/*
+            /notebooks/sklearn_supervised_02_linear_models/1-*    
     
-    
 
     
-    **Ciencia de Datos --- Modelos basados en árboles --- PENDIENTE** (2 hr)
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-/notebooks/tree-based_models_in_sklearn/*
-
-.. raw:: html
-
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
-Sesión 07 --- 2021-11-19
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Ciencia de Datos --- Aprendizaje no Supervizado --- PENDIENTE**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-/notebooks/unsupervised_learning_with_sklearn/*
 
 .. raw:: html
 
@@ -310,7 +297,22 @@ Sesión 08 --- 2021-11-26
 
 
 
+    **Ciencia de Datos  --- Árboles de Regresión y Clasificación**
 
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_07_trees/1-* 
+
+
+        **Aprendizaje No Supervizado --- Clustering**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_01_clustering/1-* 
     
 
 
