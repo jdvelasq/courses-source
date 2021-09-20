@@ -297,7 +297,7 @@ Sesión 08 --- 2021-11-26
 
 
 
-    **Ciencia de Datos  --- Árboles de Regresión y Clasificación**
+    **Ciencia de Datos --- Árboles de Regresión y Clasificación**
 
         .. toctree::
             :titlesonly:
@@ -306,7 +306,7 @@ Sesión 08 --- 2021-11-26
             /notebooks/sklearn_supervised_07_trees/1-* 
 
 
-        **Aprendizaje No Supervizado --- Clustering**
+    **Ciencia de Datos --- Clustering**
 
         .. toctree::
             :titlesonly:
