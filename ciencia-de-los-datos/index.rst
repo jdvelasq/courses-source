@@ -3,7 +3,7 @@ Ciencia de los Datos Aplicada
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 01 --- 2021-10-08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -47,7 +47,7 @@ Sesión 01 --- 2021-10-08
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 02 --- 2021-10-15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,7 +89,7 @@ Sesión 02 --- 2021-10-15
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 03 --- 2021-10-22
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -167,7 +167,7 @@ Sesión 03 --- 2021-10-22
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 
 Sesión 04 --- 2021-10-29
@@ -212,7 +212,7 @@ Sesión 04 --- 2021-10-29
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 05 --- 2021-11-05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -235,7 +235,7 @@ Sesión 05 --- 2021-11-05
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 06 ---2021-11-12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -260,7 +260,7 @@ Sesión 06 ---2021-11-12
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 07 --- 2021-11-19
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -289,7 +289,7 @@ Sesión 07 --- 2021-11-19
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 08 --- 2021-11-26
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,4 +337,4 @@ Sesión 08 --- 2021-11-26
     
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
