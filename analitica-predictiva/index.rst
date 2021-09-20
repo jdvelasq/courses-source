@@ -31,7 +31,7 @@ Sesión 01 --- 2021-10-09
 Sesión 02 --- 2021-10-16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Fundamentos optimización para aprendizaje automático**
+    **Fundamentos optimización para aprendizaje automático** --- OK!
 
         .. toctree::
             :titlesonly:
