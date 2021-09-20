@@ -73,7 +73,7 @@ Sesión 03 --- 2021-10-23
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervized_01_feature_selection/1-*
+            /notebooks/sklearn_supervised_01_feature_selection/1-*
 
 
 
