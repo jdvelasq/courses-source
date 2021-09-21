@@ -181,8 +181,6 @@ Sesión 07 --- 2021-11-20
 
             /notebooks/sklearn_supervised_08_ensembles/1-*                        
 
-
-
     **Aprendizaje Supervizado --- Regresión Isotónica**
 
         .. toctree::
@@ -248,13 +246,14 @@ Sesión 08 --- 2021-11-27
             /notebooks/sklearn_unsupervised_04_novelty_outliers/1-* 
 
 
-    **Aprendizaje No Supervizado --- Density Estimation**
+    **Aprendizaje No Supervizado --- Otras técnicas**
 
         .. toctree::
             :titlesonly:
             :glob:
 
             /notebooks/sklearn_unsupervised_05_density_estimation/1-* 
+            /notebooks/sklearn_unsupervised_07_gmm/1-* 
     
 
     **Aprendizaje No Supervizado --- Covariance Estimation**
@@ -265,6 +264,8 @@ Sesión 08 --- 2021-11-27
 
             /notebooks/sklearn_unsupervised_06_covariance_estimation/1-* 
 
+
+.. Material solo virtual
 
     **Herramientas Visuales: Orange (https://orangedatamining.com)**
 
