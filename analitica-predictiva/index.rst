@@ -3,7 +3,7 @@ Analítica Predictiva
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 01 --- 2021-10-09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -26,7 +26,7 @@ Sesión 01 --- 2021-10-09
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 02 --- 2021-10-16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -53,7 +53,7 @@ Sesión 02 --- 2021-10-16
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 03 --- 2021-10-23
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -83,7 +83,7 @@ Sesión 03 --- 2021-10-23
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 04 --- 2021-10-30
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ Sesión 04 --- 2021-10-30
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 
 Sesión 05 --- 2021-11-06
@@ -138,7 +138,7 @@ Sesión 05 --- 2021-11-06
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 
 
@@ -166,7 +166,7 @@ Sesión 06 --- 2021-11-13
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 
 Sesión 07 --- 2021-11-20
@@ -183,7 +183,13 @@ Sesión 07 --- 2021-11-20
 
 
 
+    **Aprendizaje Supervizado --- Regresión Isotónica**
 
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_09_isotonic_regression/1-* 
 
     **Aprendizaje Supervizado --- Redes Neuronales**
 
@@ -191,7 +197,7 @@ Sesión 07 --- 2021-11-20
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervised_09_neural_networks/1-* 
+            /notebooks/sklearn_supervised_10_neural_networks/1-* 
 
 
     **Aprendizaje No Supervizado --- Clustering**
@@ -216,7 +222,7 @@ Sesión 07 --- 2021-11-20
 
 .. raw:: html
 
-   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 
 
