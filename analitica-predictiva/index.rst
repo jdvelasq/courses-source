@@ -246,6 +246,15 @@ Sesión 08 --- 2021-11-27
             /notebooks/sklearn_unsupervised_04_novelty_outliers/1-* 
 
 
+    **Aprendizaje No Supervizado --- Covariance Estimation**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_06_covariance_estimation/1-* 
+
+
     **Aprendizaje No Supervizado --- Otras técnicas**
 
         .. toctree::
@@ -257,13 +266,6 @@ Sesión 08 --- 2021-11-27
             /notebooks/sklearn_unsupervised_08_rbm/1-*
     
 
-    **Aprendizaje No Supervizado --- Covariance Estimation**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_06_covariance_estimation/1-* 
 
 
 .. Material solo virtual
