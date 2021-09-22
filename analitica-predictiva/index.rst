@@ -228,7 +228,7 @@ Sesión 08 --- 2021-11-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje No Supervizado --- Mainfold Learning**
+    **Aprendizaje No Supervizado --- Manifold Learning**
 
         .. toctree::
             :titlesonly:
