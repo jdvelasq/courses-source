@@ -254,6 +254,7 @@ Sesión 08 --- 2021-11-27
 
             /notebooks/sklearn_unsupervised_05_density_estimation/1-* 
             /notebooks/sklearn_unsupervised_07_gmm/1-* 
+            /notebooks/sklearn_unsupervised_08_rbm/1-*
     
 
     **Aprendizaje No Supervizado --- Covariance Estimation**
