@@ -198,22 +198,8 @@ Sesión 07 --- 2021-11-20
             /notebooks/sklearn_supervised_10_neural_networks/1-* 
 
 
-    **Aprendizaje No Supervizado --- Clustering**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_01_clustering/1-* 
 
 
-    **Aprendizaje No Supervizado --- Descomposición**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_02_decomposition/1-* 
 
 
 
@@ -228,25 +214,35 @@ Sesión 08 --- 2021-11-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje No Supervizado --- Manifold Learning**
+    **Aprendizaje No Supervizado**
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_unsupervised_03_mainfold_learning/1-* 
+            /notebooks/sklearn_unsupervised_01_gmm/1-* 
 
-
-    **Aprendizaje No Supervizado --- Outliers**
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_unsupervised_04_novelty_outliers/1-* 
+            /notebooks/sklearn_unsupervised_02_mainfold_learning/1-* 
 
 
-    **Aprendizaje No Supervizado --- Covariance Estimation**
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_03_clustering/1-* 
+
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_05_decomposition/1-* 
+
 
         .. toctree::
             :titlesonly:
@@ -255,15 +251,30 @@ Sesión 08 --- 2021-11-27
             /notebooks/sklearn_unsupervised_06_covariance_estimation/1-* 
 
 
-    **Aprendizaje No Supervizado --- Otras técnicas**
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_07_novelty/1-* 
+
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+           
+            /notebooks/sklearn_unsupervised_08_density_estimation/1-* 
+
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_unsupervised_05_density_estimation/1-* 
-            /notebooks/sklearn_unsupervised_07_gmm/1-* 
-            /notebooks/sklearn_unsupervised_08_rbm/1-*
+            /notebooks/sklearn_unsupervised_09_rbm/1-*
+
+
+
+
+
     
 
 
