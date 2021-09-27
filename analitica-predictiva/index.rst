@@ -31,13 +31,35 @@ Sesión 01 --- 2021-10-09
 Sesión 02 --- 2021-10-16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Fundamentos optimización para aprendizaje automático** --- OK!
+    **Fundamentos optimización para aprendizaje automático**
 
         .. toctree::
             :titlesonly:
             :glob:
 
             /notebooks/optimization_for_ML/1-*
+
+
+    **Datasets**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_utilities/1-*
+    
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_utilities/2-*
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_utilities/3-*
 
 
     **Selección del modelo y evaluación**
