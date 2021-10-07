@@ -8,7 +8,7 @@ Ciencia de los Datos Aplicada
 Sesión 01 --- 2021-10-08
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Presentación del curso** (1:00 hr)
+**Presentación del curso** (1:00 hr)
 
     * Tiempo estimado: 1 hr.
 
@@ -19,12 +19,12 @@ Sesión 01 --- 2021-10-08
             course-info
 
 
-    **Sesión Magistral: Introducción a la Analítica** (2:00 hr)
+**Sesión Magistral: Introducción a la Analítica** (2:00 hr)
 
         * `Presentación intro a la analitica <https://jdvelasq.github.io/intro-analitca/>`_ 
 
 
-    **Herramientas --- Jupyter Lab y Google Colab --- PENDIENTE** (30 min)
+**Herramientas --- Jupyter Lab y Google Colab --- PENDIENTE** (30 min)
 
         .. toctree::
             :maxdepth: 1
@@ -36,7 +36,7 @@ Sesión 01 --- 2021-10-08
         * NBviewer https://nbviewer.jupyter.org
 
 
-    **Herramientas --- GitHub --- PENDIENTE** (1 hr)
+**Herramientas --- GitHub --- PENDIENTE** (1 hr)
 
         .. toctree::
             :maxdepth: 1
@@ -52,13 +52,16 @@ Sesión 01 --- 2021-10-08
 Sesión 02 --- 2021-10-15
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Herramientas --- Python para Análisis de Datos --- PENDIENTE** (5 hr)
+**Herramientas --- Python para Análisis de Datos (I)** --- 1:10:17 hr
+
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
             /notebooks/python_for_data_analysis/1-*
+
+**Herramientas --- Python para Análisis de Datos (II)** --- 0:56:05 hr
 
         .. toctree::
             :maxdepth: 1
@@ -67,25 +70,14 @@ Sesión 02 --- 2021-10-15
             /notebooks/python_for_data_analysis/2-*
 
 
+**Herramientas --- Python para Análisis de Datos (III)** --- 1:02:32 hr
+
         .. toctree::
             :maxdepth: 1
             :glob:
 
             /notebooks/python_for_data_analysis/3-*
 
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/python_for_data_analysis/4-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/python_for_data_analysis/5-*
 
 .. raw:: html
 
@@ -94,8 +86,20 @@ Sesión 02 --- 2021-10-15
 Sesión 03 --- 2021-10-22
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**Herramientas --- Python para Análisis de Datos (IV)** 
 
-    **Análisis de Datos --- Manipulación de Datos con Pandas --- PENDIENTE** (2 hr)
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/python_for_data_analysis/4-*
+
+
+
+
+
+
+**Análisis de Datos --- Manipulación de Datos con Pandas**
 
         .. toctree::
             :maxdepth: 1
@@ -111,57 +115,22 @@ Sesión 03 --- 2021-10-22
 
 
 
-    **Análisis de Datos --- Visualización de datos --- PENDIENTE** (3 hr)
+**Análisis de Datos --- Visualización de datos con Matplotlib**
 
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/data_visualization_01_fundamentals/1-*
+            /notebooks/data_visualization_with_matplotlib/1-*
 
     
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+..        .. toctree::
+..            :maxdepth: 1
+..            :glob:
 
-            /notebooks/data_visualization_02_distribution/1-*
+..            /notebooks/data_visualization_with_matplotlib/1-*
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_visualization_03_correlation/1-*
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_visualization_04_ranking/1-*
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_visualization_05_part_of_a_whole/1-*
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_visualization_06_evolution/1-*
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_visualization_07_map/1-*
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_visualization_09_multiplots/1-*                                                            
 
 
 
@@ -173,7 +142,70 @@ Sesión 03 --- 2021-10-22
 Sesión 04 --- 2021-10-29
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Análisis de Datos --- Ingestión de Datos con Python --- PENDIENTE** (1 hr)
+**Análisis de Datos --- Visualización de datos con Seaborn**
+
+    **Introducción.**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/1-*
+
+    **Relaciones estadísticas.**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/2-*
+
+    **Distribuciones**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/3-*
+
+    **Datos categóricos**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/4-*
+
+    **Regresión**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/5-*
+
+    **Mallas de gráficas**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/6-*
+
+
+    **Matrices**
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/data_visualization_with_seaborn/7-*
+
+
+
+
+**Análisis de Datos --- Ingestión de Datos con Python** 
 
         .. toctree::
             :maxdepth: 1
@@ -182,7 +214,7 @@ Sesión 04 --- 2021-10-29
             /notebooks/data_ingestion_with_python/1-*
 
 
-    **Análisis de Datos --- Manipulación de Datos en SQLite3 --- PENDIENTE** (1 hr)
+**Análisis de Datos --- Manipulación de Datos en SQLite3**
 
         .. toctree::
             :maxdepth: 1
@@ -191,23 +223,6 @@ Sesión 04 --- 2021-10-29
             /notebooks/data_manipulation_with_sqlite3/1-*
 
 
-    **Análisis de Datos --- Limpieza de Datos --- PENDIENTE** (1 hr)
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/data_cleaning_with_pandas/1-*
-
-    
-    **Análisis de Datos --- Análisis Exploratorio de Datos --- PENDIENTE** (1 hr)
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/exploratory_data_analysis/*
 
 
 .. raw:: html
@@ -217,20 +232,49 @@ Sesión 04 --- 2021-10-29
 Sesión 05 --- 2021-11-05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Ciencia de Datos --- Narrativa de Datos** (1 hr)
-
-        * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
-
-
-
-    **Ciencia de Datos --- Fundamentación Estadísitica --- PENDIENTE** (5 hr)
-
+**Análisis de Datos --- Limpieza de Datos**
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/statistical_thinking/*
+            /notebooks/data_cleaning_with_pandas/1-*
+
+    
+**Análisis de Datos --- Análisis Exploratorio de Datos**
+
+
+       .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/exploratory_data_analysis/*
+
+
+**Ciencia de Datos --- Extracción de característica de textoss** --- 35:25 min
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/2-*
+
+
+**Ciencia de Datos --- Tranformaciones de Datos**  --- 48:56 min
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/3-*
+
+
+**Ciencia de Datos --- Narrativa de Datos**
+
+        * `Presentación <https://jdvelasq.github.io/data-storytelling/>`_
+
+
+
 
 
 .. raw:: html
@@ -240,8 +284,24 @@ Sesión 05 --- 2021-11-05
 Sesión 06 --- 2021-11-12
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+**Ciencia de Datos --- Fundamentación Estadísitica**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/statistical_thinking/1-*
+            /notebooks/statistical_thinking/2-*
+            /notebooks/statistical_thinking/3-*
+            /notebooks/statistical_thinking/4-*
+            /notebooks/statistical_thinking/5-*
+            /notebooks/statistical_thinking/6-*
+            /notebooks/statistical_thinking/7-*
+
     
-    **Ciencia de Datos --- Fundamentos de Optimización para Machine Learning --- PENDIENTE** (1 hr)
+
+**Ciencia de Datos --- Fundamentos de Optimización para Machine Learning** --- 01:18:24 hr
 
         .. toctree::
             :maxdepth: 1
@@ -249,13 +309,6 @@ Sesión 06 --- 2021-11-12
 
             /notebooks/optimization_for_ML/*
 
-    **Ciencia de Datos --- Selección del modelo y evaluación --- PENDIENTE** (1 hr)
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/sklearn_model_selection_and_evaluation/*
 
 
 .. raw:: html
@@ -265,24 +318,36 @@ Sesión 06 --- 2021-11-12
 Sesión 07 --- 2021-11-19
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Ciencia de Datos --- Tranformacones de Datos --- PENDIENTE** (1 hr)
+**Ciencia de Datos --- Selección del modelo y evaluación** --- 01:34:12 hr
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/sklearn_dataset_transformations/*
+            /notebooks/sklearn_model_selection_and_evaluation/1-01*
+            /notebooks/sklearn_model_selection_and_evaluation/1-02*            
+            /notebooks/sklearn_model_selection_and_evaluation/1-03*
+            /notebooks/sklearn_model_selection_and_evaluation/1-04*
+            /notebooks/sklearn_model_selection_and_evaluation/1-05*
+            /notebooks/sklearn_model_selection_and_evaluation/1-06*
+            /notebooks/sklearn_model_selection_and_evaluation/1-07*
+            /notebooks/sklearn_model_selection_and_evaluation/1-11*
+            /notebooks/sklearn_model_selection_and_evaluation/1-12*
+            /notebooks/sklearn_model_selection_and_evaluation/1-14*
+
+
+
 
     
 
-    **Ciencia de Datos --- Modelos Lineales para regresión y clasificación**
+**Ciencia de Datos --- Modelos Lineales para regresión y clasificación**
 
 
-        .. toctree::
-            :titlesonly:
-            :glob:
+..        .. toctree::
+..            :titlesonly:
+..            :glob:
 
-            /notebooks/sklearn_supervised_02_linear_models/1-*    
+..            /notebooks/sklearn_supervised_02_linear_models/1-*    
     
 
     
@@ -294,10 +359,17 @@ Sesión 07 --- 2021-11-19
 Sesión 08 --- 2021-11-26
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**Ciencia de Datos --- Fundamentos de Text Analytics**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/text-analytics/1-* 
 
 
 
-    **Ciencia de Datos --- Árboles de Regresión y Clasificación**
+**Ciencia de Datos --- Árboles de Regresión y Clasificación**
 
         .. toctree::
             :titlesonly:
@@ -306,7 +378,7 @@ Sesión 08 --- 2021-11-26
             /notebooks/sklearn_supervised_07_trees/1-* 
 
 
-    **Ciencia de Datos --- Clustering**
+**Ciencia de Datos --- Clustering**
 
         .. toctree::
             :titlesonly:

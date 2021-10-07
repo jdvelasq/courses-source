@@ -2,7 +2,7 @@
 .vagrant/
 
 *.gz
-
+thumbnail/*.jpg
 
 
 # Byte-compiled / optimized / DLL files

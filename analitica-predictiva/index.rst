@@ -8,19 +8,19 @@ Analítica Predictiva
 Sesión 01 --- 2021-10-09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Introducción al curso**
+**Introducción al curso**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+    .. toctree::
+        :maxdepth: 1
+        :glob:
 
-            course-info
-
-
-        * Revisión de la instalación de Vagrant.
+        course-info
 
 
-    **Analítica Predictiva y MLOps**
+    * Revisión de la instalación de Vagrant.
+
+
+**Analítica Predictiva y MLOps**
 
         * `Presentación <https://jdvelasq.github.io/intro-analitica-predictiva/>`_ 
 
@@ -31,44 +31,44 @@ Sesión 01 --- 2021-10-09
 Sesión 02 --- 2021-10-16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Fundamentos optimización para aprendizaje automático**
+**Fundamentos optimización para aprendizaje automático** --- 78:24 min
 
-        .. toctree::
-            :titlesonly:
-            :glob:
+    .. toctree::
+        :titlesonly:
+        :glob:
 
-            /notebooks/optimization_for_ML/1-*
-
-
-    **Datasets**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_dataset_utilities/1-*
-    
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_dataset_utilities/2-*
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_dataset_utilities/3-*
+        /notebooks/optimization_for_ML/1-*
 
 
-    **Selección del modelo y evaluación**
+**Datasets** --- 61:55 min
 
-        .. toctree::
-            :titlesonly:
-            :glob:
+    .. toctree::
+        :titlesonly:
+        :glob:
 
-            /notebooks/sklearn_model_selection_and_evaluation/1-*
+        /notebooks/sklearn_dataset_utilities/1-*
+
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+
+        /notebooks/sklearn_dataset_utilities/2-*
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+
+        /notebooks/sklearn_dataset_utilities/3-*
+
+
+**Selección y evaluación del modelo (I)** --- 72:35 min
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+
+        /notebooks/sklearn_model_selection_and_evaluation/1-*
 
 
 
@@ -80,7 +80,19 @@ Sesión 02 --- 2021-10-16
 Sesión 03 --- 2021-10-23
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Transformaciones del conjunto de datos**
+**Selección y evaluación del modelo (II)** --- 60:47 min
+
+    .. toctree::
+        :titlesonly:
+        :glob:
+
+        /notebooks/sklearn_model_selection_and_evaluation/2-*
+
+
+
+**Transformaciones del conjunto de datos (I)**
+
+    **Pipelines y estimadores compuestos** --- 49:27 min
 
         .. toctree::
             :titlesonly:
@@ -88,18 +100,21 @@ Sesión 03 --- 2021-10-23
 
             /notebooks/sklearn_dataset_transformations/1-*
 
-
-    **Aprendizaje supervizado --- Selección de características**
+    **Extracción de características** --- 35:25 min
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervised_01_feature_selection/1-*
+            /notebooks/sklearn_dataset_transformations/2-*
 
+    **Preprocesamiento de datos** --- 48:56 min
 
+        .. toctree::
+            :titlesonly:
+            :glob:
 
-
+            /notebooks/sklearn_dataset_transformations/3-*
 
 
 
@@ -110,25 +125,69 @@ Sesión 03 --- 2021-10-23
 Sesión 04 --- 2021-10-30
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**Transformaciones del conjunto de datos (II)**
 
 
-    **Aprendizaje supervizado --- Modelos Lineales**
-
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_02_linear_models/1-*
-
-
-    **Aprendizaje supervizado --- Máquinas de Vectores de Soporte**
+    **Imputación de valores faltantes** --- 14:14 min
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervised_03_svm/1-*
+            /notebooks/sklearn_dataset_transformations/4-*
+
+    **Proyecciones aleatorias**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/5-*
+
+    **Aproximación con kernels**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/6-*
+
+
+    **Transformaciones usando Kernels**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/7-*
+
+
+    **Transformación de la variable de salida** --- 6:03 min
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/8-*
+
+
+    **Transformación no lineal de variables** --- 25:23 min
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_dataset_transformations/9-*            
+
+
+
+
+
+
+
+
+
+
 
 .. raw:: html
 
@@ -140,23 +199,36 @@ Sesión 05 --- 2021-11-06
 
 
 
-    **Aprendizaje supervizado --- Gradiente Descendente Estocástico**
+**Aprendizaje supervizado (I)**
+
+    **Selección de características**
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervised_04_sdg/1-*                        
+            /notebooks/sklearn_supervised_01_feature_selection/1-*
 
 
 
-    **Aprendizaje supervizado --- Vecinos más cercanos**
+    **Modelos Lineales**
+
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervised_05_neighbors/1-* 
+            /notebooks/sklearn_supervised_02_linear_models/1-*
+
+
+    **Máquinas de Vectores de Soporte**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_03_svm/1-*
+
 
 
 .. raw:: html
@@ -169,7 +241,28 @@ Sesión 06 --- 2021-11-13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje supervizado --- Naive Bayes**
+**Aprendizaje supervizado (II)**
+
+    **Gradiente Descendente Estocástico**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_04_sdg/1-*                        
+
+
+
+    **Vecinos más cercanos**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_05_neighbors/1-* 
+
+
+    **Naive Bayes**
 
         .. toctree::
             :titlesonly:
@@ -178,13 +271,6 @@ Sesión 06 --- 2021-11-13
             /notebooks/sklearn_supervised_06_naive_bayes/1-* 
 
 
-    **Aprendizaje supervizado --- Árboles**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_07_trees/1-* 
 
 
 .. raw:: html
@@ -196,7 +282,19 @@ Sesión 07 --- 2021-11-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje supervizado --- Ensambles**
+**Aprendizaje supervizado (III)**
+
+
+    **Árboles de regresión y clasificación**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_07_trees/1-* 
+
+
+    **Ensambles de modelos**
 
         .. toctree::
             :titlesonly:
@@ -204,7 +302,7 @@ Sesión 07 --- 2021-11-20
 
             /notebooks/sklearn_supervised_08_ensembles/1-*                        
 
-    **Aprendizaje Supervizado --- Regresión Isotónica**
+    **Regresión Isotónica**
 
         .. toctree::
             :titlesonly:
@@ -212,17 +310,13 @@ Sesión 07 --- 2021-11-20
 
             /notebooks/sklearn_supervised_09_isotonic_regression/1-* 
 
-    **Aprendizaje Supervizado --- Redes Neuronales**
+    **Redes Neuronales**
 
         .. toctree::
             :titlesonly:
             :glob:
 
             /notebooks/sklearn_supervised_10_neural_networks/1-* 
-
-
-
-
 
 
 
@@ -237,7 +331,9 @@ Sesión 08 --- 2021-11-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje No Supervizado**
+**Aprendizaje No Supervizado**
+
+    **Mixtura de modelos gaussianos**
 
         .. toctree::
             :titlesonly:
@@ -245,6 +341,7 @@ Sesión 08 --- 2021-11-27
 
             /notebooks/sklearn_unsupervised_01_gmm/1-* 
 
+    **Mainfold learning**
 
         .. toctree::
             :titlesonly:
@@ -252,6 +349,7 @@ Sesión 08 --- 2021-11-27
 
             /notebooks/sklearn_unsupervised_02_mainfold_learning/1-* 
 
+    **Clustering**
 
         .. toctree::
             :titlesonly:
@@ -259,6 +357,7 @@ Sesión 08 --- 2021-11-27
 
             /notebooks/sklearn_unsupervised_03_clustering/1-* 
 
+    **Descomposición de datos** --- 42:45  min
 
         .. toctree::
             :titlesonly:
@@ -267,6 +366,8 @@ Sesión 08 --- 2021-11-27
             /notebooks/sklearn_unsupervised_05_decomposition/1-* 
 
 
+    **Estimación de covarianza** --- 23:52 min
+
         .. toctree::
             :titlesonly:
             :glob:
@@ -274,19 +375,23 @@ Sesión 08 --- 2021-11-27
             /notebooks/sklearn_unsupervised_06_covariance_estimation/1-* 
 
 
+    **Outliers y Novelty observations** --- 38:26 min
+
         .. toctree::
             :titlesonly:
             :glob:
 
             /notebooks/sklearn_unsupervised_07_novelty/1-* 
 
+    **KDE**
 
         .. toctree::
             :titlesonly:
             :glob:
-           
+            
             /notebooks/sklearn_unsupervised_08_density_estimation/1-* 
 
+    **Redes Neuronales no supervizadas**
 
         .. toctree::
             :titlesonly:
