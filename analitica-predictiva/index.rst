@@ -184,6 +184,15 @@ Sesión 04 --- 2021-10-30
 
 
 
+**Aprendizaje supervizado (I)**
+
+    **Selección de características**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_01_feature_selection/1-*
 
 
 
@@ -199,15 +208,7 @@ Sesión 05 --- 2021-11-06
 
 
 
-**Aprendizaje supervizado (I)**
-
-    **Selección de características**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_01_feature_selection/1-*
+**Aprendizaje supervizado (II)**
 
 
 
