@@ -28,8 +28,9 @@ Sesión 01 --- 2021-10-09
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 02 --- 2021-10-16
+Sesión 02 --- 2021-10-16 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**2:20:19**
 
 **Fundamentos optimización para aprendizaje automático** --- 78:24 min
 
@@ -62,7 +63,16 @@ Sesión 02 --- 2021-10-16
         /notebooks/sklearn_dataset_utilities/3-*
 
 
-**Selección y evaluación del modelo (I)** --- 72:35 min
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 03 --- 2021-10-23 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**2:13:22**
+
+
+**Selección y evaluación del modelo**
 
     .. toctree::
         :titlesonly:
@@ -72,22 +82,20 @@ Sesión 02 --- 2021-10-16
 
 
 
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 03 --- 2021-10-23
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Selección y evaluación del modelo (II)** --- 60:47 min
-
     .. toctree::
         :titlesonly:
         :glob:
 
         /notebooks/sklearn_model_selection_and_evaluation/2-*
 
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 04 --- 2021-10-30 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**2:28:02**
 
 
 **Transformaciones del conjunto de datos (I)**
@@ -100,6 +108,7 @@ Sesión 03 --- 2021-10-23
 
             /notebooks/sklearn_dataset_transformations/1-*
 
+
     **Extracción de características** --- 35:25 min
 
         .. toctree::
@@ -107,6 +116,7 @@ Sesión 03 --- 2021-10-23
             :glob:
 
             /notebooks/sklearn_dataset_transformations/2-*
+
 
     **Preprocesamiento de datos** --- 48:56 min
 
@@ -117,17 +127,6 @@ Sesión 03 --- 2021-10-23
             /notebooks/sklearn_dataset_transformations/3-*
 
 
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 04 --- 2021-10-30
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Transformaciones del conjunto de datos (II)**
-
-
     **Imputación de valores faltantes** --- 14:14 min
 
         .. toctree::
@@ -136,7 +135,21 @@ Sesión 04 --- 2021-10-30
 
             /notebooks/sklearn_dataset_transformations/4-*
 
-    **Proyecciones aleatorias**
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+
+Sesión 05 --- 2021-11-06
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**2:29:16**
+
+**Transformaciones del conjunto de datos (II)**
+
+
+
+    **Proyecciones aleatorias** --- 6:53 min
 
         .. toctree::
             :titlesonly:
@@ -144,7 +157,7 @@ Sesión 04 --- 2021-10-30
 
             /notebooks/sklearn_dataset_transformations/5-*
 
-    **Aproximación con kernels**
+    **Aproximación con kernels** --- 17:57 min
 
         .. toctree::
             :titlesonly:
@@ -180,13 +193,9 @@ Sesión 04 --- 2021-10-30
             /notebooks/sklearn_dataset_transformations/9-*            
 
 
-
-
-
-
 **Aprendizaje supervizado (I)**
 
-    **Selección de características**
+    **Selección de características** --- 56:50 min
 
         .. toctree::
             :titlesonly:
@@ -196,55 +205,7 @@ Sesión 04 --- 2021-10-30
 
 
 
-
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-
-Sesión 05 --- 2021-11-06
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-**Aprendizaje supervizado (II)**
-
-
-
-    **Modelos Lineales**
-
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_02_linear_models/1-*
-
-
-    **Máquinas de Vectores de Soporte**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_03_svm/1-*
-
-
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-
-
-Sesión 06 --- 2021-11-13
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-**Aprendizaje supervizado (II)**
-
-    **Gradiente Descendente Estocástico**
+    **Gradiente Descendente Estocástico** --- 26:10 min
 
         .. toctree::
             :titlesonly:
@@ -254,7 +215,42 @@ Sesión 06 --- 2021-11-13
 
 
 
-    **Vecinos más cercanos**
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 06 --- 2021-11-13
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**3:01:37**
+
+
+
+**Aprendizaje supervizado (II)**
+
+
+
+    **Modelos Lineales** --- 1:31:51 
+
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_02_linear_models/1-*
+
+
+    **Máquinas de Vectores de Soporte** --- 35:17 min
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_supervised_03_svm/1-*
+
+
+
+    **Vecinos más cercanos** --- 0:54:29 min
 
         .. toctree::
             :titlesonly:
@@ -262,14 +258,6 @@ Sesión 06 --- 2021-11-13
 
             /notebooks/sklearn_supervised_05_neighbors/1-* 
 
-
-    **Naive Bayes**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_06_naive_bayes/1-* 
 
 
 
@@ -281,12 +269,17 @@ Sesión 06 --- 2021-11-13
 
 Sesión 07 --- 2021-11-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**3:16:30**
 
+    **Redes Neuronales** --- 1:10:33
 
-**Aprendizaje supervizado (III)**
+        .. toctree::
+            :titlesonly:
+            :glob:
 
+            /notebooks/sklearn_supervised_10_neural_networks/1-* 
 
-    **Árboles de regresión y clasificación**
+    **Árboles de regresión y clasificación** --- 40:54 min
 
         .. toctree::
             :titlesonly:
@@ -294,8 +287,7 @@ Sesión 07 --- 2021-11-20
 
             /notebooks/sklearn_supervised_07_trees/1-* 
 
-
-    **Ensambles de modelos**
+    **Ensambles de modelos** --- 19:39 min
 
         .. toctree::
             :titlesonly:
@@ -303,7 +295,8 @@ Sesión 07 --- 2021-11-20
 
             /notebooks/sklearn_supervised_08_ensembles/1-*                        
 
-    **Regresión Isotónica**
+
+    **Regresión Isotónica** --- 7:20 min
 
         .. toctree::
             :titlesonly:
@@ -311,13 +304,36 @@ Sesión 07 --- 2021-11-20
 
             /notebooks/sklearn_supervised_09_isotonic_regression/1-* 
 
-    **Redes Neuronales**
+
+**Aprendizaje No Supervizado (I)** 
+
+    ..    **Mainfold learning**
+
+    ..        .. toctree::
+    ..            :titlesonly:
+    ..            :glob:
+
+    ..            /notebooks/sklearn_unsupervised_02_mainfold_learning/1-* 
+
+
+    **Mixtura de modelos gaussianos** --- 12:57 min
 
         .. toctree::
             :titlesonly:
             :glob:
 
-            /notebooks/sklearn_supervised_10_neural_networks/1-* 
+            /notebooks/sklearn_unsupervised_01_gmm/1-* 
+
+
+    **Clustering** --- 45:09 min
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_03_clustering/1-* 
+
+
 
 
 
@@ -326,37 +342,13 @@ Sesión 07 --- 2021-11-20
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-
-
-Sesión 08 --- 2021-11-27
+Sesión 08 --- 2021-11-27 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**(2:06:34)**
 
 
-**Aprendizaje No Supervizado**
+**Aprendizaje No Supervizado II** 
 
-    **Mixtura de modelos gaussianos**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_01_gmm/1-* 
-
-    **Mainfold learning**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_02_mainfold_learning/1-* 
-
-    **Clustering**
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_03_clustering/1-* 
 
     **Descomposición de datos** --- 42:45  min
 
@@ -365,7 +357,6 @@ Sesión 08 --- 2021-11-27
             :glob:
 
             /notebooks/sklearn_unsupervised_05_decomposition/1-* 
-
 
     **Estimación de covarianza** --- 23:52 min
 
@@ -405,10 +396,12 @@ Sesión 08 --- 2021-11-27
 
 
     
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 
-
-.. Material solo virtual
+**Material solo virtual**
 
     **Herramientas Visuales: Orange (https://orangedatamining.com)**
 
@@ -421,7 +414,7 @@ Sesión 08 --- 2021-11-27
 
 
 
-    **Cierre y evaluación del curso**
+**Cierre y evaluación del curso**
 
 
 
