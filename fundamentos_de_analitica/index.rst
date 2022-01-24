@@ -344,10 +344,10 @@ Sesión 13 --- Enero 18, 2022
             /notebooks/sklearn_supervised_02_linear_models/1-12*
     
 
-`LAB: Regresión Lineal 04 <>`_.
+`LAB: Regresión Lineal Univariada <https://classroom.github.com/a/Y-t0TIbS>`_.
 
 
-`LAB: Regresión Logística 05 <>`_.
+`LAB: Regresión Logística mushrooms dataset <https://classroom.github.com/a/tsH01_zS>`_.
 
 .. raw:: html
 
@@ -385,7 +385,13 @@ Sesión 14 --- Enero 25, 2022
 
             /notebooks/sklearn_supervised_05_neighbors/1-*         
 
-`LAB: k-NN 06 <>`_.
+
+
+`LAB: SVM german dataset <https://classroom.github.com/a/y-fbFl5n>`_.
+
+`LAB: k-NN votes <https://classroom.github.com/a/wFsfwpdj>`_.
+
+`LAB: k-NN digits dataset <https://classroom.github.com/a/RNIN72lm>`_.
 
 .. raw:: html
 
