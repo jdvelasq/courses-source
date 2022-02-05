@@ -14,22 +14,20 @@ Material de apoyo para cursos
     :hidden:
     :maxdepth: 1
     
-
-    
     redes_neuronales_y_algoritmos_bioinspirados/index
 
-.. fundamentos_de_analitica/index
+    fundamentos_de_analitica/index
 
 .. toctree::
     :caption: Cursos de Posgrado
     :hidden:
     :maxdepth: 1
 
-analitica_de_grandes_datos/index
-analitica_predictiva/index
-ciencia_de_los_datos/index    
-productos_de_datos/index
-analitica_avanzada/index
+    analitica_de_grandes_datos/index
+    analitica_predictiva/index
+    ciencia_de_los_datos/index    
+    productos_de_datos/index
+    analitica_avanzada/index
 
 
 .. toctree::
