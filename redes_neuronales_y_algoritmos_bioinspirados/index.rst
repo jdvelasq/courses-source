@@ -1,4 +1,4 @@
-Redes Neuronales Artificiales y Algoritmos Bioinspirados
+Redes Neuronales Artificiales y Aprendizaje Profundo
 =========================================================================================
 
 Sesión 01 (2022-03-08)
@@ -34,17 +34,7 @@ Sesión 02 (2022-03-15)
 Sesión 03 (2022-03-22)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-    **Gradiente Descendente Estocástico** --- 26:10 min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_04_sdg/1-*
-
-
-    **Modelo de McCulloch-Pitts**
+    **Introducción: El modelo de McCulloch-Pitts**
         
         .. toctree::
             :titlesonly:
@@ -53,80 +43,277 @@ Sesión 03 (2022-03-22)
             /notebooks/mcculloch-pitts_neuron/1-*
 
 
-    **Combinadores lineales adaptativos**
-        
-        .. toctree::
-            :maxdepth: 1
-            :glob:
 
-            /notebooks/adaptive_linear_combiner/*
+    **Aprendizaje Supervizado con Scikit-Learn --- I**
+
+        **Aprendizaje Supervizado**
+
+            **Gradiente Descendente Estocástico** --- 26:10 min
+
+                .. toctree::
+                    :titlesonly:
+                    :glob:
+
+                    /notebooks/sklearn_supervised_04_sdg/1-*
 
 
-Sesión 04 (2022-03-30)
+            **Combinadores lineales adaptativos**
+                
+                .. toctree::
+                    :maxdepth: 1
+                    :glob:
+
+                    /notebooks/adaptive_linear_combiner/*
+
+
+Sesión 04 (2022-03-29)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Perceptrón continuo y regresión logística**
-        
+    **Técnicas de Selección de modelos**
+
         .. toctree::
-            :maxdepth: 1
+            :titlesonly:
             :glob:
 
-            /notebooks/continuous_perceptron/1-*
+            /notebooks/sklearn_model_selection_and_evaluation/1-*
+
+
+    **Métricas de evaluación de modelos**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_model_selection_and_evaluation/2-*
+
 
 
 
 Sesión 05 (2022-04-05)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-    **Redes Neuronales** --- 1:10:33
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_10_neural_networks/1-* 
+    **Transformaciones de Datos en Scikit-Learn**
 
 
+        **Pipelines y estimadores compuestos** --- 49:27 min
 
-    * `LAB ---  <>`_.
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_dataset_transformations/1-*
+
+
+        **Extracción de características** --- 35:25 min
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_dataset_transformations/2-*
+
+
+        **Preprocesamiento de datos** --- 48:56 min
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_dataset_transformations/3-*
+
+        **Transformación de la variable de salida** --- 6:03 min
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_dataset_transformations/8-*
+
+
 
 Sesión 06 (2022-04-19)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Máquinas de Vectores de Soporte** --- 35:17 min
+    **Aprendizaje Supervizado con Scikit-Learn --- I**
 
-        .. toctree::
-            :titlesonly:
-            :glob:
+        **Selección de características** --- 56:50 min
 
-            /notebooks/sklearn_supervised_03_svm/1-*
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_supervised_01_feature_selection/1-*
+
+
+        **Modelos Lineales** --- 1:31:51 
+
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_supervised_02_linear_models/1-*
+
 
 Sesión 07 (2022-04-26)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Aprendizaje Supervizado con Scikit-Learn --- II**
 
-    **Árboles de regresión y clasificación** --- 40:54 min
+        **Perceptrón continuo**
+            
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_07_trees/1-* 
+                /notebooks/continuous_perceptron/1-*
 
 
-    **Ensambles de modelos** --- 19:39 min
+        **Redes Neuronales** --- 1:10:33
 
-        .. toctree::
-            :titlesonly:
-            :glob:
+            .. toctree::
+                :titlesonly:
+                :glob:
 
-            /notebooks/sklearn_supervised_08_ensembles/1-*                        
+                /notebooks/sklearn_supervised_10_neural_networks/1-* 
+
+
+    * `LAB ---  <>`_.
+
+
 
 
 
 Sesión 08 (2022-05-03)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+    **Aprendizaje Supervizado con Scikit-Learn --- III**
+
+        **Máquinas de Vectores de Soporte** --- 35:17 min
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_supervised_03_svm/1-*
+
+
+        **Árboles de regresión y clasificación** --- 40:54 min
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_supervised_07_trees/1-* 
+
+        **Ensambles de modelos** --- 19:39 min
+
+            .. toctree::
+                :titlesonly:
+                :glob:
+
+                /notebooks/sklearn_supervised_08_ensembles/1-*                        
+
+
+    **Redes Neuronales no supervizadas**
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/sklearn_unsupervised_09_rbm/1-*
+
+
+
+Sesión 09 (2022-05-10)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Sistemas Difusos y Neuro-Difusos**
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/fuzzy_systems/1-*
+
+
+Sesión 10 (2022-05-17)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Redes Neuronales y Modelos Predictivos en Apache Spark**
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/5-*
+            /notebooks/pyspark/6-*
+
+
+Sesión 11 (2022-05-24)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Leaning con TensorFlow-2.7 --- Intro I**
+
+    .. toctree::
+        :maxdepth: 1
+        :glob:
+
+        /notebooks/tensorflow__ML_basics/1-*
+
+
+Sesión 12 (2022-05-31)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Leaning con TensorFlow-2.7 --- Intro II**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow__ML_basics/2-*
+
+
+    **Procesamiento Básico de Texto con TensorFlow-2.7**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow__text/1-*
+
+
+
+Sesión 13 (2022-06-07)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Estimadores en TensorFlow-2.7**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow__estimators/1-*
+
+
+Sesión 14 (2022-06-14)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Modelos Clásicos de Redes Neuronales en TensorFlow-2.7**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow__classical_models/1-*
+
+
+Sesión 15 (2022-06-21)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
     **Fundamentos de Computación Evolutiva --- I**
 
@@ -136,8 +323,6 @@ Sesión 08 (2022-05-03)
 
             /notebooks/optimization/1-*  
 
-Sesión 09 (2022-05-10)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Fundamentos de Computación Evolutiva --- II**
 
@@ -146,79 +331,14 @@ Sesión 09 (2022-05-10)
             :glob:
 
             /notebooks/optimization/2-*  
-
-
-
-
-
-Sesión 10 (2022-05-17)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Fundamentos de Computación Evolutiva --- III**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
             /notebooks/optimization/3-*  
-
-
-
-Sesión 11 (2022-05-24)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Fundamentos de Computación Evolutiva --- IV**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
             /notebooks/optimization/4-*  
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
             /notebooks/optimization/anexo* 
 
 
 
 
 
-Sesión 13 (2022-06-07)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-Sesión 12 (2022-05-31)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Leaning con TensorFlow-2.0 --- I**
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-        /notebooks/tensorflow__ML_basics/1-*
-
-        /notebooks/tensorflow__text/1-*
-
-
-
-Sesión 14 (2022-06-14)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Leaning con TensorFlow-2.0 --- II**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tensorflow__estimators/1-*
-
-
-Sesión 15 (2022-06-21)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -240,52 +360,6 @@ Sesión 16 (2022-06-28)
 
 
    
- 
-
-
-
-
-
-
-Sesión 09 (2021-04-27)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-    
-
-    **Perceptrón bipolar**.
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-/notebooks/sklearn__perceptron/1-*
-
-
-
-Sesión 10 (2021-05-04)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-
-
-
-
-
-
-
-
-Sesión 16 (2021-08-31)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-
-    **Cierre y evaluación del curso**
-
 
             
 
@@ -301,23 +375,8 @@ Material para próximos cursos (2022)
         :glob:
 
 /notebooks/associative_memory_models/*
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-/notebooks/optimization/1-*  
-/notebooks/optimization/2-*  
-/notebooks/optimization/3-*  
-/notebooks/optimization/4-*  
-/notebooks/optimization/anexo*  
             
-    .. toctree::
-        :maxdepth: 1
-        :glob:
 
-
-/notebooks/fuzzy_systems/1-*
 
     .. toctree::
         :maxdepth: 1
