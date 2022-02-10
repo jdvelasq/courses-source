@@ -107,7 +107,7 @@ Sesión 03 --- 2021-10-22
 
 
 
-    * `LAB --- Programacion básica en Python <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/001-programacion_en_python.ipynb>`_.
+    `LAB --- Programacion básica en Python <https://classroom.github.com/a/TeLjqxHO>`_.
 
 
 
@@ -143,7 +143,7 @@ Sesión 04 --- 2021-10-29
             /notebooks/data_manipulation_with_pandas/2-*
 
 
-* `LAB --- Programacion usando Pandas <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/002-manipulacion_de_datos_con-pandas.ipynb>`_.
+`LAB --- Programacion usando Pandas <https://classroom.github.com/a/9NRsHgGJ>`_.
 
 .. raw:: html
 
@@ -166,6 +166,10 @@ Sesión 05 --- 2021-11-05
 
             /notebooks/data_manipulation_with_sqlite3/1-*
 
+
+`LAB --- Programacion en SQLite3 <https://classroom.github.com/a/oR8qVkVP>`_.
+
+
     **Ingestión de Datos con Python** --- 57:13 min
 
         .. toctree::
@@ -183,8 +187,6 @@ Sesión 05 --- 2021-11-05
 
             /notebooks/data_cleaning_with_pandas/1-*
 
-
-* `LAB --- Programacion en SQL <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/003-sql.ipynb>`_.
 
 
 .. raw:: html
@@ -276,8 +278,6 @@ Sesión 07 --- 2021-11-19
                 /notebooks/sklearn_dataset_transformations/3-09*
 
         
-* `LAB --- Fundamentos de ML <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/004-fundamentos_ml.ipynb>`_.
-
 
 **Formación como Científico de Datos (I)**
 
@@ -314,6 +314,8 @@ Sesión 08 --- 2021-11-26
             
             /notebooks/statistical_thinking/2-*
 
+`LAB --- Análisis de Sentimientos (Amazon) <https://classroom.github.com/a/VyVSQnhj>`_.
+
 
     **Modelos Lineales** --- 0:43:20
 
@@ -328,8 +330,11 @@ Sesión 08 --- 2021-11-26
             /notebooks/sklearn_supervised_02_linear_models/1-12*
 
 
+`LAB --- Regresión Lineal Simple (GapMinder) <https://classroom.github.com/a/Mruk_tlO>`_.
 
+`LAB --- Regresión Lineal Multiple (insurance) <https://classroom.github.com/a/pGZlu7hQ>`_.
 
+`LAB --- Regresión Logística (mushrooms) <https://classroom.github.com/a/g4XXg4D6>`_.
 
 
 .. Learning Data Mining with Python, Second Edition.pdf
