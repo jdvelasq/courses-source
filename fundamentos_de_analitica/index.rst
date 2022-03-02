@@ -438,6 +438,18 @@ Sesión 13 --- Noviembre 8, 2022
 Sesión 14 --- Noviembre 15, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/text-analytics/1-*
+
+        .. toctree::
+            :titlesonly:
+            :glob:
+
+            /notebooks/nltk/*
+
 
 
 .. raw:: html
