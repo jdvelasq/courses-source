@@ -1,7 +1,7 @@
 Redes Neuronales Artificiales y Aprendizaje Profundo
 =========================================================================================
 
-Sesión 01 (2022-03-08). Introducción
+Sesión 01 (2022-03-08)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Presentación del curso**
@@ -42,7 +42,7 @@ Sesión 03 (2022-03-22)
             
             /notebooks/mcculloch-pitts_neuron/1-*
 
-    **Scikit-Learn --- I**
+    **Redes Neuronales con Scikit-Learn**
 
 
         **Gradiente Descendente Estocástico** --- 26:10 min
@@ -66,7 +66,7 @@ Sesión 03 (2022-03-22)
 Sesión 04 (2022-03-29)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Scikit-Learn --- II**
+    **Redes Neuronales con Scikit-Learn**
 
         **Técnicas de Selección de modelos** --- 56:50 min
 
@@ -91,7 +91,7 @@ Sesión 04 (2022-03-29)
 Sesión 05 (2022-04-05)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Scikit-Learn --- III**
+    **Redes Neuronales con Scikit-Learn**
 
         **Pipelines y estimadores compuestos** --- 49:27 min
 
@@ -132,7 +132,7 @@ Sesión 05 (2022-04-05)
 Sesión 06 (2022-04-19)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Scikit-Learn --- IV**
+    **Redes Neuronales con Scikit-Learn**
 
         **Selección de características** --- 56:50 min
 
@@ -156,7 +156,7 @@ Sesión 06 (2022-04-19)
 Sesión 07 (2022-04-26)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Scikit-Learn --- V**
+    **Redes Neuronales con Scikit-Learn**
 
         **Perceptrón continuo**
             
@@ -185,7 +185,7 @@ Sesión 07 (2022-04-26)
 Sesión 08 (2022-05-03)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Scikit-Learn --- VI**
+    **Redes Neuronales con Scikit-Learn**
 
 
         **Máquinas de Vectores de Soporte** --- 35:17 min
@@ -227,7 +227,7 @@ Sesión 08 (2022-05-03)
 Sesión 09 (2022-05-10)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Sistemas Difusos y Neuro-Difusos**
+    **Sistemas Difusos y Neuro-Difusos en Python**
 
 
         .. toctree::
@@ -240,59 +240,80 @@ Sesión 09 (2022-05-10)
 Sesión 10 (2022-05-17)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Redes Neuronales y Modelos Predictivos en Apache Spark**
+    **Deep Learning con TensorFlow 2.x**
 
+
+        **Fundamentos de ML con Keras I --- min**
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/pyspark/5-*
-            /notebooks/pyspark/6-*
+            /notebooks/tensorflow_tutorials_01_ml_basics_keras/1-*
+
 
 
 Sesión 11 (2022-05-24)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **TensorFlow 2.8 --- I**
+    **Deep Learning con TensorFlow 2.x**
 
-        **Introducción al Deep Leaning con TensorFlow 2.8** --- 121:59 min
+        **Fundamentos de ML con Keras --- II**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/tensorflow__ML_basics/1-*
+                /notebooks/tensorflow_tutorials_01_ml_basics_keras/2-*
+
 
 
 Sesión 12 (2022-05-31)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **TensorFlow 2.8 --- II**
+    **Deep Learning con TensorFlow 2.x**
 
-        **Introducción al Deep Leaning con TensorFlow 2.8** --- 86:53 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow__ML_basics/2-*
-
-
-        **Procesamiento Básico de Texto con TensorFlow 2.8** --- 51:07 min
+        **Carga y preprocesamiento de información** --- 0:00 min
 
             .. toctree::
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/tensorflow__text/1-*
+                /notebooks/tensorflow_tutorials_02_load_and_preprocess_data/1-*
+
 
 
 
 Sesión 13 (2022-06-07)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **TensorFlow 2.8 --- III**
+
+    **Deep Learning con TensorFlow 2.x**
+
+        **Carga y preprocesamiento de información** --- 0:00 min
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_tutorials_03_customization/1-*
+    
+
+        **Imágenes** --- 0:00 min
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_tutorials_05_images/1-*
+
+
+
+
+Sesión 14 (2022-06-14)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con TensorFlow 2.x**
 
         **Estimadores**
 
@@ -303,10 +324,11 @@ Sesión 13 (2022-06-07)
                 /notebooks/tensorflow__estimators/1-*
 
 
-Sesión 14 (2022-06-14)
+
+Sesión 15 (2022-06-21)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **TensorFlow 2.8 --- IV**
+    **Deep Learning con TensorFlow 2.x**
     
         **Modelos Clásicos de Redes Neuronales**
 
@@ -317,32 +339,25 @@ Sesión 14 (2022-06-14)
                 /notebooks/tensorflow__classical_models/1-*
 
 
-Sesión 15 (2022-06-21)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_guide_01_basics/1-*
 
 
-    **Fundamentos de Computación Evolutiva --- I**
+
+
+    **Redes Neuronales y Modelos Predictivos en Apache Spark**
+
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/optimization/1-*  
-
-
-    **Fundamentos de Computación Evolutiva --- II**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/optimization/2-*  
-            /notebooks/optimization/3-*  
-            /notebooks/optimization/4-*  
-            /notebooks/optimization/anexo* 
-
-
-
+            /notebooks/pyspark/5-*
+            /notebooks/pyspark/6-*
 
 
 
@@ -371,6 +386,27 @@ Sesión 16 (2022-06-28)
 
 Material para próximos cursos (2022)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+    **Fundamentos de Computación Evolutiva --- I**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/optimization/1-*  
+
+
+    **Fundamentos de Computación Evolutiva --- II**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/optimization/2-*  
+            /notebooks/optimization/3-*  
+            /notebooks/optimization/4-*  
+            /notebooks/optimization/anexo* 
 
 
     
