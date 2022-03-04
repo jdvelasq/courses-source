@@ -240,7 +240,16 @@ Sesión 09 (2022-05-10)
 Sesión 10 (2022-05-17)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con TensorFlow 2.x**
+    **TensorFlow 2.x Básico**
+
+        **Introducción --- min**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_tutorials_00_quickstart/1-*
+
 
 
         **Fundamentos de ML con Keras I --- min**
@@ -256,7 +265,7 @@ Sesión 10 (2022-05-17)
 Sesión 11 (2022-05-24)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con TensorFlow 2.x**
+    **TensorFlow 2.x Básico**
 
         **Fundamentos de ML con Keras --- II**
 
@@ -271,7 +280,7 @@ Sesión 11 (2022-05-24)
 Sesión 12 (2022-05-31)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con TensorFlow 2.x**
+    **TensorFlow 2.x Básico**
 
         **Carga y preprocesamiento de información** --- 0:00 min
 
@@ -288,7 +297,7 @@ Sesión 13 (2022-06-07)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Deep Learning con TensorFlow 2.x**
+    **TensorFlow 2.x Básico**
 
         **Carga y preprocesamiento de información** --- 0:00 min
 
@@ -313,7 +322,7 @@ Sesión 13 (2022-06-07)
 Sesión 14 (2022-06-14)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con TensorFlow 2.x**
+    **TensorFlow 2.x Básico**
 
         **Estimadores**
 
@@ -328,7 +337,7 @@ Sesión 14 (2022-06-14)
 Sesión 15 (2022-06-21)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con TensorFlow 2.x**
+    **TensorFlow 2.x Básico**
     
         **Modelos Clásicos de Redes Neuronales**
 
@@ -339,7 +348,10 @@ Sesión 15 (2022-06-21)
                 /notebooks/tensorflow__classical_models/1-*
 
 
-
+    **TensorFlow 2.x Básico**
+    
+        **Guia**
+        
             .. toctree::
                 :maxdepth: 1
                 :glob:
@@ -348,16 +360,6 @@ Sesión 15 (2022-06-21)
 
 
 
-
-    **Redes Neuronales y Modelos Predictivos en Apache Spark**
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/5-*
-            /notebooks/pyspark/6-*
 
 
 
