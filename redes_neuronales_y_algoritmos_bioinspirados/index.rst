@@ -1,8 +1,21 @@
 Redes Neuronales Artificiales y Aprendizaje Profundo
 =========================================================================================
 
-Sesión 01 (2022-03-08)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. .....................................................................................
+..
+..     #####  ###
+..     #   #    #
+..     #   #    #
+..     #   #    #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 01 --- 2022-mar-08
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    
+    **2:00:00**
 
     **Presentación del curso**
 
@@ -16,9 +29,21 @@ Sesión 01 (2022-03-08)
     **Charla --- Introducción a la Inteligencia Computacional**
 
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #
+..     #   #  #####
+..     #   #  #
+..     #####  #####
 
-Sesión 02 (2022-03-15). Fundamentación --- 78:24 min
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 02 --- 2022-mar-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **1:18:24**
 
     **Fundamentos optimización para aprendizaje automático** --- 78:24 min
 
@@ -31,7 +56,19 @@ Sesión 02 (2022-03-15). Fundamentación --- 78:24 min
     `LAB ---  <>`_.
 
 
-Sesión 03 (2022-03-22)
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #
+..     #   #   ####
+..     #   #      #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 03 --- 2022-mar-22
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Modelo de McCulloch-Pitts**
@@ -63,8 +100,21 @@ Sesión 03 (2022-03-22)
                 /notebooks/adaptive_linear_combiner/*
 
 
-Sesión 04 (2022-03-29)
+.. ......................................................................................
+..
+..     #####  #   #
+..     #   #  #   #
+..     #   #  #####
+..     #   #      #
+..     #####      #
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 04 --- 2022-mar-29
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **1:57:37**
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -86,10 +136,21 @@ Sesión 04 (2022-03-29)
                 /notebooks/sklearn_model_selection_and_evaluation/2-*
 
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   
+..     #   #  #####
+..     #   #      #
+..     #####  #####
 
+.. raw:: html
 
-Sesión 05 (2022-04-05)
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 05 --- 2022-abr-05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:19:51**
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -128,9 +189,21 @@ Sesión 05 (2022-04-05)
                 /notebooks/sklearn_dataset_transformations/8-*
 
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
 
-Sesión 06 (2022-04-19)
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 06 --- 2022-abr-19
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:28:41**
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -152,9 +225,21 @@ Sesión 06 (2022-04-19)
 
                 /notebooks/sklearn_supervised_02_linear_models/1-*
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #   
+..     #   #      #
+..     #   #      #
+..     #####      #
 
-Sesión 07 (2022-04-26)
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 07 --- 2022-abr-26, 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -178,12 +263,22 @@ Sesión 07 (2022-04-26)
 
 
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   #
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
 
+.. raw:: html
 
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-
-Sesión 08 (2022-05-03)
+Sesión 08 --- 2022-may-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **1:46:15**
+
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -222,9 +317,19 @@ Sesión 08 (2022-05-03)
 
                 /notebooks/sklearn_unsupervised_09_rbm/1-*
 
+.. ......................................................................................
+..
+..     #####   #####
+..     #   #   #   #
+..     #   #   #####
+..     #   #       #
+..     #####   #####
 
+.. raw:: html
 
-Sesión 09 (2022-05-10)
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 09 --- 2022-may-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Sistemas Difusos y Neuro-Difusos en Python**
@@ -237,7 +342,20 @@ Sesión 09 (2022-05-10)
             /notebooks/fuzzy_systems/1-*
 
 
-Sesión 10 (2022-05-17)
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #    #   #
+..       #    #   #
+..       #    #   #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 10 --- 2022-may-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **TensorFlow 2.x Básico**
@@ -261,8 +379,19 @@ Sesión 10 (2022-05-17)
             /notebooks/tensorflow_tutorials_01_ml_basics_keras/1-*
 
 
+.. ......................................................................................
+..
+..     ###    ###
+..       #      #
+..       #      #
+..       #      #    
+..     #####  #####
 
-Sesión 11 (2022-05-24)
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 11 --- 2022-may-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **TensorFlow 2.x Básico**
@@ -276,8 +405,19 @@ Sesión 11 (2022-05-24)
                 /notebooks/tensorflow_tutorials_01_ml_basics_keras/2-*
 
 
+.. ......................................................................................
+..
+..     ###    #####
+..       #        #
+..       #    #####
+..       #    #    
+..     #####  #####
 
-Sesión 12 (2022-05-31)
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **TensorFlow 2.x Básico**
@@ -291,21 +431,34 @@ Sesión 12 (2022-05-31)
                 /notebooks/tensorflow_tutorials_02_load_and_preprocess_data/1-*
 
 
+.. ......................................................................................
+..
+..     ###    #####
+..       #        #
+..       #    #####
+..       #        #     
+..     #####  #####
 
+.. raw:: html
 
-Sesión 13 (2022-06-07)
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
     **TensorFlow 2.x Básico**
 
-        **Carga y preprocesamiento de información** --- 0:00 min
+
+        **Personalización** --- 0:00 min
 
             .. toctree::
                 :maxdepth: 1
                 :glob:
 
                 /notebooks/tensorflow_tutorials_03_customization/1-*
+
+
     
 
         **Imágenes** --- 0:00 min
@@ -316,25 +469,56 @@ Sesión 13 (2022-06-07)
 
                 /notebooks/tensorflow_tutorials_05_images/1-*
 
+.. ......................................................................................
+..
+..     ###    #   #
+..       #    #   #
+..       #    #####
+..       #        #     
+..     #####      #
 
+.. raw:: html
 
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 14 (2022-06-14)
+Sesión 14 --- 2022-jun-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **TensorFlow 2.x Básico**
 
-        **Estimadores**
+        **Texto** --- 0:00 min
 
             .. toctree::
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/tensorflow__estimators/1-*
+                /notebooks/tensorflow_tutorials_06_text/1-*
 
 
 
-Sesión 15 (2022-06-21)
+
+        **Datos estructurados** --- 0:00 min
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_tutorials_08_structured_data/1-*
+
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #    #   
+..       #    #####
+..       #        #     
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 15 --- 2022-jun-21
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **TensorFlow 2.x Básico**
@@ -360,12 +544,19 @@ Sesión 15 (2022-06-21)
 
 
 
+.. ......................................................................................
+..
+..     ###    #####
+..       #    #   
+..       #    #####
+..       #    #   #     
+..     #####  #####
 
+.. raw:: html
 
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-
-
-Sesión 16 (2022-06-28)
+Sesión 16 --- 2022-jun-28
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -379,15 +570,19 @@ Sesión 16 (2022-06-28)
 
 
 
-
-
-
-   
-
             
 
-Material para próximos cursos (2022)
+Material para próximos cursos (2023)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Estimadores**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow__estimators/1-*
+
 
 
     **Fundamentos de Computación Evolutiva --- I**
