@@ -1,0 +1,28 @@
+Neural Networks and Deep Learning
+
+  Week 1
+    What is a Neural Network?
+    Supervised Learning with Neural Networks
+    Why is Deep Learning taking off?
+
+  Week 2
+    Binary Classification
+    Logistic Regression
+    Logistic Regression Cost Function
+    Gradient Descent
+    Derivatives
+    More Derivative Examples
+    Computation Graph
+    Derivatives with a Computation Graph
+    Logistic Regression Gradient Descent
+    Gradient Descent on m Examples
+    Vectorization
+    More Vectorization Examples
+    Vectorizing Logistic Regression
+    Vectorizing Logistic Regression's Gradient Output
+    Broadcasting in Python
+    A Note on Python/Numpy Vectors
+    Quick tour of Jupyter/iPython Notebooks
+    Explanation of Logistic Regression Cost Function (Optional)  
+
+  Week 3
