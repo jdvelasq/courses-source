@@ -366,7 +366,7 @@ Sesión 10 --- 2022-may-17
             :maxdepth: 1
             :glob:
 
-            /notebooks/tensorflow_tutorials_00_quickstart/1-*
+            /notebooks/keras_01_models_api/1-*
 
 .. ......................................................................................
 ..
