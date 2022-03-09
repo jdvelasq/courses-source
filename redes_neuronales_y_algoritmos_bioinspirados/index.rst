@@ -362,21 +362,68 @@ Sesión 10 --- 2022-may-17
 
     **Deep Learning con Keras**
 
-        **APIs para modelos --- min**
+        **Clasifcación básica de imágenes**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/keras_01_models_api/1-*
+                /notebooks/keras_01_basic_image_classification/1-*
 
-        **APIs para capas --- min**
+        **API de modelos**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/keras_02_layers_api/1-*
+                /notebooks/keras_02_models_api/1-*
+
+
+        **Clasifcación básica de texto**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_03_basic_text_classification/1-*
+
+
+        **Regresión básica**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_04_regression/1-*
+
+
+        **Subajuste y sobreajustse**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_05_underfiting_overfiting/1-*
+
+        **Almacenamiento y carga de modelos**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_06_save_and_load/1-*
+
+
+        **Optimización de hiperparámetros**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_07_keras_tuner/1-*
+
+
+
 
 
 .. ......................................................................................
@@ -394,7 +441,40 @@ Sesión 10 --- 2022-may-17
 Sesión 11 --- 2022-may-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Deep Learning con Keras**
 
+        **Carga y procesamiento de datos**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_08_load_and_preprocess_data_images/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_09_load_and_preprocess_data_csv/1-*
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_10_load_and_preprocess_data_numpy/1-*
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_11_load_and_preprocess_data_pandas/1-*
+                
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_12_load_and_preprocess_data_text/1-*
 
 
 .. ......................................................................................
@@ -412,7 +492,29 @@ Sesión 11 --- 2022-may-24
 Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Deep Learning con Keras**
 
+        **Personalización**
+                
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_13_customization/1-*
+
+        **Imágenes**
+                
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_15_images_convolutional_neural_network/1-*
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/keras_16_images_data_augmentation/1-*
 
 
 
@@ -431,6 +533,18 @@ Sesión 12 --- 2022-may-31
 Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    **Deep Learning con Keras**
+
+
+        **APIs para capas --- min**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/keras_02_layers_api/1-*
+
+
 
 .. ......................................................................................
 ..
@@ -446,6 +560,8 @@ Sesión 13 --- 2022-jun-07
 
 Sesión 14 --- 2022-jun-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras**
 
 
 
@@ -465,7 +581,7 @@ Sesión 14 --- 2022-jun-14
 Sesión 15 --- 2022-jun-21
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+    **Deep Learning con Keras**
 
 
 .. ......................................................................................
