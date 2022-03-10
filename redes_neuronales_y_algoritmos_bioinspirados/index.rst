@@ -88,7 +88,7 @@ Sesión 02 --- 2022-mar-14
 
 Sesión 03 --- 2022-mar-22
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    **2:06:21**
+    **1:53:07**
 
     **Modelo de McCulloch-Pitts**
         
@@ -104,7 +104,7 @@ Sesión 03 --- 2022-mar-22
             :titlesonly:
             :glob:
             
-            /notebooks/mcculloch-binary_perceptron/1-*
+            /notebooks/binary_perceptron/1-*
 
     **Regla de aprendizaje del perceptrón**
         
@@ -112,7 +112,7 @@ Sesión 03 --- 2022-mar-22
             :titlesonly:
             :glob:
             
-            /notebooks/mcculloch-perceptrron_learning_rule/1-*
+            /notebooks/perceptrron_learning_rule/1-*
 
 
 
@@ -130,7 +130,7 @@ Sesión 03 --- 2022-mar-22
 
 Sesión 04 --- 2022-mar-29
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+    **1:36:21**
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -297,6 +297,7 @@ Sesión 07 --- 2022-abr-26,
 
 Sesión 08 --- 2022-may-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:15:33**
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -334,13 +335,13 @@ Sesión 08 --- 2022-may-03
 Sesión 09 --- 2022-may-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **1:46:15**
+    **1:55:57**
 
 
     **Redes Neuronales con Scikit-Learn**
 
 
-        **Máquinas de Vectores de Soporte** --- 35:17 min
+        **Máquinas de Vectores de Soporte** --- 44:59 min
 
             .. toctree::
                 :titlesonly:
