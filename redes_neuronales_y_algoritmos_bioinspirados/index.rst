@@ -362,6 +362,141 @@ Sesión 10 --- 2022-may-17
 
     **Deep Learning con Keras**
 
+
+
+.. ......................................................................................
+..
+..     ###    ###
+..       #      #
+..       #      #
+..       #      #    
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 11 --- 2022-may-24
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras**
+
+
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #        #
+..       #    #####
+..       #    #    
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 12 --- 2022-may-31
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras**
+
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #        #
+..       #    #####
+..       #        #     
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 13 --- 2022-jun-07
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras**
+
+
+
+.. ......................................................................................
+..
+..     ###    #   #
+..       #    #   #
+..       #    #####
+..       #        #     
+..     #####      #
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 14 --- 2022-jun-14
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras**
+
+
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #    #   
+..       #    #####
+..       #        #     
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 15 --- 2022-jun-21
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras**
+
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #    #   
+..       #    #####
+..       #    #   #     
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 16 --- 2022-jun-28
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+* Cierre del Curso.
+
+.. note::
+
+    * El plazo para la carga de los trabajos a GitHub vence a las 24:00 hr del martes 28 de junio de 2022.
+    
+    * Reporte del 100% de calificaciones al SIA: miércoles, **7 de julio de 2022.**
+
+
+
+
+Material para próximos cursos (2023)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+    **Deep Learning con Keras**
+
         **Clasifcación básica de imágenes**
 
             .. toctree::
@@ -426,22 +561,6 @@ Sesión 10 --- 2022-may-17
 
 
 
-.. ......................................................................................
-..
-..     ###    ###
-..       #      #
-..       #      #
-..       #      #    
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 11 --- 2022-may-24
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Learning con Keras**
 
         **Carga y procesamiento de datos**
 
@@ -477,22 +596,6 @@ Sesión 11 --- 2022-may-24
                 /notebooks/keras_12_load_and_preprocess_data_text/1-*
 
 
-.. ......................................................................................
-..
-..     ###    #####
-..       #        #
-..       #    #####
-..       #    #    
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 12 --- 2022-may-31
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Learning con Keras**
 
         **Personalización**
                 
@@ -518,23 +621,6 @@ Sesión 12 --- 2022-may-31
 
 
 
-.. ......................................................................................
-..
-..     ###    #####
-..       #        #
-..       #    #####
-..       #        #     
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 13 --- 2022-jun-07
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Learning con Keras**
-
 
         **APIs para capas --- min**
 
@@ -546,75 +632,10 @@ Sesión 13 --- 2022-jun-07
 
 
 
-.. ......................................................................................
-..
-..     ###    #   #
-..       #    #   #
-..       #    #####
-..       #        #     
-..     #####      #
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 14 --- 2022-jun-14
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Learning con Keras**
-
-
-
-
-.. ......................................................................................
-..
-..     ###    #####
-..       #    #   
-..       #    #####
-..       #        #     
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 15 --- 2022-jun-21
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Learning con Keras**
-
-
-.. ......................................................................................
-..
-..     ###    #####
-..       #    #   
-..       #    #####
-..       #    #   #     
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 16 --- 2022-jun-28
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-* Cierre del Curso.
-
-.. note::
-
-    * El plazo para la carga de los trabajos a GitHub vence a las 24:00 hr del martes 28 de junio de 2022.
-    
-    * Reporte del 100% de calificaciones al SIA: miércoles, **7 de julio de 2022.**
 
 
 
             
-
-Material para próximos cursos (2023)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
     **TensorFlow 2.x Básico**
 
