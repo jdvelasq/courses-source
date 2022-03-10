@@ -257,7 +257,7 @@ Sesión 06 --- 2022-abr-19
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 07 --- 2022-abr-26, 
+Sesión 07 --- 2022-abr-26 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **2:28:41**
@@ -395,7 +395,7 @@ Sesión 10 --- 2022-may-17
     **Deep Learning con Keras y TensorFlow 2.x**
 
 
-        **Introducción**
+        **Introducción a TensorFlow y Keras**
 
             .. toctree::
                 :maxdepth: 1
@@ -420,10 +420,12 @@ Sesión 10 --- 2022-may-17
 
 Sesión 11 --- 2022-may-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:22:11:00**
+
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
-        **Fundamentos de ML con Keras**
+        **Fundamentos de ML con Keras I --- 2:22:11**
 
             .. toctree::
                 :maxdepth: 1
@@ -447,16 +449,17 @@ Sesión 11 --- 2022-may-24
 
 Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **1:57:47**
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
-        **Carga y procesamiento de datos**
+        **Fundamentos de ML con Keras II --- 1:57:47**
 
             .. toctree::
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/deep_learning_04_tf_load_and_processing_data/1-*
+                /notebooks/deep_learning_03_tf_ml_basics_with_keras/2-*
 
 
 
@@ -475,6 +478,33 @@ Sesión 12 --- 2022-may-31
 
 Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Carga y procesamiento de datos**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_04_tf_load_and_processing_data/1-*
+
+
+.. ......................................................................................
+..
+..     ###    #   #
+..       #    #   #
+..       #    #####
+..       #        #     
+..     #####      #
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 14 --- 2022-jun-14
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
@@ -499,18 +529,19 @@ Sesión 13 --- 2022-jun-07
 
 .. ......................................................................................
 ..
-..     ###    #   #
-..       #    #   #
+..     ###    #####
+..       #    #   
 ..       #    #####
 ..       #        #     
-..     #####      #
+..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 14 --- 2022-jun-14
+Sesión 15 --- 2022-jun-21
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
@@ -525,20 +556,6 @@ Sesión 14 --- 2022-jun-14
 
 
 
-.. ......................................................................................
-..
-..     ###    #####
-..       #    #   
-..       #    #####
-..       #        #     
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 15 --- 2022-jun-21
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
@@ -549,18 +566,9 @@ Sesión 15 --- 2022-jun-21
                 :glob:
 
                 /notebooks/deep_learning_10_tf_structured_data/1-*
-        
 
 
-    **Deep Learning con Keras y TensorFlow 2.x**
 
-        **Datos estructurados**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/deep_learning_10_tf_structured_data/1-*
 
 
 
@@ -593,6 +601,20 @@ Sesión 16 --- 2022-jun-28
 
 Material para próximos cursos (2023)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        
+
+
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Datos estructurados**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_10_tf_structured_data/1-*
+
 
 
     **Fundamentos de Computación Evolutiva --- I**
