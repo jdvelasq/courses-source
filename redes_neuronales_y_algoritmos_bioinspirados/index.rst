@@ -55,7 +55,23 @@ Sesión 02 --- 2022-mar-14
 
             /notebooks/optimization_for_ML/1-*
 
-    `LAB ---  <>`_.
+
+
+.. note::
+
+    Con el fin de dar un contexto general al aprendizaje auatomático y a la optimización,
+    los cuales son fundamentales para sacerle el máximo provecho al curso, deben estudiar
+    el siguiente curso gratuito de Google:
+
+    https://developers.google.com/machine-learning/crash-course?hl=es_419 
+
+
+.. note::
+
+    Aquellos estudiantes que no conocen a profundidad el lenguage Python y el uso de 
+    Google Colaboratory (https://colab.research.google.com) pueden consultar las sesiones
+    01, 02 y 03 del curso Ciencia de Datos Aplicada, el cual está disponible en el menú 
+    del lado derecho de esta página.
 
 
 .. ......................................................................................
@@ -72,6 +88,7 @@ Sesión 02 --- 2022-mar-14
 
 Sesión 03 --- 2022-mar-22
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:06:21**
 
     **Modelo de McCulloch-Pitts**
         
@@ -80,6 +97,40 @@ Sesión 03 --- 2022-mar-22
             :glob:
             
             /notebooks/mcculloch-pitts_neuron/1-*
+
+    **Perceptrón binario**
+        
+        .. toctree::
+            :titlesonly:
+            :glob:
+            
+            /notebooks/mcculloch-binary_perceptron/1-*
+
+    **Regla de aprendizaje del perceptrón**
+        
+        .. toctree::
+            :titlesonly:
+            :glob:
+            
+            /notebooks/mcculloch-perceptrron_learning_rule/1-*
+
+
+
+.. ......................................................................................
+..
+..     #####  #   #
+..     #   #  #   #
+..     #   #  #####
+..     #   #      #
+..     #####      #
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 04 --- 2022-mar-29
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -104,18 +155,19 @@ Sesión 03 --- 2022-mar-22
 
 .. ......................................................................................
 ..
-..     #####  #   #
-..     #   #  #   #
+..     #####  #####
+..     #   #  #   
 ..     #   #  #####
 ..     #   #      #
-..     #####      #
+..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 04 --- 2022-mar-29
+Sesión 05 --- 2022-abr-05
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     **1:57:37**
 
     **Redes Neuronales con Scikit-Learn**
@@ -137,26 +189,26 @@ Sesión 04 --- 2022-mar-29
 
                 /notebooks/sklearn_model_selection_and_evaluation/2-*
 
-
 .. ......................................................................................
 ..
 ..     #####  #####
 ..     #   #  #   
 ..     #   #  #####
-..     #   #      #
+..     #   #  #   #
 ..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 05 --- 2022-abr-05
+Sesión 06 --- 2022-abr-19
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    **2:19:51**
+
+    **1:44:51**
 
     **Redes Neuronales con Scikit-Learn**
 
-        **Pipelines y estimadores compuestos** --- 49:27 min
+        **Pipelines y estimadores compuestos** --- 19:56 min
 
             .. toctree::
                 :titlesonly:
@@ -191,20 +243,23 @@ Sesión 05 --- 2022-abr-05
                 /notebooks/sklearn_dataset_transformations/8-*
 
 
+
+
 .. ......................................................................................
 ..
 ..     #####  #####
-..     #   #  #   
-..     #   #  #####
-..     #   #  #   #
-..     #####  #####
+..     #   #      #   
+..     #   #      #
+..     #   #      #
+..     #####      #
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 06 --- 2022-abr-19
+Sesión 07 --- 2022-abr-26, 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     **2:28:41**
 
     **Redes Neuronales con Scikit-Learn**
@@ -227,21 +282,21 @@ Sesión 06 --- 2022-abr-19
 
                 /notebooks/sklearn_supervised_02_linear_models/1-*
 
+
 .. ......................................................................................
 ..
 ..     #####  #####
-..     #   #      #   
-..     #   #      #
-..     #   #      #
-..     #####      #
+..     #   #  #   #
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 07 --- 2022-abr-26, 
+Sesión 08 --- 2022-may-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
     **Redes Neuronales con Scikit-Learn**
 
@@ -264,21 +319,21 @@ Sesión 07 --- 2022-abr-26,
 
 
 
-
 .. ......................................................................................
 ..
-..     #####  #####
-..     #   #  #   #
-..     #   #  #####
-..     #   #  #   #
-..     #####  #####
+..     #####   #####
+..     #   #   #   #
+..     #   #   #####
+..     #   #       #
+..     #####   #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 08 --- 2022-may-03
+Sesión 09 --- 2022-may-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     **1:46:15**
 
 
@@ -319,33 +374,6 @@ Sesión 08 --- 2022-may-03
 
                 /notebooks/sklearn_unsupervised_09_rbm/1-*
 
-.. ......................................................................................
-..
-..     #####   #####
-..     #   #   #   #
-..     #   #   #####
-..     #   #       #
-..     #####   #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 09 --- 2022-may-10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Deep Learning con Keras y TensorFlow 2.x**
-
-
-        **Introducción**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/deep_learning_01_tf_tutorials_quickstart/1-*
-                /notebooks/deep_learning_02_keras_getting_started/1-*
-
 
 
 .. ......................................................................................
@@ -365,13 +393,16 @@ Sesión 10 --- 2022-may-17
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
-        **Fundamentos de ML con Keras**
+
+        **Introducción**
 
             .. toctree::
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/deep_learning_03_tf_ml_basics_with_keras/1-*
+                /notebooks/deep_learning_01_tf_tutorials_quickstart/1-*
+                /notebooks/deep_learning_02_keras_getting_started/1-*
+
 
 
 .. ......................................................................................
@@ -387,6 +418,33 @@ Sesión 10 --- 2022-may-17
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 11 --- 2022-may-24
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Fundamentos de ML con Keras**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_03_tf_ml_basics_with_keras/1-*
+
+
+
+.. ......................................................................................
+..
+..     ###    #####
+..       #        #
+..       #    #####
+..       #    #    
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Learning con Keras y TensorFlow 2.x**
@@ -407,14 +465,14 @@ Sesión 11 --- 2022-may-24
 ..     ###    #####
 ..       #        #
 ..       #    #####
-..       #    #    
+..       #        #     
 ..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 12 --- 2022-may-31
+Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Learning con Keras y TensorFlow 2.x**
@@ -440,17 +498,17 @@ Sesión 12 --- 2022-may-31
 
 .. ......................................................................................
 ..
-..     ###    #####
-..       #        #
+..     ###    #   #
+..       #    #   #
 ..       #    #####
 ..       #        #     
-..     #####  #####
+..     #####      #
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 13 --- 2022-jun-07
+Sesión 14 --- 2022-jun-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Learning con Keras y TensorFlow 2.x**
@@ -468,17 +526,17 @@ Sesión 13 --- 2022-jun-07
 
 .. ......................................................................................
 ..
-..     ###    #   #
-..       #    #   #
+..     ###    #####
+..       #    #   
 ..       #    #####
 ..       #        #     
-..     #####      #
+..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 14 --- 2022-jun-14
+Sesión 15 --- 2022-jun-21
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Learning con Keras y TensorFlow 2.x**
@@ -492,20 +550,6 @@ Sesión 14 --- 2022-jun-14
                 /notebooks/deep_learning_10_tf_structured_data/1-*
         
 
-.. ......................................................................................
-..
-..     ###    #####
-..       #    #   
-..       #    #####
-..       #        #     
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 15 --- 2022-jun-21
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Deep Learning con Keras y TensorFlow 2.x**
 
