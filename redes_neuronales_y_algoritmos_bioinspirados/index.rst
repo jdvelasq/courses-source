@@ -334,14 +334,17 @@ Sesión 08 --- 2022-may-03
 Sesión 09 --- 2022-may-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Sistemas Difusos y Neuro-Difusos en Python**
+    **Deep Learning con Keras y TensorFlow 2.x**
 
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Introducción**
 
-            /notebooks/fuzzy_systems/1-*
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_01_tf_tutorials_quickstart/1-*
+                /notebooks/deep_learning_02_keras_getting_started/1-*
 
 
 
@@ -360,8 +363,15 @@ Sesión 09 --- 2022-may-10
 Sesión 10 --- 2022-may-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con Keras**
+    **Deep Learning con Keras y TensorFlow 2.x**
 
+        **Fundamentos de ML con Keras**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_03_tf_ml_basics_with_keras/1-*
 
 
 .. ......................................................................................
@@ -379,7 +389,16 @@ Sesión 10 --- 2022-may-17
 Sesión 11 --- 2022-may-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con Keras**
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Carga y procesamiento de datos**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_04_tf_load_and_processing_data/1-*
+
 
 
 
@@ -398,7 +417,25 @@ Sesión 11 --- 2022-may-24
 Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con Keras**
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Personalización**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_05_tf_customization/1-*
+
+    
+
+        **Imágenes**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_07_tf_images/1-*
 
 
 .. ......................................................................................
@@ -416,7 +453,16 @@ Sesión 12 --- 2022-may-31
 Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con Keras**
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Texto**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_08_tf_text/1-*
+
 
 
 
@@ -435,9 +481,16 @@ Sesión 13 --- 2022-jun-07
 Sesión 14 --- 2022-jun-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con Keras**
+    **Deep Learning con Keras y TensorFlow 2.x**
 
+        **Datos estructurados**
 
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_10_tf_structured_data/1-*
+        
 
 .. ......................................................................................
 ..
@@ -454,7 +507,16 @@ Sesión 14 --- 2022-jun-14
 Sesión 15 --- 2022-jun-21
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Deep Learning con Keras**
+    **Deep Learning con Keras y TensorFlow 2.x**
+
+        **Datos estructurados**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/deep_learning_10_tf_structured_data/1-*
+
 
 
 .. ......................................................................................
@@ -486,274 +548,6 @@ Sesión 16 --- 2022-jun-28
 
 Material para próximos cursos (2023)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-
-
-
-
-
-    **Deep Learning con Keras**
-
-        **Clasifcación básica de imágenes**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_01_basic_image_classification/1-*
-
-        **API de modelos**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_02_models_api/1-*
-
-
-        **Clasifcación básica de texto**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_03_basic_text_classification/1-*
-
-
-        **Regresión básica**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_04_regression/1-*
-
-
-        **Subajuste y sobreajustse**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_05_underfiting_overfiting/1-*
-
-        **Almacenamiento y carga de modelos**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_06_save_and_load/1-*
-
-
-        **Optimización de hiperparámetros**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_07_keras_tuner/1-*
-
-
-
-
-
-
-        **Carga y procesamiento de datos**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_08_load_and_preprocess_data_images/1-*
-
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_09_load_and_preprocess_data_csv/1-*
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_10_load_and_preprocess_data_numpy/1-*
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_11_load_and_preprocess_data_pandas/1-*
-                
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_12_load_and_preprocess_data_text/1-*
-
-
-
-        **Personalización**
-                
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_13_customization/1-*
-
-        **Imágenes**
-                
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_15_images_convolutional_neural_network/1-*
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/keras_16_images_data_augmentation/1-*
-
-
-
-
-        **APIs para capas --- min**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/keras_02_layers_api/1-*
-
-
-
-
-
-
-            
-
-    **TensorFlow 2.x Básico**
-
-        **Introducción --- min**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tensorflow_tutorials_00_quickstart/1-*
-
-
-
-        **Fundamentos de ML con Keras I --- min**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tensorflow_tutorials_01_ml_basics_keras/1-*
-
-
-    **TensorFlow 2.x Básico**
-
-        **Fundamentos de ML con Keras --- II**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_tutorials_01_ml_basics_keras/2-*
-
-    **TensorFlow 2.x Básico**
-
-        **Carga y preprocesamiento de información** --- 0:00 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_tutorials_02_load_and_preprocess_data/1-*
-
-
-    **TensorFlow 2.x Básico**
-
-
-        **Personalización** --- 0:00 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_tutorials_03_customization/1-*
-
-
-    
-
-        **Imágenes** --- 0:00 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_tutorials_05_images/1-*
-
-    **TensorFlow 2.x Básico**
-
-        **Texto** --- 0:00 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_tutorials_06_text/1-*
-
-
-
-
-        **Datos estructurados** --- 0:00 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_tutorials_08_structured_data/1-*
-
-
-    **TensorFlow 2.x Básico**
-    
-        **Modelos Clásicos de Redes Neuronales**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow__classical_models/1-*
-
-
-    **TensorFlow 2.x Básico**
-    
-        **Guia**
-        
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_guide_01_basics/1-*
-
-
-
-    **Estimadores**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tensorflow__estimators/1-*
-
 
 
     **Fundamentos de Computación Evolutiva --- I**
