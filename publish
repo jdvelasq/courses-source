@@ -1,0 +1,2 @@
+rm -rf /Volumes/GitHub/courses/docs/*
+cp -r /Volumes/GitHub/courses-source/build/html/* /Volumes/GitHub/courses/docs/
