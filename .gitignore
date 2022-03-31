@@ -1,6 +1,10 @@
 .DS_Store
 .vagrant/
 
+notebooks/mlflow/mlruns/
+notebooks/mlflow/outputs
+
+
 *.gz
 thumbnail/*.jpg
 
