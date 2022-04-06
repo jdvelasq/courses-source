@@ -66,6 +66,16 @@ Sesión 01 --- 2022-05-13
             /notebooks/mlflow/4-*
 
 
+   **MLOps con MLflow --- Registry**
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/mlflow/5-*
+
+
+
 
 .. ......................................................................................
 ..
