@@ -42,13 +42,13 @@ Sesión 01 --- 2022-05-13
             :maxdepth: 1
             :glob:
 
-            /notebooks/dataops_pqrs_01_on_premises/1-*
+            /notebooks/dataops_pqrs/1-*
 
       .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/dataops_pqrs_02_cloud/2-*
+            /notebooks/dataops_pqrs/2-*
 
 
 .. ......................................................................................
