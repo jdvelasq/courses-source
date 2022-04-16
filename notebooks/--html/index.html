@@ -45,8 +45,6 @@
     <nav style="border:1px solid #BEBDBD; border-width:2px;">
       <p class="seltext">Region:</p>
       <select id="region" name="region"  onchange="selectPlot()">
-
-        <!--- Este codigo se elimina 
         <option value="N.Amer">N.Amer</option>
         <option value="Europe">Europe</option>
         <option value="Asia">Asia</option>
@@ -54,28 +52,6 @@
         <option value="Oceania">Oceania</option>
         <option value="Africa">Africa</option>
         <option value="Mid.Amer">Mid.Amer</option>
-        --->
-        
-        <!--- Genera las opciones del menu usando Jinja2 --->
-        
-        
-            <option value="N.Amer">N.Amer</option>
-        
-            <option value="Europe">Europe</option>
-        
-            <option value="Asia">Asia</option>
-        
-            <option value="S.Amer">S.Amer</option>
-        
-            <option value="Oceania">Oceania</option>
-        
-            <option value="Africa">Africa</option>
-        
-            <option value="Mid.Amer">Mid.Amer</option>
-        
-      
-        <!--- Fin de la modificacion ---> 
-    
       </select>
       <br>
       <hr>
@@ -83,8 +59,6 @@
     </nav>
        
     <div>
-    
-      <!--- Este codigo se elimina 
       <div class="myImage" id="N.Amer"   style="display:block"> <img src="figs/N.Amer.png"   alt="N.Amer">   </div>
       <div class="myImage" id="Europe"   style="display:none">  <img src="figs/Europe.png"   alt="Europe">   </div>
       <div class="myImage" id="Asia"     style="display:none">  <img src="figs/Asia.png"     alt="Asia">     </div>
@@ -92,44 +66,6 @@
       <div class="myImage" id="Oceania"  style="display:none">  <img src="figs/Oceania.png"  alt="Oceania">  </div>
       <div class="myImage" id="Africa"   style="display:none">  <img src="figs/Africa.png"   alt="Africa">   </div>
       <div class="myImage" id="Mid.Amer" style="display:none">  <img src="figs/Mid.Amer.png" alt="Mid.Amer"> </div>
-      --->
-
-
-      <!--- Genera la division de cada imagen usando Jinja2 --->  
-    
-    
-      
-        
-          <div class="myImage" id="N.Amer" style="display:block"> <img src="figs/N.Amer.png" alt="N.Amer"> </div>  
-        
-      
-        
-          <div class="myImage" id="Europe" style="display:none"> <img src="figs/Europe.png" alt="Europe"> </div>  
-        
-      
-        
-          <div class="myImage" id="Asia" style="display:none"> <img src="figs/Asia.png" alt="Asia"> </div>  
-        
-      
-        
-          <div class="myImage" id="S.Amer" style="display:none"> <img src="figs/S.Amer.png" alt="S.Amer"> </div>  
-        
-      
-        
-          <div class="myImage" id="Oceania" style="display:none"> <img src="figs/Oceania.png" alt="Oceania"> </div>  
-        
-      
-        
-          <div class="myImage" id="Africa" style="display:none"> <img src="figs/Africa.png" alt="Africa"> </div>  
-        
-      
-        
-          <div class="myImage" id="Mid.Amer" style="display:none"> <img src="figs/Mid.Amer.png" alt="Mid.Amer"> </div>  
-        
-      
-    
-      <!--- Fin de la modificacion --->
-
     </div>
         
     <script>
