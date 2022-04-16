@@ -34,9 +34,9 @@ Sesión 01 --- 2022-05-13
    https://greatexpectations.io/expectations   
 
 
-   **Introducción práctica a los problemas en las organziaciones**
+   **Introducción práctica a los problemas de produtos de datos en las organziaciones**
 
-   Simulación de la evolución de un sistema de PQRS en una empresa
+      Simulación de la evolución de un sistema de PQRS en una empresa
 
       .. toctree::
             :maxdepth: 1
