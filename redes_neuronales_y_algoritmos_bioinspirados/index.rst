@@ -328,6 +328,8 @@ Sesión 08 --- 2022-may-03
 
                 /notebooks/sklearn_supervised_10_neural_networks/1-* 
 
+        `LAB --- Predicción de la resistencia del concreto <https://classroom.github.com/a/yROiy7oe>`_.
+
 
 
 .. ......................................................................................
