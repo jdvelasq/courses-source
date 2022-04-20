@@ -60,34 +60,36 @@ Sesión 01 --- 2022-05-13
 Sesión 02 --- 2022-05-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Programación en Python** --- 0:00:00 hr
+   **Programación Avanzada en Python** --- 0:00:00 hr
 
-      .. toctree::
-            :maxdepth: 1
-            :glob:
+      **Errores y Excepciones** ---  0:04:33 hr
 
-            /notebooks/the_python_tutorial_06_modules/1-*
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-
-      .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/the_python_tutorial_08_errors_and_exceptions/1-*
-
-      .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/the_python_tutorial_09_clases/1-*
+                /notebooks/the_python_tutorial_08_errors_and_exceptions/1-*
 
 
-      .. toctree::
-            :maxdepth: 1
-            :glob:
+      **Programación Orientada a Objetos** ---  0:0:0 hr
 
-            /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-*
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
+               /notebooks/the_python_tutorial_09_clases/1-*
+
+
+      **Librería Estandar** ---  0:17:10 hr
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-*
+
+
+      **Ambientes y Paquetes** ---  0:0:0 hr
 
       .. toctree::
             :maxdepth: 1
