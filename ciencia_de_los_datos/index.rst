@@ -69,6 +69,60 @@ Sesión 02 --- 2022-mar-18
 
     **Formación como Analista de Datos (I)**
 
+
+        **Programación en Python** --- 1:10:17 hr
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_03_an_informal_introduction_to_python/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_04_more_control_flow_tools/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_05_data_structures/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_07_input_and_output/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_07_input_and_output/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/python_for_data_analysis_examples/1-*
+
+
+
         **Python para Análisis de Datos (I)** --- 1:10:17 hr
 
 
