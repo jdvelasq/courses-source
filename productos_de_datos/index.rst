@@ -60,13 +60,41 @@ Sesión 01 --- 2022-05-13
 Sesión 02 --- 2022-05-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Código Limpio**
+   **Programación en Python** --- 0:00:00 hr
 
       .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/clean_code/1-*
+            /notebooks/the_python_tutorial_06_modules/1-*
+
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/the_python_tutorial_08_errors_and_exceptions/1-*
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/the_python_tutorial_09_clases/1-*
+
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-*
+
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/the_python_tutorial_12_virtual_environments_and_packages/1-*
+
 
 
 
@@ -84,6 +112,18 @@ Sesión 02 --- 2022-05-20
 
 Sesión 03 --- 2022-05-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+   **Código Limpio**
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/clean_code/1-*
+
+
+
 
    **MLOps**
 
