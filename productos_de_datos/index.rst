@@ -62,6 +62,16 @@ Sesión 02 --- 2022-05-20
 
    **Programación Avanzada en Python** --- 0:00:00 hr
 
+      **Módulos** ---  0:04:33 hr
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/the_python_tutorial_06_modules/1-*
+
+
+
       **Errores y Excepciones** ---  0:04:33 hr
 
             .. toctree::
