@@ -185,10 +185,6 @@ Sesión 03 --- 2022-05-27
 
                /notebooks/mlflow/5-*
 
-      **Verssionamiento de datos con VCD**
-
-         * Pendiente
-
 
 
 
@@ -258,13 +254,25 @@ Sesión 05 --- 2022-06-10
    **DataOps**
 
 
-      **Pasos 2 y 3 --- Control de versiones de código**
+      **Pasos 2 y 3 --- Control de versiones de código y datos**
 
 
          **Git**
 
+            
+
 
          **GitHub**
+
+
+         **DVC**
+
+         .. toctree::
+               :maxdepth: 1
+               :glob:
+
+               /notebooks/dvc/1-*
+
 
 
 .. ......................................................................................
