@@ -34,7 +34,7 @@ Sesión 01 --- 2022-05-13
    https://greatexpectations.io/expectations   
 
 
-   **Introducción práctica a los problemas de produtos de datos en las organziaciones**
+   **Introducción práctica a los problemas de productos de datos en las organizaciones**
 
       Simulación de la evolución de un sistema de PQRS en una empresa
 
@@ -60,17 +60,13 @@ Sesión 01 --- 2022-05-13
 Sesión 02 --- 2022-05-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Programación Avanzada en Python** --- 0:00:00 hr
-
-      **Módulos** ---  0:04:33 hr
+   **Revisión de conceptos de programación**
 
             .. toctree::
                 :maxdepth: 1
                 :glob:
 
                 /notebooks/the_python_tutorial_06_modules/1-*
-
-
 
       **Errores y Excepciones** ---  0:04:33 hr
 
@@ -99,14 +95,29 @@ Sesión 02 --- 2022-05-20
                 /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-*
 
 
-      **Ambientes y Paquetes** ---  0:0:0 hr
+      **Código Limpio**
 
-      .. toctree::
-            :maxdepth: 1
-            :glob:
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
-            /notebooks/the_python_tutorial_12_virtual_environments_and_packages/1-*
+               /notebooks/clean_code/1-*
 
+
+
+   **Dashboards y Aplicaciones en Python**
+
+         .. toctree::
+               :maxdepth: 1
+               :glob:
+
+               /notebooks/html/1-*
+
+         .. toctree::
+               :maxdepth: 1
+               :glob:
+
+               /notebooks/flask/1-*
 
 
 
@@ -125,69 +136,59 @@ Sesión 02 --- 2022-05-20
 Sesión 03 --- 2022-05-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-   **Código Limpio**
-
-      .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/clean_code/1-*
+   **MLOps con MLflow**
 
 
+      * `Intrdoucción a MLOps --07-- <https://jdvelasq.github.io/mlops_01_intro//>`_ 
 
 
-   **MLOps**
+      **Introducción a MLFlow**
 
-      * `MLOps --07-- <https://jdvelasq.github.io/mlops_01_intro//>`_ 
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
+               /notebooks/mlflow/1-*
 
-   **MLOps con MLflow --- Intro**
+      **Model Tracking**
 
-      .. toctree::
-            :maxdepth: 1
-            :glob:
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
-            /notebooks/mlflow/1-*
-
-   **MLOps con MLflow --- Model Tracking**
-
-      .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/mlflow/2-*
+               /notebooks/mlflow/2-*
 
 
-   **MLOps con MLflow --- Projects**
+      **MLflow --- Projects**
 
-      .. toctree::
-            :maxdepth: 1
-            :glob:
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
-            /notebooks/mlflow/3-*
-
-
-   **MLOps con MLflow --- Models**
-
-      .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/mlflow/4-*
+               /notebooks/mlflow/3-*
 
 
-   **MLOps con MLflow --- Registry**
+      **Models**
 
-      .. toctree::
-            :maxdepth: 1
-            :glob:
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
-            /notebooks/mlflow/5-*
+               /notebooks/mlflow/4-*
 
-   **MLOps con MLflow --- Ejemplo integrador**
 
-      **Pendiente**
+      **Registry**
+
+         .. toctree::
+               :maxdepth: 1
+               :glob:
+
+               /notebooks/mlflow/5-*
+
+      **Verssionamiento de datos con VCD**
+
+         * Pendiente
+
 
 
 
@@ -206,14 +207,22 @@ Sesión 03 --- 2022-05-27
 Sesión 04 --- 2022-06-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Fundamentación de DataOps**
+   **DataOps**
 
-      * `El problema con Data Analytics --10-- <https://jdvelasq.github.io/dataops_01_problem//>`_ 
+      **Introducción**
 
-      * `Qué es DataOps? --20-- <https://jdvelasq.github.io/dataops_02_what_is_dataops/>`_ 
+         * `El problema con Data Analytics --10-- <https://jdvelasq.github.io/dataops_01_problem//>`_ 
 
-      * `DataOps para el Chief Data Officer --12-- <https://jdvelasq.github.io/dataops_03_for_the_chief_data_officer/>`_    
+         * `Qué es DataOps? --20-- <https://jdvelasq.github.io/dataops_02_what_is_dataops/>`_ 
 
+
+      **Paso 1 --- Realización de pruebas y monitoreo continuo (1)**
+
+
+         **Pruebas de Código**
+
+
+         **Pruebas sobre los datos**
 
 
 
@@ -232,16 +241,30 @@ Sesión 04 --- 2022-06-03
 Sesión 05 --- 2022-06-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Fundamentación de DataOps**
+   **DataOps**
 
-      * `DataOps para el Data Engineer y el Data Scientist --13-- <https://jdvelasq.github.io/dataops_04_for_the_data_scientist/>`_ 
-
-      * `DataOps para calidad de datos --06-- <https://jdvelasq.github.io/dataops_05_for_data_quality/>`_ 
-
-      * `Estructura organizacional para DataOps --09-- <https://jdvelasq.github.io/dataops_06_organizing_for_dataops/>`_    
+      **Paso 1 --- Realización de pruebas y monitoreo continuo (2)**
 
 
 
+         **Pipelines**
+
+            - Luigi
+
+
+            - Airflow
+
+
+   **DataOps**
+
+
+      **Pasos 2 y 3 --- Control de versiones de código**
+
+
+         **Git**
+
+
+         **GitHub**
 
 
 .. ......................................................................................
@@ -259,13 +282,37 @@ Sesión 05 --- 2022-06-10
 Sesión 06 --- 2022-06-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   **Fundamentación de DataOps**
+      **Paso 4 --- Ambientes de desarrollo y de operación**
 
-      * `Estrategia de datos --11-- <https://jdvelasq.github.io/dataops_07_data_strategy/>`_    
 
-      * `Lean thinking --12-- <https://jdvelasq.github.io/dataops_08_lean_thinking/>`_ 
+         **Herramientas de desarrollo en Python** 
 
-      * `Agile Collaboration --15-- <https://jdvelasq.github.io/dataops_09_agile_collaboration/>`_ 
+            .. toctree::
+                  :maxdepth: 1
+                  :glob:
+
+                  /notebooks/the_python_tutorial_12_virtual_environments_and_packages/1-*
+
+
+
+         **Vagrant**
+         
+
+         
+         **Docker**
+
+
+
+
+      **Paso 5 --- Reuso y contenerización**
+
+         **Reuso en Python**  ---  0:0:0 hr 
+
+
+         **Paquetes**
+
+
+         **Contenerización de applicaciones en Docker**
 
 
 
@@ -286,6 +333,46 @@ Sesión 07 --- 2022-06-24
 
 
 
+      **Paso 6 --- Parametrización de los procesos**
+
+         **Archivos de configuración**
+
+
+
+         **Json**
+
+
+
+         **YAML**
+
+
+
+         **XML**
+
+
+
+      **Paso 7 --- Integración de los pipelines de valor e innovación**
+
+
+         **Acciones de GitHub**
+
+
+   **Fundamentación de DataOps**
+
+
+      * `DataOps para el Chief Data Officer --12-- <https://jdvelasq.github.io/dataops_03_for_the_chief_data_officer/>`_    
+
+
+   **Fundamentación de DataOps**
+
+      * `DataOps para el Data Engineer y el Data Scientist --13-- <https://jdvelasq.github.io/dataops_04_for_the_data_scientist/>`_ 
+
+      * `DataOps para calidad de datos --06-- <https://jdvelasq.github.io/dataops_05_for_data_quality/>`_ 
+
+      * `Estructura organizacional para DataOps --09-- <https://jdvelasq.github.io/dataops_06_organizing_for_dataops/>`_    
+
+
+
 .. ......................................................................................
 ..
 ..     #####  #####
@@ -300,6 +387,17 @@ Sesión 07 --- 2022-06-24
 
 Sesión 08 --- 2022-07-01
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+   **Fundamentación de DataOps**
+
+      * `Estrategia de datos --11-- <https://jdvelasq.github.io/dataops_07_data_strategy/>`_    
+
+      * `Lean thinking --12-- <https://jdvelasq.github.io/dataops_08_lean_thinking/>`_ 
+
+      * `Agile Collaboration --15-- <https://jdvelasq.github.io/dataops_09_agile_collaboration/>`_ 
+
 
 
 
