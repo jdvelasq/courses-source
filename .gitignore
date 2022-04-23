@@ -159,3 +159,6 @@ notebooks/dvc/.devcontainer/devcontainer.json
 notebooks/dvc/.github/workflows/cml.yaml
 notebooks/dvc/.devcontainer/Dockerfile
 notebooks/dvc/dvcdemo/
+notebooks/doctest/example.py
+notebooks/doctest/example.txt
+notebooks/doctest/test.py
