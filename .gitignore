@@ -162,3 +162,7 @@ notebooks/dvc/dvcdemo/
 notebooks/doctest/example.py
 notebooks/doctest/example.txt
 notebooks/doctest/test.py
+notebooks/pytest/test_class.py
+notebooks/pytest/test_class_demo.py
+notebooks/pytest/test_sample.py
+notebooks/pytest/test_sysexit.py
