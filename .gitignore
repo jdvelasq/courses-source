@@ -158,3 +158,4 @@ notebooks/the_python_tutorial_06_modules/fibo.py
 notebooks/dvc/.devcontainer/devcontainer.json
 notebooks/dvc/.github/workflows/cml.yaml
 notebooks/dvc/.devcontainer/Dockerfile
+notebooks/dvc/dvcdemo/
