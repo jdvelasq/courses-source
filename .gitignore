@@ -155,3 +155,6 @@ rsconnect/
 notebooks/sklearn/~$plantilla figuras NN.pptx
 notebooks/sklearn/bipolar-perceptron/assets/~$plantilla figuras NN.pptx
 notebooks/the_python_tutorial_06_modules/fibo.py
+notebooks/dvc/.devcontainer/devcontainer.json
+notebooks/dvc/.github/workflows/cml.yaml
+notebooks/dvc/.devcontainer/Dockerfile
