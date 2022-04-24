@@ -104,6 +104,14 @@ Sesión 02 --- 2022-05-20
                /notebooks/clean_code/1-*
 
 
+   **Documentación con Sphinx**
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/sphinx_documentation/1-*
+
 
    **Dashboards y Aplicaciones en Python**
 
@@ -217,14 +225,14 @@ Sesión 04 --- 2022-06-03
 
          **Pruebas de Código**
 
-         .. toctree::
-               :maxdepth: 1
-               :glob:
+            .. toctree::
+                  :maxdepth: 1
+                  :glob:
 
-               /notebooks/doctest/1-*
-               /notebooks/unittest/1-*
-               /notebooks/pytest/1-*
-               /notebooks/faker/1-*
+                  /notebooks/doctest/1-*
+                  /notebooks/unittest/1-*
+                  /notebooks/pytest/1-*
+                  /notebooks/faker/1-*
 
 
          **Pruebas sobre los datos**
