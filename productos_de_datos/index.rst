@@ -232,16 +232,31 @@ Sesión 04 --- 2022-06-03
                   /notebooks/doctest/1-*
                   /notebooks/unittest/1-*
                   /notebooks/pytest/1-*
+
+
+         **Generación de datos para pruebas**
+
+            .. toctree::
+                  :maxdepth: 1
+                  :glob:
+  
                   /notebooks/faker/1-*
 
 
-         **Pruebas sobre los datos**
+         **Pruebas sobre los datos con datatest**
 
             .. toctree::
                :maxdepth: 1
                :glob:
 
                /notebooks/datatest/1-*
+
+         **Pruebas sobre los datos con Great Expectations**      
+
+            .. toctree::
+               :maxdepth: 1
+               :glob:
+
                /notebooks/great_expectations/1-*
 
 .. ......................................................................................
