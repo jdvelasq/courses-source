@@ -27,13 +27,6 @@ Sesión 01 --- 2022-05-13
 
 
 
-
-   https://dvc.org/doc/start/data-and-model-versioning
-
-
-   https://greatexpectations.io/expectations   
-
-
    **Introducción práctica a los problemas de productos de datos en las organizaciones**
 
       Simulación de la evolución de un sistema de PQRS en una empresa
@@ -344,6 +337,11 @@ Sesión 06 --- 2022-06-17
 
          **Vagrant**
          
+            .. toctree::
+                  :maxdepth: 1
+                  :glob:
+
+                  /notebooks/vagrant/1-*
 
          
          **Docker**
@@ -382,19 +380,11 @@ Sesión 07 --- 2022-06-24
 
       **Paso 6 --- Parametrización de los procesos**
 
-         **Archivos de configuración**
+         .. toctree::
+               :maxdepth: 1
+               :glob:
 
-
-
-         **JSON**
-
-
-
-         **YAML**
-
-
-
-         **XML**
+               /notebooks/config_files/1-*
 
 
 
@@ -408,7 +398,6 @@ Sesión 07 --- 2022-06-24
 
 
       * `DataOps para el Chief Data Officer --12-- <https://jdvelasq.github.io/dataops_03_for_the_chief_data_officer/>`_    
-
 
       * `DataOps para el Data Engineer y el Data Scientist --13-- <https://jdvelasq.github.io/dataops_04_for_the_data_scientist/>`_ 
 
