@@ -251,7 +251,7 @@ Sesión 04 --- 2022-06-03
 
                /notebooks/datatest/1-*
 
-         **Pruebas sobre los datos con Great Expectations**      
+         **Pruebas sobre los datos con Great Expectations (PENEIENTE)**      
 
             .. toctree::
                :maxdepth: 1
@@ -280,12 +280,17 @@ Sesión 05 --- 2022-06-10
 
 
 
-         **Pipelines**
+         **Pipelines con Luigi**
 
-            - Luigi
+            .. toctree::
+               :maxdepth: 1
+               :glob:
+
+               /notebooks/luigi/1-*
 
 
-            - Airflow
+         **Pipelines con Apache Airflow**
+
 
 
       **Pasos 2 y 3 --- Control de versiones de código y datos**
