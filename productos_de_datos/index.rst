@@ -344,22 +344,32 @@ Sesión 06 --- 2022-06-17
                   /notebooks/vagrant/1-*
 
          
-         **Docker**
+         **Ambienes de desarrollo en Docker**
+
+
+            * Jupyter in Docker:
+
+                  https://github.com/jdvelasq/jupyter_in_docker
+
+
+            * Desarrollo dentro de un contenedor en VS Code:
+
+                  https://code.visualstudio.com/docs/remote/containers
 
 
 
 
       **Paso 5 --- Reuso y contenerización**
+         
 
-         **Reuso en Python**  ---  0:0:0 hr 
+         **Paquetes en Python**
 
-
-         **Paquetes**
-
-
-         **Contenerización de applicaciones en Docker**
+            Ver https://github.com/jdvelasq/package_demo
 
 
+         **Contenerización de aplicaciones en Docker**
+
+      
 
 .. ......................................................................................
 ..
