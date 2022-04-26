@@ -369,7 +369,9 @@ Sesión 06 --- 2022-06-17
 
          **Contenerización de aplicaciones en Docker**
 
-      
+            * https://github.com/jdvelasq/iris-app-in-docker
+
+
 
 .. ......................................................................................
 ..
