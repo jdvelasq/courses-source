@@ -336,7 +336,7 @@ Sesión 06 --- 2022-06-17
 
          **Paquetes en Python**
 
-            Ver https://github.com/jdvelasq/package_demo
+            * https://github.com/jdvelasq/package_demo
 
 
          **Contenerización de aplicaciones en Docker**
