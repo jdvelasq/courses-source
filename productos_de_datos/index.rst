@@ -76,7 +76,7 @@ Sesión 02 --- 2022-05-20
                /notebooks/mlflow/2-*
 
 
-      **MLflow --- Projects**
+      **Projects**
 
          .. toctree::
                :maxdepth: 1
