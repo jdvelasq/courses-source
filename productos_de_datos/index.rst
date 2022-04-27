@@ -29,7 +29,7 @@ Sesión 01 --- 2022-05-13
 
    **Introducción práctica a los problemas de productos de datos en las organizaciones**
 
-      Simulación de la evolución de un sistema de PQRS en una empresa
+      Simulación de las etapas de evolución de un sistema de PQRS en una empresa.
 
       .. toctree::
             :maxdepth: 1
