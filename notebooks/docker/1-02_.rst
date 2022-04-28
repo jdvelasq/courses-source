@@ -1,0 +1,62 @@
+Actualización de la aplicación
+=========================================================================================
+
+**Modificación del código fuente**
+
+
+
+1.--- Modifique el código del archivo `myapp.py`
+
+.. image:: assets/docker_0006.png
+
+
+2.--- Agregue el archivo `templates/index.html` 
+
+.. image:: assets/docker_0007.png
+
+
+3.--- Actualice la imagen de docker con:
+
+.. code:: bash
+
+    $ docker build -t myapp .
+
+
+4.--- Reemplace el contendor antiguo por el nuevo. Obtenga el ID del contendor con: 
+
+.. code:: bash
+
+    $ docker ps
+
+
+.. image:: assets/docker_0008.png
+
+
+5.--- Detenga el contendor antiguo con:
+
+.. code:: bash
+
+    $ docker stop <id>
+
+.. image:: assets/docker_0009.png
+
+
+6.-- Borre el contendor antiguo con:
+
+.. code:: bash
+
+    $ docker rm <id>
+
+.. image:: assets/docker_0010.png
+
+
+7.--- Inicie el nuevo contendor con:
+
+.. code:: bash
+
+    $ docker run -dp 5010:5000 myapp
+
+.. image:: assets/docker_0011.png
+
+.. image:: assets/docker_0012.png
+
