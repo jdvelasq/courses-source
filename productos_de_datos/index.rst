@@ -306,7 +306,6 @@ Sesión 06 --- 2022-06-17
                   /notebooks/the_python_tutorial_12_virtual_environments_and_packages/1-*
 
 
-
          **Vagrant**
          
             .. toctree::
