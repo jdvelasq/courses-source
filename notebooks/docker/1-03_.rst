@@ -1,11 +1,13 @@
 Subida de la imagen a Docker Hub
 =========================================================================================
 
+
 1.--- Renombre la imagen.
 
 .. code-block:: bash
 
     $ docker tag myapp jdvelasq/myapp:mytag
+
 
 
 2.--- Verifique que la imagen haya sido renombrada.
@@ -17,7 +19,9 @@ Subida de la imagen a Docker Hub
 .. image:: assets/docker_0013.png    
 
 
+
 3.--- Logeese en Docker Hub: https://hub.docker.com/
+
 
 
 4.--- Cree un repositorio nuevo.
@@ -37,6 +41,7 @@ Subida de la imagen a Docker Hub
     $ docker login
 
 
+
 6.--- Suba la imagen a su repositorio.
 
 .. code-block:: bash
@@ -44,6 +49,7 @@ Subida de la imagen a Docker Hub
     $ docker push jdvelasq/myapp:mytag
 
 .. image:: assets/docker_0017.png
+
 
 
 7.--- Verifique que la imagen haya sido subida.
@@ -57,6 +63,7 @@ Subida de la imagen a Docker Hub
 .. image:: assets/docker_0019.png
 
 
+
 9.--- Cree una nueva instancia.
 
 .. image:: assets/docker_0020.png
@@ -64,11 +71,13 @@ Subida de la imagen a Docker Hub
 .. image:: assets/docker_0021.png    
 
 
+
 10.--- Ejecute el contendor con:
 
 .. code-block:: bash
 
     $ docker run -dp 5010:5000 jdvelasq/myapp:mytag
+
 
 
 11.--- Abra el puerto de la aplicación.
