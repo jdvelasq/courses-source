@@ -1,9 +1,6 @@
 Actualización de la aplicación
 =========================================================================================
 
-**Modificación del código fuente**
-
-
 
 1.--- Modifique el código del archivo `myapp.py`
 
