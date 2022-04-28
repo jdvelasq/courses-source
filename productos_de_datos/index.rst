@@ -270,8 +270,6 @@ Sesión 05 --- 2022-06-10
 
          **Git**
 
-            
-
 
          **GitHub**
 
@@ -338,30 +336,27 @@ Sesión 06 --- 2022-06-17
             * https://github.com/jdvelasq/package_demo
 
 
-         
+         **Docker**
 
-
-         **Contenerización de aplicaciones en Docker**
-
-            * https://github.com/jdvelasq/iris-app-in-docker
-
-
-
-         **Ambientes de desarrollo en Docker**
-
-            **Tutorial docker**
+            * Tutoriales:
                
                   .. toctree::
                      :maxdepth: 1
                      :glob:
    
                      /notebooks/docker/1-*
+         
 
 
-            * Jupyter in Docker:  https://github.com/jdvelasq/jupyter_in_docker
+            * Ejemplos: 
+
+               * https://github.com/jdvelasq/iris-app-in-docker
 
 
-            * Desarrollo dentro de un contenedor en VS Code:  https://code.visualstudio.com/docs/remote/containers
+               * Jupyter Lab in Docker:  https://github.com/jdvelasq/jupyter_in_docker
+
+
+               * Desarrollo dentro de un contenedor en VS Code:  https://code.visualstudio.com/docs/remote/containers
 
 
 
@@ -396,8 +391,14 @@ Sesión 07 --- 2022-06-24
 
       **Paso 7 --- Integración de los pipelines de valor e innovación**
 
-
          **Acciones de GitHub**
+
+         .. toctree::
+               :maxdepth: 1
+               :glob:
+
+               /notebooks/github_actions/1-*
+
 
 
    **DataOps: Fundamentación filosófica**
