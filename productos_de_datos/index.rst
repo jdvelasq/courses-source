@@ -315,6 +315,12 @@ Sesión 06 --- 2022-06-17
                   /notebooks/the_python_tutorial_12_virtual_environments_and_packages/1-*
 
 
+         **Máquinas virtuales**
+
+            * VirtualBox
+
+            * Parallels
+
          **Vagrant**
          
             .. toctree::
@@ -322,21 +328,6 @@ Sesión 06 --- 2022-06-17
                   :glob:
 
                   /notebooks/vagrant/1-*
-
-         
-         **Ambientes de desarrollo en Docker**
-
-
-            * Jupyter in Docker:
-
-                  https://github.com/jdvelasq/jupyter_in_docker
-
-
-            * Desarrollo dentro de un contenedor en VS Code:
-
-                  https://code.visualstudio.com/docs/remote/containers
-
-
 
 
       **Paso 5 --- Reuso y contenerización**
@@ -347,9 +338,25 @@ Sesión 06 --- 2022-06-17
             * https://github.com/jdvelasq/package_demo
 
 
+         
+
+
          **Contenerización de aplicaciones en Docker**
 
             * https://github.com/jdvelasq/iris-app-in-docker
+
+
+
+         **Ambientes de desarrollo en Docker**
+
+            **Tutorial docker**
+
+
+            * Jupyter in Docker:  https://github.com/jdvelasq/jupyter_in_docker
+
+
+            * Desarrollo dentro de un contenedor en VS Code:  https://code.visualstudio.com/docs/remote/containers
+
 
 
 
