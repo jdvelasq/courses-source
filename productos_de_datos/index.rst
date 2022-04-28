@@ -154,6 +154,15 @@ Sesión 03 --- 2022-05-27
                /notebooks/the_python_tutorial_06_modules/1-*
                /notebooks/the_python_tutorial_08_errors_and_exceptions/1-*
                /notebooks/the_python_tutorial_09_clases/1-*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-04*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-07*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-08*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-09*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-10*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-11*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-12*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-13*
+               /notebooks/the_python_tutorial_10_brief_tour_of_the_standard_library/1-14*
 
 
       **Código Limpio**
