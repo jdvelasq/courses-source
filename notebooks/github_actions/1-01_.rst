@@ -5,7 +5,6 @@ Hola Mundo! en GitHub Actions
 Cree un repositorio de prueba en GitHub.
 
 .. image:: assets/github_actions_0001.png
-   :width: 600
 
 .. image:: assets/github_actions_0002.png
 
