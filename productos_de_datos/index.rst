@@ -350,6 +350,12 @@ Sesión 06 --- 2022-06-17
          **Ambientes de desarrollo en Docker**
 
             **Tutorial docker**
+               
+                  .. toctree::
+                     :maxdepth: 1
+                     :glob:
+   
+                     /notebooks/docker/1-*
 
 
             * Jupyter in Docker:  https://github.com/jdvelasq/jupyter_in_docker
