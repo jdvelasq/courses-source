@@ -338,25 +338,18 @@ Sesión 06 --- 2022-06-17
 
          **Docker**
 
-            * Tutoriales:
-               
-                  .. toctree::
-                     :maxdepth: 1
-                     :glob:
-   
-                     /notebooks/docker/1-*
-         
+            .. toctree::
+               :maxdepth: 1
+               :glob:
 
+               /notebooks/docker/1-*
+ 
 
-            * Ejemplos: 
+            * Apps de ML en Docker: https://github.com/jdvelasq/iris-app-in-docker
 
-               * https://github.com/jdvelasq/iris-app-in-docker
+            * Jupyter Lab in Docker:  https://github.com/jdvelasq/jupyter_in_docker
 
-
-               * Jupyter Lab in Docker:  https://github.com/jdvelasq/jupyter_in_docker
-
-
-               * Desarrollo dentro de un contenedor en VS Code:  https://code.visualstudio.com/docs/remote/containers
+            * Contenedores de desarrollo en VS Code:  https://code.visualstudio.com/docs/remote/containers
 
 
 
