@@ -284,6 +284,13 @@ Sesión 05 --- 2022-06-10
                   /notebooks/git/2-*
 
 
+            .. toctree::
+                  :maxdepth: 1
+                  :glob:
+
+                  /notebooks/git/3-*
+
+
 
          **GitHub**
 
