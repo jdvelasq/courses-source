@@ -404,16 +404,6 @@ Sesión 10 --- 2022-may-17
     **2:22:11**
 
     **Aprendizaje Profundo con TensorFlow y Keras**
-
-        **Inicio rápido**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/tensorflow_01_quickstart/1-01*
-
-
         
         **Fundamentos de ML con Keras ---**
 
@@ -449,7 +439,7 @@ Sesión 11 --- 2022-may-24
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/deep_learning_03_tf_ml_basics_with_keras/2-*
+                /notebooks/tensorflow_02_ml_basics_with_keras/2-*
 
 
 
