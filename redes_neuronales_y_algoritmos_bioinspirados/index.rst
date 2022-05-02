@@ -466,7 +466,7 @@ Sesión 12 --- 2022-may-31
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/deep_learning_04_tf_load_and_processing_data/1-*
+                /notebooks/tensorflow_03_load_and_processing_data/1-*
 
 
 
