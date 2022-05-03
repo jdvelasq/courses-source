@@ -409,7 +409,7 @@ Sesión 10 --- 2022-may-17
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/tensorflow_01_quickstart/1-*
+                /notebooks/tensorflow_01_quickstart/1-01*
 
 
     **Aprendizaje Profundo con TensorFlow y Keras**
