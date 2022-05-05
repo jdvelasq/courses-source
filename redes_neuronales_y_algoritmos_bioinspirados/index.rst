@@ -403,24 +403,24 @@ Sesión 10 --- 2022-may-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     **2:22:11**
 
-    **Inicio rápido ---**
+    **Introducción a Keras ---**
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-                /notebooks/tensorflow_01_quickstart/1-01*
+            /notebooks/tensorflow_01_quickstart/1-*
 
 
-    **Aprendizaje Profundo con TensorFlow y Keras**
+
         
-        **Fundamentos de ML con Keras ---**
+    **Fundamentos de ML con Keras ---**
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-                /notebooks/tensorflow_02_ml_basics_with_keras/1-*
+            /notebooks/tensorflow_02_ml_basics_with_keras/1-*
 
 
 
@@ -440,15 +440,15 @@ Sesión 11 --- 2022-may-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     **1:57:47**
 
-    **Aprendizaje Profundo con TensorFlow y Keras**
+    
 
-        **Fundamentos de ML con Keras --- 1:57:47**
+    **Fundamentos de ML con Keras --- 1:57:47**
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-                /notebooks/tensorflow_02_ml_basics_with_keras/2-*
+            /notebooks/tensorflow_02_ml_basics_with_keras/2-*
 
 
 
@@ -467,15 +467,14 @@ Sesión 11 --- 2022-may-24
 Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
-    **Aprendizaje Profundo con TensorFlow y Keras**
 
-        **Carga y procesamiento de datos**
+    **Carga y procesamiento de datos**
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-                /notebooks/tensorflow_03_load_and_processing_data/1-*
+            /notebooks/tensorflow_03_load_and_processing_data/1-*
 
 
 
@@ -494,25 +493,23 @@ Sesión 12 --- 2022-may-31
 Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Aprendizaje Profundo con TensorFlow y Keras**
+    **Personalización**
 
-        **Personalización**
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
+            /notebooks/deep_learning_05_tf_customization/1-*
 
-                /notebooks/deep_learning_05_tf_customization/1-*
 
-    
 
-        **Imágenes**
+    **Imágenes**
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-                /notebooks/deep_learning_07_tf_images/1-*
+            /notebooks/deep_learning_07_tf_images/1-*
 
 
 
@@ -532,28 +529,22 @@ Sesión 14 --- 2022-jun-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje Profundo con TensorFlow y Keras**
+    **Texto**
 
-        **Texto**
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/deep_learning_08_tf_text/1-*
+            /notebooks/deep_learning_08_tf_text/1-*
 
 
+    **Datos estructurados**
 
+        .. toctree::
+            :maxdepth: 1
+            :glob:
 
-
-
-        **Datos estructurados**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/deep_learning_10_tf_structured_data/1-*
+            /notebooks/deep_learning_10_tf_structured_data/1-*
 
 
 .. ......................................................................................
@@ -572,7 +563,7 @@ Sesión 15 --- 2022-jun-21
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Aprendizaje Profundo con TensorFlow y Keras**
+    
 
 
 
@@ -651,7 +642,6 @@ Material para próximos cursos (2023)
         :glob:
 
 /notebooks/self-organizing_map/1-*
-
 
 
 
