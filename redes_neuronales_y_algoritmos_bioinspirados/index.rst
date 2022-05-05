@@ -401,9 +401,9 @@ Sesión 09 --- 2022-may-10
 
 Sesión 10 --- 2022-may-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    **2:22:11**
+    **2:06:30**
 
-    **Introducción a Keras ---**
+    **Introducción a Keras --- 35:36 min**
 
         .. toctree::
             :maxdepth: 1
@@ -414,7 +414,7 @@ Sesión 10 --- 2022-may-17
 
 
         
-    **Fundamentos de ML con Keras ---**
+    **Fundamentos de ML con Keras --- 90:54 min**
 
         .. toctree::
             :maxdepth: 1
@@ -438,11 +438,11 @@ Sesión 10 --- 2022-may-17
 
 Sesión 11 --- 2022-may-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    **1:57:47**
+    **2:18:10**
 
     
 
-    **Fundamentos de ML con Keras --- 1:57:47**
+    **Fundamentos de ML con Keras --- 2:18:10**
 
         .. toctree::
             :maxdepth: 1
