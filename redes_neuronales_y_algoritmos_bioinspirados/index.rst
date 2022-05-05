@@ -468,13 +468,25 @@ Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
 
-    **Carga y procesamiento de datos**
+    **Carga y procesamiento de imágenes**
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
             /notebooks/tensorflow_03_load_and_processing_data/1-*
+
+
+    **Carga y procesamiento de archivos CSV**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_03_load_and_processing_data/2-*
+
+
+
 
 
 
@@ -493,24 +505,38 @@ Sesión 12 --- 2022-may-31
 Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Personalización**
+    **Carga y procesamiento de archivos NumPy**
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/deep_learning_05_tf_customization/1-*
+            /notebooks/tensorflow_03_load_and_processing_data/3-*
 
-
-
-    **Imágenes**
+    **Carga y procesamiento de DataFrames de Pandas**
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/deep_learning_07_tf_images/1-*
+            /notebooks/tensorflow_03_load_and_processing_data/4-*
 
+
+    **tf.record y tf.example**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_03_load_and_processing_data/5-*
+
+    **Carga y procesamiento de archivos de texto**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_03_load_and_processing_data/6-*
 
 
 .. ......................................................................................
@@ -527,6 +553,24 @@ Sesión 13 --- 2022-jun-07
 
 Sesión 14 --- 2022-jun-14
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Personalización**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_03_load_and_processing_data/2-*
+
+
+
+    **Imágenes**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/deep_learning_07_tf_images/1-*
 
 
     **Texto**
