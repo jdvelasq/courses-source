@@ -560,7 +560,7 @@ Sesión 14 --- 2022-jun-14
             :maxdepth: 1
             :glob:
 
-            /notebooks/tensorflow_03_load_and_processing_data/2-*
+            /notebooks/tensorflow_04_customization/2-*
 
 
 
@@ -570,7 +570,7 @@ Sesión 14 --- 2022-jun-14
             :maxdepth: 1
             :glob:
 
-            /notebooks/deep_learning_07_tf_images/1-*
+            /notebooks/tensorflow_06_images/1-*
 
 
     **Texto**
@@ -579,7 +579,7 @@ Sesión 14 --- 2022-jun-14
             :maxdepth: 1
             :glob:
 
-            /notebooks/deep_learning_08_tf_text/1-*
+            /notebooks/tensorflow_07_text/1-*
 
 
     **Datos estructurados**
