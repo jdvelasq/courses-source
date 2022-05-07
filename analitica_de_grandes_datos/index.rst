@@ -2,6 +2,20 @@ Analítica de Grandes Datos
 =========================================================================================
 
 
+
+
+.. .....................................................................................
+..
+..     #####  ###
+..     #   #    #
+..     #   #    #
+..     #   #    #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
 Sesión 01 --- 2022-05-13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -14,187 +28,348 @@ Sesión 01 --- 2022-05-13
             course-info
 
 
+    **Ingeniería de Datos**
 
-    **Ingeniería de Datos --- Bash para Procesamiento de Datos**
+        **Bash para Procesamiento de Datos**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/bash/1-*
-            /notebooks/bash/2-*
-            /notebooks/bash/3-*
-            /notebooks/bash/4-*
-            /notebooks/bash/5-*
+                /notebooks/bash/1-*
 
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/2-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/3-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/4-*
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/5-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/6-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/7-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/bash/8-*
+
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #
+..     #   #  #####
+..     #   #  #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 02 --- 2022-05-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Ingeniería de Datos --- Apache Hadoop**
-    
+    **Ingeniería de Datos**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Apache Hadoop**
+        
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/hadoop/1-*
+                /notebooks/hadoop/1-*
 
 
-    **Ingeniería de Datos --- Apache Pig I**
+        **Apache Pig (1)**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/pig/1-*
+                /notebooks/pig/1-*
 
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #
+..     #   #   ####
+..     #   #      #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 03 --- 2022-05-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Ingeniería de Datos --- Apache Pig II**
+    **Ingeniería de Datos**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Apache Pig (2)**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
 
-            /notebooks/pig/2-*
+                /notebooks/pig/2-*
 
-        
-    **Ingeniería de Datos --- Apache Hive I**
+            
+        **Apache Hive (1)**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/hive/1-*
+                /notebooks/hive/1-*
 
+
+
+.. ......................................................................................
+..
+..     #####  #   #
+..     #   #  #   #
+..     #   #  #####
+..     #   #      #
+..     #####      #
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 Sesión 04 --- 2022-06-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Ingeniería de Datos --- Apache Hive II**
+    **Ingeniería de Datos**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Apache Hive (2)**
 
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/hive/2-*        
-
-
-    **Ingeniería de Datos --- Programación funcional en Apache Spark**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/1-*
+                /notebooks/hive/2-*        
 
 
-    **Ingeniería de Datos --- Apache Spark RDD**
-    
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-    
-            /notebooks/pyspark/2-*
+        **Programación funcional en Apache Spark**
 
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/pyspark/1-*
+
+
+        **Apache Spark RDD**
+        
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+        
+                /notebooks/pyspark/2-*
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   
+..     #   #  #####
+..     #   #      #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 05 --- 2022-06-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Ingeniería de Datos --- Apache Spark SQL**
+    **Ingeniería de Datos**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Apache Spark SQL**
 
-            /notebooks/pyspark/3-*
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-    **Analítica Predictiva en Grandes Datos --- Apache Spark ML I**
+                /notebooks/pyspark/3-*
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+    **Analítica Predictiva**    
 
-            /notebooks/pyspark/4-*
 
+        **Apache Spark ML (1)**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/pyspark/4-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/pyspark/5-*
+
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/pyspark/6-*
+
+
+        **Apache Spark Streaming**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/pyspark/7-*
+
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 06 --- 2022-06-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Analítica Predictiva en Grandes Datos --- Apache Spark ML II**
+    **Analítica Predictiva**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Introducción a Keras --- 35:36 min**
 
-            /notebooks/pyspark/5-*
-            /notebooks/pyspark/6-*
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_01_quickstart/1-*
 
 
+        **Fundamentos de ML con Keras --- 90:54 min**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_02_ml_basics_with_keras/1-*
+
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #   
+..     #   #      #
+..     #   #      #
+..     #####      #
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 07 --- 2022-06-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:18:10**
 
-    **Analítica de Grandes Datos --- Apache Spark Streaming**
+    **Analítica Predictiva**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Fundamentos de ML con Keras --- 2:18:10**
 
-            /notebooks/pyspark/7-*
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-    **Analítica Predictiva en Grandes Datos --- Introduccion a Keras con TensorFlow 2.7**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-        /notebooks/tensorflow/intro/1-*
+                /notebooks/tensorflow_02_ml_basics_with_keras/2-*
 
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   #
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 08 --- 2022-07-01
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **1:32:15**
 
-    **Analítica Predictiva en Grandes Datos --- Procesamiento básico de texto usando TensorFlow 2.4**
+    **Analítica Predictiva**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+        **Carga y procesamiento de archivos CSV --- 49:11 min**
 
-            /notebooks/tensorflow/texto/1-*
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_03_load_and_processing_data/2-*
 
 
-    **Analítica Predictiva en Grandes Datos --- Estimadores en TensorFlow 2.4**
+        **Carga y procesamiento de archivos NumPy --- 3:44 min**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
+            .. toctree::
+                :maxdepth: 1
+                :glob:
 
-            /notebooks/tensorflow/estimadores/1-*
+                /notebooks/tensorflow_03_load_and_processing_data/3-*
+
+
+        **Carga y procesamiento de DataFrames de Pandas --- 27:54 min**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/tensorflow_03_load_and_processing_data/4-*
 
 
     * **Evaluación y Cierre**
 
 
-
-**Material complementario**
-
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-/notebooks/sparkr/*
-
-    .. toctree::
-        :maxdepth: 1
-        :glob:
-
-/notebooks/sparklyr/*
 
 
