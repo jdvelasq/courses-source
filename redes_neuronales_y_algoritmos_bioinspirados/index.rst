@@ -466,9 +466,9 @@ Sesión 11 --- 2022-may-24
 
 Sesión 12 --- 2022-may-31
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    
+    **2:00:09**
 
-    **Carga y procesamiento de imágenes**
+    **Carga y procesamiento de imágenes --- 39:20 min**
 
         .. toctree::
             :maxdepth: 1
@@ -477,7 +477,7 @@ Sesión 12 --- 2022-may-31
             /notebooks/tensorflow_03_load_and_processing_data/1-*
 
 
-    **Carga y procesamiento de archivos CSV**
+    **Carga y procesamiento de archivos CSV --- 49:11 min**
 
         .. toctree::
             :maxdepth: 1
@@ -486,7 +486,22 @@ Sesión 12 --- 2022-may-31
             /notebooks/tensorflow_03_load_and_processing_data/2-*
 
 
+    **Carga y procesamiento de archivos NumPy --- 3:44 min**
 
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_03_load_and_processing_data/3-*
+
+
+    **Carga y procesamiento de DataFrames de Pandas --- 27:54 min**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/tensorflow_03_load_and_processing_data/4-*
 
 
 
@@ -505,21 +520,7 @@ Sesión 12 --- 2022-may-31
 Sesión 13 --- 2022-jun-07
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Carga y procesamiento de archivos NumPy**
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tensorflow_03_load_and_processing_data/3-*
-
-    **Carga y procesamiento de DataFrames de Pandas**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tensorflow_03_load_and_processing_data/4-*
 
 
     **tf.record y tf.example**
@@ -560,7 +561,7 @@ Sesión 14 --- 2022-jun-14
             :maxdepth: 1
             :glob:
 
-            /notebooks/tensorflow_04_customization/2-*
+            /notebooks/tensorflow_04_customization/1-*
 
 
 
@@ -588,7 +589,7 @@ Sesión 14 --- 2022-jun-14
             :maxdepth: 1
             :glob:
 
-            /notebooks/deep_learning_10_tf_structured_data/1-*
+            /notebooks/tensorflow_09_structured_data/1-*
 
 
 .. ......................................................................................
