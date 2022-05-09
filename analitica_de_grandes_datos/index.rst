@@ -30,6 +30,9 @@ Sesión 01 --- 2022-05-13
 
     **Ingeniería de Datos**
 
+
+
+
         **Bash para Procesamiento de Datos**
 
             .. toctree::
@@ -103,6 +106,16 @@ Sesión 02 --- 2022-05-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Ingeniería de Datos**
+
+
+        **Manejo de datasets masivos en Python**
+
+            .. toctree::
+                :maxdepth: 1
+                :glob:
+
+                /notebooks/masive_datasets/1-*
+
 
         **Apache Hadoop**
         
@@ -229,7 +242,7 @@ Sesión 05 --- 2022-06-10
     **Analítica Predictiva**    
 
 
-        **Apache Spark ML (1)**
+        **Apache Spark ML**
 
             .. toctree::
                 :maxdepth: 1
