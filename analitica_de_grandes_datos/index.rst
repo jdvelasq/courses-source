@@ -181,8 +181,7 @@ Sesión 04 --- 2022-06-03
 
         **Apache Hive**
 
-
-            .. toctree:
+            .. toctree::
                 :maxdepth: 1
                 :glob:
 
