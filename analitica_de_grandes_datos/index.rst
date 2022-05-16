@@ -2,8 +2,6 @@ Analítica de Grandes Datos
 =========================================================================================
 
 
-
-
 .. .....................................................................................
 ..
 ..     #####  ###
@@ -28,7 +26,7 @@ Sesión 01 --- 2022-05-13
             course-info
 
 
-    **Uso del Terminal para el Procesamiento de Datos**
+    **Uso del Terminal para el Procesamiento de Datos --- Parte 1**
 
         .. note::
 
@@ -71,40 +69,6 @@ Sesión 01 --- 2022-05-13
             /notebooks/bash/3-*
 
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/bash/4-*
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/bash/5-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/bash/6-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/bash/7-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/bash/8-*
-
-
 .. ......................................................................................
 ..
 ..     #####  #####
@@ -118,6 +82,58 @@ Sesión 01 --- 2022-05-13
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
 Sesión 02 --- 2022-05-20
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+    **Uso del Terminal para el Procesamiento de Datos --- Parte 2**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/bash/4-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/bash/5-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/csvkit/1-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/bash/6-*
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/bash/7-*
+
+
+
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #
+..     #   #   ####
+..     #   #      #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 03 --- 2022-05-27
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Manejo de datasets masivos en Python**
@@ -153,21 +169,18 @@ Sesión 02 --- 2022-05-20
 
 .. ......................................................................................
 ..
-..     #####  #####
+..     #####  #   #
+..     #   #  #   #
+..     #   #  #####
 ..     #   #      #
-..     #   #   ####
-..     #   #      #
-..     #####  #####
+..     #####      #
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 03 --- 2022-05-27
+Sesión 04 --- 2022-06-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
 
     **Limpieza de Datos con Apache Pig**
 
@@ -186,23 +199,24 @@ Sesión 03 --- 2022-05-27
 
             /notebooks/pig/2-*
 
-            
 
 
 .. ......................................................................................
 ..
-..     #####  #   #
-..     #   #  #   #
+..     #####  #####
+..     #   #  #   
 ..     #   #  #####
 ..     #   #      #
-..     #####      #
+..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 04 --- 2022-06-03
+Sesión 05 --- 2022-06-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            
+
 
     
 
@@ -228,35 +242,33 @@ Sesión 04 --- 2022-06-03
 ..     #####  #####
 ..     #   #  #   
 ..     #   #  #####
-..     #   #      #
+..     #   #  #   #
 ..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 05 --- 2022-06-10
+Sesión 06 --- 2022-06-17
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Apache Spark RDD**
+
+    **Programación funcional en Apache Spark RDD**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/1-*
+
+    **Aprendizaje de Máquinas en Apache Spark RDD**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
     
-
-        **Programación funcional**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/pyspark/1-*
-
-        **Aprendizaje de Máquinas**
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-        
-                /notebooks/pyspark/2-*
+            /notebooks/pyspark/2-*
 
 
     **Gestión de Bases de Datos con Apache Spark SQL**
@@ -271,16 +283,16 @@ Sesión 05 --- 2022-06-10
 .. ......................................................................................
 ..
 ..     #####  #####
-..     #   #  #   
-..     #   #  #####
-..     #   #  #   #
-..     #####  #####
+..     #   #      #   
+..     #   #      #
+..     #   #      #
+..     #####      #
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 06 --- 2022-06-17
+Sesión 07 --- 2022-06-24
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -316,22 +328,23 @@ Sesión 06 --- 2022-06-17
             /notebooks/pyspark/7-*
 
 
-
-
 .. ......................................................................................
 ..
 ..     #####  #####
-..     #   #      #   
-..     #   #      #
-..     #   #      #
-..     #####      #
+..     #   #  #   #
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
 
 .. raw:: html
 
    <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-Sesión 07 --- 2022-06-24
+Sesión 08 --- 2022-07-01
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    **2:18:10**
+
+
 
 
     **Redes Neuronales Artificiales con Keras y TensorFlow**
@@ -354,21 +367,6 @@ Sesión 07 --- 2022-06-24
                 /notebooks/tensorflow_02_ml_basics_with_keras/1-*
 
 
-.. ......................................................................................
-..
-..     #####  #####
-..     #   #  #   #
-..     #   #  #####
-..     #   #  #   #
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 08 --- 2022-07-01
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    **2:18:10**
 
     **Redes Neuronales Artificiales con Keras y TensorFlow**
 
