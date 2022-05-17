@@ -185,6 +185,38 @@ Sesión 04 --- 2022-06-03
     **Limpieza de Datos con Apache Pig**
 
 
+        .. note::
+            
+            * **Windows**:
+
+                * PowerShell:
+
+                .. code:: bash
+                
+                    docker run --rm -it -v "${PWD}":/workspace  --name pig -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/pig:0.17.0
+            
+
+                * Símbolo del sistema:
+
+                .. code:: bash
+                
+                    docker run --rm -it -v "%cd%":/workspace  --name pig -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/pig:0.17.0
+
+
+            * **Mac OS** y **Linux**:
+
+                .. code:: bash
+                
+                    docker run --rm -it -v "$PWD":/workspace  --name pig -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/pig:0.17.0
+
+
+            Para cerrar el contendor use el siguiente comando:
+
+            .. code:: bash
+            
+                exit
+
+
         .. toctree::
             :maxdepth: 1
             :glob:
@@ -271,7 +303,7 @@ Sesión 06 --- 2022-06-17
             /notebooks/pyspark/2-*
 
 
-    **Gestión de Bases de Datos con Apache Spark SQL**
+    **Gestión de Bases de Datos con Apache Spark QL**
 
         .. toctree::
             :maxdepth: 1
