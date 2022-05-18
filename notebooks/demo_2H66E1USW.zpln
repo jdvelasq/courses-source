@@ -1,0 +1,175 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\nmkdir -p /tmp/csvkit_tutorial\ncurl -L -O https://raw.githubusercontent.com/wireservice/csvkit/master/examples/realdata/ne_1033_data.xlsx\nmv ne_1033_data.xlsx /tmp/csvkit_tutorial/ne_1033_data.xlsx",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-18 18:29:54.687",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100 65331  100 65331    0     0   419k      0 --:--:-- --:--:-- --:--:--  419k\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1652897883338_751873946",
+      "id": "paragraph_1652897883338_751873946",
+      "dateCreated": "2022-05-18 18:18:03.338",
+      "dateStarted": "2022-05-18 18:29:54.698",
+      "dateFinished": "2022-05-18 18:29:54.881",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sh\nin2csv /tmp/csvkit_tutorial/ne_1033_data.xlsx \u003e /tmp/data.csv\nhead /tmp/data.csv",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-18 18:32:13.783",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "state,county,fips,nsn,item_name,quantity,ui,acquisition_cost,total_cost,ship_date,federal_supply_category,federal_supply_category_name,federal_supply_class,federal_supply_class_name\nNE,ADAMS,31001.0,1005-00-589-1271,\"RIFLE,7.62 MILLIMETER\",1.0,Each,138.0,138.0,2008-07-11,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,ADAMS,31001.0,1005-00-589-1271,\"RIFLE,7.62 MILLIMETER\",1.0,Each,138.0,138.0,2008-07-11,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,ADAMS,31001.0,1005-00-589-1271,\"RIFLE,7.62 MILLIMETER\",1.0,Each,138.0,138.0,2008-07-11,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,ADAMS,31001.0,1005-00-589-1271,\"RIFLE,7.62 MILLIMETER\",1.0,Each,138.0,138.0,2008-07-11,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,ADAMS,31001.0,1005-00-589-1271,\"RIFLE,7.62 MILLIMETER\",1.0,Each,138.0,138.0,2008-07-11,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,ADAMS,31001.0,1005-00-589-1271,\"RIFLE,7.62 MILLIMETER\",1.0,Each,138.0,138.0,2008-07-11,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,BUFFALO,31019.0,1005-00-073-9421,\"RIFLE,5.56 MILLIMETER\",1.0,Each,499.0,499.0,2008-09-24,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,BUFFALO,31019.0,1005-00-073-9421,\"RIFLE,5.56 MILLIMETER\",1.0,Each,499.0,499.0,2008-09-24,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\nNE,BUFFALO,31019.0,1005-00-073-9421,\"RIFLE,5.56 MILLIMETER\",1.0,Each,499.0,499.0,2008-09-24,10.0,WEAPONS,1005.0,\"Guns, through 30 mm\"\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1652898402413_846213",
+      "id": "paragraph_1652898402413_846213",
+      "dateCreated": "2022-05-18 18:26:42.413",
+      "dateStarted": "2022-05-18 18:32:13.793",
+      "dateFinished": "2022-05-18 18:32:14.291",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sh\npip3 install pandas",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-18 18:39:03.556",
+      "progress": 0,
+      "config": {
+        "tableHide": true,
+        "editorSetting": {},
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting pandas\n  Downloading pandas-1.4.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.7 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 2.7 MB/s eta 0:00:00\nRequirement already satisfied: pytz\u003e\u003d2020.1 in /usr/local/lib/python3.8/dist-packages (from pandas) (2022.1)\nCollecting numpy\u003e\u003d1.18.5\n  Downloading numpy-1.22.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 3.8 MB/s eta 0:00:00\nCollecting python-dateutil\u003e\u003d2.8.1\n  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)\n     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 kB 5.6 MB/s eta 0:00:00\nRequirement already satisfied: six\u003e\u003d1.5 in /usr/local/lib/python3.8/dist-packages (from python-dateutil\u003e\u003d2.8.1-\u003epandas) (1.16.0)\nInstalling collected packages: python-dateutil, numpy, pandas\nSuccessfully installed numpy-1.22.3 pandas-1.4.2 python-dateutil-2.8.2\nWARNING: Running pip as the \u0027root\u0027 user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1652898803650_1098112978",
+      "id": "paragraph_1652898803650_1098112978",
+      "dateCreated": "2022-05-18 18:33:23.650",
+      "dateStarted": "2022-05-18 18:33:36.306",
+      "dateFinished": "2022-05-18 18:33:55.198",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\nimport pandas as pd\n\npd.read_csv(\u0027/tmp/data.csv\u0027).head()",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-18 18:39:11.757",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "  state county  ...  federal_supply_class federal_supply_class_name\n0    NE  ADAMS  ...                1005.0       Guns, through 30 mm\n1    NE  ADAMS  ...                1005.0       Guns, through 30 mm\n2    NE  ADAMS  ...                1005.0       Guns, through 30 mm\n3    NE  ADAMS  ...                1005.0       Guns, through 30 mm\n4    NE  ADAMS  ...                1005.0       Guns, through 30 mm\n\n[5 rows x 14 columns]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1652898816305_541180409",
+      "id": "paragraph_1652898816305_541180409",
+      "dateCreated": "2022-05-18 18:33:36.305",
+      "dateStarted": "2022-05-18 18:35:15.473",
+      "dateFinished": "2022-05-18 18:35:15.844",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-18 18:35:15.472",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1652898915471_1342821519",
+      "id": "paragraph_1652898915471_1342821519",
+      "dateCreated": "2022-05-18 18:35:15.472",
+      "status": "READY"
+    }
+  ],
+  "name": "demo",
+  "id": "2H66E1USW",
+  "defaultInterpreterGroup": "python",
+  "version": "0.10.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
