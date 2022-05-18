@@ -40,7 +40,7 @@ Sesión 01 --- 2022-05-13
                 docker run --rm -it -v "%cd%":/workspace  --name ubuntu jdvelasq/ubuntu:20.04
 
 
-            * Mac OS y **Linux:
+            * Mac OS y **Linux: ::
  
                 docker run --rm -it -v "$PWD":/workspace  --name ubuntu jdvelasq/ubuntu:20.04
 
@@ -195,7 +195,7 @@ Sesión 04 --- 2022-06-03
                 docker run --rm -it -v "%cd%":/workspace  --name zeppelin -p 8080:8080 \ jdvelasq/zepppelin:0.10.1
 
 
-            * Mac OS y **Linux:
+            * Mac OS y **Linux: ::
  
                 docker run --rm -it -v "$PWD":/workspace  --name zeppelin -p 8080:8080 jdvelasq/zepppelin:0.10.1
 
@@ -238,6 +238,23 @@ Sesión 04 --- 2022-06-03
 Sesión 05 --- 2022-06-10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             
+    .. note:: **Apache Spark en Docker**
+
+        * Windows / PowerShell: ::
+
+            docker run --rm -it -v "${PWD}":/workspace --name spark -p 4040:4040 -p 5001:5000 -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/spark:3.1.3
+        
+
+        * Windows / Símbolo del sistema: ::
+            
+            docker run --rm -it -v "%cd%":/workspace  --name spark -p 4040:4040 -p 5001:5000 -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/spark:3.1.3
+
+
+        * Mac OS y **Linux: ::
+
+            docker run --rm -it -v "$PWD":/workspace --name spark -p 4040:4040 -p 5001:5000 -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/spark:3.1.3
+
+
     **Programación funcional en Apache Spark RDD**
 
         .. toctree::
@@ -262,10 +279,6 @@ Sesión 05 --- 2022-06-10
             :glob:
 
             /notebooks/pyspark/3-*
-
-
-
-    
 
 
 
