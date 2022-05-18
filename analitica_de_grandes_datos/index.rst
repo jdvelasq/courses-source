@@ -28,7 +28,7 @@ Sesión 01 --- 2022-05-13
 
     **Uso del Terminal para el Procesamiento de Datos --- Parte 1**
 
-        .. note:: Arranque del contendor de Docker
+        .. note:: **Ubuntu 20.04 en Docker**
 
             * Windows / PowerShell: ::
 
@@ -145,6 +145,24 @@ Sesión 03 --- 2022-05-27
     
     **Apache Hadoop (y Algoritmo MapReduce)**
 
+        .. note:: **Apache Hadoop 2.10.1 en Docker**
+
+            * Windows / PowerShell: ::
+
+                docker run --rm -it -v "${PWD}":/workspace  --name hadoop -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/hadoop:2.10.1
+            
+
+            * Windows / Símbolo del sistema: ::
+                
+                docker run --rm -it -v "%cd%":/workspace  --name hadoop -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/hadoop:2.10.1
+
+
+            * Mac OS y **Linux: ::
+ 
+                docker run --rm -it -v "$PWD":/workspace  --name hadoop -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/hadoop:2.10.1
+
+
+
         .. toctree::
             :maxdepth: 1
             :glob:
@@ -183,7 +201,7 @@ Sesión 04 --- 2022-06-03
     **Notebooks con Apache Zeppelin**
 
 
-        .. note:: 
+        .. note:: **Apache Zeppelin 0.10.1 en Docker**
 
             * Windows / PowerShell: ::
 
@@ -208,6 +226,23 @@ Sesión 04 --- 2022-06-03
 
 
     **Gestión de Bases de Datos con Apache Hive**
+
+        .. note:: **Apache Hive 2.3.9 en Docker**
+
+            * Windows / PowerShell: ::
+
+                docker run --rm -it -v "${PWD}":/workspace --name hive -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/hive:2.3.9
+    
+
+            * Windows / Símbolo del sistema: ::
+                
+                docker run --rm -it -v "%cd%":/workspace  --name hive -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/hive:2.3.9
+
+
+            * Mac OS y **Linux: ::
+ 
+                docker run --rm -it -v "$PWD":/workspace  --name hive -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/hive:2.3.9
+
 
         .. toctree::
             :maxdepth: 1
