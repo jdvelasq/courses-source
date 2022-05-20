@@ -32,33 +32,24 @@ Sesión 01 --- 2022-05-13
 
       .. note::
 
-         Esta parte es **opcional**, pero brindará una mejor experiencia para los usuarios que utilizan 
-         Microsoft Windows. Si usted usa Linux o Mac OS X, no necesita realizar ninguna acción, pero,
-         puede usar esta imagen de Python para aislar los cambios de su sistema operativo.
-         
-         Para tener acceso al Terminal (Windows) use el siguiente comando en el símbolo del sistema:
+         .. note:: **Herramientas de Desarrollo en Docker**
 
-         * Windows PowerShell:
+            * Windows / PowerShell: ::
 
-            .. code:: bash
+                docker run --rm -it -v "${PWD}":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.02
             
-                  $ docker run --rm -it -v ${PWD}:/workspace --name python3.8 -p 8888:8888 jdvelasq/python:3.8-ubuntu
-         
 
-         * Linux y Mac OS:
-
-            .. code:: bash
-            
-                  $ docker run --rm -it -v "$PWD":/workspace --name python3.8 -p 8888:8888 jdvelasq/python:3.8-ubuntu
-
-         Para cerrar el Terminal use el siguiente comando:
-
-         .. code:: bash
-         
-               $ exit
+            * Windows / Símbolo del sistema: ::
+                
+                docker run --rm -it -v "%cd%":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.02
 
 
-      Simulación de las etapas de evolución de un sistema de PQRS en una empresa.
+            * Mac OS y **Linux: ::
+ 
+                docker run --rm -it -v "$PWD":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.02
+
+
+      **Simulación de las etapas de evolución de un sistema de PQRS en una empresa** --- Parte 1.
 
       .. toctree::
             :maxdepth: 1
@@ -81,6 +72,15 @@ Sesión 01 --- 2022-05-13
 
 Sesión 02 --- 2022-05-20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   **Simulación de las etapas de evolución de un sistema de PQRS en una empresa** --- Parte 2.
+
+      .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/dataops_pqrs/2-*
+
 
    **MLOps: Manejo del ciclo de vida de ML con MLflow**
 
