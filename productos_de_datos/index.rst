@@ -27,29 +27,27 @@ Sesión 01 --- 2022-05-13
 
 
 
-   **Introducción práctica a los problemas de productos de datos en las organizaciones**
+   **Simulación de las etapas de evolución de un sistema de PQRS en una empresa** --- Parte 1
 
 
       .. note::
 
-         .. note:: **Herramientas de Desarrollo en Docker**
-
             * Windows / PowerShell: ::
 
-                docker run --rm -it -v "${PWD}":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.02
+                docker run --rm -it -v "${PWD}":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.0.2
             
 
             * Windows / Símbolo del sistema: ::
                 
-                docker run --rm -it -v "%cd%":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.02
+                docker run --rm -it -v "%cd%":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.0.2
 
 
             * Mac OS y **Linux: ::
  
-                docker run --rm -it -v "$PWD":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.02
+                docker run --rm -it -v "$PWD":/workspace  --name sklearn -p 50070:50070 -p 8088:8088 -p 8888:8888 jdvelasq/sklearn:1.0.2
 
 
-      **Simulación de las etapas de evolución de un sistema de PQRS en una empresa** --- Parte 1.
+    
 
       .. toctree::
             :maxdepth: 1
