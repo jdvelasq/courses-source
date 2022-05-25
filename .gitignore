@@ -1,6 +1,8 @@
 .DS_Store
 .vagrant/
 
+**/wordcount/*
+
 notebooks/mlflow/mlruns/
 notebooks/mlflow/outputs
 
