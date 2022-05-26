@@ -29,7 +29,6 @@ Sesión 01 --- 2022-05-13
     **Uso del Terminal para el Procesamiento de Datos --- Parte 1**
 
         .. code:: bash
-            :caption: Docker
 
                 docker run --rm -it \
                     --name ubuntu \
@@ -134,7 +133,7 @@ Sesión 03 --- 2022-05-27
             /notebooks/masive_datasets/1-*
 
     
-    **Apache Hadoop (y Algoritmo MapReduce)**
+    **Apache Hadoop y Algoritmo Map/Reduce**
 
         .. code:: bash
 
@@ -201,7 +200,7 @@ Sesión 03 --- 2022-05-27
 Sesión 04 --- 2022-06-03
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Notebooks con Apache Zeppelin**
+    **Apache Zeppelin**
 
         .. code:: bash
 
@@ -221,7 +220,7 @@ Sesión 04 --- 2022-06-03
             /notebooks/zeppelin/1-*
 
 
-    **Analíticas interactivas sobre grandes conjuntos de datos usando Apache Druid**
+    **Apache Druid**
 
         .. code:: bash
 
@@ -278,7 +277,7 @@ Sesión 05 --- 2022-06-10
             /notebooks/mariadb/1-*
 
 
-    **Programación funcional en Apache Spark RDD**
+    **Apache Spark RDD**
 
         .. code:: bash
 
@@ -307,7 +306,7 @@ Sesión 05 --- 2022-06-10
             /notebooks/pyspark/2-*
 
 
-    **Gestión de Bases de Datos con Apache Spark QL**
+    **Apache Spark QL**
 
         .. toctree::
             :maxdepth: 1
@@ -466,7 +465,7 @@ Sesión 07 --- 2022-06-24
 
 
 
-    **Gestión de Bases de Datos con Apache Hive**
+    **Apache Hive**
 
         .. code:: bash
 
@@ -497,7 +496,7 @@ Sesión 07 --- 2022-06-24
 
 
 
-    **Transferencia de datos con Apache Sqoop**
+    **Apache Sqoop**
 
         .. code:: bash
 
