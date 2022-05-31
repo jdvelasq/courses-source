@@ -138,11 +138,11 @@ Sesión 03 --- 2022-05-27
         .. code:: bash
 
                 docker run --rm -it \
-                    -v "$PWD":/workspace \
                     --name hadoop \
                     -p 50070:50070 \
                     -p 8088:8088 \
                     -p 8888:8888 \
+                    -v "$PWD":/workspace \
                     jdvelasq/hadoop:2.10.1
 
 
@@ -166,23 +166,7 @@ Sesión 03 --- 2022-05-27
 
             /notebooks/snakebite/1-*
 
-    **Apache Tez**
 
-        .. code:: bash
-
-                docker run --rm -it \
-                    --name tez \
-                    -p 50070:50070 \
-                    -p 8088:8088 \
-                    -p 8888:8888 \
-                    -v "$PWD":/workspace \
-                    jdvelasq/tez:0.7.1            
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/tez/1-*
 
 
 .. ......................................................................................
@@ -220,44 +204,6 @@ Sesión 04 --- 2022-06-03
             /notebooks/zeppelin/1-*
 
 
-    **Apache Druid**
-
-        .. code:: bash
-
-                docker run --rm -it \
-                    --name druid \
-                    -p 50070:50070 \
-                    -p 8088:8088 \
-                    -p 8888:8888 \
-                    -p 9999:9999 \
-                    -v "$PWD":/workspace \
-                    jdvelasq/druid:0.22.1
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/druid/1-*
-
-
-
-
-.. ......................................................................................
-..
-..     #####  #####
-..     #   #  #   
-..     #   #  #####
-..     #   #      #
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 05 --- 2022-06-10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
     **Maria DB**
 
         .. code:: bash
@@ -277,105 +223,24 @@ Sesión 05 --- 2022-06-10
             /notebooks/mariadb/1-*
 
 
-    **Apache Spark RDD**
+    **Apache Sqoop**
 
         .. code:: bash
 
                 docker run --rm -it \
-                    --name spark \
-                    -p 4040:4040 \
+                    --name sqoop \
                     -p 50070:50070 \
                     -p 8088:8088 \
                     -p 8888:8888 \
                     -v "$PWD":/workspace \
-                    jdvelasq/spark:3.1.3
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/1-*
-
-    **Aprendizaje de Máquinas en Apache Spark RDD**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-    
-            /notebooks/pyspark/2-*
-
-
-    **Apache Spark QL**
+                    jdvelasq/sqoop:1.4.7            
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/pyspark/3-*
+            /notebooks/sqoop/1-*
 
-
-.. ......................................................................................
-..
-..     #####  #####
-..     #   #  #   
-..     #   #  #####
-..     #   #  #   #
-..     #####  #####
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 06 --- 2022-06-17
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    **Aprendizaje de Máquinas con Apache Spark ML**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/4-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/5-*
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/6-*
-
-
-    **Apache Spark Streaming**
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/pyspark/7-*
-
-
-.. ......................................................................................
-..
-..     #####  #####
-..     #   #      #   
-..     #   #      #
-..     #   #      #
-..     #####      #
-
-.. raw:: html
-
-   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
-
-Sesión 07 --- 2022-06-24
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     **Apache Pig**
 
@@ -405,24 +270,106 @@ Sesión 07 --- 2022-06-24
             /notebooks/pig/2-*
 
 
-    **Apache Zookeeper**
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   
+..     #   #  #####
+..     #   #      #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 05 --- 2022-06-10
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Apache Drill**
 
         .. code:: bash
 
             docker run --rm -it \
-                --name zookeeper \
+                --name drill \
+                -p 31010:31010 \
                 -p 50070:50070 \
+                -p 8047:8047 \
                 -p 8088:8088 \
                 -p 8888:8888 \
-                -v "$PWD":/workspace  \
-                jdvelasq/zookeeper:3.7.1
+                -v "$PWD":/workspace \
+                jdvelasq/drill:1.19.0
 
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/zookeeper/1-*
+            /notebooks/drill/1-*
+
+
+
+    **Apache Druid**
+
+        .. code:: bash
+
+                docker run --rm -it \
+                    --name druid \
+                    -p 50070:50070 \
+                    -p 8088:8088 \
+                    -p 8888:8888 \
+                    -p 9999:9999 \
+                    -v "$PWD":/workspace \
+                    jdvelasq/druid:0.22.1
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/druid/1-*
+
+
+
+    **Apache Hive**
+
+        .. code:: bash
+
+                docker run --rm -it \
+                    -v "$PWD":/workspace \
+                    --name hive \
+                    -p 50070:50070 \
+                    -p 8088:8088 \
+                    -p 8888:8888 \
+                    jdvelasq/hive:2.3.9            
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/hive/1-*
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/hive/2-*        
+
+
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #  #   
+..     #   #  #####
+..     #   #  #   #
+..     #####  #####
+
+.. raw:: html
+
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
+
+Sesión 06 --- 2022-06-17
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
     **Apache HBase**
@@ -464,55 +411,106 @@ Sesión 07 --- 2022-06-24
             /notebooks/phoenix/1-*
 
 
+.. ......................................................................................
+..
+..     #####  #####
+..     #   #      #   
+..     #   #      #
+..     #   #      #
+..     #####      #
 
-    **Apache Hive**
+.. raw:: html
 
-        .. code:: bash
+   <hr style="height:6px;border-width:0;color:gray;background-color:gray">
 
-                docker run --rm -it \
-                    -v "$PWD":/workspace \
-                    --name hive \
-                    -p 50070:50070 \
-                    -p 8088:8088 \
-                    -p 8888:8888 \
-                    jdvelasq/hive:2.3.9            
-
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/hive/1-*
+Sesión 07 --- 2022-06-24
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/hive/2-*        
-
-
-
-
-
-
-    **Apache Sqoop**
+    **Apache Spark RDD**
 
         .. code:: bash
 
                 docker run --rm -it \
-                    --name sqoop \
+                    --name spark \
+                    -p 4040:4040 \
                     -p 50070:50070 \
                     -p 8088:8088 \
                     -p 8888:8888 \
                     -v "$PWD":/workspace \
-                    jdvelasq/sqoop:1.4.7            
+                    jdvelasq/spark:3.1.3
+
 
         .. toctree::
             :maxdepth: 1
             :glob:
 
-            /notebooks/sqoop/1-*
+            /notebooks/pyspark/1-*
+
+    **Aprendizaje de Máquinas en Apache Spark RDD**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+    
+            /notebooks/pyspark/2-*
+
+
+    **Apache Spark QL**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/3-*
+
+
+
+    **Aprendizaje de Máquinas con Apache Spark ML**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/4-*
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/5-*
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/6-*
+
+
+    **Apache Spark Streaming**
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/pyspark/7-*
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
 
 
 
@@ -584,3 +582,21 @@ Sesión 08 --- 2022-07-01
 
 
 
+**Apache Zookeeper**
+
+        .. code:: bash
+
+            docker run --rm -it \
+                --name zookeeper \
+                -p 50070:50070 \
+                -p 8088:8088 \
+                -p 8888:8888 \
+                -v "$PWD":/workspace  \
+                jdvelasq/zookeeper:3.7.1
+
+
+        .. toctree::
+            :maxdepth: 1
+            :glob:
+
+            /notebooks/zookeeper/1-*
