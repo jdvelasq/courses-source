@@ -163,6 +163,8 @@ Sesión 03 --- Septiembre 5, 2022
                 /notebooks/python_for_data_analysis_examples/1-*
 
 
+    `LAB --- Programacion básica en Python <https://classroom.github.com/a/LJ-6NQ-L>`_.
+
 
 .. ......................................................................................
 .. raw:: html
@@ -206,7 +208,7 @@ Sesión 05 --- Septiembre 19, 2022
 
                 /notebooks/data_manipulation_with_pandas/2-*
 
-        `LAB: Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
+        `LAB --- Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
 
 
 
@@ -229,7 +231,7 @@ Sesión 06 --- Septiembre 26, 2022
 
 
 
-    `LAB: Manipulación de Datos con SQLite3 <https://classroom.github.com/a/plVTEd2E>`_.
+    `LAB --- Manipulación de Datos con SQLite3 <https://classroom.github.com/a/plVTEd2E>`_.
 
 
 .. ......................................................................................
@@ -325,7 +327,7 @@ Sesión 11 --- Octubre 31, 2022
 
 
 
-... `LAB: Regresión Logística mushrooms dataset <https://classroom.github.com/a/tsH01_zS>`_.
+    `LAB --- Regresión Logística mushrooms dataset <https://classroom.github.com/a/tsH01_zS>`_.
 
 .. ......................................................................................
 .. raw:: html
@@ -340,7 +342,7 @@ Sesión 12 --- Noviembre 7, 2022 (Festivo, avanzar en los videos)
 
 
 
-... `LAB: Regresión Lineal Univariada <https://classroom.github.com/a/Y-t0TIbS>`_.
+    `LAB --- Regresión Lineal Univariada <https://classroom.github.com/a/Y-t0TIbS>`_.
 
 
 .. ......................................................................................
