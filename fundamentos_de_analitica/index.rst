@@ -385,7 +385,7 @@ Sesión 14 --- Noviembre 21, 2022
 
    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
-Sesión 15 --- Noviembre 21, 2022
+Sesión 15 --- Noviembre 28, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Cierre del Curso**
