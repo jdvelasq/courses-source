@@ -1,0 +1,60 @@
+01
+Introducción a la analitica
+
+02
+Programación en Python I
+
+03
+Programación en Python II
+
+04
+Pandas
+
+05
+SQL
+
+06
+Visualización de datos
+
+07
+Ingestion de datos
+Limpieza de datos
+
+
+08
+Estadisticos descriptivos
+Clustering 45:09
+Reducción de la dimensionalidad 14:54
+Transformaciones de datos 44:51
+
+09
+Estadística inferencial y modelado I 1:29:06
+
+
+10
+Estadística inferencial y modelado II 2:06:09
+
+
+11
+Regresión
+
+
+12
+Clasificación
+
+
+13
+Series de tiempo
+
+
+14
+Optimización
+
+
+15
+Simulacion
+
+
+16
+Análisis de decisiones
+
