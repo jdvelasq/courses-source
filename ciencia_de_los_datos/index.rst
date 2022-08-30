@@ -195,7 +195,7 @@ Sesión 04 --- Septiembre 2, 2022
                 /notebooks/data_manipulation_with_pandas/2-*
 
 
-...    `LAB --- Programacion usando Pandas <https://classroom.github.com/a/9NRsHgGJ>`_.
+        `LAB --- Programacion usando Pandas <https://classroom.github.com/a/9NRsHgGJ>`_.
 
 
 .. ......................................................................................
@@ -220,6 +220,8 @@ Sesión 05 --- Septiembre 9, 2022
 
                 /notebooks/data_manipulation_with_sqlite3/1-*
 
+            `LAB --- Programacion en SQLite3 <https://classroom.github.com/a/oR8qVkVP>`_.
+
 
 
         **Ingestión de Datos con Python** --- 57:13 min
@@ -239,8 +241,7 @@ Sesión 05 --- Septiembre 9, 2022
 
                 /notebooks/data_cleaning_with_pandas/1-*
 
-
-... `LAB --- Programacion en SQLite3 <https://classroom.github.com/a/oR8qVkVP>`_.
+ 
 
 
 .. ......................................................................................
