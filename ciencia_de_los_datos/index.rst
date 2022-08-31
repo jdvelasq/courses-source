@@ -111,7 +111,7 @@ Sesión 03 --- Agosto 26, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 **2:05:14**
 
-    `TALLER SINCRONICO VIA GOOGLE MEET <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-programacion_en_python.ipynb>`_.
+    `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-programacion_en_python.ipynb>`_.
 
 
 
@@ -173,7 +173,7 @@ Sesión 04 --- Septiembre 2, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     **2:21:59**
 
-    `TALLER SINCRONICO VIA GOOGLE MEET <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
+    `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
 
 
     **Formación como Analista de Datos (III)**
@@ -207,7 +207,7 @@ Sesión 05 --- Septiembre 9, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     **2:31:42**
 
-    `TALLER SINCRONICO VIA GOOGLE MEET <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-ingestion_de_datos.ipynb>`_.
+    `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-ingestion_de_datos.ipynb>`_.
 
 
     **Formación como Analista de Datos (IV)**
@@ -254,7 +254,7 @@ Sesión 06 --- Septiembre 16, 2022
     **0:00:00**
 
 
-    `TALLER SINCRONICO VIA GOOGLE MEET <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-clustering.ipynb>`_.
+    `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-clustering.ipynb>`_.
 
 
     **Formación como Analista de Datos (V)**
