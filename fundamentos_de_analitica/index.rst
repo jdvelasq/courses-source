@@ -261,6 +261,7 @@ Sesión 07 --- Octubre 03, 2022
             /notebooks/data_cleaning_with_pandas/1-*
 
 
+    `LAB --- Limpieza de datos, solicitudes de credito <https://classroom.github.com/a/x8BI2I6n>`_.
 
 
 .. ......................................................................................
