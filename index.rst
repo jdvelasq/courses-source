@@ -18,6 +18,11 @@ Todos los cursos se rigen bajo los siguientes aspectos generales:
 aula de clase más 9 horas de trabajo independiente) durante 16 semanas.
 
 
+**Créditos para asignaturas de pregrado.---** Tres (3) que corresponden a un total de 
+147 horas por semestre, o equivalentemente un promedio de 9 horas semanales (3 en el 
+aula de clase más 6 horas de trabajo independiente) durante 16 semanas.  
+
+
 **Conceptos previos necesarios.---** Todos los cursos son autocontenidos, pero la 
 experiencia previa en programación es deseable.
 
@@ -30,6 +35,21 @@ experiencia previa en programación es deseable.
     * Nina Zumel, John Mount, 2014, Practical Data Science with R, Manning.
     * Alberto Boschetti, Luca Massaron, 2015, Python Data Science Essentials.
     * Dan Toomey, 2014, R for Data Science.
+
+
+    * Nishant Shukla, 2018, Machine Learning with TensorFlow, Manning.
+    * Nick McClure, 2017, TensorFlow Machine Learning Cookbook, Packt.
+    * Aurélien Géron, 2017, Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems, O'Really.
+    * Bharath Ramsundar and Reza Bosagh Zadeh, 2018, TensorFlow for Deep Learning: From Linear Regression to Reinforcement Learning.
+    * Giuseppe Ciaburro and Balaji Venkateswaran, 2017, Neural Networks with R: Smart models using CNN, RNN, deep learning, and artificial intelligence principles, Packt.
+    * Simon O. Haykin, Neural Networks and Learning Machines (3rd Edition).
+
+
+**Bibliografía complementaria.**
+
+* Nina Zumel, John Mount, 2014, Practical Data Science with R, Manning.
+* Alberto Boschetti, Luca Massaron, 2015, Python Data Science Essentials.
+* Dan Toomey, 2014, R for Data Science.
 
 
 **Metodología.---** El desarrollo de todos los cursos está basado en la aplicación de
@@ -81,29 +101,26 @@ política de la Universidad Nacional de Colombia, y en particular el
     setup
 
 .. toctree::
-    :caption: Cursos de Pregrado
+    :caption: Asignaturas de Pregrado
     :hidden:
     :maxdepth: 2
     
-    redes_neuronales_y_algoritmos_bioinspirados/index
-
+    redes_neuronales/index
     fundamentos_de_analitica/index
 
 .. toctree::
-    :caption: Cursos de Posgrado
+    :caption: Asignaturas de Posgrado
     :hidden:
     :maxdepth: 1
 
-    
-    analitica_descriptiva/index
+    ciencia_de_los_datos/index    
     analitica_predictiva/index
     analitica_de_grandes_datos/index
-    ciencia_de_los_datos/index    
     productos_de_datos/index
 
 
 .. toctree::
-    :caption: Prueba técnica
+    :caption: Cursos
     :hidden:
     :maxdepth: 1
 

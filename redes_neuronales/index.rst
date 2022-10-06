@@ -1,6 +1,16 @@
 Redes Neuronales Artificiales y Aprendizaje Profundo
 =========================================================================================
 
+Este curso presenta los conceptos básicos de los modelos de redes neuronales artificiales.
+Cubre tanto los modelos clásicos usandos durante la década de los 90s, así como las 
+últimas tendencias en el área de aprendizaje profundo. El curso está enfocado en la 
+aplicación de estos modelos a diferentes tipos de problemas de clasificación, regresión
+y series de tiempo, pero los conceptos básicos son aplicables a cualquier tipo de problema
+tratable mediante este tipo de algoritmos.
+
+
+Véase:  :ref:`info_general_cursos`
+
 .. .....................................................................................
 ..
 ..     #####  ###
