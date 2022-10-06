@@ -379,19 +379,10 @@ Sesión 12 --- Noviembre 7, 2022 (Festivo, avanzar en los videos)
 
     * :ref:`fundamentos_de_optimizacion_para_ml`
 
-    **Técnicas básicas de selección de modelos** --- 56:50 min
+    * :ref:`sklearn_model_selection_and_evaluation_1`
 
-        .. toctree::
-            :titlesonly:
-            :glob:
+    
 
-            /notebooks/sklearn_model_selection_and_evaluation/1-01*
-            /notebooks/sklearn_model_selection_and_evaluation/1-02*
-            /notebooks/sklearn_model_selection_and_evaluation/1-03*
-            /notebooks/sklearn_model_selection_and_evaluation/1-04*
-            /notebooks/sklearn_model_selection_and_evaluation/1-05*
-            /notebooks/sklearn_model_selection_and_evaluation/1-06*
-            /notebooks/sklearn_model_selection_and_evaluation/1-07*
 
 
 .. ......................................................................................
@@ -403,15 +394,7 @@ Sesión 13 --- Noviembre 14, 2022 (Festivo, avanzar en los videos)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-    **Métricas de evaluación de modelos** --- 60:47 min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_model_selection_and_evaluation/2-11*
-            /notebooks/sklearn_model_selection_and_evaluation/2-12*
-            /notebooks/sklearn_model_selection_and_evaluation/2-14*
+    * :ref:`sklearn_model_selection_and_evaluation_2`
 
 
     **Pipelines y estimadores compuestos** --- 19:56 min

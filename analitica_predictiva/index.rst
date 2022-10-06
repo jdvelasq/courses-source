@@ -39,14 +39,6 @@ Sesión 02 --- 2021-10-16
 
     * :ref:`fundamentos_de_optimizacion_para_ml`
 
-**Fundamentos optimización para aprendizaje automático** --- 78:24 min
-
-    .. toctree::
-        :titlesonly:
-        :glob:
-
-        /notebooks/optimization_for_ML/1-*
-
 
 **Datasets** --- 61:55 min
 
@@ -87,21 +79,9 @@ Sesión 03 --- 2021-10-23
 `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/analitica_predictiva/taller_presencial-gridsearchcv.ipynb>`_.
 
 
-**Selección y evaluación del modelo**
+    * :ref:`sklearn_model_selection_and_evaluation_1`
 
-    .. toctree::
-        :titlesonly:
-        :glob:
-
-        /notebooks/sklearn_model_selection_and_evaluation/1-*
-
-
-
-    .. toctree::
-        :titlesonly:
-        :glob:
-
-        /notebooks/sklearn_model_selection_and_evaluation/2-*
+    * :ref:`sklearn_model_selection_and_evaluation_2`
 
 
 .. raw:: html
