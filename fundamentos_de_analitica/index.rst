@@ -1,6 +1,16 @@
 Fundamentos de Analítica
 =========================================================================================
 
+Este curso presenta los elementos fundamentales para la solución de problemas
+organizacionales usando datos mediante la aplicación de técnicas de Analytics. Tiene como
+objetivo el desarrollo de habilidades para la toma de decisiones basadas en datos, así
+como la comprensión de los fundamentos de la ciencia de datos y la analítica. El curso 
+desarrolla competencias fundamentales de programación usando el lenguaje Python para 
+la solución de problemas básicos de analítica descriptiva y predictiva.
+
+
+Véase:  :ref:`info_general_cursos`
+
 .. ......................................................................................
 .. raw:: html
 
@@ -31,23 +41,11 @@ Agosto 15, 2022
 
 Sesión 01 --- Agosto 22, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-**3:00:00**
+    **3:00:00**
 
+    * Presentación del curso
 
-    **Presentación del curso** (1:00 hr)
-
-        * Tiempo estimado: 1 hr.
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                course-info
-
-
-    **Sesión Magistral: Introducción a la Analítica** (2:00 hr)
-
-            * `Presentación intro a la analitica <https://jdvelasq.github.io/intro-analitca/>`_ 
+    * `Presentación Magistral: Introducción a la Analitica <https://jdvelasq.github.io/intro-analitca/>`_ 
 
 
 
