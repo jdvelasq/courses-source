@@ -198,7 +198,7 @@ Sesión 05 --- Septiembre 19, 2022
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/data_manipulation_with_pandas/1-*
+                /notebooks/pandas/1-*
 
         **Manipulación de Datos con Pandas (II)** --- 72:59 min
 
@@ -206,7 +206,7 @@ Sesión 05 --- Septiembre 19, 2022
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/data_manipulation_with_pandas/2-*
+                /notebooks/pandas/2-*
 
         `LAB --- Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
 
