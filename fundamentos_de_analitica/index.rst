@@ -377,14 +377,7 @@ Sesión 12 --- Noviembre 7, 2022 (Festivo, avanzar en los videos)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 **1:18:24**
 
-    **Fundamentos optimización para ML** --- 78:24 min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/optimization_for_ML/1-*
-
+    * :ref:`fundamentos_de_optimizacion_para_ml`
 
     **Técnicas básicas de selección de modelos** --- 56:50 min
 

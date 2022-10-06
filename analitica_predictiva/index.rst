@@ -35,7 +35,9 @@ Sesión 02 --- 2021-10-16
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 **2:20:19**
 
-`Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/analitica_predictiva/taller_presencial-modelo_lineal_multivariado.ipynb>`_.
+    `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/analitica_predictiva/taller_presencial-modelo_lineal_multivariado.ipynb>`_.
+
+    * :ref:`fundamentos_de_optimizacion_para_ml`
 
 **Fundamentos optimización para aprendizaje automático** --- 78:24 min
 
