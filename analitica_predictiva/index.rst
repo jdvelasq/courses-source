@@ -1,6 +1,20 @@
 Analítica Predictiva
 =========================================================================================
 
+Analítica Predictiva es el término general que hace referencia al uso de técnicas 
+estadísticas y de aprendizaje de máquinas para el análisis de datos y el desarrollo de
+productos de datos que usan modelos estadísticos y de aprendizaje de máquinas. Este curso 
+aborda los principales aspectos sobre esta temática haciendo un énfasis especial en sus
+aspectos prácticos. El curso provee al estudiante de una experiencia práctica en el 
+correcto uso de herramientas computacionales para el análisis de información, desarrollo
+de modelos y de productos de datos. 
+
+Este curso tiene como objetivo general el desarrollo de conocimientos, habilidades y 
+destrezas para el análiis exploratorio y el desarrollo de modelos de clasificación, 
+regresión, agrupamiento y series de tiempo usando el lenguaje Python.
+
+Véase:  :ref:`info_general_cursos`
+
 .. raw:: html
 
    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
@@ -8,21 +22,10 @@ Analítica Predictiva
 Sesión 01 --- 2021-10-09
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Introducción al curso**
+    * Presentación del curso.
 
-    .. toctree::
-        :maxdepth: 1
-        :glob:
+    * Presentación Magistral: `Introducción a la Analítica Predictiva <https://jdvelasq.github.io/intro-analitica-predictiva/>`_ 
 
-        course-info
-
-
-    * Revisión de la instalación de Vagrant.
-
-
-**Analítica Predictiva y MLOps**
-
-        * `Presentación <https://jdvelasq.github.io/intro-analitica-predictiva/>`_ 
 
 .. raw:: html
 

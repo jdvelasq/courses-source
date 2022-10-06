@@ -1,6 +1,12 @@
 Analítica de Grandes Datos
 =========================================================================================
 
+El concepto de Big Data Analytics está asociado al uso de herramientas y tecnologías para realizar cómputos de alto desempeño sobre grandes volúmenes de datos, con el fin de poder derivar conocimiento que pueda ser utilizado en procesos de toma de decisiones en contextos empresariales y de negocios usando Aprendizaje Estadístico y Aprendizaje Automático. Los retos relacionados con este nuevo paradigma están relacionados con la realización de tareas que hoy se realizan comúnmente en analítica descriptiva/diagnóstica, productiva y prescriptiva, como la extracción, limpieza y transformación de datos, o el cómputo de estadísticos básicos, pero en ambientes computacionales con millones de datos para procesar; esto implica, que el uso de paradigmas tradicionales se hace imposible o impráctico debido a los altos tiempos de cómputo requeridos para procesar la información. 
+
+En este curso se abordan los elementos más básicos y fundamentales en Big Data Analytics y se busca que el estudiante tenga una primera experiencia que le permita desarrollar conocimientos, destrezas y habilidades básicas para la manipulación y modelado de grandes volúmenes de datos para la toma de decisiones. El curso provee al estudiante de una experiencia práctica en el correcto uso de herramientas computacionales comúnmente utilizadas en la analítica y el Big Data. Entre los temas tratados se encuentran: el paradigma de Map/Reduce, que es la base de la computación en paralelo en Big Data, lenguajes de manipulación de datos como Apache Pig, bases de datos como Apache Hive, Apache AsterisDB, lenguajes de consulta directa sobre archivos como Apache Drill, y finalmente, Apache Spark. Este curso no pretende enseñar todo sobre cada una de las herramientas, pero busca una comprensión profunda de los conceptos detrás de las tecnologías y su uso en la solución de problemas reales. Al final de este curso, el estudiante pueda continuar su formación de forma autónoma.
+
+Véase:  :ref:`info_general_cursos`
+
 
 .. .....................................................................................
 ..
@@ -17,13 +23,8 @@ Analítica de Grandes Datos
 Sesión 01 --- 2022-05-13
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Introducción al curso**
+    * Presentación del curso.
 
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            course-info
 
 
     **Uso del Terminal para el Procesamiento de Datos --- Parte 1**

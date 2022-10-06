@@ -45,11 +45,10 @@ experiencia previa en programación es deseable.
     * Simon O. Haykin, Neural Networks and Learning Machines (3rd Edition).
 
 
-**Bibliografía complementaria.**
+    * Benjamin Bengfort, Jenny Kim, 2016, Data Analytics with Hadoop, O'Reilly.
+    * Thilina Gunarathne, 2013, Hadoop MapReduce Cookbook, 2nd edition, Packt. 
+    * Dayong Du, 2015, Apache Hive Essentials. Packt Publishing
 
-* Nina Zumel, John Mount, 2014, Practical Data Science with R, Manning.
-* Alberto Boschetti, Luca Massaron, 2015, Python Data Science Essentials.
-* Dan Toomey, 2014, R for Data Science.
 
 
 **Metodología.---** El desarrollo de todos los cursos está basado en la aplicación de
