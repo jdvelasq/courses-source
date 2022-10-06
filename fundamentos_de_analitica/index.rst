@@ -280,7 +280,7 @@ Sesión 08 --- Octubre 10, 2022
             :maxdepth: 1
             :glob:
 
-            /notebooks/data_visualization_with_matplotlib/1-*
+            /notebooks/matplotlib/1-*
 
 
 .. ......................................................................................

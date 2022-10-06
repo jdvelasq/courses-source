@@ -268,7 +268,7 @@ Sesión 06 --- Septiembre 16, 2022
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/data_visualization_with_matplotlib/1-*
+                /notebooks/matplotlib/1-*
 
 
         **Análisis Exploratorio de Datos (I)**
