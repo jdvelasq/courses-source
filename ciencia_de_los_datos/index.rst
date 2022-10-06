@@ -218,7 +218,7 @@ Sesión 05 --- Septiembre 9, 2022
                 :maxdepth: 1
                 :glob:
 
-                /notebooks/data_manipulation_with_sqlite3/1-*
+                /notebooks/sqlite3/1-*
 
             `LAB --- Programacion en SQLite3 <https://classroom.github.com/a/oR8qVkVP>`_.
 

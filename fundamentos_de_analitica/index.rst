@@ -227,7 +227,7 @@ Sesión 06 --- Septiembre 26, 2022
             :maxdepth: 1
             :glob:
 
-            /notebooks/data_manipulation_with_sqlite3/1-*
+            /notebooks/sqlite3/1-*
 
 
 
