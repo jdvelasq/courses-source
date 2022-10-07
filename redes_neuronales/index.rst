@@ -182,6 +182,11 @@ Sesión 05 --- 2022-abr-05
 
     **Redes Neuronales con Scikit-Learn**
 
+    * :ref:`sklearn_model_selection_and_evaluation_1`
+
+    * :ref:`sklearn_model_selection_and_evaluation_2`
+
+
         **Técnicas de Selección de modelos** --- 56:50 min
 
             .. toctree::
