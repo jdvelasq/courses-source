@@ -172,7 +172,7 @@ Sesión 03 --- Septiembre 5, 2022
 Sesión 04 --- Septiembre 12, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    `El problema con Data Analytics en las organizaciones <https://jdvelasq.github.io/dataops_01_problem//>`_ 
+    * Presentnación Magistral `El problema con Data Analytics en las organizaciones <https://jdvelasq.github.io/dataops_01_problem//>`_ 
 
 
 
@@ -188,25 +188,11 @@ Sesión 05 --- Septiembre 19, 2022
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
 
 
-    **Formación como Analista de Datos (III)**
+    * :ref:`pandas_1`
 
-        **Manipulación de Datos con Pandas (I)** --- 1:08:05 hr
+    * :ref:`pandas_2`
 
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/pandas/1-*
-
-        **Manipulación de Datos con Pandas (II)** --- 72:59 min
-
-            .. toctree::
-                :maxdepth: 1
-                :glob:
-
-                /notebooks/pandas/2-*
-
-        `LAB --- Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
+    * `LAB --- Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
 
 
 
@@ -219,15 +205,7 @@ Sesión 05 --- Septiembre 19, 2022
 Sesión 06 --- Septiembre 26, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Manipulación de Datos en SQLite3** --- 47:20 min
-
-        .. toctree::
-            :maxdepth: 1
-            :glob:
-
-            /notebooks/sqlite3/1-*
-
-
+    * :ref:`sqlite3_data_manipulation`
 
     `LAB --- Manipulación de Datos con SQLite3 <https://classroom.github.com/a/plVTEd2E>`_.
 
@@ -289,6 +267,18 @@ Sesión 08 --- Octubre 10, 2022
 Sesión 09 --- Octubre 17, 2022 (Festivo, avanzar en los videos)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+    * :ref:`sklearn_dataset_transformations_2`
+
+    * :ref:`sklearn_dataset_transformations_3`
+
+    * :ref:`sklearn_unsupervised_03_clustering`
+
+    * :ref:`sklearn_unsupervised_05_decomposition`
+
+
+
+
     **Estadísticos descriptivos**
 
         .. toctree::
@@ -297,39 +287,6 @@ Sesión 09 --- Octubre 17, 2022 (Festivo, avanzar en los videos)
 
             /notebooks/descriptive_statistics/1-*
 
-
-    **Clustering** --- 45:09 min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_03_clustering/1-* 
-
-
-    **Reducción de la dimensionalidad** --- 14:54  min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_unsupervised_05_decomposition/1-01* 
-            /notebooks/sklearn_unsupervised_05_decomposition/1-05*
-
-
-    **Transformación de datos** --- 44:41 min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_dataset_transformations/2-09*
-            /notebooks/sklearn_dataset_transformations/2-10*
-            /notebooks/sklearn_dataset_transformations/3-01*
-            /notebooks/sklearn_dataset_transformations/3-02*
-            /notebooks/sklearn_dataset_transformations/3-03*
-            /notebooks/sklearn_dataset_transformations/3-08*
-            /notebooks/sklearn_dataset_transformations/3-09*
 
 
 .. ......................................................................................
@@ -396,15 +353,7 @@ Sesión 13 --- Noviembre 14, 2022 (Festivo, avanzar en los videos)
 
     * :ref:`sklearn_model_selection_and_evaluation_2`
 
-
-    **Pipelines y estimadores compuestos** --- 19:56 min
-
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_dataset_transformations/1-*
-
+    * :ref:`sklearn_dataset_transformations_1`
 
 .. ......................................................................................
 .. raw:: html
@@ -414,16 +363,8 @@ Sesión 13 --- Noviembre 14, 2022 (Festivo, avanzar en los videos)
 Sesión 14 --- Noviembre 21, 2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    **Modelos Lineales** --- 0:43:20
 
-        .. toctree::
-            :titlesonly:
-            :glob:
-
-            /notebooks/sklearn_supervised_02_linear_models/1-01*
-            /notebooks/sklearn_supervised_02_linear_models/1-02*
-            /notebooks/sklearn_supervised_02_linear_models/1-11*
-            /notebooks/sklearn_supervised_02_linear_models/1-12*
+    * :ref:`sklearn_supervised_02_linear_models`
 
 
     `LAB --- Análisis de Sentimientos (Amazon) <>`_.
