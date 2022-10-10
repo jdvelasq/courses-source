@@ -1,8 +1,6 @@
 Analítica Predictiva
 =========================================================================================
 
-Véase:  :ref:`info_general_cursos`
-
 .. raw:: html
 
    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
