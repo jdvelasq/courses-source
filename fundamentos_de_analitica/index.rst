@@ -1,10 +1,13 @@
 Fundamentos de Analítica
 =========================================================================================
 
+Sobre este curso
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 .. raw:: html
 
    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-
 
 Este curso presenta los elementos fundamentales para la solución de problemas
 organizacionales usando datos mediante la aplicación de técnicas de Analytics. Tiene como
@@ -120,6 +123,19 @@ Programa Calendario
 
 
 * Sesión 08 --- **Octubre 10, 2022**
+
+    * Componente presencial:
+
+        * Seaborn: https://seaborn.pydata.org/
+
+        * Bokeh: https://bokeh.org/
+
+        * Altair: https://altair-viz.github.io/
+
+        * Plotly: https://plotly.com/python/
+
+        * d3.js: https://d3js.org/
+
 
     * :ref:`data_visualization_with_matplotlib`
 
