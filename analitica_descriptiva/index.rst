@@ -28,10 +28,6 @@ Programa Calendario
 
     * Charla Magistral: `Introducción a la analitica <https://jdvelasq.github.io/intro-analitca/>`_ 
 
-    * :ref:`jupyterlab_and_colab_use`
-
-    * NBviewer https://nbviewer.jupyter.org
-
 
 .. ......................................................................................
 
@@ -62,6 +58,10 @@ Programa Calendario
 
         * `Python for Everybody <https://www.coursera.org/specializations/python?utm_source=gg&utm_medium=sem&utm_campaign=11-GoogleITwithPython-LATAM&utm_content=B2C&campaignid=13865562900&adgroupid=125091310775&device=c&keyword=google%20it%20automation%20with%20python%20professional%20certificate&matchtype=b&network=g&devicemodel=&adpostion=&creativeid=533041859510&hide_mobile_promo=&gclid=EAIaIQobChMI4d-GjtHP9gIVkQiICR0DMQcREAAYASAAEgLBlfD_BwE/>`_ 
 
+
+    * :ref:`jupyterlab_and_colab_use`
+
+    * NBviewer https://nbviewer.jupyter.org
 
     * :ref:`the_python_tutorial_03_an_informal_introduction_to_python`
 
