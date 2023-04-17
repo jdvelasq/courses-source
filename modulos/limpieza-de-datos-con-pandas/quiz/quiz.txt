@@ -1,0 +1,75 @@
+Para responder las siguientes preguntas, realice la limpieza del archivo 
+solicitudes_de_credito.csv.
+
+-------------------------------------------------------------------------------
+La cantidad de registros por sexo son: ____ masculino y ____ femenino.
+
+a. 3427 y 6779
+b. 3580 y 6626
+c. 3599 y 6607
+d. 3589 y 6617
+
+R/ d
+
+-------------------------------------------------------------------------------
+Hay ____ emprendimientos de comercio, ____ de servicio, ____ de industria, y 
+_____ agropecuarios.
+
+a. 5481, 2291, 2281, 153
+b. 5636, 2205, 2201, 164
+c. 5618, 2157, 2167, 264
+d. 5764, 2184, 2139, 119
+
+R/ b
+
+-------------------------------------------------------------------------------
+Seleccione las afirmaciones correctas para la columna idea_negocio:
+
+a. Hay 983 negocios de tienda y 584 negocios de peluquería
+b. Hay 140 negocios de panadería y 135 de café e internet
+c. Hay 160 negocios de papeleria 102 cafeterias
+d. Hay 1675 negocios de variedades y 560 almacenes de ropa
+
+R/ a y c
+
+-------------------------------------------------------------------------------
+Indique los valores correctos de emprendimientos en los barrios Robledo y 
+Aranjuez
+
+a. 891 y 387
+b. 995 y 385
+c. 990 y 383
+d. 998 y 379
+
+R/ c
+
+-------------------------------------------------------------------------------
+La cantidad de solicitudes de crédito para los estratos 1, 2 y 3 son:
+
+a. 2029, 5023 y 3151
+b. 2003, 5055 y 3145
+c. 1991, 5035 y 3177
+d. 1920, 5098 y 3185
+
+R/ a
+
+-------------------------------------------------------------------------------
+Hay ____ registros para la línea de crédito empresarial ed y ____ por 
+credioportuno.
+
+a. 70 y 21
+b. 68 y 20
+c. 72 y 23
+d. 70 y 20
+
+R/ a
+
+
+
+
+
+
+
+
+
+
