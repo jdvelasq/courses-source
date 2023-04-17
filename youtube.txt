@@ -1,0 +1,29 @@
+#analytics  #datascience  #datasciencecareer  #datascientist #datasciencecourse  #datasciencetutorial  #machinelearning   #pythonprogramming #python3 #pythontutorial #cienciadedatos #analitica #analítica #programacion #jupyterlab #jupyter #pandas #mlops #dataops
+
+Machine Learning con scikit-learn
+
+Página: https://jdvelasq.github.io/courses/index.html
+
+-----
+
+analytics, data science,  data science career, data scientist, data science course, data science tutorial, machine learning, python programming, python3, python tutorial, ciencia de datos, ciencia de los datos, analitica, scikit-learn, inteligencia artificial, aprendizaje de maquinas, programación
+
+-----
+
+/ ML con sklearn Ep 43.
+
+/ DA con Python Ep 07.
+
+------
+
+
+for file in *.ipynb; do mv $file  "`echo $file | tr '_' ' '`" ; done
+
+
+LINDEDIN
+
+https://youtu.be/ruerlL-YnWw
+
+¿Quieres aprender 𝗗𝗮𝘁𝗮 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗡𝗲𝘂𝗿𝗮𝗹 𝗡𝗲𝘁𝘄𝗼𝗿𝗸𝘀, 𝗗𝗲𝗲𝗽 𝗟𝗲𝗮𝗿𝗻𝗶𝗻𝗴, 𝗗𝗮𝘁𝗮 𝗔𝗻𝗮𝗹𝘆𝘁𝗶𝗰𝘀, 𝗕𝗶𝗴 𝗗𝗮𝘁𝗮 y 𝗠𝗮𝗰𝗵𝗶𝗻𝗲 𝗟𝗲𝗮𝗿𝗻𝗶𝗻𝗴? Unete a mi canal en YouTube: https://www.youtube.com/@jdvelasq y estudia los cursos que ofrezco: https://jdvelasq.github.io/courses/
+
+

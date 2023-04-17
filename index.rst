@@ -88,36 +88,35 @@ política de la Universidad Nacional de Colombia, y en particular el
 `Acuerdo CSU 044 de 2009 <http://www.legal.unal.edu.co/rlunal/home/doc.jspd_i=37192>`_.
 
 
-
-
-
-
 .. toctree::.
     :caption: Configuración
     :hidden:
     :titlesonly:
-
-    setup
 
 .. toctree::
     :caption: Asignaturas de Pregrado
     :hidden:
     :maxdepth: 2
     
-    redes_neuronales/index
-    fundamentos_de_analitica/index
+    asignaturas/redes-neuronales
+    asignaturas/fundamentos-de-analitica
 
 .. toctree::
     :caption: Asignaturas de Posgrado
     :hidden:
     :maxdepth: 1
 
-    analitica_descriptiva/index
-    ciencia_de_los_datos/index    
-    analitica_predictiva/index
-    analitica_de_grandes_datos/index
-    productos_de_datos/index
+    asignaturas/ciencia-de-los-datos
+    asignaturas/analitica-descriptiva
+    asignaturas/analitica-predictiva
+    asignaturas/analitica-de-grandes-datos
+    asignaturas/productos-de-datos
 
+
+.. toctree::
+    :caption: Cursos
+    :hidden:
+    :maxdepth: 1
 
 
 

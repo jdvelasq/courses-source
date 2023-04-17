@@ -1,0 +1,136 @@
+
+Analítica descriptiva y visualización de datos (bloque 6 horas)
+ 
+  01. Introducción a la analitica 
+  02. SQL
+  03. Power BI / Tableau
+  04. Programación en Python
+  05. Pandas
+  06. SQLite & SQLAlchemy
+  07. Visualización de datos (matplotlib)
+  08. Narrativa de datos / Casos de estudio
+
+
+-------------------------------------------------------------
+
+Fundamentos de analítica (semanal)
+
+  01. Introducción a la analítica
+  02. Programación en Python
+  03. Programación en Python
+  04. NumPy y Pandas
+  05. Limpieza e ingestion de datos
+  06. Visualización de datos
+  07. Fundamentos de estadística
+  08. Clustering
+  09. Modelos lineales clásicos + selección de variables
+  10. Validación cruzada
+  11. Arboles, random forest, boosted trees
+  12. SVMs, TextBlob
+  13. Deep learning
+  14. Sistemas de recomendación 
+  15. Modelos gráficos y redes
+
+
+-------------------------------------------------------------
+
+Bases de datos SQL y NoSQL
+ 
+  Fundamentos de BD y SQL data modeling
+    . Data models
+    . Reglas de negocio
+    . Modelo relacional y entidad-relación
+    . Entidades, atributos y relaciones
+    . Clave primaria, foranea, candidata, subrogada, super
+    . Cardinalidad maxima y minima
+
+  Normalización
+    . Anomalias y la necesidad de normalización
+    . Formas normales
+    . 1a, 2a y 3a forma normal
+    . Desnomalizacion
+    . Diagramas de dependencia
+
+  Lenguaje SQL
+    . Estructura de la BD
+    . Select & where
+    . Group by, having, distinct, count, and & or
+    . >, <, =, !=, in, not in, between
+    . operadores de agregacion sum, avg, ...
+
+    . append
+    . combinación de datos de diferentes tablas
+    . join & union
+    . inner, right, full outer, exception, cross joins
+    . optimización de consultas: where, limit, coalesce
+
+    . subconsultas
+    . consultas anidadas
+    . multistep aggregation or filtering
+
+
+  MongoDB
+
+
+  Power BI / Tableau
+
+-------------------------------------------------------------
+
+Certified entry-level Python programmer
+    operadores
+    print-input
+    if-then, condicionales
+    listas
+    tuplas
+    diccionarios
+    strings 
+    funciones
+    excepciones
+
+
+Certified Associate in Python Programming
+    import y modulos
+    dir()
+    syspath()
+
+    modulo math
+    modulo random
+    platform module
+    modulos y paquetes de usuario
+
+    excepciones
+
+    oop
+
+    funciones lambda
+    programacion funcional
+
+    archivos
+
+    
+
+
+
+
+Certified Associate in Data Analytics with Python
+    numpy
+    pandas
+    matplotlib
+    seaborn
+    sklean
+
+
+Certified Professional in Python Programming 1
+
+
+
+Certified Professional in Python Programming 2
+
+
+Certified Associate in Testing with Python
+    Test-Driven Development (TDD)
+    Behavior-Driven Development (BDD) 
+    test automation
+    unittest
+    pytest
+    assertions, context managers, and decorators

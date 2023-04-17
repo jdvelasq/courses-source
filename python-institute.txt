@@ -1,0 +1,60 @@
+
+
+Certified entry-level Python programmer
+    operadores
+    print-input
+    if-then, condicionales
+    listas
+    tuplas
+    diccionarios
+    strings 
+    funciones
+    excepciones
+
+
+Certified Associate in Python Programming
+    import y modulos
+    dir()
+    syspath()
+
+    modulo math
+    modulo random
+    platform module
+    modulos y paquetes de usuario
+
+    excepciones
+
+    oop
+
+    funciones lambda
+    programacion funcional
+
+    archivos
+
+    
+
+
+
+
+Certified Associate in Data Analytics with Python
+    numpy
+    pandas
+    matplotlib
+    seaborn
+    sklean
+
+
+Certified Professional in Python Programming 1
+
+
+
+Certified Professional in Python Programming 2
+
+
+Certified Associate in Testing with Python
+    Test-Driven Development (TDD)
+    Behavior-Driven Development (BDD) 
+    test automation
+    unittest
+    pytest
+    assertions, context managers, and decorators
