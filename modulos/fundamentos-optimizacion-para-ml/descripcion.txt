@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+Este curso aborda los conceptos fundamentales de la optimización numérica 
+usando la metodología del gradiente descendente, la cual es utilizada en
+aprendizaje de máquinas para la estimación de los parámetros de muchos modelos,
+entre los que se incluyen la regresión lineal y las redes neuronales 
+artificiales. 
+
+Los conceptos abordados aqui son fundamentales para utilizar efectivamente 
+muchos de los modelos disponibles en sklearn, pero no están limitados a esta 
+librería; estos también son fundamentales en herramientas de deep learning, tal
+como TensorFlow, y herramientas de big data, como Spark ML.
+
+
+
+
+
+
+
+
