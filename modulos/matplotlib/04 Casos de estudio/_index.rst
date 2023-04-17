@@ -1,6 +1,6 @@
-.. _matplotlib_01_graficos_basicos:
+.. _matplotlib_04_casos_de_estudio:
 
-Gráficos Básicos --- 
+Casos de Estudio --- 
 -------------------------------------------------------------------------------
 
     .. toctree::

@@ -1,6 +1,6 @@
-.. _matplotlib_01_graficos_basicos:
+.. _matplotlib_03_tutoriales:
 
-Gráficos Básicos --- 
+Guias de Uso --- 
 -------------------------------------------------------------------------------
 
     .. toctree::

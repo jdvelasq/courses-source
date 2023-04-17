@@ -1,6 +1,6 @@
-.. _matplotlib_01_graficos_basicos:
+.. _matplotlib_02_graficos_estadisticos:
 
-Gráficos Básicos --- 
+Gráficos Estadísticos --- 
 -------------------------------------------------------------------------------
 
     .. toctree::
