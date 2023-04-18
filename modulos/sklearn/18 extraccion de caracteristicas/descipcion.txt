@@ -1,0 +1,6 @@
+-------------------------------------------------------------------------------
+
+En este curso se describe en detalle el proceso de importación de datos a 
+sklearn cuando se encuentran especificados en formatos tipo JSON o cuando
+son texto. Particularmente se aborda en detalle, la matriz documento-término 
+y la transformación TF-IDF. Fianlmente, se presenta un caso de aplicación.
