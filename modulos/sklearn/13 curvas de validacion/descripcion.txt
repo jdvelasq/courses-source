@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+
+En este curso se presentan las utilidades disponibles en sklearn para:
+
+
+* Graficar una métrica de desempeño de un modelo versus un hiper-parámetro,
+con el fin de investigar si efectivamente se tienen los mejores valores
+de los hiper-parámetros.
+
+* Graficar el valor de una métrica de desempeño versus el número de ejemplos
+en el dataset de entrenamiento. Esta permite establecer el tamaño adecuado
+del dataset para lograr la generalización.
