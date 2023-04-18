@@ -1,0 +1,9 @@
+Análisis de componentes principales (PCA) / ML con sklearn Ep 33.01
+KernelPCA / ML con sklearn Ep 33.02
+TruncatedSVD y Latent Semantic Analysis / ML con sklearn Ep 33.03
+Análisis de factores / ML con sklearn Ep 33.04
+
+
+
+
+
