@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+
+En aprendizaje supervisado es fundamental desarrollar modelos que generalicen
+adecuadamente las relaciones entre las variables independientes y la variable
+dependiente, evitando el sobreajuste. La validación cruzada es una técnica 
+numérica estadística que permite medir la generalización del modelo de forma
+robusta ante los datos seleccionados. Y es particularmente útil en la selección
+de los hiper-parámetros de los modelos. 
+
+Este curso está divido en tres capítulos: el primero aborda los conceptos
+fundamentales como el dilema sesgo-varianza y la sensibilidad a la selección
+de los datos; el segundo explica como calcular métricas usando validación 
+cruzada; y el tercero describe las principales formas para partir los datos
+para realizar el cálculo de las métricas.
