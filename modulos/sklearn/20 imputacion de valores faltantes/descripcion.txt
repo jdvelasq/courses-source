@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+
+En este curso se abodan las técncias disponibles en sklearn para la imputación
+de datos faltantes.
