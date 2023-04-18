@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+
+En este curso se aborda el metodo de proyecciones aleatorias, el cual es un
+método simple y computacionamente eficiente para reducir la dimensionalidad 
+de los datos. 
