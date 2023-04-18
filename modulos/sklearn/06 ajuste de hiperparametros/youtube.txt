@@ -1,0 +1,31 @@
+Generación de combinaciones de hiperparámetros con ParamGrid / ML con sklearn Ep 1.2-01
+
+Machine Learning con sklearn / Evaluación de modelos / Ajuste de los hiperparámetros de un estimador / Generación de combinaciones de hiperparámetros con ParamGrid
+
+
+--
+Búsqueda exhaustiva de hiperparámetros usando GridSearchCV / ML con sklearn Ep 1.2-02
+
+Machine Learning con sklearn / Evaluación de modelos / Ajuste de los hiperparámetros de un estimador / Búsqueda exhaustiva de hiperparámetros usando GridSearchCV
+
+
+--
+Muestreo de combinaciones de hiperparámetros usando ParameterSample / ML con sklearn Ep 1.2-03
+
+Machine Learning con sklearn / Evaluación de modelos / Ajuste de los hiperparámetros de un estimador / Muestreo de combinaciones de hiperparámetros usando ParameterSample
+
+
+--
+Búsqueda aleatoria de hiperparámetros usando RandomizedSearchCV / ML con sklearn Ep 1.2-04
+
+Machine Learning con sklearn / Evaluación de modelos / Ajuste de los hiperparámetros de un estimador / Búsqueda aleatoria de hiperparámetros usando RandomizedSearchCV
+
+--
+Ejemplo. Regresión Polinómica / ML con sklearn Ep 1.2-05
+
+Machine Learning con sklearn / Evaluación de modelos / Ajuste de los hiperparámetros de un estimador / Ejemplo. Regresión Polinómica
+
+
+
+
+#analytics  #datascience  #datasciencecareer  #datascientist #datasciencecourse  #datasciencetutorial  #machinelearning   #pythonprogramming #python3 #pythontutorial

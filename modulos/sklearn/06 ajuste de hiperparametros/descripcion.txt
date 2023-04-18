@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+
+En este curso se abodan las técnicas específicas para estimar los valores 
+óptimos de los hiper-parámetros en un modelo de sklearn usando validación
+cruzada. En primer lugar, se aboda el problema de generación de las 
+combinaciones posibles de valores y su evaluación mediante fuerza bruta;
+en segundo lugar, se aborda este mismo problema usando muestreo aleatorio;
+finalmente, se presente un caso ilustrativo.
+
