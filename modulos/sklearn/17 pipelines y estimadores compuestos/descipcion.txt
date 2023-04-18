@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+
+En este curso se describe detalladamente como construir tuberías de modelos de
+aprendizaje de máquinas en sklearn. Esta tuberias permiten ensamblar en un solo
+objeto la transformación de la variable de salida, las  transformaciones 
+aplicadas a las variables independientes y el modelo (estimador) como tal. Las
+tuberías facilitan enormemente el desarrollo de modelos complejos y la 
+estimación de los hiper-parámetros óptimos.
