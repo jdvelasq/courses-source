@@ -1,0 +1,39 @@
+Particionamiento de datos con KFold / ML con sklearn Ep 1.1.3-01
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con KFold
+
+
+--
+Particionamiento de datos con RepeatedKFold / ML con sklearn Ep 1.1.3-02
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con RepeatedKFold
+
+
+--
+Particionamiento de datos con LeaveOneOut / ML con sklearn Ep 1.1.3-03
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con LeaveOneOut
+
+
+--
+Particionamiento de datos con LeavePOut / ML con sklearn Ep 1.1.3-04
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con LeavePOut
+
+--
+Particionamiento de datos con ShuffleSplit / ML con sklearn Ep 1.1.3-05
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con ShuffleSplit
+
+--
+Particionamiento de datos con StratifiedKFold / ML con sklearn Ep 1.1.3-06
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con StratifiedKFold
+
+--
+
+Particionamiento de datos con StratifiedShuffleSplit / ML con sklearn Ep 1.1.3-07
+
+Machine Learning con sklearn / Evaluación de modelos / Validación cruzada / Iteradores / Particionamiento de datos con StratifiedShuffleSplit
+
+
