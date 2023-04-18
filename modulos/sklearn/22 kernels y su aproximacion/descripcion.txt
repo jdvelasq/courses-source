@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+
+En este curso se abordan los métodos para aproximar los mapas de características
+usando kernels, lo que permite aumentar la dimensionalidad del dataset original,
+con el fin de obtener modelos más precisos
