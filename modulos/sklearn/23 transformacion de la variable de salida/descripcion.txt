@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+
+En este curso se presentan transformaciones que son aplicables unicamente 
+a la variable de salida, y que no deben usarse para las variables 
+independientes.
