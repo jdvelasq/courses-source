@@ -145,7 +145,7 @@ Programa Calendario
 
 * Sesión 07 --- **2023-04-16**
 
-    **Fundamentos de Estadística para ML**
+    **Fundamentos de Business Analytics (revizar)**
 
 
 
