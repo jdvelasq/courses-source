@@ -8,4 +8,4 @@ Keras: Carga y procesamiento de imágenes --- 39:20 min
         :titlesonly:
         :glob:
 
-        /notebooks/tensorflow_03_load_and_processing_data/1-*
+        notebooks/*

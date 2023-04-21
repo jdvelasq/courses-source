@@ -8,4 +8,4 @@ Keras: Introducción --- 35:36 min
         :titlesonly:
         :glob:
 
-        /notebooks/tensorflow_01_quickstart/1-*
+        notebooks/*

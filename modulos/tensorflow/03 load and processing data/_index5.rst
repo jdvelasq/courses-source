@@ -8,4 +8,4 @@ Keras: tf.record y tf.example
         :titlesonly:
         :glob:
 
-        /notebooks/tensorflow_03_load_and_processing_data/5-*
+        notebooks/*

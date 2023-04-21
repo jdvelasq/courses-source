@@ -8,4 +8,4 @@ Keras: Carga y procesamiento de archivos CSV --- 49:11 min
         :titlesonly:
         :glob:
 
-        /notebooks/tensorflow_03_load_and_processing_data/2-*
+        notebooks/*

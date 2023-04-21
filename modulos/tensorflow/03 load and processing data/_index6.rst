@@ -8,4 +8,4 @@ Keras: Texto
         :titlesonly:
         :glob:
 
-        /notebooks/tensorflow_03_load_and_processing_data/6-*
+        notebooks/*
