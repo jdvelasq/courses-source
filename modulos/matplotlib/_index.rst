@@ -1,6 +1,6 @@
-.. _matplotlib_03_tutoriales:
+.. _matplotlib:
 
-Guias de Uso --- 
+Visualización de datos con Matplotlib --- 
 -------------------------------------------------------------------------------
 
     .. toctree::

@@ -98,9 +98,9 @@ Programa Calendario
 
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
 
-    **Gestión de Datos con Pandas**
+    **Manipulación y Análisis de Datos con Pandas**
 
-        * :ref:`gestion_de_datos_con_pandas`
+        * :ref:`pandas`
 
         * **LAB** --- `Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
     
@@ -138,14 +138,14 @@ Programa Calendario
 
             * d3.js: https://d3js.org/
 
-        * :ref:`da_con_python_Ep_06_matplotlib`
+        * :ref:`matplotlib`
 
 
 .. ......................................................................................
 
 * Sesión 07 --- **2023-04-16**
 
-    **Fundamentos de Business Analytics (revizar)**
+    **Fundamentos de Business Analytics (revisar)**
 
 
 
@@ -218,7 +218,9 @@ Programa Calendario
 
     **Deep Learning**
 
+        * :ref:`tensorflow_01_quickstart`
 
+        * :ref:`tensorflow_02_ml_basics_with_keras_1`
 
 .. ......................................................................................
 

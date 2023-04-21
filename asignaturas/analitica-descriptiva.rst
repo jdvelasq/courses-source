@@ -131,9 +131,9 @@ Programa Calendario
 
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
 
-    **Análisis de Datos con Pandas**
+    **Manipulación y Análisis de Datos con Pandas**
 
-        * :ref:`gestion_de_datos_con_pandas`
+        * :ref:`pandas`
 
         * **LAB** --- `Programacion usando Pandas <https://classroom.github.com/a/9NRsHgGJ>`_.
 
@@ -145,7 +145,7 @@ Programa Calendario
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-ingestion_de_datos.ipynb>`_.
 
 
-    **Gestión de Bases de Datos con Python**
+    **Bases de Datos en Python**
 
         * :ref:`da_con_python_Ep_02_sqlite3`
 
@@ -171,7 +171,7 @@ Programa Calendario
 
         * **LAB** --- `Limpieza de datos, solicitudes de credito <https://classroom.github.com/a/6FTrLjGQ>`_.
 
-        * :ref:`da_con_python_Ep_06_matplotlib`
+        * :ref:`matplotlib`
 
 
 

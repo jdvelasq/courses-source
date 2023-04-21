@@ -1,4 +1,4 @@
-.. _gestion_de_datos_con_pandas:
+.. _pandas:
 
 Gestión de Datos con Pandas --- 
 -------------------------------------------------------------------------------
