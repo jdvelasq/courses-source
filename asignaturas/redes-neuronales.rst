@@ -41,7 +41,7 @@ Programa Calendario
 * Sesión 02 --- **2023-04-16**
 
 
-    * :ref:`ml_con_sklearn_Ep_01_fundamentos_de_optimizacion`
+    * :ref:`sklearn_Ep_01_fundamentos_de_optimizacion`
 
     * **LAB** --- `Estimación de coeficientes de una parábola usando gradiente descendente <https://classroom.github.com/a/uOB-lTnx>`_.
 
@@ -77,7 +77,7 @@ Programa Calendario
 
 * Sesión 04 --- **2023-04-16**
 
-    * :ref:`ml_con_sklearn_Ep_31_sdg`
+    * :ref:`sklearn_Ep_31_sdg`
 
     * :ref:`adaptive_linear_combiner`
 
@@ -85,32 +85,32 @@ Programa Calendario
 
 * Sesión 05 --- **2023-04-16**
 
-    * :ref:`ml_con_sklearn_Ep_03_validacion_cruzada`
+    * :ref:`sklearn_Ep_03_validacion_cruzada`
 
-    * :ref:`ml_con_sklearn_Ep_04_calculo_de_metricas`
+    * :ref:`sklearn_Ep_04_calculo_de_metricas`
 
-    * :ref:`ml_con_sklearn_Ep_05_iteradores_validacion_cruzada`
+    * :ref:`sklearn_Ep_05_iteradores_validacion_cruzada`
 
 
 .. ......................................................................................
 
 * Sesión 06 --- **2023-04-16**
 
-    * :ref:`ml_con_sklearn_Ep_17_pipelines_y_estimadores_compuestos`
+    * :ref:`sklearn_Ep_17_pipelines_y_estimadores_compuestos`
 
-    * :ref:`ml_con_sklearn_Ep_19_preprocesamiento_de_datos`
+    * :ref:`sklearn_Ep_19_preprocesamiento_de_datos`
 
-    * :ref:`ml_con_sklearn_Ep_18_extraccion_de_caracteristicas`
+    * :ref:`sklearn_Ep_18_extraccion_de_caracteristicas`
 
 .. ......................................................................................
 
 * Sesión 07 --- **2023-04-16**
 
-    * :ref:`ml_con_sklearn_Ep_39_seleccion_de_caracteristicas`
+    * :ref:`sklearn_Ep_39_seleccion_de_caracteristicas`
 
-    * :ref:`ml_con_sklearn_Ep_24_regresores_lineales_clasicos`
+    * :ref:`sklearn_Ep_24_regresores_lineales_clasicos`
 
-    * :ref:`ml_con_sklearn_Ep_25_clasificadores_lineales_clasicos`
+    * :ref:`sklearn_Ep_25_clasificadores_lineales_clasicos`
 
     * **LAB** --- `Regresión Lineal Simple (GapMinder) <https://classroom.github.com/a/Mb3alA4s>`_.
 
@@ -125,7 +125,7 @@ Programa Calendario
 
     * :ref:`continuous_perceptron`
 
-    * :ref:`ml_con_sklearn_Ep_43_modelos_de_redes_neuronales`
+    * :ref:`sklearn_Ep_43_modelos_de_redes_neuronales`
 
     * **LAB** --- `Predicción de la resistencia del concreto <https://classroom.github.com/a/yROiy7oe>`_.
 
@@ -133,15 +133,15 @@ Programa Calendario
 
 * Sesión 09 --- **2023-04-16**
 
-    * :ref:`ml_con_sklearn_Ep_30_svm`
+    * :ref:`sklearn_Ep_30_svm`
 
     * **LAB** --- `Detección de créditos riesgosos usando SVMs <https://classroom.github.com/a/YPIeyUCA>`_.
 
-    * :ref:`ml_con_sklearn_Ep_36_arboles_de_decision`
+    * :ref:`sklearn_Ep_36_arboles_de_decision`
 
-    * :ref:`ml_con_sklearn_Ep_37_metodos_de_ensamble`
+    * :ref:`sklearn_Ep_37_metodos_de_ensamble`
 
-    * :ref:`ml_con_sklearn_Ep_52_modelos_de_redes_neuronales`
+    * :ref:`sklearn_Ep_52_modelos_de_redes_neuronales`
 
 .. ......................................................................................
 

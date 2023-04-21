@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_37_metodos_de_ensamble:
+.. _sklearn_Ep_37_metodos_de_ensamble:
 
 Métodos de Ensamble --- 
 -------------------------------------------------------------------------------

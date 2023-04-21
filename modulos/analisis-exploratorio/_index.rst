@@ -1,4 +1,4 @@
-.. _da_con_python_Ep_07_exploratory_analysis:
+.. _exploratory_analysis_with_python:
 
 DA Python 07: Análisis exploratorio --- 
 -------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_51_kde:
+.. _sklearn_Ep_51_kde:
 
 Estimación de la Densidad de Probabilidad --- 
 -------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_11_metricas_agrupamiento:
+.. _sklearn_Ep_11_metricas_agrupamiento:
 
 Métricas para Agrupamiento --- (pendiente)
 ---------------------------------------------------------------------

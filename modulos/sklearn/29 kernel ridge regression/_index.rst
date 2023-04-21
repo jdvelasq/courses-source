@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_29_kernel_ridge_regression:
+.. _sklearn_Ep_29_kernel_ridge_regression:
 
 Kernel Ridge Regression --- 
 -------------------------------------------------------------------------------

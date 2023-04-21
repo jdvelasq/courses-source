@@ -155,9 +155,9 @@ Programa Calendario
 
     **Validación Cruzada y Selección de Hiperparámetros**
 
-        * :ref:`ml_con_sklearn_Ep_03_validacion_cruzada`
+        * :ref:`sklearn_Ep_03_validacion_cruzada`
 
-        * :ref:`ml_con_sklearn_Ep_06_ajuste_hiperparametros`
+        * :ref:`sklearn_Ep_06_ajuste_hiperparametros`
 
 
 .. ......................................................................................
@@ -166,9 +166,9 @@ Programa Calendario
 
     **Clustering y Algoritmos de Descomposición**
 
-        * :ref:`ml_con_sklearn_Ep_46_clustering`
+        * :ref:`sklearn_Ep_46_clustering`
 
-        * :ref:`ml_con_sklearn_Ep_48_algoritmos_de_descomposicion`
+        * :ref:`sklearn_Ep_48_algoritmos_de_descomposicion`
 
 
 .. ......................................................................................
@@ -177,13 +177,13 @@ Programa Calendario
 
     **Modelos lineales clasicos y selección de variables**
 
-        * :ref:`ml_con_sklearn_Ep_24_regresores_lineales_clasicos`
+        * :ref:`sklearn_Ep_24_regresores_lineales_clasicos`
 
         * **LAB** --- `Regresión Lineal Simple (GapMinder) <https://classroom.github.com/a/Y-t0TIbS>`_.
 
         * **LAB** --- `Regresión Lineal Multiple (insurance) <https://classroom.github.com/a/bvyWm9_z>`_.
 
-        * :ref:`ml_con_sklearn_Ep_25_clasificadores_lineales_clasicos`
+        * :ref:`sklearn_Ep_25_clasificadores_lineales_clasicos`
 
         * **LAB** --- `Análisis de Sentimientos (Amazon) <https://classroom.github.com/a/j6fYnT8O>`_.
 
@@ -196,11 +196,11 @@ Programa Calendario
 
     **Modelos no lineales**
 
-        * :ref:`ml_con_sklearn_Ep_36_arboles_de_decision`
+        * :ref:`sklearn_Ep_36_arboles_de_decision`
 
-        * :ref:`ml_con_sklearn_Ep_30_svm` 
+        * :ref:`sklearn_Ep_30_svm` 
 
-        * :ref:`ml_con_sklearn_Ep_37_metodos_de_ensamble`
+        * :ref:`sklearn_Ep_37_metodos_de_ensamble`
 
 .. ......................................................................................
 

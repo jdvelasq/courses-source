@@ -1,4 +1,4 @@
-.. _bigdata_Ep_11_hbase:
+.. _apache_hbase:
 
 Big Data Ep 11: Apache HBase
 ---------------------------------------------------------------------

@@ -106,7 +106,6 @@ política de la Universidad Nacional de Colombia, y en particular el
     :hidden:
     :maxdepth: 1
 
-    asignaturas/ciencia-de-los-datos
     asignaturas/analitica-descriptiva
     asignaturas/analitica-predictiva
     asignaturas/analitica-de-grandes-datos

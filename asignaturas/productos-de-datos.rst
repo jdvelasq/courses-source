@@ -87,11 +87,11 @@ Programa Calendario
 
       * :ref:`prog_en_python_Ep_18_unittest`
 
-      * :ref:`prog_en_python_Ep_19_pytest`
+      * :ref:`pytest`
 
-      * :ref:`prog_en_python_Ep_20_datatest`
+      * :ref:`datatest`
 
-      * :ref:`prog_en_python_Ep_21_faker`   
+      * :ref:`faker`   
 
       * :ref:`prog_en_python_Ep_22_great_expectations`
       
@@ -138,17 +138,17 @@ Programa Calendario
 
    **DataOps --- Parte 1**
    
-      * `DataOps Ep 01: El problema con Data Analytics --10-- <https://jdvelasq.github.io/dataops_01_problem//>`_ 
+      * `El problema con Data Analytics --10-- <https://jdvelasq.github.io/dataops_01_problem//>`_ 
 
-      * `DataOps Ep 02: Qué es DataOps? --20-- <https://jdvelasq.github.io/dataops_02_what_is_dataops/>`_ 
+      * `Qué es DataOps? --20-- <https://jdvelasq.github.io/dataops_02_what_is_dataops/>`_ 
 
-      * `DataOps Ep 03: DataOps para el Chief Data Officer --12-- <https://jdvelasq.github.io/dataops_03_for_the_chief_data_officer/>`_    
+      * `DataOps para el Chief Data Officer --12-- <https://jdvelasq.github.io/dataops_03_for_the_chief_data_officer/>`_    
 
-      * `DataOps Ep 04: DataOps para el Data Engineer y el Data Scientist --13-- <https://jdvelasq.github.io/dataops_04_for_the_data_scientist/>`_ 
+      * `DataOps para el Data Engineer y el Data Scientist --13-- <https://jdvelasq.github.io/dataops_04_for_the_data_scientist/>`_ 
 
-      * `DataOps Ep 05: DataOps para calidad de datos --06-- <https://jdvelasq.github.io/dataops_05_for_data_quality/>`_ 
+      * `DataOps para calidad de datos --06-- <https://jdvelasq.github.io/dataops_05_for_data_quality/>`_ 
 
-      * `DataOps Ep 06: Estructura organizacional para DataOps --09-- <https://jdvelasq.github.io/dataops_06_organizing_for_dataops/>`_    
+      * `Estructura organizacional para DataOps --09-- <https://jdvelasq.github.io/dataops_06_organizing_for_dataops/>`_    
 
 
 
@@ -156,11 +156,11 @@ Programa Calendario
 
    **DataOps --- Parte 2**
 
-      * `DataOps Ep 07: Estrategia de datos --11-- <https://jdvelasq.github.io/dataops_07_data_strategy/>`_    
+      * `Estrategia de datos --11-- <https://jdvelasq.github.io/dataops_07_data_strategy/>`_    
 
-      * `DataOps Ep 08: Lean thinking --12-- <https://jdvelasq.github.io/dataops_08_lean_thinking/>`_ 
+      * `Lean thinking --12-- <https://jdvelasq.github.io/dataops_08_lean_thinking/>`_ 
 
-      * `DataOps Ep 09: Agile Collaboration --15-- <https://jdvelasq.github.io/dataops_09_agile_collaboration/>`_ 
+      * `Agile Collaboration --15-- <https://jdvelasq.github.io/dataops_09_agile_collaboration/>`_ 
 
 
 

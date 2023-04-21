@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_21_proyecciones_aleatorias:
+.. _sklearn_Ep_21_proyecciones_aleatorias:
 
 Proyecciones Aleatorias
 -------------------------------------------------------------------------------

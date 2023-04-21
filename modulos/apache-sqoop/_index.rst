@@ -1,4 +1,4 @@
-.. _bigdata_Ep_06_sqoop:
+.. _apache_sqoop:
 
 Big Data Ep 06: Intercambio de datos con Apache Sqoop
 ---------------------------------------------------------------------

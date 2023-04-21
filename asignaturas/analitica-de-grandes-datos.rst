@@ -56,7 +56,7 @@ Programa Calendario
 
     * :ref:`prog_en_python_Ep_14_datasets_masivos`
     
-    * :ref:`bigdata_Ep_01_hadoop_y_mapreduce`
+    * :ref:`hadoop_y_mapreduce`
 
     * :ref:`bigdata_Ep_02_mrjob`
 
@@ -68,13 +68,13 @@ Programa Calendario
 
 * Sesión 04 --- **Mayo 05, 2023**
 
-    * :ref:`bigdata_Ep_04_zeppelin`
+    * :ref:`apache_zeppelin`
 
     * :ref:`bigdata_Ep_05_mariadb`
     
-    * :ref:`bigdata_Ep_06_sqoop`
+    * :ref:`apache_sqoop`
 
-    * :ref:`bigdata_Ep_07_pig`
+    * :ref:`apache_pig`
 
     * **LAB** --- `Apache Pig <https://classroom.github.com/a/EjViQnqQ>`_.
 
@@ -82,11 +82,11 @@ Programa Calendario
 
 * Sesión 05 --- **Mayo 12, 2023**
 
-    * :ref:`bigdata_Ep_08_drill`
+    * :ref:`apache_drill`
 
-    * :ref:`bigdata_Ep_09_druid`
+    * :ref:`apache_druid`
 
-    * :ref:`bigdata_Ep_10_hive`
+    * :ref:`apache_hive`
 
     * **LAB** --- `Apache Hive <https://classroom.github.com/a/XMSXISr5>`_.
 
@@ -94,9 +94,9 @@ Programa Calendario
 
 * Sesión 06 --- **Mayo 19, 2023**
 
-    * :ref:`bigdata_Ep_11_hbase`
+    * :ref:`apache_hbase`
 
-    * :ref:`bigdata_Ep_12_phoenix`
+    * :ref:`apache_phoenix`
 
     * :ref:`pyspark_Ep_01_RDD`
 

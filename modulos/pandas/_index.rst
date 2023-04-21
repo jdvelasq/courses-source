@@ -1,6 +1,6 @@
 .. _pandas:
 
-Gestión de Datos con Pandas --- 
+Manipulación y Análisis de Datos con Pandas --- 
 -------------------------------------------------------------------------------
 
     .. toctree::

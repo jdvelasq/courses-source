@@ -1,6 +1,6 @@
 .. _matplotlib:
 
-Visualización de datos con Matplotlib --- 
+Visualización de Datos con Matplotlib --- 
 -------------------------------------------------------------------------------
 
     .. toctree::

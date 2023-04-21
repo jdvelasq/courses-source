@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_34_descomposicion_cruzada:
+.. _sklearn_Ep_34_descomposicion_cruzada:
 
 Descomposición Cruzada --- 
 -------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-.. _bigdata_Ep_12_phoenix:
+.. _apache_phoenix:
 
 Big Data Ep 12: Apache Phoenix
 ---------------------------------------------------------------------

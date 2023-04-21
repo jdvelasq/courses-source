@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_22_kernels:
+.. _sklearn_Ep_22_kernels:
 
 Kernels y su Aproximación --- 
 -------------------------------------------------------------------------------

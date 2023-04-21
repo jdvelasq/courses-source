@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_45_manifold_learning:
+.. _sklearn_Ep_45_manifold_learning:
 
 Manifold Learning --- 
 ---------------------------------------------------------------------

@@ -1,4 +1,4 @@
-.. _bigdata_Ep_04_zeppelin:
+.. _apache_zeppelin:
 
 Big Data Ep 04: Procesamiento de datos en Python y Bash con Apache Zeppelin
 -------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_08_metricas_clasificacion:
+.. _sklearn_Ep_08_metricas_clasificacion:
 
 Métricas para Clasificación --- 
 -------------------------------------------------------------------------------

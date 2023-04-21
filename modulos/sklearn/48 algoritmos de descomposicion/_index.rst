@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_48_algoritmos_de_descomposicion:
+.. _sklearn_Ep_48_algoritmos_de_descomposicion:
 
 Algoritmos de Descomposición --- 26:46
 -------------------------------------------------------------------------------

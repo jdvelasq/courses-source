@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_39_seleccion_de_caracteristicas:
+.. _sklearn_Ep_39_seleccion_de_caracteristicas:
 
 Selección de Características --- 
 ---------------------------------------------------------------------

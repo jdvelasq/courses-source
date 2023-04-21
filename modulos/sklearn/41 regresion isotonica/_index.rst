@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_41_regresion_isotonica:
+.. _sklearn_Ep_41_regresion_isotonica:
 
 Regresión Isotónica
 ---------------------------------------------------------------------

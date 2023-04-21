@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_16_utilidades_de_visualizacion:
+.. _sklearn_Ep_16_utilidades_de_visualizacion:
 
 Utilidades de Visualización --- (pendiente)
 -------------------------------------------------------------------------------

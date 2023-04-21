@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_05_iteradores_validacion_cruzada:
+.. _sklearn_Ep_05_iteradores_validacion_cruzada:
 
 Iteradores para Validación Cruzada --- 
 -------------------------------------------------------------------------------

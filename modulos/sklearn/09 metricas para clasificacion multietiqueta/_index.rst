@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_09_metricas_multietiqueta:
+.. _sklearn_Ep_09_metricas_multietiqueta:
 
 Métricas para Clasificación Multietiqueta --- 
 -------------------------------------------------------------------------------

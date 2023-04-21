@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_47_biclustering:
+.. _sklearn_Ep_47_biclustering:
 
 Biclustering --- 
 -------------------------------------------------------------------------------

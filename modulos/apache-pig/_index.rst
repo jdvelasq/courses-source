@@ -1,4 +1,4 @@
-.. _bigdata_Ep_07_pig:
+.. _apache_pig:
 
 Big Data Ep 07: Gestión de datos con Apache Pig
 ---------------------------------------------------------------------

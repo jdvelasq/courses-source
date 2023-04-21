@@ -1,4 +1,4 @@
-.. _bigdata_Ep_01_hadoop_y_mapreduce:
+.. _hadoop_y_mapreduce:
 
 Big Data Ep 01: Apache Hadoop y algoritmo MapReduce
 ---------------------------------------------------------------------

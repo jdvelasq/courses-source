@@ -119,7 +119,7 @@ Programa Calendario
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-ingestion_de_datos.ipynb>`_.
 
 
-        * :ref:`da_con_python_Ep_02_sqlite3`
+        * :ref:`sqlite3`
 
         * **LAB** --- `Programacion en SQLite3 <https://classroom.github.com/a/oR8qVkVP>`_.
 
@@ -142,7 +142,7 @@ Programa Calendario
 
         * :ref:`da_con_python_Ep_06_matplotlib`
 
-        * :ref:`da_con_python_Ep_07_exploratory_analysis`
+        * :ref:`exploratory_analysis_with_python`
 
 ..        * :ref:`sklearn_unsupervised_03_clustering`
 

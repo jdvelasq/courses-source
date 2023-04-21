@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_31_sdg:
+.. _sklearn_Ep_31_sdg:
 
 Gradiente Descendente Estocástico --- 
 -------------------------------------------------------------------------------

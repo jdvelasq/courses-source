@@ -147,7 +147,7 @@ Programa Calendario
 
     **Bases de Datos en Python**
 
-        * :ref:`da_con_python_Ep_02_sqlite3`
+        * :ref:`sqlite3`
 
         * **LAB** --- `Programacion en SQLite3 <https://classroom.github.com/a/oR8qVkVP>`_.
 

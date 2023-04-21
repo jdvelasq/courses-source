@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_33_procesos_gaussianos:
+.. _sklearn_Ep_33_procesos_gaussianos:
 
 Procesos Gaussianos
 -------------------------------------------------------------------------------

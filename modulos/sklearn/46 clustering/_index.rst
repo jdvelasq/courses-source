@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_46_clustering:
+.. _sklearn_Ep_46_clustering:
 
 Clustering --- 
 -------------------------------------------------------------------------------

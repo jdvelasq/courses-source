@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_25_clasificadores_lineales_clasicos:
+.. _sklearn_Ep_25_clasificadores_lineales_clasicos:
 
 Clasificadores Lineales Clásicos --- 
 -------------------------------------------------------------------------------

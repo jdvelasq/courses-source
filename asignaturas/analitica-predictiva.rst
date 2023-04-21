@@ -45,16 +45,16 @@ Programa Calendario
 
     **Introducción**
 
-        * :ref:`ml_con_sklearn_Ep_01_fundamentos_de_optimizacion`
+        * :ref:`sklearn_Ep_01_fundamentos_de_optimizacion`
 
-        * :ref:`ml_con_sklearn_Ep_02_fundamentos_estadistica`
+        * :ref:`sklearn_Ep_02_fundamentos_estadistica`
 
         * **LAB** --- `Estimación de coeficientes de una parábola usando gradiente descendente <https://classroom.github.com/a/a3xGd1Os>`_.
 
     
     **Datasets disponibles en scikit-learn**
     
-        * :ref:`ml_con_sklearn_Ep_53_datasets`
+        * :ref:`sklearn_Ep_53_datasets`
   
 
 * Sesión 03 --- **2022-10-28**
@@ -63,11 +63,11 @@ Programa Calendario
 
     **Selección y Evaluación de Modelos I** 
 
-        * :ref:`ml_con_sklearn_Ep_03_validacion_cruzada`
+        * :ref:`sklearn_Ep_03_validacion_cruzada`
 
-        * :ref:`ml_con_sklearn_Ep_04_calculo_de_metricas`
+        * :ref:`sklearn_Ep_04_calculo_de_metricas`
 
-        * :ref:`ml_con_sklearn_Ep_05_iteradores_validacion_cruzada`
+        * :ref:`sklearn_Ep_05_iteradores_validacion_cruzada`
 
 
 * Sesión 04 --- **2022-11-04**
@@ -76,19 +76,19 @@ Programa Calendario
 
     **Selección y Evaluación de Modelos II**    
 
-        * :ref:`ml_con_sklearn_Ep_06_ajuste_hiperparametros`
+        * :ref:`sklearn_Ep_06_ajuste_hiperparametros`
 
-        * :ref:`ml_con_sklearn_Ep_07_introduccion_metricas`
+        * :ref:`sklearn_Ep_07_introduccion_metricas`
 
-        * :ref:`ml_con_sklearn_Ep_08_metricas_clasificacion`
+        * :ref:`sklearn_Ep_08_metricas_clasificacion`
 
-        * :ref:`ml_con_sklearn_Ep_09_metricas_multietiqueta`
+        * :ref:`sklearn_Ep_09_metricas_multietiqueta`
 
-        * :ref:`ml_con_sklearn_Ep_10_metricas_regresion`
+        * :ref:`sklearn_Ep_10_metricas_regresion`
 
-        * :ref:`ml_con_sklearn_Ep_11_metricas_agrupamiento`
+        * :ref:`sklearn_Ep_11_metricas_agrupamiento`
 
-        * :ref:`ml_con_sklearn_Ep_12_estimadores_ingenuos`
+        * :ref:`sklearn_Ep_12_estimadores_ingenuos`
 
 
 
@@ -98,26 +98,26 @@ Programa Calendario
 
     **Transformaciones del Dataset**
 
-        * :ref:`ml_con_sklearn_Ep_17_pipelines_y_estimadores_compuestos`
+        * :ref:`sklearn_Ep_17_pipelines_y_estimadores_compuestos`
 
-        * :ref:`ml_con_sklearn_Ep_18_extraccion_de_caracteristicas`
+        * :ref:`sklearn_Ep_18_extraccion_de_caracteristicas`
 
-        * :ref:`ml_con_sklearn_Ep_19_preprocesamiento_de_datos`
+        * :ref:`sklearn_Ep_19_preprocesamiento_de_datos`
 
-        * :ref:`ml_con_sklearn_Ep_20_imputacion`
+        * :ref:`sklearn_Ep_20_imputacion`
 
-        * :ref:`ml_con_sklearn_Ep_21_proyecciones_aleatorias`
+        * :ref:`sklearn_Ep_21_proyecciones_aleatorias`
 
-        * :ref:`ml_con_sklearn_Ep_22_kernels`
+        * :ref:`sklearn_Ep_22_kernels`
 
-        * :ref:`ml_con_sklearn_Ep_23_trasnformacion_valiable_de_salida`
+        * :ref:`sklearn_Ep_23_trasnformacion_valiable_de_salida`
 
 
     **Aprendizaje Supervisado I**
 
-        * :ref:`ml_con_sklearn_Ep_39_seleccion_de_caracteristicas`
+        * :ref:`sklearn_Ep_39_seleccion_de_caracteristicas`
 
-        * :ref:`ml_con_sklearn_Ep_31_sdg`
+        * :ref:`sklearn_Ep_31_sdg`
 
 
 * Sesión 06 --- **2022-11-18**
@@ -127,17 +127,17 @@ Programa Calendario
 
     **Aprendizaje Supervisado II**
 
-        * :ref:`ml_con_sklearn_Ep_24_regresores_lineales_clasicos`
+        * :ref:`sklearn_Ep_24_regresores_lineales_clasicos`
 
-        * :ref:`ml_con_sklearn_Ep_25_clasificadores_lineales_clasicos`
+        * :ref:`sklearn_Ep_25_clasificadores_lineales_clasicos`
 
-        * :ref:`ml_con_sklearn_Ep_26_regresores_lineales_con_seleccion_de_variables`
+        * :ref:`sklearn_Ep_26_regresores_lineales_con_seleccion_de_variables`
 
-        * :ref:`ml_con_sklearn_Ep_26_regresores_lineales_robustos_a_outliers`
+        * :ref:`sklearn_Ep_26_regresores_lineales_robustos_a_outliers`
         
-        * :ref:`ml_con_sklearn_Ep_30_svm`
+        * :ref:`sklearn_Ep_30_svm`
 
-        * :ref:`ml_con_sklearn_Ep_32_knn`
+        * :ref:`sklearn_Ep_32_knn`
 
         * **LAB** --- `Regresión Lineal Simple (GapMinder) <https://classroom.github.com/a/E1fwjOsi>`_. 
 
@@ -157,13 +157,13 @@ Programa Calendario
 
     **Aprendizaje Supervisado III**
 
-        * :ref:`ml_con_sklearn_Ep_43_modelos_de_redes_neuronales`
+        * :ref:`sklearn_Ep_43_modelos_de_redes_neuronales`
 
-        * :ref:`ml_con_sklearn_Ep_36_arboles_de_decision`
+        * :ref:`sklearn_Ep_36_arboles_de_decision`
 
-        * :ref:`ml_con_sklearn_Ep_37_metodos_de_ensamble`
+        * :ref:`sklearn_Ep_37_metodos_de_ensamble`
 
-        * :ref:`ml_con_sklearn_Ep_41_regresion_isotonica`
+        * :ref:`sklearn_Ep_41_regresion_isotonica`
     
         * **LAB** --- `Predicción de la resistencia del concreto <https://classroom.github.com/a/55Ht4Ulw>`_.
 
@@ -171,11 +171,11 @@ Programa Calendario
     
     **Aprendizaje No Supervisado I**
 
-        * :ref:`ml_con_sklearn_Ep_45_manifold_learning`
+        * :ref:`sklearn_Ep_45_manifold_learning`
 
-        * :ref:`ml_con_sklearn_Ep_44_modelos_de_mixtura_gaussiana`
+        * :ref:`sklearn_Ep_44_modelos_de_mixtura_gaussiana`
 
-        * :ref:`ml_con_sklearn_Ep_46_clustering`
+        * :ref:`sklearn_Ep_46_clustering`
 
         
 
@@ -186,15 +186,15 @@ Programa Calendario
 
     **Aprendizaje No Supervisado II**
 
-        * :ref:`ml_con_sklearn_Ep_48_algoritmos_de_descomposicion`
+        * :ref:`sklearn_Ep_48_algoritmos_de_descomposicion`
 
-        * :ref:`ml_con_sklearn_Ep_49_estimacion_de_la_covarianza`
+        * :ref:`sklearn_Ep_49_estimacion_de_la_covarianza`
 
-        * :ref:`ml_con_sklearn_Ep_50_deteccion_de_outliers`
+        * :ref:`sklearn_Ep_50_deteccion_de_outliers`
 
-        * :ref:`ml_con_sklearn_Ep_51_kde`
+        * :ref:`sklearn_Ep_51_kde`
 
-        * :ref:`ml_con_sklearn_Ep_52_modelos_de_redes_neuronales`
+        * :ref:`sklearn_Ep_52_modelos_de_redes_neuronales`
 
 
     **Cierre y evaluación del curso**

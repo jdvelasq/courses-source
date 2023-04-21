@@ -1,4 +1,4 @@
-.. _ml_con_sklearn_Ep_06_ajuste_hiperparametros:
+.. _sklearn_Ep_06_ajuste_hiperparametros:
 
 Ajuste de Hiperparámetros con Validación Cruzada ---
 -------------------------------------------------------------------------------
