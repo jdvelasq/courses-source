@@ -76,6 +76,8 @@ Programa Calendario
 
       * :ref:`prog_en_python_Ep_15_codigo_limpio`
 
+      * :ref:`python_library_reference_productos`
+
 
 * Sesión 05 --- **2023-04-16**
 

@@ -10,7 +10,7 @@ Sobre este curso
 
 :ref:`info_general_cursos`
 
-Este curso es equivalente al programa **Data Science and Big Data** del **MIT**.
+Este curso es equivalente al programa **Data Science and Big Data** del **MIT** y cubre parte del contenido requerido para la certificación de programación profesional en Python **PCAD --- Certified Associate in Data Analytics with Python**. 
 
 
     .. note:: 

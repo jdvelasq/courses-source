@@ -69,7 +69,11 @@ Programa Calendario
 
 * Sesión 04 --- **2023-01-01**
 
-    **Programación en Python para Data Analytics I**
+    **Programación Profesional en Python / Nivel Básico**
+
+    Este módulo extiende el contenido del modulo **Data Science and Machine Learning** del **MIT** y cubre el
+    contenido requerido por la certificación **PCEP --- Certified Entry-Level Python Programmer** que es un 
+    requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         .. note::
 
@@ -103,7 +107,12 @@ Programa Calendario
 
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-programacion_en_python.ipynb>`_.
 
-    **Programación en Python  para Data Analytics II**    
+    **Programación Profesional en Python / Nivel intermedio**
+
+    Este módulo extiende el contenido del modulo **Data Science and Machine Learning** del **MIT** y cubre el
+    contenido requerido por la certificación **PCAP --- Certified Associate in Python Programming** que es un 
+    requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+
 
         * :ref:`prog_en_python_Ep_05_estructuras_de_datos_2`
 
@@ -119,6 +128,10 @@ Programa Calendario
 
         * :ref:`prog_en_python_Ep_12_ambientes_virtuales_y_paquetes`
 
+
+        * :ref:`python_library_reference_descriptiva`
+
+
         * :ref:`prog_en_python_Ep_13_ejemplos_de_data_analytics`
 
         * **LAB** --- `Programacion básica en Python <https://classroom.github.com/a/TeLjqxHO>`_.
@@ -132,6 +145,9 @@ Programa Calendario
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
 
     **Manipulación y Análisis de Datos con Pandas**
+
+
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`pandas`
 
@@ -162,6 +178,8 @@ Programa Calendario
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/analitica_predictiva/taller_presencial-modelo_lineal_multivariado.ipynb>`_.
 
     **Ingestión, Limpieza y Visualización de Datos**
+
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`da_con_python_Ep_04_data_ingestion`
 

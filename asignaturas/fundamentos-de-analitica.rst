@@ -45,7 +45,11 @@ Programa Calendario
 
 * Sesión 02 --- **2023-04-16**
 
-    **Programación en Python para Data Analytics I**
+    **Programación Profesional en Python / Nivel Básico**
+
+    Este módulo extiende el contenido del modulo **Data Science and Machine Learning** del **MIT** y cubre el
+    contenido requerido por la certificación **PCEP --- Certified Entry-Level Python Programmer** que es un 
+    requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**.  
 
         .. note::
 
@@ -77,7 +81,11 @@ Programa Calendario
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-programacion_en_python.ipynb>`_.
 
 
-    **Programación en Python para Data Analytics II**
+    **Programación Profesional en Python / Nivel intermedio**
+
+    Este módulo extiende el contenido del módulo **Data Science and Machine Learning** del **MIT** y cubre el
+    contenido requerido por la certificación **PCAP --- Certified Associate in Python Programming** que es un 
+    requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`prog_en_python_Ep_05_estructuras_de_datos_2`
 
@@ -86,6 +94,8 @@ Programa Calendario
         * :ref:`prog_en_python_Ep_08_errores_y_excepciones`
 
         * :ref:`prog_en_python_Ep_10_libraria_estandar_parte_1`
+
+        * :ref:`python_library_reference_fundamentos`
 
         * :ref:`prog_en_python_Ep_13_ejemplos_de_data_analytics`
 
@@ -100,6 +110,8 @@ Programa Calendario
 
     **Manipulación y Análisis de Datos con Pandas**
 
+    Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+
         * :ref:`pandas`
 
         * **LAB** --- `Manipulación de Datos con Pandas <https://classroom.github.com/a/UEifK_xF>`_.
@@ -109,7 +121,9 @@ Programa Calendario
 
 * Sesión 05 --- **2023-04-16**
 
-    **Limpieza e Ingestión de Datos**
+    **Ingestion y Limpieza de Datos**
+
+    Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`da_con_python_Ep_04_data_ingestion`
 
@@ -125,6 +139,8 @@ Programa Calendario
 * Sesión 06 --- **2023-04-16**
 
     **Visualización de Datos**
+
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * Componente presencial:
 
@@ -155,6 +171,8 @@ Programa Calendario
 
     **Validación Cruzada y Selección de Hiperparámetros**
 
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+
         * :ref:`sklearn_Ep_03_validacion_cruzada`
 
         * :ref:`sklearn_Ep_06_ajuste_hiperparametros`
@@ -166,6 +184,8 @@ Programa Calendario
 
     **Clustering y Algoritmos de Descomposición**
 
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+
         * :ref:`sklearn_Ep_46_clustering`
 
         * :ref:`sklearn_Ep_48_algoritmos_de_descomposicion`
@@ -176,6 +196,9 @@ Programa Calendario
 * Sesión 10 --- **2023-04-16**
 
     **Modelos lineales clasicos y selección de variables**
+
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+
 
         * :ref:`sklearn_Ep_24_regresores_lineales_clasicos`
 
@@ -195,6 +218,9 @@ Programa Calendario
 * Sesión 11 --- **2023-04-16**
 
     **Modelos no lineales**
+
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+
 
         * :ref:`sklearn_Ep_36_arboles_de_decision`
 
@@ -242,7 +268,6 @@ Programa Calendario
 .. ......................................................................................
 
 * Sesión 16 --- **2023-04-16**
-
 
     **Break para finaliación de actividades evaluativas**
 

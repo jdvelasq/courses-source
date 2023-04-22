@@ -98,17 +98,17 @@ política de la Universidad Nacional de Colombia, y en particular el
     :hidden:
     :maxdepth: 2
     
-    asignaturas/redes-neuronales
     asignaturas/fundamentos-de-analitica
+    asignaturas/redes-neuronales
 
 .. toctree::
     :caption: Asignaturas de Posgrado
     :hidden:
     :maxdepth: 1
 
+    asignaturas/analitica-de-grandes-datos
     asignaturas/analitica-descriptiva
     asignaturas/analitica-predictiva
-    asignaturas/analitica-de-grandes-datos
     asignaturas/productos-de-datos
 
 
