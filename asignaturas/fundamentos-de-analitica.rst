@@ -11,7 +11,9 @@ Sobre este curso
 
 :ref:`info_general_cursos`
 
-Este curso es equivalente al programa **Data Science and Machine Learning** del **MIT**. 
+Este curso es equivalente al programa **Data Science and Machine Learning** del **MIT**,
+adicionando elementos del curriculum exigido para algunas de las certificaciones de 
+**Programación Profesional en Python** emitididas por el **Python Institute**. 
 
 
     .. note:: 
@@ -47,9 +49,9 @@ Programa Calendario
 
     **Programación Profesional en Python / Nivel Básico**
 
-    Este módulo extiende el contenido del modulo **Data Science and Machine Learning** del **MIT** y cubre el
-    contenido requerido por la certificación **PCEP --- Certified Entry-Level Python Programmer** que es un 
-    requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**.  
+        Este módulo extiende el contenido del modulo **Data Science and Machine Learning** del **MIT** y cubre el
+        contenido requerido por la certificación **PCEP --- Certified Entry-Level Python Programmer** que es un 
+        requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**.  
 
         .. note::
 
@@ -83,9 +85,9 @@ Programa Calendario
 
     **Programación Profesional en Python / Nivel intermedio**
 
-    Este módulo extiende el contenido del módulo **Data Science and Machine Learning** del **MIT** y cubre el
-    contenido requerido por la certificación **PCAP --- Certified Associate in Python Programming** que es un 
-    requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+        Este módulo extiende el contenido del módulo **Data Science and Machine Learning** del **MIT** y cubre el
+        contenido requerido por la certificación **PCAP --- Certified Associate in Python Programming** que es un 
+        requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`prog_en_python_Ep_05_estructuras_de_datos_2`
 
@@ -110,7 +112,7 @@ Programa Calendario
 
     **Manipulación y Análisis de Datos con Pandas**
 
-    Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`pandas`
 
@@ -123,7 +125,7 @@ Programa Calendario
 
     **Ingestion y Limpieza de Datos**
 
-    Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
+        Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
         * :ref:`da_con_python_Ep_04_data_ingestion`
 
