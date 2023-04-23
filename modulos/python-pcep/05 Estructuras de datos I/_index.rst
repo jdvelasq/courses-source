@@ -1,11 +1,11 @@
-.. _prog_en_python_Ep_01_jupyterlab_y_colab:
+.. _python_pcep_Ep_05_estructuras_de_datos_1:
 
-Python Ep 01: Manejo básico de Jupyter Lab y Colab
+Estructuras de Datos (Parte 1) ---  
 -------------------------------------------------------------------------------
 
 
     .. toctree::
-        :titlesonly:
+        :maxdepth: 1
         :glob:
 
         notebooks/*

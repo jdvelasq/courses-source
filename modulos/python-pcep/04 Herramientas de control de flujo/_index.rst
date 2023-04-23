@@ -1,6 +1,6 @@
-.. _prog_en_python_Ep_03_herramientas_de_control_de_flujo:
+.. _python_pcep_Ep_04_herramientas_de_control_de_flujo:
 
-Python Ep 03: Herramientas de control de flujo --- 1:02:26 hr
+Herramientas de control de flujo --- 
 -------------------------------------------------------------------------------
 
 

@@ -1,11 +1,11 @@
-.. _python_pcap_Ep_03_errores_y_excepciones:
+.. _jupyterlab:
 
-Errores y Excepciones --- 
+Python Ep 01: Manejo básico de Jupyter Lab y Colab
 -------------------------------------------------------------------------------
 
 
     .. toctree::
-        :maxdepth: 1
+        :titlesonly:
         :glob:
 
         notebooks/*

@@ -1,6 +1,6 @@
-.. _python_pcap_Ep_03_errores_y_excepciones:
+.. _python_pcep_Ep_02_interprete:
 
-Errores y Excepciones --- 
+Uso del interprete de Python ---
 -------------------------------------------------------------------------------
 
 

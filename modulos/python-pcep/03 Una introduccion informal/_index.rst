@@ -1,6 +1,6 @@
-.. _prog_en_python_Ep_02_una_introduccion_informal:
+.. _python_pcep_Ep_03_una_introduccion_informal:
 
-Python Ep 02: Una introducción informal a Python --- 1:00:02 hr
+Una introducción informal a Python --- 
 -------------------------------------------------------------------------------
 
 

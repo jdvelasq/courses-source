@@ -1,6 +1,6 @@
-.. _python_pcap_Ep_03_errores_y_excepciones:
+.. _python_pcep_Ep_06_estructuras_de_datos_2:
 
-Errores y Excepciones --- 
+Estructuras de datos (Parte 2) ---  
 -------------------------------------------------------------------------------
 
 

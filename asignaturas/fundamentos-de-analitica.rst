@@ -67,13 +67,17 @@ Programa Calendario
 
     
 
-        * :ref:`prog_en_python_Ep_01_jupyterlab_y_colab`
+        * :ref:`python_pcep_Ep_01_introduccion`
 
-        * :ref:`prog_en_python_Ep_02_una_introduccion_informal`
+        * :ref:`python_pcep_Ep_02_interprete`
 
-        * :ref:`prog_en_python_Ep_03_herramientas_de_control_de_flujo`
+        * :ref:`jupyterlab`
 
-        * :ref:`prog_en_python_Ep_04_estructuras_de_datos_1`
+        * :ref:`python_pcep_Ep_03_una_introduccion_informal`
+
+        * :ref:`python_pcep_Ep_04_herramientas_de_control_de_flujo`
+
+        * :ref:`python_pcep_Ep_05_estructuras_de_datos_1`
 
 
 .. ......................................................................................
@@ -82,6 +86,11 @@ Programa Calendario
 
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-programacion_en_python.ipynb>`_.
 
+    
+    **Programación Profesional en Python / Nivel Básico**
+
+        * :ref:`python_pcep_Ep_06_estructuras_de_datos_2`
+
 
     **Programación Profesional en Python / Nivel intermedio**
 
@@ -89,24 +98,23 @@ Programa Calendario
         contenido requerido por la certificación **PCAP --- Certified Associate in Python Programming** que es un 
         requisito para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 
-        * :ref:`prog_en_python_Ep_05_estructuras_de_datos_2`
+        * :ref:`python_pcap_Ep_01_modulos`
 
-        * :ref:`prog_en_python_Ep_07_entrada_y_salida`
+        * :ref:`python_pcap_Ep_02_entrada_y_salida`
 
-        * :ref:`prog_en_python_Ep_08_errores_y_excepciones`
+        * :ref:`python_pcap_Ep_03_errores_y_excepciones`
 
-        * :ref:`prog_en_python_Ep_10_libraria_estandar_parte_1`
+        * :ref:`python_pcap_Ep_04_libreria_estandar`
 
-        * :ref:`python_library_reference_fundamentos`
 
-        * :ref:`prog_en_python_Ep_13_ejemplos_de_data_analytics`
+    **Programación Profesional en Python / Nivel intermedio**
+        
+        * :ref:`python_pcad_Ep_01_examples`
 
         * **LAB** --- `Programacion básica en Python <https://classroom.github.com/a/LJ-6NQ-L>`_.
 
 
         
-
-
 .. ......................................................................................
 
 * Sesión 04 --- **2023-04-16**
