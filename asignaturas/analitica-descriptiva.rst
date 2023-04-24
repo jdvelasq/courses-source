@@ -149,8 +149,8 @@ Programa Calendario
 
     `Taller Sincrónico via Google Meet <https://colab.research.google.com/github/jdvelasq/datalabs/blob/master/notebooks/ciencia_de_los_datos/taller_presencial-pandas.ipynb>`_.
 
-    **Manipulación y Análisis de Datos con Pandas**
 
+    **Manipulación y Análisis de Datos con Pandas**
 
         Este módulo cubre parte del contenido requerido para la certificación **PCAD --- Certified Associate in Data Analytics with Python**. 
 

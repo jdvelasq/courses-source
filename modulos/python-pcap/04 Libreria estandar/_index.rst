@@ -1,6 +1,6 @@
 .. _python_pcap_Ep_04_libreria_estandar:
 
-Errores y Excepciones --- 
+Introducción a la Librería Estándar de Python --- 
 -------------------------------------------------------------------------------
 
 

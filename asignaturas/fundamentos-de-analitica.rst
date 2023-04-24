@@ -73,6 +73,8 @@ Programa Calendario
 
         * :ref:`jupyterlab`
 
+        * NBviewer https://nbviewer.jupyter.org
+
         * :ref:`python_pcep_Ep_03_una_introduccion_informal`
 
         * :ref:`python_pcep_Ep_04_herramientas_de_control_de_flujo`
@@ -107,7 +109,7 @@ Programa Calendario
         * :ref:`python_pcap_Ep_04_libreria_estandar`
 
 
-    **Programación Profesional en Python / Nivel intermedio**
+    **Programación Profesional en Python / Data Analytics**
         
         * :ref:`python_pcad_Ep_01_examples`
 
